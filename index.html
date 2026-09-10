@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3RD WORLD ENT — Official Archive & Store</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3RD WORLD ENT — Operating Archive &amp; Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -16,796 +17,862 @@
           colors: {
             carbon: '#080808',
             surface: '#111111',
-            'surface-card': '#171717',
+            'surface-card': '#161616',
             bone: '#F1EDE4',
             red3rd: '#D51E1E',
-            concrete: '#777777',
+            concrete: '#888888',
             signal: '#B8F500',
           },
           fontFamily: {
-            display: ['"Archivo Black"', 'Impact', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            sans: ['"Hanken Grotesk"', 'sans-serif'],
             mono: ['"IBM Plex Mono"', 'monospace'],
-            sans: ['"Inter"', 'sans-serif'],
-          },
-          animation: {
-            'pulse-fast': 'pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'marquee': 'marquee 22s linear infinite',
-          },
-          keyframes: {
-            marquee: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' },
-            }
           }
         }
       }
     }
   </script>
-  <style>
+<style>
     body {
       background-color: #080808;
       color: #F1EDE4;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
-    .glitch-hover:hover {
-      text-shadow: 2px 0 #D51E1E, -2px 0 #B8F500;
+    .custom-scrollbar::-webkit-scrollbar { display: none; }
+    .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Interactive hotspot pulse */
+    @keyframes ping-slow {
+      0% { transform: scale(1); opacity: 0.8; }
+      80%, 100% { transform: scale(2.4); opacity: 0; }
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      display: none;
+    .animate-ping-slow {
+      animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
-    .custom-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+
+    /* 3D Depth Spatial Stage */
+    .spatial-stage {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      will-change: transform;
     }
-    .stamp-border {
-      border-image: repeating-linear-gradient(45deg, #D51E1E 0, #D51E1E 6px, transparent 0, transparent 12px) 2;
+    .spatial-layer {
+      transform-style: preserve-3d;
+      will-change: transform;
+      backface-visibility: hidden;
     }
-    .bg-scanline {
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-      background-size: 100% 4px, 6px 100%;
+    .spatial-glare {
       pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18) 0%, rgba(213,30,30,0.08) 35%, transparent 70%);
+      mix-blend-mode: screen;
+      will-change: transform, opacity;
     }
-    /* Quick Add Toast */
-    #cart-toast {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-    }
-    .crate-glow {
-      box-shadow: 0 0 45px rgba(213, 30, 30, 0.25);
+    .crisp-artwork {
+      image-rendering: auto;
+      image-rendering: -webkit-optimize-contrast;
     }
   </style>
 </head>
-<body class="min-h-screen bg-carbon text-bone selection:bg-red3rd selection:text-carbon relative">
-
-  <!-- Scanline subtle texture overlay -->
-  <div class="fixed inset-0 bg-scanline z-40 opacity-40 pointer-events-none"></div>
-
-  <!-- ========================================== -->
-  <!-- 1. FULL-SCREEN INTERACTIVE ENTRANCE PORTAL -->
-  <!-- ========================================== -->
-  <div id="entrance-gate" class="fixed inset-0 z-50 bg-[#060606] flex flex-col justify-between p-6 transition-all duration-700 overflow-hidden">
-    <!-- Top Metadata Bar -->
-    <div class="flex items-center justify-between text-[11px] font-mono tracking-widest text-concrete border-b border-neutral-800/80 pb-3">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-red3rd animate-pulse"></span>
-        <span class="text-bone font-bold tracking-widest">3RD WORLD SECURITY PROTOCOL</span>
-      </div>
-      <button id="skip-entrance-btn" class="text-concrete hover:text-red3rd transition-colors uppercase tracking-widest font-bold underline underline-offset-4 text-[10px]">
-        [SKIP ENTRANCE]
-      </button>
-    </div>
-
-    <!-- Central Interactive Crate Chamber -->
-    <div class="my-auto flex flex-col items-center justify-center text-center px-2 py-4">
-      <div class="inline-block bg-red3rd text-carbon text-[9px] font-mono font-black uppercase px-2.5 py-0.5 tracking-wider mb-3">
-        SECURE VAULT // CONTAINER 794001
-      </div>
-      <h1 class="font-display text-4xl sm:text-5xl uppercase tracking-tighter text-bone leading-none mb-1">
-        ENTER THE <span class="text-red3rd">3RD WORLD</span>
-      </h1>
-      <p class="font-mono text-xs text-neutral-400 tracking-widest max-w-xs mx-auto mb-6">
-        APPAREL ARCHIVE &middot; AUDIO STREAM &middot; O M A R &nbsp; M A L I K
+<body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased min-h-screen">
+<!-- ======================================================= -->
+<!-- 1. FULLSCREEN CINEMATIC 3D SPATIAL ENTRANCE GATE       -->
+<!-- ======================================================= -->
+<div class="fixed inset-0 z-50 w-full h-screen min-h-screen bg-carbon overflow-hidden select-none transition-all duration-1000 ease-out flex flex-col justify-between" id="entrance-gate">
+<!-- Full viewport 3D Parallax Canvas (Inset -5% for seamless bleed without edge clipping) -->
+<div class="absolute inset-0 w-full h-full spatial-stage overflow-hidden cursor-pointer" id="stage-container" onclick="dismissEntrance()">
+<div class="absolute inset-[-6%] w-[112%] h-[112%] spatial-layer" id="spatial-artwork-wrap">
+<!-- Fullscreen Crisp Unstretched Artwork -->
+<img alt="3RD WORLD Spatial Artwork" class="w-full h-full object-cover object-center pointer-events-none select-none transition-transform duration-700 ease-out crisp-artwork filter contrast-[1.04] brightness-[0.96]" id="spatial-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI-U-e3qLiThl04J-KEnekdoAIxE1aXpJfAhsLuWliMKhCwHRtO-BC5fhzb-fFXOnr6DsaQmsfRiHNxW7sjDs8N7NUY85ywfznahAB10kTdxQ_yNRA012uVKA1_DpjGvSXqX-ydr5WIciURdo75O6SuVJ-iNcugYnAsEC0xeXbY_JtQFnYhIEVxFTSdiMq3n1m3Puo6jLvFKe_D9k7-fJqnKTq0J0lM3ihp06mjz0lhHgrScPfrjiJAnRDa7rYbXdt-w"/>
+<!-- Dynamic Atmospheric Glare / Specular Lighting -->
+<div class="absolute inset-0 spatial-glare opacity-70 transition-opacity duration-300" id="spatial-glare-layer"></div>
+<!-- Subtle Depth Vignette for Dramatic Contrast & Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/75 pointer-events-none"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(8,8,8,0.7)_100%)] pointer-events-none"></div>
+<!-- Subtle Brutalist Overlay Grid Guidelines -->
+<div class="absolute top-6 left-8 font-mono text-[9px] text-white/40 uppercase tracking-widest pointer-events-none hidden sm:block">ARCHIVE PROTOCOL // DEPTH MATRIX 100VW×100VH</div>
+<div class="absolute bottom-6 right-8 font-mono text-[9px] text-white/40 uppercase tracking-widest pointer-events-none hidden sm:block">CALIBRATED FULL RESOLUTION // RATIO LOCKED</div>
+</div>
+</div>
+<!-- Floating UI Content Layer (Opposite 3D Parallax Tilt) -->
+<div class="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none p-6 sm:p-10 lg:p-12">
+<!-- Top System Line -->
+<header class="w-full flex items-center justify-between pointer-events-auto">
+<div class="flex items-center gap-3 bg-black/70 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-xl">
+<span class="w-2 h-2 rounded-full bg-red3rd animate-pulse"></span>
+<span class="font-mono text-[11px] sm:text-xs tracking-widest text-neutral-200 uppercase font-semibold">● 3RD WORLD PROTOCOL // 3D SPATIAL GATEWAY</span>
+</div>
+<button class="bg-black/70 backdrop-blur-md hover:bg-white hover:text-black border border-white/20 font-mono text-[11px] sm:text-xs uppercase tracking-widest text-neutral-200 px-4 py-2 rounded-full transition-all flex items-center gap-2 group cursor-pointer shadow-xl" onclick="dismissEntrance()">
+<span>[BYPASS DIRECT TO STORE →]</span>
+</button>
+</header>
+<!-- Center Floating Typography & Spatial CTA -->
+<main class="my-auto max-w-4xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out" id="spatial-hero-text">
+<!-- 3D Spatial Pan Hint Badge -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 mb-6 border border-white/25 rounded-full font-mono text-[11px] uppercase tracking-widest text-bone bg-black/75 backdrop-blur-md shadow-2xl">
+<span class="w-2 h-2 rounded-full bg-signal animate-ping"></span>
+<span class="material-symbols-outlined text-sm text-signal">3d_rotation</span>
+<span class="font-semibold text-white">PAN CURSOR OR DRAG TO SHIFT 3D PERSPECTIVE</span>
+</div>
+<h1 class="font-display text-6xl sm:text-8xl lg:text-[10rem] uppercase tracking-tight leading-none mb-6 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] text-white">
+        ENTER THE <span class="text-red3rd drop-shadow-[0_0_30px_rgba(213,30,30,0.7)]">3RD WORLD</span>
+</h1>
+<p class="font-mono text-xs sm:text-sm text-neutral-200 max-w-2xl mx-auto leading-relaxed mb-8 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)] bg-black/60 backdrop-blur-md px-6 py-3 rounded-xl border border-white/15">
+        Official creative apparatus of OMAR MALIK. Streetwear archives, audio frequencies, and brutalist editions.
       </p>
-
-      <!-- Interactive 3D/Crate Object Container -->
-      <div id="crate-trigger" class="relative group cursor-pointer max-w-[300px] w-full aspect-square rounded-lg border border-neutral-800 bg-[#0b0b0b] p-3 transition-all duration-500 hover:border-red3rd hover:scale-[1.02] crate-glow">
-        <!-- Corner Reticle Stencils -->
-        <div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-red3rd"></div>
-        <div class="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-red3rd"></div>
-        <div class="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-red3rd"></div>
-        <div class="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-red3rd"></div>
-
-        <!-- Crate Image -->
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl78tJXdUQFyEULgOPYZ-O-kCeF_PgTdIvicct9OriJCKhjo34UYOxkfhoTrvY34PnBLEqOZK_b99xKPg9y_dnuveo3dek6n0d7lJo-A_M8rhAPIjpmsbhog7o1AXHi4gDgpBeZwFmDR484S0ynyD5ZY-SClPT0fy4lOFD5PMVu_UbdAvbwiiEquifIvIltOog1zX7gngTQPCsSWQ-KnXjytusy6ccFpAswoisa3sbgk8B8IsSSrzE" alt="3rd World Sealed Heavy Industrial Crate" class="w-full h-full object-cover rounded shadow-2xl filter contrast-125 group-hover:brightness-110 transition-all duration-300">
-
-        <!-- Glowing Tap Indicator -->
-        <div class="absolute inset-0 flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded">
-          <div class="bg-red3rd text-bone text-[11px] font-mono font-bold tracking-widest uppercase px-4 py-2 flex items-center gap-2 shadow-lg group-hover:bg-bone group-hover:text-carbon transition-colors duration-200">
-            <svg class="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-            TAP CRATE TO UNLOCK
-          </div>
-        </div>
+<!-- Central Unlock Button -->
+<div class="flex flex-col items-center gap-3">
+<button class="px-8 py-4 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center gap-3 cursor-pointer group transform hover:-translate-y-0.5" onclick="dismissEntrance()">
+<span class="material-symbols-outlined text-lg">lock_open</span>
+<span>ENTER ATELIER &amp; STORE →</span>
+</button>
+<span class="font-mono text-[10px] text-neutral-400 tracking-widest uppercase">CLICK ANYWHERE TO DIVE INTO THE ARCHIVE</span>
+</div>
+</main>
+<!-- Entrance Footer & Gyro / Pan Hint -->
+<footer class="w-full flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-neutral-400 gap-3 pointer-events-auto">
+<div class="flex items-center gap-2 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
+<span class="material-symbols-outlined text-xs text-signal">pan_tool</span>
+<span>PAN CURSOR OR DRAG TO SHIFT 3D PERSPECTIVE</span>
+</div>
+<div class="text-neutral-400 bg-black/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15">
+        NYC • LON • LOS ANGELES • © 2025 ATELIER
       </div>
-
-      <!-- Instruction details below crate -->
-      <div class="mt-4 flex items-center justify-center gap-4 text-[10px] font-mono text-neutral-500">
-        <span>SESSION: #3W-992</span>
-        <span>&bull;</span>
-        <span>TOUCH/CLICK TRIGGER</span>
-        <span>&bull;</span>
-        <span class="text-signal flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-signal inline-block"></span> VERIFIED</span>
-      </div>
-    </div>
-
-    <!-- Entrance Bottom Manifest Bar -->
-    <div class="border-t border-neutral-800/80 pt-3 flex items-center justify-between text-[10px] font-mono text-concrete">
-      <span>3RD WORLD ENTERPRISE LLC</span>
-      <span class="text-bone font-semibold">ALL ARCHIVES MONITORED</span>
-    </div>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- 2. MAIN STOREFRONT & CULTURAL WORLD APPARATUS -->
-  <!-- ========================================== -->
-  <div id="main-storefront" class="opacity-100 min-h-screen flex flex-col">
-
-    <!-- A. Announcement Banner (Shopify Editable) -->
-    <div class="sticky top-0 z-30 bg-red3rd text-bone px-3 py-1.5 text-xs font-mono font-bold tracking-wide flex items-center justify-between shadow-md">
-      <div class="truncate flex items-center gap-2 text-[11px]">
-        <span class="bg-black text-bone px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider">PROJECT</span>
-        <span class="tracking-tighter">O M A R &nbsp; M A L I K — <span class="underline underline-offset-2">BORN</span> — THE DEBUT VISUAL MIXTAPE — PRE-SAVE</span>
-      </div>
-      <a href="#music-section" class="ml-2 text-[10px] uppercase font-mono tracking-widest text-carbon bg-bone px-2 py-0.5 whitespace-nowrap hover:bg-black hover:text-bone transition-colors">
-        LISTEN &rarr;
+</footer>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- 2. MAIN FLAGSHIP NAVIGATION                             -->
+<!-- ======================================================= -->
+<div class="relative z-40 bg-carbon">
+<!-- Announcement Bar -->
+<div class="bg-red3rd text-white text-xs font-mono font-medium tracking-wider px-6 py-2 flex items-center justify-between">
+<div class="flex items-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap">
+<span class="bg-black/90 text-white text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">OUT NOW</span>
+<span class="tracking-wide">O M A R  M A L I K — BORN — THE DEBUT VISUAL MIXTAPE — PRE-SAVE / WATCH TRAILER</span>
+</div>
+<a class="text-[11px] font-bold underline underline-offset-4 uppercase tracking-wider hover:text-black transition-colors whitespace-nowrap ml-4" href="#audio-section">
+        LISTEN →
       </a>
-    </div>
-
-    <!-- B. Main Navigation Header -->
-    <header class="sticky top-[33px] z-30 bg-carbon/95 backdrop-blur-md border-b border-neutral-800 px-4 py-3 flex items-center justify-between">
-      <!-- Left: Mobile Menu Drawer Toggle -->
-      <button id="menu-toggle-btn" class="p-1.5 text-bone hover:text-red3rd focus:outline-none" aria-label="Open Navigation">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h10"/>
-        </svg>
-      </button>
-
-      <!-- Center: 3rd World Official Wordmark Emblem -->
-      <a href="#" class="flex items-center">
-        <img src="https://lh3.googleusercontent.com/aida/AEtjO1WGt6_7KjILpz--xUivVV1UrS3PWl9roGjeaEXC6MqW-6dVlPdCNi0Qxxbeyrx_eV2nERqv2MDzN6U-zXPji3eQ8XpNme2coSN1r5Lox3k2QXKvf2-fYJ1x_zD1Ndzwftha_1KiJ59C370jfzBtWMepQiZ-rlxNlAwo9qmCXiL8Tw_KXLGLRBh4z2q5QhSdQmuLd2B0Vq0hYvcSfHLU9dn_SP3fMmSaQCHLkFa9TDf9dNIKx-T9aUYQ5Q" alt="3rd World ENT Wordmark" class="h-8 w-auto object-contain">
-      </a>
-
-      <!-- Right: Live Transmission Indicator + Cart Drawer Trigger -->
-      <div class="flex items-center gap-3">
-        <a href="#music-section" class="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded bg-neutral-900 border border-neutral-800 text-[10px] font-mono text-signal">
-          <span class="w-2 h-2 rounded-full bg-signal animate-ping"></span>
-          <span>ON AIR</span>
-        </a>
-        <button id="cart-btn" class="relative p-1.5 text-bone hover:text-red3rd focus:outline-none" aria-label="View Cart">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-          </svg>
-          <span id="cart-count" class="absolute -top-1 -right-1 bg-red3rd text-bone font-mono font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+</div>
+<!-- Main Navigation Bar -->
+<header class="sticky top-0 z-40 bg-carbon/95 backdrop-blur-md border-b border-white/10 px-6 lg:px-12 py-4 flex items-center justify-between">
+<!-- Left: Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-neutral-300">
+<a class="hover:text-red3rd transition-colors" href="#campaign-hero">New Drop</a>
+<a class="hover:text-red3rd transition-colors" href="#shop-section">Shop</a>
+<a class="hover:text-red3rd transition-colors" href="#lookbook-section">Lookbook</a>
+<a class="hover:text-red3rd transition-colors" href="#audio-section">Music</a>
+</nav>
+<!-- Center Logo -->
+<a class="flex items-center group" href="#">
+<div class="h-9 w-auto flex items-center">
+<img alt="3rd World Logo" class="h-9 w-auto object-contain brightness-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XXPLGz9UYwjSCi4y5HZuRurJzklueDsdTT1wgloHK3teENY50DhM6ealHAwwNEYY0e3cGzKI768iAR7Z-gP3KgCqmRfDToYmikcnTOBqhr23veNaVejzQmZ_kDuOGRrwEBjElrGTZzS_sGmxyD8qLGJClYh4gLeqDM7q9J9F_4HSAW0okyqTQApCAcC9WY8NJL1CPuVUdKa8TnkCeaDfcVMR-JL9xaJTCdZjfjQgZVMZRKgfV3ZRxQSA"/>
+</div>
+</a>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-5">
+<!-- Re-enter gate toggle -->
+<button class="hidden sm:inline-flex font-mono text-[11px] uppercase tracking-widest text-neutral-400 hover:text-white transition-colors border border-white/15 px-3 py-1.5 rounded-full" onclick="showEntrance()">
+          Entrance Mode
         </button>
-      </div>
-    </header>
-
-    <!-- Mobile Slide-out Menu Drawer -->
-    <div id="menu-drawer" class="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm hidden transition-opacity">
-      <div class="w-4/5 max-w-sm h-full bg-carbon border-r border-neutral-800 p-6 flex flex-col justify-between font-mono">
-        <div>
-          <div class="flex justify-between items-center pb-4 border-b border-neutral-800 mb-6">
-            <span class="text-xs text-concrete uppercase tracking-widest">// DIRECTORY</span>
-            <button id="menu-close-btn" class="text-concrete hover:text-bone text-lg">&times;</button>
-          </div>
-          <nav class="flex flex-col gap-4 text-lg font-display uppercase tracking-tight">
-            <a href="#shop-section" class="hover:text-red3rd transition-colors flex items-center justify-between">
-              <span>01. SHOP ALL</span>
-              <span class="font-mono text-xs text-red3rd">DROP 01</span>
-            </a>
-            <a href="#shop-section" class="hover:text-red3rd transition-colors flex items-center justify-between">
-              <span>02. NEW ARRIVALS</span>
-              <span class="font-mono text-[10px] text-signal">[ACTIVE]</span>
-            </a>
-            <a href="#music-section" class="hover:text-red3rd transition-colors flex items-center justify-between">
-              <span>03. NOW TRANSMITTING</span>
-              <span class="font-mono text-[10px] text-concrete">AUDIO</span>
-            </a>
-            <a href="#artists-section" class="hover:text-red3rd transition-colors flex items-center justify-between">
-              <span>04. ARTISTS &amp; ROSTER</span>
-              <span class="font-mono text-[10px] text-concrete">03 TALENTS</span>
-            </a>
-            <a href="#lookbook-section" class="hover:text-red3rd transition-colors flex items-center justify-between">
-              <span>05. EDITORIAL LOOKBOOK</span>
-              <span class="font-mono text-[10px] text-concrete">35MM</span>
-            </a>
-            <a href="#manifesto-section" class="hover:text-red3rd transition-colors flex items-center justify-between">
-              <span>06. MANIFESTO</span>
-              <span class="font-mono text-[10px] text-concrete">ARCHIVE</span>
-            </a>
-          </nav>
-        </div>
-
-        <div class="pt-6 border-t border-neutral-800 text-xs text-neutral-400 space-y-2">
-          <p class="font-mono text-[11px] text-concrete">CUSTOMER CARE &middot; WORLDWIDE SHIPPING</p>
-          <div class="flex gap-4 text-xs font-bold text-bone">
-            <a href="#footer" class="hover:text-red3rd">SHIPPING</a>
-            <a href="#footer" class="hover:text-red3rd">RETURNS</a>
-            <a href="#footer" class="hover:text-red3rd">CONTACT</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- C. HERO CAMPAIGN SECTION -->
-    <section class="relative bg-carbon border-b border-neutral-800 overflow-hidden">
-      <div class="relative w-full aspect-[4/5] sm:aspect-[16/10] max-h-[620px] bg-neutral-900">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpfUxmQ7nmsHfZjrjUHN_EMcEcIqXWgb8Q3OxgH7cuqOjUwZQ23zgTMywm03UlTUSsLlF__ihIdEdjCKR3jZNSqulRXkNyQEqN1baqWtQIZabl2G4obYvD0pDM9PROhBMDSC3HyQlDHC3VHOG2hLJryTNfspRXZfa7FXrLYT8vJTnoRW8K1TGlYGAXosBkzdYZR0Z5LROdIdYJECrvVMjafyXU0QArhIWsb43Mx7XIhBIa4ziIf2fT" alt="O M A R M A L I K in 3rd World Heavyweight Hoodie" class="w-full h-full object-cover object-top filter brightness-95 contrast-110">
-        <div class="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/30 to-transparent"></div>
-
-        <!-- Stencil spec badges on hero -->
-        <div class="absolute top-4 left-4 flex flex-col gap-1">
-          <span class="bg-carbon/90 border border-neutral-700 text-bone px-2 py-0.5 text-[9px] font-mono tracking-widest uppercase">
-            SPEC: FW25-COLLECTION
-          </span>
-          <span class="bg-red3rd text-carbon font-black px-2 py-0.5 text-[9px] font-mono tracking-widest uppercase inline-block w-max">
-            SOLDOUT IMMINENT
-          </span>
-        </div>
-
-        <!-- Hero Content Overlay -->
-        <div class="absolute bottom-6 left-4 right-4 flex flex-col gap-3">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-signal"></span>
-            <span class="font-mono text-xs text-signal font-bold uppercase tracking-wider">OFFICIAL APPAREL DROP 001</span>
-          </div>
-          <h2 class="font-display text-4xl sm:text-5xl uppercase tracking-tighter leading-none text-bone">
-            HEAVYWEIGHT INDUSTRIAL ARCHIVE
+<!-- Audio quick play indicator -->
+<button class="flex items-center gap-2 text-xs font-mono text-signal bg-white/[0.03] border border-white/10 hover:border-signal/50 px-3 py-1.5 rounded-full transition-all" onclick="toggleAudio()">
+<span class="w-2 h-2 rounded-full bg-signal animate-ping"></span>
+<span class="" id="nav-audio-status">ON AIR</span>
+</button>
+<!-- Shopping Cart Trigger -->
+<button aria-label="Open Cart" class="relative flex items-center gap-2 p-2 text-bone hover:text-red3rd transition-colors" onclick="toggleCartDrawer()">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+<span class="bg-red3rd text-white font-mono text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center" id="cart-counter">0</span>
+</button>
+</div>
+</header>
+</div>
+<!-- ======================================================= -->
+<!-- 3. PROMINENT CAMPAIGN HERO WITH INTERACTIVE HOTSPOTS   -->
+<!-- ======================================================= -->
+<section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden" id="campaign-hero">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-16">
+<!-- Section Tag & Title -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<span class="font-mono text-xs uppercase tracking-widest text-red3rd">// CAMPAIGN DROP 001</span>
+<h2 class="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white mt-1">
+            NO LOITERING IN FRONT OF PREMISES
           </h2>
-          <p class="text-xs text-neutral-300 font-mono leading-relaxed line-clamp-2">
-            520 GSM french terry washed cotton, engineered boxy cut, custom 3rd World red woven bar-tack stitching. Modeled by O M A R M A L I K.
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <a href="#shop-section" class="flex-1 text-center bg-red3rd hover:bg-bone hover:text-carbon text-bone font-mono font-bold text-xs uppercase py-3.5 tracking-widest transition-all duration-200 shadow-xl flex items-center justify-center gap-2">
-              <span>SHOP THE DROP</span>
-              <span>&rarr;</span>
-            </a>
-            <a href="#lookbook-section" class="px-4 py-3.5 border border-neutral-600 hover:border-bone bg-carbon/70 backdrop-blur-md text-bone font-mono text-xs uppercase tracking-widest transition-colors">
-              LOOKBOOK
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- D. TICKER / BRAND SPEC RUNNER -->
-    <div class="bg-neutral-900 border-b border-neutral-800 py-2 overflow-hidden flex whitespace-nowrap font-mono text-[11px] text-neutral-400">
-      <div class="flex gap-8 animate-marquee">
-        <span class="flex items-center gap-2"><span class="text-red3rd">&bull;</span> GLOBAL LOGISTICS: NYC &middot; LON &middot; LOS</span>
-        <span class="flex items-center gap-2"><span class="text-signal">&bull;</span> 3RD WORLD ENTERPRISE: APPAREL &amp; SOUND</span>
-        <span class="flex items-center gap-2"><span class="text-red3rd">&bull;</span> METADATA ARCHIVE 001 // HEAVYWEIGHT COTTON</span>
-        <span class="flex items-center gap-2"><span class="text-bone font-bold">&bull;</span> O M A R M A L I K &mdash; BORN OUT NOW</span>
-        <span class="flex items-center gap-2"><span class="text-red3rd">&bull;</span> GLOBAL LOGISTICS: NYC &middot; LON &middot; LOS</span>
-        <span class="flex items-center gap-2"><span class="text-signal">&bull;</span> 3RD WORLD ENTERPRISE: APPAREL &amp; SOUND</span>
-      </div>
-    </div>
-
-    <!-- E. SHOP & FEATURED PRODUCTS -->
-    <section id="shop-section" class="px-4 py-8 border-b border-neutral-800">
-      <!-- Section Header -->
-      <div class="flex items-baseline justify-between mb-4 border-b border-neutral-800 pb-3">
-        <div>
-          <span class="text-[10px] font-mono text-red3rd uppercase tracking-widest">// COMMERCIAL ARCHIVE</span>
-          <h3 class="font-display text-2xl uppercase tracking-tight text-bone">THE ESSENTIAL MERCH</h3>
-        </div>
-        <span class="font-mono text-xs text-concrete">04 ITEMS</span>
-      </div>
-
-      <!-- Collection Category Filters -->
-      <div class="flex gap-2 overflow-x-auto pb-3 mb-4 custom-scrollbar text-[11px] font-mono">
-        <button class="px-3 py-1 bg-bone text-carbon font-bold uppercase whitespace-nowrap">ALL PRODUCTS</button>
-        <button class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-bone uppercase whitespace-nowrap">NEW DROP</button>
-        <button class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-bone uppercase whitespace-nowrap">TOPS &amp; HOODIES</button>
-        <button class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-bone uppercase whitespace-nowrap">PHYSICAL MEDIA</button>
-        <button class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-bone uppercase whitespace-nowrap">ACCESSORIES</button>
-      </div>
-
-      <!-- Product Grid (Mobile 2-column) -->
-      <div class="grid grid-cols-2 gap-3">
-
-        <!-- Product 1: The Heavyweight Hoodie -->
-        <div class="bg-surface rounded border border-neutral-800/90 flex flex-col justify-between group hover:border-neutral-600 transition-colors p-2.5">
-          <div class="relative aspect-square bg-[#141414] rounded overflow-hidden mb-2">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCGcc7HP5TGw8ujgjxg1p6FwMF0rIxv7NFYt_xhFmzvwv50Le7Ke60et9uxP1uYPolxxKXHIrIkr3UvWYE6mrSrrRHGPpPre1Wa6McinNnmY6R2cE6d72qwUhDPIjCodP9uqj7lkxWgD18RHWFcvYDkmMYxlpZdxFPdMxTkUeQtn0S4r65nkYUhdBcjrxeJU0l12Pw-mlgl3I3MEnKVDMMxiYzA3CYTgheklB5xNJ5pnxwWV3mLniL" alt="3rd World Heavyweight Tactical Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-1.5 left-1.5 bg-red3rd text-carbon text-[8px] font-mono font-bold px-1.5 py-0.5 uppercase">
-              DROP 01
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between items-start text-xs font-mono mb-1">
-              <span class="text-neutral-400 text-[10px]">520 GSM TERRY</span>
-              <span class="text-signal text-[10px]">IN STOCK</span>
-            </div>
-            <h4 class="font-bold text-xs uppercase text-bone leading-tight mb-1">3RD WORLD ARCHIVE HOODIE</h4>
-            <p class="font-mono text-xs font-bold text-bone mb-3">$145.00 <span class="text-[10px] font-normal text-concrete">USD</span></p>
-          </div>
-          <!-- Quick Add & Size Variant -->
-          <div class="space-y-1.5">
-            <div class="grid grid-cols-4 gap-1 text-[10px] font-mono text-center">
-              <button class="border border-neutral-700 hover:border-red3rd py-1 text-neutral-300 hover:text-bone">S</button>
-              <button class="border border-neutral-700 hover:border-red3rd py-1 text-neutral-300 hover:text-bone">M</button>
-              <button class="border border-red3rd bg-red3rd/10 py-1 text-bone font-bold">L</button>
-              <button class="border border-neutral-700 hover:border-red3rd py-1 text-neutral-300 hover:text-bone">XL</button>
-            </div>
-            <button onclick="addToCart('3RD WORLD ARCHIVE HOODIE', '$145.00')" class="w-full bg-bone hover:bg-red3rd hover:text-bone text-carbon font-mono text-[10px] font-bold py-2 uppercase tracking-wider transition-colors">
-              + QUICK ADD
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 2: BORN Vinyl Boxset -->
-        <div class="bg-surface rounded border border-neutral-800/90 flex flex-col justify-between group hover:border-neutral-600 transition-colors p-2.5">
-          <div class="relative aspect-square bg-[#141414] rounded overflow-hidden mb-2">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl78tJXdUQFyEULgOPYZ-O-kCeF_PgTdIvicct9OriJCKhjo34UYOxkfhoTrvY34PnBLEqOZK_b99xKPg9y_dnuveo3dek6n0d7lJo-A_M8rhAPIjpmsbhog7o1AXHi4gDgpBeZwFmDR484S0ynyD5ZY-SClPT0fy4lOFD5PMVu_UbdAvbwiiEquifIvIltOog1zX7gngTQPCsSWQ-KnXjytusy6ccFpAswoisa3sbgk8B8IsSSrzE" alt="BORN Limited Industrial Steel Boxset" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-1.5 left-1.5 bg-neutral-900 border border-neutral-700 text-bone text-[8px] font-mono font-bold px-1.5 py-0.5 uppercase">
-              EDITION OF 500
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between items-start text-xs font-mono mb-1">
-              <span class="text-neutral-400 text-[10px]">VINYL + CRATE</span>
-              <span class="text-red3rd text-[10px]">LOW INVENTORY</span>
-            </div>
-            <h4 class="font-bold text-xs uppercase text-bone leading-tight mb-1">BORN VISUAL MIXTAPE CRATE</h4>
-            <p class="font-mono text-xs font-bold text-bone mb-3">$85.00 <span class="text-[10px] font-normal text-concrete">USD</span></p>
-          </div>
-          <div class="space-y-1.5">
-            <div class="py-1 text-center font-mono text-[10px] text-concrete border border-dashed border-neutral-800">
-              COLLECTOR SPEC
-            </div>
-            <button onclick="addToCart('BORN VISUAL MIXTAPE CRATE', '$85.00')" class="w-full bg-bone hover:bg-red3rd hover:text-bone text-carbon font-mono text-[10px] font-bold py-2 uppercase tracking-wider transition-colors">
-              + QUICK ADD
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 3: Technical Tactical Pant -->
-        <div class="bg-surface rounded border border-neutral-800/90 flex flex-col justify-between group hover:border-neutral-600 transition-colors p-2.5">
-          <div class="relative aspect-square bg-[#141414] rounded overflow-hidden mb-2 flex items-center justify-center p-3">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpfUxmQ7nmsHfZjrjUHN_EMcEcIqXWgb8Q3OxgH7cuqOjUwZQ23zgTMywm03UlTUSsLlF__ihIdEdjCKR3jZNSqulRXkNyQEqN1baqWtQIZabl2G4obYvD0pDM9PROhBMDSC3HyQlDHC3VHOG2hLJryTNfspRXZfa7FXrLYT8vJTnoRW8K1TGlYGAXosBkzdYZR0Z5LROdIdYJECrvVMjafyXU0QArhIWsb43Mx7XIhBIa4ziIf2fT" alt="Technical Tactical Pant Detail" class="w-full h-full object-cover object-center filter grayscale contrast-125">
-            <div class="absolute inset-0 bg-red3rd/10 mix-blend-overlay"></div>
-          </div>
-          <div>
-            <div class="flex justify-between items-start text-xs font-mono mb-1">
-              <span class="text-neutral-400 text-[10px]">RIPSTOP CARGO</span>
-              <span class="text-signal text-[10px]">IN STOCK</span>
-            </div>
-            <h4 class="font-bold text-xs uppercase text-bone leading-tight mb-1">MODULAR FLIGHT CARGO</h4>
-            <p class="font-mono text-xs font-bold text-bone mb-3">$165.00 <span class="text-[10px] font-normal text-concrete">USD</span></p>
-          </div>
-          <div class="space-y-1.5">
-            <div class="grid grid-cols-3 gap-1 text-[10px] font-mono text-center">
-              <button class="border border-neutral-700 py-1 text-neutral-300">30</button>
-              <button class="border border-red3rd bg-red3rd/10 py-1 text-bone font-bold">32</button>
-              <button class="border border-neutral-700 py-1 text-neutral-300">34</button>
-            </div>
-            <button onclick="addToCart('MODULAR FLIGHT CARGO', '$165.00')" class="w-full bg-bone hover:bg-red3rd hover:text-bone text-carbon font-mono text-[10px] font-bold py-2 uppercase tracking-wider transition-colors">
-              + QUICK ADD
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 4: 3rd World Stencil Beanie -->
-        <div class="bg-surface rounded border border-neutral-800/90 flex flex-col justify-between group hover:border-neutral-600 transition-colors p-2.5">
-          <div class="relative aspect-square bg-[#141414] rounded overflow-hidden mb-2 flex items-center justify-center p-4">
-            <div class="w-full h-full bg-neutral-900 flex flex-col items-center justify-center border border-neutral-800 p-2 text-center">
-              <span class="font-display text-xl text-bone uppercase">3RD WORLD</span>
-              <span class="bg-red3rd text-carbon font-mono font-black text-[9px] px-2 py-0.5 mt-1">RIBBED KNIT</span>
-            </div>
-            <div class="absolute top-1.5 left-1.5 bg-signal text-carbon text-[8px] font-mono font-bold px-1.5 py-0.5 uppercase">
-              RESTOCKED
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between items-start text-xs font-mono mb-1">
-              <span class="text-neutral-400 text-[10px]">100% MERINO</span>
-              <span class="text-signal text-[10px]">IN STOCK</span>
-            </div>
-            <h4 class="font-bold text-xs uppercase text-bone leading-tight mb-1">TACTICAL STENCIL BEANIE</h4>
-            <p class="font-mono text-xs font-bold text-bone mb-3">$42.00 <span class="text-[10px] font-normal text-concrete">USD</span></p>
-          </div>
-          <div class="space-y-1.5">
-            <div class="py-1 text-center font-mono text-[10px] text-concrete border border-neutral-800">
-              ONE SIZE FITS ALL
-            </div>
-            <button onclick="addToCart('TACTICAL STENCIL BEANIE', '$42.00')" class="w-full bg-bone hover:bg-red3rd hover:text-bone text-carbon font-mono text-[10px] font-bold py-2 uppercase tracking-wider transition-colors">
-              + QUICK ADD
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- View All Products CTA -->
-      <div class="mt-6 text-center">
-        <a href="#shop-section" class="inline-block w-full py-3 border border-neutral-700 hover:border-red3rd text-xs font-mono uppercase tracking-widest text-bone hover:text-red3rd transition-colors">
-          EXPLORE COMPLETE ARCHIVE (18 PIECES) &rarr;
-        </a>
-      </div>
-    </section>
-
-    <!-- F. MUSIC SECTION ("NOW TRANSMITTING / 3RD WORLD RADIO") -->
-    <section id="music-section" class="px-4 py-8 bg-[#0a0a0a] border-b border-neutral-800">
-      <div class="flex items-center justify-between mb-4 border-b border-neutral-800 pb-3">
-        <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="w-2 h-2 rounded-full bg-signal animate-ping"></span>
-            <span class="text-[10px] font-mono text-signal uppercase tracking-widest">LIVE FREQUENCY 108.4 MHZ</span>
-          </div>
-          <h3 class="font-display text-2xl uppercase tracking-tight text-bone">NOW TRANSMITTING</h3>
-        </div>
-        <span class="font-mono text-xs text-red3rd bg-red3rd/10 border border-red3rd px-2 py-0.5">STREAM</span>
-      </div>
-
-      <!-- Audio Transmission Card -->
-      <div class="bg-surface-card border border-neutral-800 p-4 rounded-lg">
-        <div class="flex items-center gap-4 mb-4">
-          <!-- Album Artwork Mock / Crate Thumbnail -->
-          <div class="w-20 h-20 bg-neutral-900 border border-neutral-700 relative rounded overflow-hidden flex-shrink-0">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl78tJXdUQFyEULgOPYZ-O-kCeF_PgTdIvicct9OriJCKhjo34UYOxkfhoTrvY34PnBLEqOZK_b99xKPg9y_dnuveo3dek6n0d7lJo-A_M8rhAPIjpmsbhog7o1AXHi4gDgpBeZwFmDR484S0ynyD5ZY-SClPT0fy4lOFD5PMVu_UbdAvbwiiEquifIvIltOog1zX7gngTQPCsSWQ-KnXjytusy6ccFpAswoisa3sbgk8B8IsSSrzE" alt="BORN Visual Mixtape by Omar Malik" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-red3rd/20 flex items-center justify-center">
-              <button id="play-preview-btn" class="w-8 h-8 rounded-full bg-bone text-carbon flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-                <svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </button>
-            </div>
-          </div>
-          <!-- Track Info & Metadata -->
-          <div class="flex-1 min-w-0">
-            <span class="inline-block bg-red3rd text-carbon font-mono font-black text-[9px] px-1.5 py-0.5 uppercase tracking-wider mb-1">
-              CURRENT FOCUS
+</div>
+<p class="font-mono text-xs text-neutral-400 max-w-sm tracking-wide leading-relaxed">
+          Interactive campaign study shot with Omar Malik &amp; crew. Hover or tap the interactive reticles on the garments to reveal piece specifications.
+        </p>
+</div>
+<!-- Hero Visual Artboard with Tag Hotspots -->
+<div class="relative rounded-2xl overflow-hidden border border-white/15 bg-surface shadow-2xl group">
+<img alt="3rd World Ent No Loitering Campaign" class="w-full h-auto object-cover max-h-[720px] filter brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7lUS_Wj4MGXVhlr-PQDzNXMC9Pr8qGhhvUWMky14E5YiSdaWYqzhEU9-_oM0uqrQ3bHD8uUeyv3spAiJHuB9sMwMrkqORI5oIOChAH7VOMLVym1tydb1ypSEgGdHV4knbxK7LVBCVyQ6S-TW5pg9snvfBhhjjvhsPYnFz56GtfNFzOW0mzGlmSivjdGQibfrPs8mFFXSyw87wfyQdQqxb_IRTI5h6jbj4OB5PtpT8cHzyerQeDiDddlLz3ts1XcuD3g"/>
+<!-- Subtle Ambient Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+<!-- HOTSPOT 1: Left Model (Omar Malik / Black Zip Hoodie) -->
+<div class="absolute top-[52%] left-[28%] -translate-x-1/2 -translate-y-1/2 z-20">
+<div class="relative group/tag">
+<button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-red3rd text-white cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('archive-hoodie')">
+<span class="w-8 h-8 rounded-full bg-red3rd absolute animate-ping-slow"></span>
+<span class="font-mono text-xs font-bold">+</span>
+</button>
+<!-- Hover Tag Card -->
+<div class="absolute left-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30">
+<span class="text-[9px] font-mono text-red3rd uppercase tracking-widest font-bold">DROP 01 SPEC</span>
+<h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">3RD WORLD ARCHIVE HOODIE</h4>
+<p class="font-mono text-xs text-neutral-300">$145.00 USD • 520 GSM</p>
+<div class="mt-2 text-[10px] font-mono text-signal uppercase flex items-center gap-1">
+<span class="">CLICK TO VIEW ITEM</span> →
+              </div>
+</div>
+</div>
+</div>
+<!-- HOTSPOT 2: Center Model (White Distressed Tee) -->
+<div class="absolute top-[60%] left-[48%] -translate-x-1/2 -translate-y-1/2 z-20">
+<div class="relative group/tag">
+<button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-white text-black cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('street-tee')">
+<span class="w-8 h-8 rounded-full bg-white/60 absolute animate-ping-slow"></span>
+<span class="font-mono text-xs font-bold">+</span>
+</button>
+<!-- Hover Tag Card -->
+<div class="absolute left-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30">
+<span class="text-[9px] font-mono text-signal uppercase tracking-widest font-bold">CORE EDITION</span>
+<h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">DISTRESSED GRAPHIC TEE</h4>
+<p class="font-mono text-xs text-neutral-300">$75.00 USD • 300 GSM</p>
+<div class="mt-2 text-[10px] font-mono text-white uppercase flex items-center gap-1">
+<span class="">CLICK TO VIEW ITEM</span> →
+              </div>
+</div>
+</div>
+</div>
+<!-- HOTSPOT 3: Right Model (Rose & Illustrated Graphic Tee) -->
+<div class="absolute top-[68%] left-[67%] -translate-x-1/2 -translate-y-1/2 z-20">
+<div class="relative group/tag">
+<button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-red3rd text-white cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('illustration-tee')">
+<span class="w-8 h-8 rounded-full bg-red3rd absolute animate-ping-slow"></span>
+<span class="font-mono text-xs font-bold">+</span>
+</button>
+<!-- Hover Tag Card -->
+<div class="absolute right-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30">
+<span class="text-[9px] font-mono text-red3rd uppercase tracking-widest font-bold">LIMITED ARCHIVE</span>
+<h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">3RD WORLD ETCHED TEE</h4>
+<p class="font-mono text-xs text-neutral-300">$80.00 USD • WASHED JET BLACK</p>
+<div class="mt-2 text-[10px] font-mono text-signal uppercase flex items-center gap-1">
+<span class="">CLICK TO VIEW ITEM</span> →
+              </div>
+</div>
+</div>
+</div>
+<!-- Bottom overlay status strip -->
+<div class="absolute bottom-0 inset-x-0 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs text-neutral-400 bg-gradient-to-t from-black via-black/80 to-transparent">
+<div class="flex items-center gap-4">
+<span class="text-white font-bold tracking-widest uppercase">LOCATION: 3RD WORLD HEADQUARTERS</span>
+<span class="hidden sm:inline text-neutral-600">•</span>
+<span class="hidden sm:inline text-signal">3 ACTIVE HOTSPOTS DETECTED</span>
+</div>
+<a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2" href="#shop-section">
+<span class="">EXPLORE FULL CAPSULE</span>
+<span class="">↓</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================= -->
+<!-- 4. CLEAN, CURATED ARCHIVE SHOP (SPACIOUS 3-COL GRID)    -->
+<!-- ======================================================= -->
+<section class="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="shop-section">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<span class="font-mono text-xs uppercase tracking-widest text-neutral-400">// COMMERCE REPOSITORY</span>
+<h3 class="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white mt-1">AVAILABLE ARCHIVE</h3>
+</div>
+<!-- Filter tabs -->
+<div class="flex items-center gap-2 font-mono text-xs">
+<button class="px-4 py-2 bg-white text-black font-bold uppercase rounded-lg">ALL PIECES</button>
+<button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors">APPAREL</button>
+<button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors">MEDIA &amp; CRATES</button>
+</div>
+</div>
+<!-- 3-Column Spacious Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+<!-- Product 1: The Heavyweight Hoodie -->
+<div class="group flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-5">
+<img alt="Archive Tactical Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA"/>
+<span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[10px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">
+              SPEC 01
             </span>
-            <h4 class="font-display text-lg uppercase text-bone truncate leading-tight">BORN (VISUAL MIXTAPE)</h4>
-            <p class="font-mono text-xs text-neutral-400">O M A R &nbsp; M A L I K</p>
-            <p class="font-mono text-[10px] text-concrete mt-0.5">TRACK 04: "CONCRETE PROTOCOL" &middot; 3:24</p>
+<button class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-mono text-xs uppercase tracking-widest" onclick="openQuickView('archive-hoodie')">
+<span class="bg-carbon/90 px-4 py-2 rounded-lg border border-white/20">QUICK INSPECT</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2 font-mono text-xs">
+<span class="text-neutral-400">520 GSM TERRY</span>
+<span class="text-signal">IN STOCK</span>
+</div>
+<h4 class="font-display text-2xl uppercase tracking-tight text-white mb-2">3RD WORLD ARCHIVE HOODIE</h4>
+<p class="font-mono text-sm text-neutral-300 mb-6">$145.00 <span class="text-xs text-neutral-500">USD</span></p>
+</div>
+<div>
+<!-- Size Selector -->
+<div class="grid grid-cols-4 gap-2 font-mono text-xs text-center mb-3">
+<button class="size-btn py-2 border border-white/15 rounded hover:border-red3rd transition-colors">S</button>
+<button class="size-btn py-2 border border-white/15 rounded hover:border-red3rd transition-colors">M</button>
+<button class="size-btn py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded">L</button>
+<button class="size-btn py-2 border border-white/15 rounded hover:border-red3rd transition-colors">XL</button>
+</div>
+<button class="w-full py-3.5 bg-white text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-xl flex items-center justify-center gap-2" onclick="addToCart('3RD WORLD ARCHIVE HOODIE', 145, 'https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA')">
+<span class="">ADD TO CART</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+<!-- Product 2: BORN Vault Mixtape Crate -->
+<div class="group flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-5">
+<img alt="BORN Vault Crate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts"/>
+<span class="absolute top-3 left-3 bg-neutral-900 border border-white/20 text-white font-mono text-[10px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">
+              LTD 500
+            </span>
+<button class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-mono text-xs uppercase tracking-widest" onclick="openQuickView('crate-boxset')">
+<span class="bg-carbon/90 px-4 py-2 rounded-lg border border-white/20">QUICK INSPECT</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2 font-mono text-xs">
+<span class="text-neutral-400">VINYL + STEEL CRATE</span>
+<span class="text-red3rd">LOW INVENTORY</span>
+</div>
+<h4 class="font-display text-2xl uppercase tracking-tight text-white mb-2">BORN VAULT STEEL CRATE</h4>
+<p class="font-mono text-sm text-neutral-300 mb-6">$85.00 <span class="text-xs text-neutral-500">USD</span></p>
+</div>
+<div>
+<div class="p-2 mb-3 text-center font-mono text-[11px] text-neutral-400 border border-white/10 rounded">
+            INDUSTRIAL PACKAGING EDITION
           </div>
-        </div>
-
-        <!-- Simulated Audio Waveform Bar -->
-        <div class="bg-black/60 border border-neutral-800 p-3 rounded mb-4">
-          <div class="flex items-end gap-1 h-8 justify-between px-1">
-            <div class="w-1 bg-red3rd h-4 animate-pulse"></div>
-            <div class="w-1 bg-neutral-600 h-6"></div>
-            <div class="w-1 bg-signal h-8 animate-pulse"></div>
-            <div class="w-1 bg-neutral-500 h-5"></div>
-            <div class="w-1 bg-neutral-400 h-3"></div>
-            <div class="w-1 bg-signal h-7"></div>
-            <div class="w-1 bg-red3rd h-6 animate-pulse"></div>
-            <div class="w-1 bg-neutral-600 h-2"></div>
-            <div class="w-1 bg-neutral-500 h-5"></div>
-            <div class="w-1 bg-signal h-8"></div>
-            <div class="w-1 bg-red3rd h-4"></div>
-            <div class="w-1 bg-neutral-600 h-7"></div>
-            <div class="w-1 bg-signal h-3"></div>
-            <div class="w-1 bg-neutral-500 h-6"></div>
-            <div class="w-1 bg-red3rd h-5 animate-pulse"></div>
-          </div>
-          <div class="flex justify-between text-[9px] font-mono text-concrete mt-2">
-            <span>01:14</span>
-            <span class="text-signal flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-signal"></span> TRANSMITTING DIRECT</span>
-            <span>03:24</span>
-          </div>
-        </div>
-
-        <!-- DSP Streaming Smart Links -->
-        <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-mono font-bold uppercase">
-          <a href="https://spotify.com" target="_blank" class="py-2 bg-neutral-900 border border-neutral-700 hover:border-signal text-neutral-200 hover:text-bone flex items-center justify-center gap-1">
-            <span>SPOTIFY</span>
-          </a>
-          <a href="https://apple.com" target="_blank" class="py-2 bg-neutral-900 border border-neutral-700 hover:border-bone text-neutral-200 hover:text-bone flex items-center justify-center gap-1">
-            <span>APPLE</span>
-          </a>
-          <a href="https://youtube.com" target="_blank" class="py-2 bg-neutral-900 border border-neutral-700 hover:border-red3rd text-neutral-200 hover:text-bone flex items-center justify-center gap-1">
-            <span>YOUTUBE</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- G. COMPACT ARTIST ROSTER -->
-    <section id="artists-section" class="px-4 py-8 border-b border-neutral-800">
-      <div class="flex items-baseline justify-between mb-4 border-b border-neutral-800 pb-3">
-        <div>
-          <span class="text-[10px] font-mono text-concrete uppercase tracking-widest">// ARTIST COLLECTIVE</span>
-          <h3 class="font-display text-2xl uppercase tracking-tight text-bone">THE ROSTER</h3>
-        </div>
-        <span class="font-mono text-xs text-concrete">3 TALENTS</span>
-      </div>
-
-      <div class="space-y-3">
-        <!-- Artist 1: Omar Kelly / OMAR MALIK -->
-        <div class="bg-surface border border-neutral-800 p-3 rounded flex items-center gap-3.5 hover:border-red3rd transition-colors">
-          <div class="w-16 h-16 rounded bg-neutral-900 border border-neutral-700 overflow-hidden flex-shrink-0">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpfUxmQ7nmsHfZjrjUHN_EMcEcIqXWgb8Q3OxgH7cuqOjUwZQ23zgTMywm03UlTUSsLlF__ihIdEdjCKR3jZNSqulRXkNyQEqN1baqWtQIZabl2G4obYvD0pDM9PROhBMDSC3HyQlDHC3VHOG2hLJryTNfspRXZfa7FXrLYT8vJTnoRW8K1TGlYGAXosBkzdYZR0Z5LROdIdYJECrvVMjafyXU0QArhIWsb43Mx7XIhBIa4ziIf2fT" alt="Omar Kelly Malik" class="w-full h-full object-cover object-top">
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-0.5">
-              <span class="text-[9px] font-mono bg-red3rd text-carbon font-bold px-1.5 py-0.2 uppercase">FOUNDER &middot; DIRECT</span>
-            </div>
-            <h4 class="font-display text-base uppercase text-bone truncate">O M A R &nbsp; M A L I K</h4>
-            <p class="font-mono text-[11px] text-neutral-400 truncate">MUSICIAN / CREATIVE DIRECTOR</p>
-            <p class="font-mono text-[10px] text-concrete">LATEST: BORN (VISUAL MIXTAPE)</p>
-          </div>
-          <a href="#music-section" class="px-2.5 py-1 text-[10px] font-mono border border-neutral-700 hover:border-bone text-bone">
-            PROFILE
-          </a>
-        </div>
-
-        <!-- Artist 2: Sektion 9 (Affiliated Sound Producer) -->
-        <div class="bg-surface border border-neutral-800 p-3 rounded flex items-center gap-3.5 hover:border-neutral-600 transition-colors">
-          <div class="w-16 h-16 rounded bg-[#151515] border border-neutral-800 flex items-center justify-center font-display text-xl text-neutral-500 flex-shrink-0">
-            S-09
-          </div>
-          <div class="flex-1 min-w-0">
-            <span class="text-[9px] font-mono text-concrete uppercase">SOUND ARCHITECT &middot; BERLIN</span>
-            <h4 class="font-display text-base uppercase text-bone truncate">SEKTION 09</h4>
-            <p class="font-mono text-[11px] text-neutral-400 truncate">PRODUCER // INDUSTRIAL SYNTHESIS</p>
-            <p class="font-mono text-[10px] text-concrete">RELEASE: PROTOCOL EP (COMMERCE)</p>
-          </div>
-          <span class="px-2.5 py-1 text-[10px] font-mono text-concrete border border-neutral-800">
-            ARCHIVE
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- H. EDITORIAL LOOKBOOK (35MM / CONTACT SHEET STYLE) -->
-    <section id="lookbook-section" class="px-4 py-8 bg-black border-b border-neutral-800">
-      <div class="flex items-baseline justify-between mb-4 border-b border-neutral-800 pb-3">
-        <div>
-          <span class="text-[10px] font-mono text-red3rd uppercase tracking-widest">// ARCHIVE DOCUMENTATION</span>
-          <h3 class="font-display text-2xl uppercase tracking-tight text-bone">EDITORIAL LOOKBOOK</h3>
-        </div>
-        <span class="font-mono text-xs text-concrete">35MM NEGATIVES</span>
-      </div>
-
-      <!-- Contact Sheet Visual Framing -->
-      <div class="relative bg-neutral-900 border border-neutral-800 p-2 rounded">
-        <div class="flex justify-between items-center text-[9px] font-mono text-neutral-500 px-2 py-1 border-b border-neutral-800 mb-2">
-          <span>KODAK TRI-X 400</span>
-          <span>EXP 14A - 18A</span>
-          <span>3RD WORLD STUDIO</span>
-        </div>
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpfUxmQ7nmsHfZjrjUHN_EMcEcIqXWgb8Q3OxgH7cuqOjUwZQ23zgTMywm03UlTUSsLlF__ihIdEdjCKR3jZNSqulRXkNyQEqN1baqWtQIZabl2G4obYvD0pDM9PROhBMDSC3HyQlDHC3VHOG2hLJryTNfspRXZfa7FXrLYT8vJTnoRW8K1TGlYGAXosBkzdYZR0Z5LROdIdYJECrvVMjafyXU0QArhIWsb43Mx7XIhBIa4ziIf2fT" alt="3rd World Full Editorial Lookbook by Omar Malik" class="w-full rounded border border-neutral-800 shadow-2xl">
-        <div class="p-3 bg-carbon mt-2 rounded border border-neutral-800 text-xs font-mono space-y-1">
-          <div class="flex justify-between text-bone font-bold">
-            <span>LOOK 01 // HEAVYWEIGHT HOODIE + CARGO</span>
-            <span class="text-red3rd">$310 TOTAL</span>
-          </div>
-          <p class="text-[11px] text-neutral-400">Boxy relaxed fit with custom garment wash and double needle industrial finish.</p>
-          <div class="pt-2">
-            <button onclick="addToCart('COMPLETE LOOK 01 (BUNDLE)', '$310.00')" class="w-full py-2 bg-neutral-900 hover:bg-bone hover:text-carbon border border-neutral-700 text-bone text-[10px] font-mono font-bold uppercase transition-colors">
-              SHOP THIS LOOK (BUNDLE) &rarr;
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- I. BRAND MANIFESTO (OMAR MALIK / 3RD WORLD ENT) -->
-    <section id="manifesto-section" class="px-6 py-12 bg-carbon border-b border-neutral-800 text-center relative overflow-hidden">
-      <!-- Stencil background faint watermark -->
-      <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-        <span class="font-display text-8xl uppercase tracking-widest text-bone">3RD</span>
-      </div>
-
-      <div class="max-w-md mx-auto relative z-10">
-        <span class="inline-block bg-red3rd text-carbon font-mono font-black text-[9px] px-2 py-0.5 uppercase tracking-widest mb-3">
-          MANIFESTO // 3RD WORLD ENTERPRISE LLC
-        </span>
-        <h3 class="font-display text-2xl uppercase tracking-tighter text-bone mb-4">
-          CULTURE &middot; APPAREL &middot; SOUND
-        </h3>
-        <p class="text-xs font-mono leading-relaxed text-neutral-300 text-justify mb-4">
-          "3rd World ENT is an artist-led clothing, music and creative company founded by Omar Kelly (O M A R M A L I K). We reject the sterile boundaries between record label and fashion house. Every garment is treated as physical media; every sound recording is manufactured with architectural weight. You do not just purchase an item; you step into an uncompromising creative territory."
+<button class="w-full py-3.5 bg-white text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-xl flex items-center justify-center gap-2" onclick="addToCart('BORN VAULT STEEL CRATE', 85, 'https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts')">
+<span class="">ADD TO CART</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+<!-- Product 3: Technical Modular Lookbook Archive Piece -->
+<div class="group flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-5">
+<img alt="Editorial Tactical Lookbook Suit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
+<span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[10px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">
+              35MM ARCHIVE
+            </span>
+<button class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-mono text-xs uppercase tracking-widest" onclick="openQuickView('tactical-cargo')">
+<span class="bg-carbon/90 px-4 py-2 rounded-lg border border-white/20">QUICK INSPECT</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2 font-mono text-xs">
+<span class="text-neutral-400">RIPSTOP MULTI-POCKET</span>
+<span class="text-signal">IN STOCK</span>
+</div>
+<h4 class="font-display text-2xl uppercase tracking-tight text-white mb-2">MODULAR FLIGHT CARGO</h4>
+<p class="font-mono text-sm text-neutral-300 mb-6">$165.00 <span class="text-xs text-neutral-500">USD</span></p>
+</div>
+<div>
+<div class="grid grid-cols-3 gap-2 font-mono text-xs text-center mb-3">
+<button class="size-btn py-2 border border-white/15 rounded hover:border-red3rd transition-colors">30</button>
+<button class="size-btn py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded">32</button>
+<button class="size-btn py-2 border border-white/15 rounded hover:border-red3rd transition-colors">34</button>
+</div>
+<button class="w-full py-3.5 bg-white text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-xl flex items-center justify-center gap-2" onclick="addToCart('MODULAR FLIGHT CARGO', 165, 'https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU')">
+<span class="">ADD TO CART</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================= -->
+<!-- 5. EDITORIAL LOOKBOOK SECTION (35MM CONTACT SHEET)       -->
+<!-- ======================================================= -->
+<section class="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="lookbook-section">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<span class="font-mono text-xs uppercase tracking-widest text-red3rd">// 35MM VISUAL DOCUMENTATION</span>
+<h3 class="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white mt-1">EDITORIAL CONTACT SHEET</h3>
+</div>
+<p class="font-mono text-xs text-neutral-400 max-w-md">
+        Kodak Tri-X 400 negative archive. Photographed on-set during the OMAR MALIK “BORN” audiovisual recording sessions.
+      </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-surface-card rounded-2xl border border-white/10 p-6 lg:p-8">
+<!-- Contact Sheet Visual -->
+<div class="lg:col-span-7 rounded-xl overflow-hidden border border-white/15 shadow-2xl">
+<img alt="Editorial Lookbook 35mm" class="w-full h-auto object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
+</div>
+<!-- Editorial Narrative & Bundle Buy -->
+<div class="lg:col-span-5 flex flex-col justify-center space-y-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 font-mono text-xs text-signal">
+<span class="w-2 h-2 rounded-full bg-signal"></span>
+<span class="">ROLL 14A-18A • STUDIO CONTACT</span>
+</div>
+<h4 class="font-display text-3xl sm:text-4xl uppercase text-white leading-tight">
+            INDUSTRIAL UNIFORM PROTOCOL
+          </h4>
+</div>
+<p class="font-mono text-xs text-neutral-300 leading-relaxed">
+          Crafted with extreme weight and deliberate silhouette geometry. Each garment undergoes a cold-pigment rinse and distress procedure, accented by custom 3rd World red woven bar-tacks and dual-stitched seamlines.
         </p>
-        <div class="text-[11px] font-mono text-concrete">
-          &mdash; O M A R &nbsp; M A L I K, FOUNDER &amp; CREATIVE DIRECTOR
-        </div>
-      </div>
-    </section>
-
-    <!-- J. KLAVIYO / SHOPIFY EMAIL & SMS CAPTURE -->
-    <section class="px-4 py-8 bg-[#0d0d0d] border-b border-neutral-800">
-      <div class="max-w-md mx-auto border border-neutral-800 p-5 rounded bg-surface">
-        <div class="flex items-center gap-2 mb-1">
-          <span class="w-2 h-2 rounded-full bg-red3rd"></span>
-          <span class="font-mono text-[10px] text-red3rd font-bold uppercase tracking-widest">PRIVATE DISPATCH</span>
-        </div>
-        <h4 class="font-display text-xl uppercase tracking-tight text-bone mb-2">JOIN THE OPERATING ARCHIVE</h4>
-        <p class="font-mono text-xs text-neutral-400 mb-4 leading-normal">
-          First access to limited garment drops, secret listening sessions, physical vinyl releases and tour announcements.
-        </p>
-        <form onsubmit="handleSubscribe(event)" class="space-y-2">
-          <input type="email" required placeholder="ENTER YOUR EMAIL ADDRESS" class="w-full bg-carbon border border-neutral-700 text-bone placeholder-neutral-600 font-mono text-xs px-3.5 py-3 focus:outline-none focus:border-red3rd rounded-none">
-          <input type="tel" placeholder="MOBILE NUMBER (SMS DROPS - OPTIONAL)" class="w-full bg-carbon border border-neutral-700 text-bone placeholder-neutral-600 font-mono text-xs px-3.5 py-3 focus:outline-none focus:border-red3rd rounded-none">
-          <button type="submit" class="w-full bg-red3rd hover:bg-bone hover:text-carbon text-bone font-mono font-bold text-xs uppercase py-3 tracking-widest transition-colors">
-            SUBSCRIBE TO DISPATCH &rarr;
+<div class="p-4 rounded-xl bg-carbon border border-white/10 space-y-3 font-mono text-xs">
+<div class="flex justify-between items-center text-white">
+<span class="font-bold">LOOK 01 COMPLETE SET (HOODIE + CARGO)</span>
+<span class="text-red3rd font-bold">$310.00 USD</span>
+</div>
+<p class="text-[11px] text-neutral-500">Includes authenticated mixtape download code and limited steel keytag.</p>
+<button class="w-full py-3 bg-bone text-black hover:bg-red3rd hover:text-white font-bold uppercase tracking-widest transition-colors rounded-lg" onclick="addToCart('LOOK 01 COMPLETE BUNDLE', 310, 'https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU')">
+            PURCHASE COMPLETE LOOK →
           </button>
-          <p id="sub-feedback" class="font-mono text-[10px] text-signal hidden pt-1">
-            &check; DISPATCH ENCRYPTED. YOU ARE ON THE DIRECT LIST.
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================= -->
+<!-- 6. NOW TRANSMITTING // 3RD WORLD RADIO AUDIO SECTION   -->
+<!-- ======================================================= -->
+<section class="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="audio-section">
+<div class="bg-gradient-to-b from-[#141414] to-carbon rounded-3xl border border-white/15 p-6 lg:p-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Album Crate Thumbnail -->
+<div class="lg:col-span-4">
+<div class="relative aspect-square rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+<img alt="BORN Visual Mixtape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<button class="w-16 h-16 rounded-full bg-white text-black hover:bg-red3rd hover:text-white transition-all transform hover:scale-110 flex items-center justify-center shadow-2xl" id="main-play-btn" onclick="toggleAudio()">
+<span class="material-symbols-outlined text-3xl" id="main-play-icon">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Player Controls & Equalizer -->
+<div class="lg:col-span-8 flex flex-col justify-between space-y-6">
+<div>
+<div class="flex items-center gap-3 mb-2 font-mono text-xs">
+<span class="bg-red3rd text-white px-2 py-0.5 rounded font-bold uppercase tracking-widest text-[10px]">NOW TRANSMITTING</span>
+<span class="text-signal flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-signal animate-ping"></span> 108.4 MHZ DIRECT STREAM</span>
+</div>
+<h3 class="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white mb-1">
+              BORN (THE VISUAL MIXTAPE)
+            </h3>
+<p class="font-mono text-sm text-neutral-400">
+              O M A R   M A L I K • NOW TRANSMITTING // 3RD WORLD RADIO
+            </p>
+</div>
+<!-- Waveform Equalizer -->
+<div class="p-5 rounded-2xl bg-black/60 border border-white/10 space-y-4">
+<div class="flex items-center justify-between font-mono text-xs text-neutral-400">
+<span class="text-white">TRACK 04: “CONCRETE PROTOCOL”</span>
+<span class="" id="audio-time">01:42 / 03:30</span>
+</div>
+<!-- Wave Bars -->
+<div class="flex items-end gap-1.5 h-12 justify-between px-2" id="equalizer-bars">
+<div class="w-1.5 bg-red3rd h-6 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-white h-10 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-signal h-12 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-neutral-600 h-5 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-red3rd h-8 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-white h-4 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-signal h-11 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-neutral-500 h-7 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-red3rd h-12 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-white h-6 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-signal h-9 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-neutral-600 h-4 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-red3rd h-8 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-white h-11 rounded-full transition-all duration-200"></div>
+<div class="w-1.5 bg-signal h-6 rounded-full transition-all duration-200"></div>
+</div>
+<!-- Streaming links -->
+<div class="pt-3 border-t border-white/10 flex flex-wrap gap-4 font-mono text-xs uppercase text-neutral-400">
+<a class="hover:text-white transition-colors flex items-center gap-1.5" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-signal"></span>
+<span class="">SPOTIFY</span>
+</a>
+<a class="hover:text-white transition-colors flex items-center gap-1.5" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+<span class="">APPLE MUSIC</span>
+</a>
+<a class="hover:text-white transition-colors flex items-center gap-1.5" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd"></span>
+<span class="">YOUTUBE MUSIC</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================= -->
+<!-- 7. MANIFESTO & NEWSLETTER DISPATCH                     -->
+<!-- ======================================================= -->
+<section class="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10 text-center">
+<div class="max-w-2xl mx-auto space-y-6">
+<span class="font-mono text-xs text-red3rd uppercase tracking-widest">// BRAND PHILOSOPHY</span>
+<h3 class="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white">
+        CULTURE • APPAREL • SOUND
+      </h3>
+<p class="font-mono text-xs sm:text-sm text-neutral-400 leading-relaxed text-justify sm:text-center">
+        “3rd World ENT is an artist-led clothing, sound and creative enterprise founded by Omar Kelly (O M A R M A L I K). We reject the sterile boundary separating record label and fashion atelier. Every garment is treated as physical media; every audio session is built with architectural weight.”
+      </p>
+<!-- Dispatch Form -->
+<form class="pt-6 max-w-md mx-auto flex flex-col sm:flex-row gap-2 font-mono text-xs" onsubmit="handleSubscribe(event)">
+<input class="flex-1 bg-surface-card border border-white/20 rounded-xl px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-red3rd" placeholder="ENTER YOUR EMAIL FOR DROP ACCESS" required="" type="email"/>
+<button class="bg-red3rd hover:bg-white hover:text-black text-white font-bold uppercase tracking-widest px-6 py-3 rounded-xl transition-colors whitespace-nowrap" type="submit">
+          JOIN DISPATCH
+        </button>
+</form>
+<p class="font-mono text-xs text-signal hidden" id="subscribe-status">✓ ENCRYPTED. YOU ARE REGISTERED FOR DROP 02 NOTIFICATIONS.</p>
+</div>
+</section>
+<!-- ======================================================= -->
+<!-- 8. REFINED FOOTER                                      -->
+<!-- ======================================================= -->
+<footer class="py-12 px-6 lg:px-12 max-w-7xl mx-auto font-mono text-xs text-neutral-500 flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-3">
+<span class="font-display text-xl text-white tracking-wider uppercase">3RD WORLD ENT</span>
+<span class="">•</span>
+<span class="">ALL RIGHTS RESERVED 2025</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">SHIPPING</a>
+<a class="hover:text-white transition-colors" href="#">RETURNS</a>
+<a class="hover:text-white transition-colors" href="#">PRIVACY</a>
+<a class="hover:text-white transition-colors" href="mailto:contact@3rdworldent.com">CONTACT</a>
+</div>
+</footer>
+<!-- ======================================================= -->
+<!-- 9. INTERACTIVE CART DRAWER (SLIDE-OVER)                -->
+<!-- ======================================================= -->
+<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0" id="cart-drawer">
+<div class="absolute inset-0 bg-black/70 backdrop-blur-sm pointer-events-auto" onclick="toggleCartDrawer()"></div>
+<div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+<div class="w-screen max-w-md bg-carbon border-l border-white/10 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cart-panel">
+<div>
+<!-- Cart Header -->
+<div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+<div class="flex items-center gap-2">
+<span class="font-display text-xl uppercase tracking-wider text-white">YOUR CART</span>
+<span class="font-mono text-xs text-neutral-400" id="cart-item-count">(0 ITEMS)</span>
+</div>
+<button class="text-neutral-400 hover:text-white" onclick="toggleCartDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Items list container -->
+<div class="space-y-4 max-h-[55vh] overflow-y-auto custom-scrollbar" id="cart-items-list">
+<!-- Empty state default -->
+<div class="text-center py-12 font-mono text-xs text-neutral-500" id="cart-empty-state">
+              YOUR CART IS CURRENTLY EMPTY.<br/>ADD PIECES FROM DROP 001.
+            </div>
+</div>
+</div>
+<!-- Checkout Summary -->
+<div class="border-t border-white/10 pt-6 space-y-4 font-mono">
+<div class="flex justify-between text-xs text-neutral-400">
+<span class="">SUBTOTAL</span>
+<span class="text-white font-bold text-sm" id="cart-subtotal">$0.00 USD</span>
+</div>
+<p class="text-[10px] text-neutral-500">Taxes and worldwide insured shipping calculated at checkout.</p>
+<button class="w-full py-4 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl" onclick="alert('Redirecting to Shopify encrypted checkout...')">
+            PROCEED TO CHECKOUT →
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- 10. PRODUCT QUICK VIEW MODAL                           -->
+<!-- ======================================================= -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md" id="quickview-modal">
+<div class="relative w-full max-w-2xl bg-carbon rounded-2xl border border-white/20 p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+<button class="absolute top-4 right-4 text-neutral-400 hover:text-white" onclick="closeQuickView()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface">
+<img alt="Quick View" class="w-full h-full object-cover" id="qv-image" src="https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA"/>
+</div>
+<div class="space-y-4 font-mono">
+<span class="text-[10px] font-bold text-red3rd uppercase tracking-widest" id="qv-tag">SPECIFICATION</span>
+<h3 class="font-display text-2xl uppercase tracking-tight text-white" id="qv-title">PIECE TITLE</h3>
+<p class="text-lg font-bold text-white" id="qv-price">$145.00 USD</p>
+<p class="text-xs text-neutral-400 leading-relaxed" id="qv-desc">
+            Constructed with heavyweight washed french terry. Boxy silhouette, double-needle seams and hand-distressed detailing.
           </p>
-        </form>
-      </div>
-    </section>
+<button class="w-full py-3 bg-white text-black hover:bg-red3rd hover:text-white font-bold text-xs uppercase tracking-widest transition-colors rounded-xl" id="qv-add-btn">
+            ADD TO ORDER →
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- SCRIPT CONTROLLER & 3D PARALLAX ENGINE                  -->
+<!-- ======================================================= -->
+<script>
+    // 3D Spatial Depth / Parallax Engine
+    const artworkWrap = document.getElementById('spatial-artwork-wrap');
+    const glareLayer = document.getElementById('spatial-glare-layer');
+    const heroText = document.getElementById('spatial-hero-text');
+    const gate = document.getElementById('entrance-gate');
 
-    <!-- K. FOOTER (ECOMMERCE UTILITIES, LOGISTICS, METAOBJECT ARCHIVE) -->
-    <footer id="footer" class="bg-[#050505] px-4 py-10 text-xs font-mono text-neutral-500">
-      <div class="space-y-6">
-        <!-- Logo Stamp -->
-        <div class="flex items-center justify-between border-b border-neutral-800 pb-4">
-          <div class="flex items-center gap-2">
-            <span class="font-display text-lg text-bone uppercase tracking-wider">3RD WORLD</span>
-            <span class="bg-red3rd text-carbon font-mono font-black text-[9px] px-1.5 py-0.5">ENT</span>
-          </div>
-          <span class="text-[10px] text-concrete">EST. 2025 // NYC &middot; LON &middot; LOS</span>
-        </div>
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let animationFrameId = null;
 
-        <!-- Links Grid -->
-        <div class="grid grid-cols-2 gap-6 text-[11px]">
-          <div>
-            <h5 class="text-bone font-bold uppercase tracking-wider mb-2.5">// COMMERCE</h5>
-            <ul class="space-y-1.5">
-              <li><a href="#shop-section" class="hover:text-red3rd">SHOP ALL</a></li>
-              <li><a href="#shop-section" class="hover:text-red3rd">NEW ARRIVALS</a></li>
-              <li><a href="#shop-section" class="hover:text-red3rd">SIZE GUIDE &amp; SPECS</a></li>
-              <li><a href="#shop-section" class="hover:text-red3rd">ORDER LOOKUP</a></li>
-              <li><a href="#shop-section" class="hover:text-red3rd">SHIPPING &amp; RETURNS</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5 class="text-bone font-bold uppercase tracking-wider mb-2.5">// COMPANY &amp; SOUND</h5>
-            <ul class="space-y-1.5">
-              <li><a href="#music-section" class="hover:text-red3rd">NOW TRANSMITTING</a></li>
-              <li><a href="#artists-section" class="hover:text-red3rd">ARTISTS &amp; RELEASES</a></li>
-              <li><a href="#lookbook-section" class="hover:text-red3rd">35MM LOOKBOOK</a></li>
-              <li><a href="#manifesto-section" class="hover:text-red3rd">BRAND MANIFESTO</a></li>
-              <li><a href="mailto:contact@3rdworldent.com" class="hover:text-red3rd">PRESS / BOOKING</a></li>
-            </ul>
-          </div>
-        </div>
+    function handlePointerMove(e) {
+      const { innerWidth: w, innerHeight: h } = window;
+      const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : w / 2);
+      const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : h / 2);
 
-        <!-- Supported Payment Systems Badges -->
-        <div class="pt-4 border-t border-neutral-800">
-          <p class="text-[10px] uppercase text-neutral-400 mb-2">SECURE PAYMENT ECOSYSTEM</p>
-          <div class="flex flex-wrap gap-2 text-[9px] font-mono text-neutral-300">
-            <span class="bg-neutral-900 border border-neutral-800 px-2 py-1">SHOP PAY</span>
-            <span class="bg-neutral-900 border border-neutral-800 px-2 py-1">SHOPIFY PAYMENTS</span>
-            <span class="bg-neutral-900 border border-neutral-800 px-2 py-1">PAYPAL</span>
-            <span class="bg-neutral-900 border border-neutral-800 px-2 py-1">APPLE PAY</span>
-            <span class="bg-neutral-900 border border-neutral-800 px-2 py-1">VISA / MC</span>
-          </div>
-        </div>
-
-        <!-- Copyright & Legal Disclaimers -->
-        <div class="pt-4 border-t border-neutral-800 text-[10px] flex flex-col gap-2 text-neutral-500">
-          <div class="flex gap-4">
-            <a href="#" class="hover:underline">PRIVACY POLICY</a>
-            <a href="#" class="hover:underline">TERMS OF SERVICE</a>
-            <a href="#" class="hover:underline">DISCLAIMER</a>
-          </div>
-          <p>&copy; 2025 3RD WORLD ENTERPRISE LLC. ALL RIGHTS RESERVED. OMAR KELLY / OMAR MALIK. UNAUTHORIZED DUPLICATION IS A VIOLATION OF OPERATING PROTOCOL.</p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- CART NOTIFICATION TOAST -->
-    <div id="cart-toast" class="fixed bottom-4 left-4 right-4 z-50 bg-bone text-carbon p-3.5 rounded shadow-2xl border border-neutral-300 flex items-center justify-between transform translate-y-32 opacity-0 pointer-events-none">
-      <div class="flex items-center gap-2.5">
-        <span class="w-2.5 h-2.5 rounded-full bg-red3rd"></span>
-        <div>
-          <p id="toast-title" class="font-mono text-xs font-bold uppercase leading-tight">ADDED TO CART</p>
-          <p id="toast-sub" class="font-mono text-[10px] text-neutral-600 leading-tight">READY FOR CHECKOUT</p>
-        </div>
-      </div>
-      <button onclick="hideCartToast()" class="bg-carbon text-bone font-mono text-[10px] font-bold px-3 py-1.5 uppercase hover:bg-red3rd">
-        CHECKOUT &rarr;
-      </button>
-    </div>
-
-  </div>
-
-  <!-- JAVASCRIPT: ENTRANCE INTERACTION & CART CONTROLLER -->
-  <script>
-    let cartTotalCount = 0;
-
-    // Interactive Entrance Transition
-    function unlockEntrance() {
-      const gate = document.getElementById('entrance-gate');
-      const trigger = document.getElementById('crate-trigger');
-      
-      // Visual feedback on click
-      trigger.style.transform = 'scale(0.95)';
-      trigger.style.borderColor = '#B8F500';
-      
-      setTimeout(() => {
-        trigger.style.transform = 'scale(1.08)';
-        gate.style.opacity = '0';
-        gate.style.transform = 'translateY(-100%)';
-        setTimeout(() => {
-          gate.style.display = 'none';
-        }, 700);
-      }, 250);
+      // Normalized coordinates from -1 to 1
+      targetX = (clientX / w - 0.5) * 2;
+      targetY = (clientY / h - 0.5) * 2;
     }
 
-    document.getElementById('crate-trigger').addEventListener('click', unlockEntrance);
-    document.getElementById('skip-entrance-btn').addEventListener('click', () => {
-      const gate = document.getElementById('entrance-gate');
-      gate.style.opacity = '0';
-      gate.style.transform = 'translateY(-100%)';
-      setTimeout(() => { gate.style.display = 'none'; }, 500);
+    // Gyroscope / Device orientation support for mobile
+    window.addEventListener('deviceorientation', (e) => {
+      if (!e.gamma || !e.beta) return;
+      const gamma = Math.min(Math.max(e.gamma, -30), 30);
+      const beta = Math.min(Math.max(e.beta - 35, -30), 30);
+      targetX = gamma / 30;
+      targetY = beta / 30;
     });
 
-    // Menu Drawer
-    const menuToggle = document.getElementById('menu-toggle-btn');
-    const menuClose = document.getElementById('menu-close-btn');
-    const menuDrawer = document.getElementById('menu-drawer');
+    window.addEventListener('mousemove', handlePointerMove);
+    window.addEventListener('touchmove', handlePointerMove, { passive: true });
 
-    menuToggle.addEventListener('click', () => {
-      menuDrawer.classList.remove('hidden');
-    });
-    menuClose.addEventListener('click', () => {
-      menuDrawer.classList.add('hidden');
-    });
-    menuDrawer.addEventListener('click', (e) => {
-      if (e.target === menuDrawer) {
-        menuDrawer.classList.add('hidden');
+    // Smooth Lerp Rendering Loop for 3D depth and specular reaction
+    function render3DDepth() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      const rotateY = currentX * 8;      // Balanced tilt
+      const rotateX = -currentY * 7;     // Balanced pitch
+      const panX = -currentX * 24;       // Horizontal parallax shift
+      const panY = -currentY * 18;       // Vertical parallax shift
+
+      if (artworkWrap) {
+        artworkWrap.style.transform = `scale(1.04) translate3d(${panX}px, ${panY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       }
-    });
 
-    // Cart Toast Trigger
-    function addToCart(productName, price) {
-      cartTotalCount++;
-      document.getElementById('cart-count').innerText = cartTotalCount;
+      // Specular glare dynamic tracking
+      if (glareLayer) {
+        const glarePosX = 50 + (currentX * 35);
+        const glarePosY = 50 + (currentY * 35);
+        glareLayer.style.background = `radial-gradient(circle at ${glarePosX}% ${glarePosY}%, rgba(255,255,255,0.22) 0%, rgba(213,30,30,0.1) 35%, transparent 70%)`;
+      }
+
+      // Floating foreground text counter-parallax
+      if (heroText) {
+        const textPanX = currentX * 18;
+        const textPanY = currentY * 14;
+        heroText.style.transform = `translate3d(${textPanX}px, ${textPanY}px, 40px) rotateX(${rotateX * 0.35}deg) rotateY(${rotateY * 0.35}deg)`;
+      }
+
+      animationFrameId = requestAnimationFrame(render3DDepth);
+    }
+    render3DDepth();
+
+    // Entrance Gate Controls
+    function dismissEntrance() {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
       
-      const toast = document.getElementById('cart-toast');
-      document.getElementById('toast-title').innerText = productName;
-      document.getElementById('toast-sub').innerText = price + ' &middot; ADDED TO CART';
-
-      toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100');
-
+      const img = document.getElementById('spatial-img');
+      if (img) {
+        img.style.transform = 'scale(1.15)';
+        img.style.filter = 'brightness(0.3) blur(6px)';
+      }
+      
+      gate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
       setTimeout(() => {
-        hideCartToast();
-      }, 3500);
+        gate.style.display = 'none';
+      }, 900);
     }
 
-    function hideCartToast() {
-      const toast = document.getElementById('cart-toast');
-      toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
-      toast.classList.remove('translate-y-0', 'opacity-100');
+    function showEntrance() {
+      gate.style.display = 'flex';
+      const img = document.getElementById('spatial-img');
+      if (img) {
+        img.style.transform = 'scale(1)';
+        img.style.filter = 'contrast(1.04) brightness(0.96)';
+      }
+      setTimeout(() => {
+        gate.classList.remove('opacity-0', 'pointer-events-none', 'scale-105');
+        render3DDepth();
+      }, 20);
     }
 
-    // Audio Preview Button toggle feedback
-    const playBtn = document.getElementById('play-preview-btn');
-    let isPlaying = false;
-    playBtn.addEventListener('click', () => {
-      isPlaying = !isPlaying;
-      if (isPlaying) {
-        playBtn.classList.remove('bg-bone', 'text-carbon');
-        playBtn.classList.add('bg-signal', 'text-carbon');
-        playBtn.innerHTML = '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+    // Cart Management
+    let cart = [];
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cart-drawer');
+      const panel = document.getElementById('cart-panel');
+      if (drawer.classList.contains('opacity-0')) {
+        drawer.classList.remove('opacity-0', 'pointer-events-none');
+        panel.classList.remove('translate-x-full');
       } else {
-        playBtn.classList.remove('bg-signal', 'text-carbon');
-        playBtn.classList.add('bg-bone', 'text-carbon');
-        playBtn.innerHTML = '<svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+        drawer.classList.add('opacity-0', 'pointer-events-none');
+        panel.classList.add('translate-x-full');
       }
-    });
+    }
 
-    // Email Subscribe Form
+    function addToCart(title, price, image) {
+      cart.push({ title, price, image });
+      updateCartUI();
+      toggleCartDrawer();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const counter = document.getElementById('cart-counter');
+      const countLabel = document.getElementById('cart-item-count');
+      const list = document.getElementById('cart-items-list');
+      const emptyState = document.getElementById('cart-empty-state');
+      const subtotalEl = document.getElementById('cart-subtotal');
+
+      counter.innerText = cart.length;
+      countLabel.innerText = `(${cart.length} ITEMS)`;
+
+      if (cart.length === 0) {
+        list.innerHTML = '';
+        list.appendChild(emptyState);
+        subtotalEl.innerText = '$0.00 USD';
+        return;
+      }
+
+      let subtotal = 0;
+      list.innerHTML = '';
+      cart.forEach((item, index) => {
+        subtotal += item.price;
+        const itemEl = document.createElement('div');
+        itemEl.className = 'flex items-center gap-4 bg-surface p-3 rounded-xl border border-white/10';
+        itemEl.innerHTML = `
+          <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg">
+          <div class="flex-1 font-mono">
+            <h5 class="text-xs uppercase text-white font-bold leading-snug">${item.title}</h5>
+            <p class="text-xs text-neutral-400">$${item.price}.00 USD</p>
+          </div>
+          <button onclick="removeFromCart(${index})" class="text-neutral-500 hover:text-red3rd p-1">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        `;
+        list.appendChild(itemEl);
+      });
+
+      subtotalEl.innerText = `$${subtotal}.00 USD`;
+    }
+
+    // Audio Playback Equalizer Simulation
+    let isPlaying = false;
+    let eqInterval = null;
+
+    function toggleAudio() {
+      isPlaying = !isPlaying;
+      const mainBtn = document.getElementById('main-play-btn');
+      const playIcon = document.getElementById('main-play-icon');
+      const navStatus = document.getElementById('nav-audio-status');
+      const bars = document.querySelectorAll('#equalizer-bars div');
+
+      if (isPlaying) {
+        playIcon.innerText = 'pause';
+        navStatus.innerText = 'PLAYING';
+        eqInterval = setInterval(() => {
+          bars.forEach(bar => {
+            const randomH = Math.floor(Math.random() * 40) + 10;
+            bar.style.height = `${randomH}px`;
+          });
+        }, 150);
+      } else {
+        playIcon.innerText = 'play_arrow';
+        navStatus.innerText = 'ON AIR';
+        clearInterval(eqInterval);
+        bars.forEach((bar, i) => {
+          bar.style.height = `${(i % 3 + 1) * 12}px`;
+        });
+      }
+    }
+
+    // Quick View Modal Data
+    const quickViewData = {
+      'archive-hoodie': {
+        title: '3RD WORLD ARCHIVE HOODIE',
+        price: 145,
+        image: 'https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA',
+        tag: 'DROP 01 &bull; 520 GSM',
+        desc: 'Constructed from heavy 520 GSM washed french terry cotton. Engineered boxy cut with signature red 3rd World bar-tack stencils.'
+      },
+      'street-tee': {
+        title: 'DISTRESSED GRAPHIC TEE',
+        price: 75,
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB6KVmbf1xwniI2MWhO-p042ivXxOnVnYvJujQ3zP2e5fEK9lFu9GpHFMdU6kD6MsLOrbivStkAXuF52lHBn7lmFEYK_7t-TMTzB7WvZXDrdjyEGIEsU0MeAEWZu9Cafto9ax0yVVki7GsyWw7gkrp04DJJkW-ZbIvjWZQaJ8vn47awkOJ_61bzf0vnrDo5S1i831Qd7TLAfrZqHWpOfaTf1JI2OVomDMnAUy_P3tBe9yLAtgapoKK-EfWKJ7iP29k5Sw',
+        tag: 'DROP 01 &bull; 300 GSM',
+        desc: 'Garment dyed, vintage distressed heavy jersey tee with screenprinted archive artwork.'
+      },
+      'illustration-tee': {
+        title: '3RD WORLD ETCHED TEE',
+        price: 80,
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmRVI3y0aI9FjWehL4xz-wM3pwHWPxQdz5AtcHBTgVGcFj443YLhVCMX1jdDn_lBz5cnvvlc5xbwD09Zpx0JhUvWE6dAnNmUvg4_X7nrTPl_LVi-9DQN05aQf0LFff7sHRy1bL5IFcTe7oIC9uKZVV0h-7GbabQ6ZTha0Ezodkx1ugzk4BwS6Nn_ConfG1sQJ1kdmASVAaJRsRVDV_QJgOS-LrC3Iko6RLsEgRilJrGekvp5PP5sFxAcqKrpVGYEGEDw',
+        tag: 'DROP 01 &bull; GRAPHIC EDITION',
+        desc: 'Custom hand-drawn illustrated face graphic, finished with raw edge collars and pre-shrunk wash.'
+      },
+      'crate-boxset': {
+        title: 'BORN VAULT STEEL CRATE',
+        price: 85,
+        image: 'https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts',
+        tag: 'PHYSICAL MEDIA EDITION',
+        desc: 'Limited edition of 500. Heavy metal locked crate containing the BORN vinyl mixtape, 35mm photo zine, and steel keytag.'
+      },
+      'tactical-cargo': {
+        title: 'MODULAR FLIGHT CARGO',
+        price: 165,
+        image: 'https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU',
+        tag: 'TECHNICAL UTILITY',
+        desc: 'Technical ripstop modular combat trousers with multi-pocket storage and custom tension buckles.'
+      }
+    };
+
+    function openQuickView(id) {
+      const data = quickViewData[id];
+      if (!data) return;
+      document.getElementById('qv-title').innerText = data.title;
+      document.getElementById('qv-price').innerText = `$${data.price}.00 USD`;
+      document.getElementById('qv-image').src = data.image;
+      document.getElementById('qv-tag').innerHTML = data.tag;
+      document.getElementById('qv-desc').innerText = data.desc;
+      document.getElementById('qv-add-btn').onclick = () => {
+        addToCart(data.title, data.price, data.image);
+        closeQuickView();
+      };
+      document.getElementById('quickview-modal').classList.remove('hidden');
+    }
+
+    function closeQuickView() {
+      document.getElementById('quickview-modal').classList.add('hidden');
+    }
+
+    // Dispatch form
     function handleSubscribe(e) {
       e.preventDefault();
-      document.getElementById('sub-feedback').classList.remove('hidden');
+      document.getElementById('subscribe-status').classList.remove('hidden');
     }
   </script>
-</body>
-</html>
+</body></html>
