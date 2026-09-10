@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-
-<html class="dark scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>3RD WORLD ENT — Operating Archive &amp; Store</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script>
     tailwind.config = {
       darkMode: 'class',
@@ -81,64 +79,27 @@
 <div class="fixed inset-0 z-50 w-full h-screen min-h-screen bg-carbon overflow-hidden select-none transition-all duration-1000 ease-out flex flex-col justify-between" id="entrance-gate">
 <!-- Full viewport 3D Parallax Canvas (Inset -5% for seamless bleed without edge clipping) -->
 <div class="absolute inset-0 w-full h-full spatial-stage overflow-hidden cursor-pointer" id="stage-container" onclick="dismissEntrance()">
-<div class="absolute inset-[-6%] w-[112%] h-[112%] spatial-layer" id="spatial-artwork-wrap">
+<div class="absolute inset-[-6%] w-[112%] h-[112%] spatial-layer" id="spatial-artwork-wrap" style="transform: scale(1.04) translate3d(17.625px, -17.6796px, 0px) rotateX(-6.87541deg) rotateY(-5.875deg);">
 <!-- Fullscreen Crisp Unstretched Artwork -->
-<img alt="3RD WORLD Spatial Artwork" class="w-full h-full object-cover object-center pointer-events-none select-none transition-transform duration-700 ease-out crisp-artwork filter contrast-[1.04] brightness-[0.96]" id="spatial-img" src="assets/3rd-World-Hero.png"/>
+<img alt="3RD WORLD Spatial Artwork" class="w-full h-full object-cover object-center pointer-events-none select-none transition-transform duration-700 ease-out crisp-artwork filter contrast-[1.04] brightness-[0.96]" id="spatial-img" src="assets/3rd-World-Hero.png">
 <!-- Dynamic Atmospheric Glare / Specular Lighting -->
-<div class="absolute inset-0 spatial-glare opacity-70 transition-opacity duration-300" id="spatial-glare-layer"></div>
+<div class="absolute inset-0 spatial-glare opacity-70 transition-opacity duration-300" id="spatial-glare-layer" style="background: radial-gradient(circle at 24.2969% 84.377%, rgba(255, 255, 255, 0.22) 0%, rgba(213, 30, 30, 0.1) 35%, transparent 70%);"></div>
 <!-- Subtle Depth Vignette for Dramatic Contrast & Readability -->
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/75 pointer-events-none"></div>
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(8,8,8,0.7)_100%)] pointer-events-none"></div>
 <!-- Subtle Brutalist Overlay Grid Guidelines -->
-<div class="absolute top-6 left-8 font-mono text-[9px] text-white/40 uppercase tracking-widest pointer-events-none hidden sm:block">ARCHIVE PROTOCOL // DEPTH MATRIX 100VW×100VH</div>
-<div class="absolute bottom-6 right-8 font-mono text-[9px] text-white/40 uppercase tracking-widest pointer-events-none hidden sm:block">CALIBRATED FULL RESOLUTION // RATIO LOCKED</div>
+
+
 </div>
 </div>
 <!-- Floating UI Content Layer (Opposite 3D Parallax Tilt) -->
 <div class="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none p-6 sm:p-10 lg:p-12">
 <!-- Top System Line -->
-<header class="w-full flex items-center justify-between pointer-events-auto">
-<div class="flex items-center gap-3 bg-black/70 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-xl">
-<span class="w-2 h-2 rounded-full bg-red3rd animate-pulse"></span>
-<span class="font-mono text-[11px] sm:text-xs tracking-widest text-neutral-200 uppercase font-semibold">● 3RD WORLD PROTOCOL // 3D SPATIAL GATEWAY</span>
-</div>
-<button class="bg-black/70 backdrop-blur-md hover:bg-white hover:text-black border border-white/20 font-mono text-[11px] sm:text-xs uppercase tracking-widest text-neutral-200 px-4 py-2 rounded-full transition-all flex items-center gap-2 group cursor-pointer shadow-xl" onclick="dismissEntrance()">
-<span>[BYPASS DIRECT TO STORE →]</span>
-</button>
-</header>
+<header class="w-full flex items-center justify-between pointer-events-auto"><div class="font-mono text-xs tracking-widest text-neutral-300 uppercase font-semibold">3RD WORLD ENT // 2025</div><button class="font-mono text-xs uppercase tracking-widest text-neutral-300 hover:text-white transition-colors cursor-pointer" onclick="dismissEntrance()">[ENTER STORE →]</button></header>
 <!-- Center Floating Typography & Spatial CTA -->
-<main class="my-auto max-w-4xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out" id="spatial-hero-text">
-<!-- 3D Spatial Pan Hint Badge -->
-<div class="inline-flex items-center gap-2.5 px-4 py-1.5 mb-6 border border-white/25 rounded-full font-mono text-[11px] uppercase tracking-widest text-bone bg-black/75 backdrop-blur-md shadow-2xl">
-<span class="w-2 h-2 rounded-full bg-signal animate-ping"></span>
-<span class="material-symbols-outlined text-sm text-signal">3d_rotation</span>
-<span class="font-semibold text-white">PAN CURSOR OR DRAG TO SHIFT 3D PERSPECTIVE</span>
-</div>
-<h1 class="font-display text-6xl sm:text-8xl lg:text-[10rem] uppercase tracking-tight leading-none mb-6 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] text-white">
-        ENTER THE <span class="text-red3rd drop-shadow-[0_0_30px_rgba(213,30,30,0.7)]">3RD WORLD</span>
-</h1>
-<p class="font-mono text-xs sm:text-sm text-neutral-200 max-w-2xl mx-auto leading-relaxed mb-8 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)] bg-black/60 backdrop-blur-md px-6 py-3 rounded-xl border border-white/15">
-        Official creative apparatus of OMAR MALIK. Streetwear archives, audio frequencies, and brutalist editions.
-      </p>
-<!-- Central Unlock Button -->
-<div class="flex flex-col items-center gap-3">
-<button class="px-8 py-4 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center gap-3 cursor-pointer group transform hover:-translate-y-0.5" onclick="dismissEntrance()">
-<span class="material-symbols-outlined text-lg">lock_open</span>
-<span>ENTER ATELIER &amp; STORE →</span>
-</button>
-<span class="font-mono text-[10px] text-neutral-400 tracking-widest uppercase">CLICK ANYWHERE TO DIVE INTO THE ARCHIVE</span>
-</div>
-</main>
+<main class="my-auto max-w-4xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out" id="spatial-hero-text" style="transform: translate3d(-13.2187px, 13.7508px, 40px) rotateX(-2.40639deg) rotateY(-2.05625deg);"><h1 class="font-display text-6xl sm:text-8xl lg:text-[10rem] uppercase tracking-tight leading-none mb-6 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] text-white">ENTER THE <span class="text-red3rd drop-shadow-[0_0_30px_rgba(213,30,30,0.7)]">3RD WORLD</span></h1><p class="font-mono text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto leading-relaxed mb-8 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)]">Streetwear archives, audio frequencies, and brutalist editions by Omar Malik.</p><button class="px-8 py-4 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs sm:text-sm font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center gap-3 cursor-pointer group transform hover:-translate-y-0.5" onclick="dismissEntrance()"><span class="">ENTER ATELIER &amp; STORE →</span></button></main>
 <!-- Entrance Footer & Gyro / Pan Hint -->
-<footer class="w-full flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-neutral-400 gap-3 pointer-events-auto">
-<div class="flex items-center gap-2 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
-<span class="material-symbols-outlined text-xs text-signal">pan_tool</span>
-<span>PAN CURSOR OR DRAG TO SHIFT 3D PERSPECTIVE</span>
-</div>
-<div class="text-neutral-400 bg-black/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15">
-        NYC • LON • LOS ANGELES • © 2025 ATELIER
-      </div>
-</footer>
+<footer class="w-full flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-neutral-400 gap-3 pointer-events-auto"><div class="font-mono text-[11px] text-neutral-400 tracking-wider uppercase">NYC • LON • LOS ANGELES</div><div class="font-mono text-[11px] text-neutral-500 tracking-wider uppercase">© 2025 ATELIER ARCHIVE</div></footer>
 </div>
 </div>
 <!-- ======================================================= -->
@@ -167,7 +128,7 @@
 <!-- Center Logo -->
 <a class="flex items-center group" href="#">
 <div class="h-9 w-auto flex items-center">
-<img alt="3rd World Logo" class="h-9 w-auto object-contain brightness-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XXPLGz9UYwjSCi4y5HZuRurJzklueDsdTT1wgloHK3teENY50DhM6ealHAwwNEYY0e3cGzKI768iAR7Z-gP3KgCqmRfDToYmikcnTOBqhr23veNaVejzQmZ_kDuOGRrwEBjElrGTZzS_sGmxyD8qLGJClYh4gLeqDM7q9J9F_4HSAW0okyqTQApCAcC9WY8NJL1CPuVUdKa8TnkCeaDfcVMR-JL9xaJTCdZjfjQgZVMZRKgfV3ZRxQSA"/>
+<img alt="3rd World Logo" class="h-9 w-auto object-contain brightness-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XXPLGz9UYwjSCi4y5HZuRurJzklueDsdTT1wgloHK3teENY50DhM6ealHAwwNEYY0e3cGzKI768iAR7Z-gP3KgCqmRfDToYmikcnTOBqhr23veNaVejzQmZ_kDuOGRrwEBjElrGTZzS_sGmxyD8qLGJClYh4gLeqDM7q9J9F_4HSAW0okyqTQApCAcC9WY8NJL1CPuVUdKa8TnkCeaDfcVMR-JL9xaJTCdZjfjQgZVMZRKgfV3ZRxQSA">
 </div>
 </a>
 <!-- Right Action Controls -->
@@ -192,94 +153,7 @@
 <!-- ======================================================= -->
 <!-- 3. PROMINENT CAMPAIGN HERO WITH INTERACTIVE HOTSPOTS   -->
 <!-- ======================================================= -->
-<section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden" id="campaign-hero">
-<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-16">
-<!-- Section Tag & Title -->
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-<div>
-<span class="font-mono text-xs uppercase tracking-widest text-red3rd">// CAMPAIGN DROP 001</span>
-<h2 class="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white mt-1">
-            NO LOITERING IN FRONT OF PREMISES
-          </h2>
-</div>
-<p class="font-mono text-xs text-neutral-400 max-w-sm tracking-wide leading-relaxed">
-          Interactive campaign study shot with Omar Malik &amp; crew. Hover or tap the interactive reticles on the garments to reveal piece specifications.
-        </p>
-</div>
-<!-- Hero Visual Artboard with Tag Hotspots -->
-<div class="relative rounded-2xl overflow-hidden border border-white/15 bg-surface shadow-2xl group">
-<img alt="3rd World Ent No Loitering Campaign" class="w-full h-auto object-cover max-h-[720px] filter brightness-95 contrast-105" src="assets/3rd-World-Hero.png"/>
-<!-- Subtle Ambient Gradient -->
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
-<!-- HOTSPOT 1: Left Model (Omar Malik / Black Zip Hoodie) -->
-<div class="absolute top-[52%] left-[28%] -translate-x-1/2 -translate-y-1/2 z-20">
-<div class="relative group/tag">
-<button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-red3rd text-white cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('archive-hoodie')">
-<span class="w-8 h-8 rounded-full bg-red3rd absolute animate-ping-slow"></span>
-<span class="font-mono text-xs font-bold">+</span>
-</button>
-<!-- Hover Tag Card -->
-<div class="absolute left-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30">
-<span class="text-[9px] font-mono text-red3rd uppercase tracking-widest font-bold">DROP 01 SPEC</span>
-<h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">3RD WORLD ARCHIVE HOODIE</h4>
-<p class="font-mono text-xs text-neutral-300">$145.00 USD • 520 GSM</p>
-<div class="mt-2 text-[10px] font-mono text-signal uppercase flex items-center gap-1">
-<span class="">CLICK TO VIEW ITEM</span> →
-              </div>
-</div>
-</div>
-</div>
-<!-- HOTSPOT 2: Center Model (White Distressed Tee) -->
-<div class="absolute top-[60%] left-[48%] -translate-x-1/2 -translate-y-1/2 z-20">
-<div class="relative group/tag">
-<button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-white text-black cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('street-tee')">
-<span class="w-8 h-8 rounded-full bg-white/60 absolute animate-ping-slow"></span>
-<span class="font-mono text-xs font-bold">+</span>
-</button>
-<!-- Hover Tag Card -->
-<div class="absolute left-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30">
-<span class="text-[9px] font-mono text-signal uppercase tracking-widest font-bold">CORE EDITION</span>
-<h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">DISTRESSED GRAPHIC TEE</h4>
-<p class="font-mono text-xs text-neutral-300">$75.00 USD • 300 GSM</p>
-<div class="mt-2 text-[10px] font-mono text-white uppercase flex items-center gap-1">
-<span class="">CLICK TO VIEW ITEM</span> →
-              </div>
-</div>
-</div>
-</div>
-<!-- HOTSPOT 3: Right Model (Rose & Illustrated Graphic Tee) -->
-<div class="absolute top-[68%] left-[67%] -translate-x-1/2 -translate-y-1/2 z-20">
-<div class="relative group/tag">
-<button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-red3rd text-white cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('illustration-tee')">
-<span class="w-8 h-8 rounded-full bg-red3rd absolute animate-ping-slow"></span>
-<span class="font-mono text-xs font-bold">+</span>
-</button>
-<!-- Hover Tag Card -->
-<div class="absolute right-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30">
-<span class="text-[9px] font-mono text-red3rd uppercase tracking-widest font-bold">LIMITED ARCHIVE</span>
-<h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">3RD WORLD ETCHED TEE</h4>
-<p class="font-mono text-xs text-neutral-300">$80.00 USD • WASHED JET BLACK</p>
-<div class="mt-2 text-[10px] font-mono text-signal uppercase flex items-center gap-1">
-<span class="">CLICK TO VIEW ITEM</span> →
-              </div>
-</div>
-</div>
-</div>
-<!-- Bottom overlay status strip -->
-<div class="absolute bottom-0 inset-x-0 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs text-neutral-400 bg-gradient-to-t from-black via-black/80 to-transparent">
-<div class="flex items-center gap-4">
-<span class="text-white font-bold tracking-widest uppercase">LOCATION: 3RD WORLD HEADQUARTERS</span>
-<span class="hidden sm:inline text-neutral-600">•</span>
-<span class="hidden sm:inline text-signal">3 ACTIVE HOTSPOTS DETECTED</span>
-</div>
-<a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2" href="#shop-section">
-<span class="">EXPLORE FULL CAPSULE</span>
-<span class="">↓</span>
-</a>
-</div>
-</div>
-</div>
-</section>
+<section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden" id="campaign-hero"><div class="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-16"><div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4"><div><span class="font-mono text-xs uppercase tracking-widest text-red3rd">// CAMPAIGN DROP 001</span><h2 class="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white mt-1">NO LOITERING IN FRONT OF PREMISES</h2></div><p class="font-mono text-xs text-neutral-400 max-w-sm tracking-wide leading-relaxed">Interactive campaign shot with Omar Malik &amp; crew. Select any reticle to inspect pieces.</p></div><div class="relative rounded-2xl overflow-hidden border border-white/15 bg-surface shadow-2xl group"><img alt="3rd World Ent No Loitering Campaign" class="w-full h-auto object-cover max-h-[720px] filter brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyZ5Ba2ZeYP-6MRlLSooequBho_tvSl4F80QfVh3IPZYBCp4l52XjtTrENQ8RW4pOaNuOO9gsFprsQYfeCFdd2kPWnwxiBLiZxER7c3AQ-TKZO8I9bpojAa80b9ZdJinNBqQIoVkZ_rCQUjySWTti7Q4z49IqcAOFR0V2R6lapZ1xlk5TNZ9U2on7QkJScOTBwVwgLbOU7jz12exFnftNVTtjGIMUp8it-YG9TVTA5K-jkdr7SgueuxueRTghF0P5_2Q"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div><div class="absolute top-[52%] left-[28%] -translate-x-1/2 -translate-y-1/2 z-20"><div class="relative group/tag"><button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-red3rd text-white cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('archive-hoodie')"><span class="w-8 h-8 rounded-full bg-red3rd absolute animate-ping-slow"></span><span class="font-mono text-xs font-bold">+</span></button><div class="absolute left-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30"><span class="text-[9px] font-mono text-red3rd uppercase tracking-widest font-bold">DROP 01</span><h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">ARCHIVE HOODIE</h4><p class="font-mono text-xs text-neutral-300">$145.00 USD</p></div></div></div><div class="absolute top-[60%] left-[48%] -translate-x-1/2 -translate-y-1/2 z-20"><div class="relative group/tag"><button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-white text-black cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('street-tee')"><span class="w-8 h-8 rounded-full bg-white/60 absolute animate-ping-slow"></span><span class="font-mono text-xs font-bold">+</span></button><div class="absolute left-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30"><span class="text-[9px] font-mono text-signal uppercase tracking-widest font-bold">CORE EDITION</span><h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">GRAPHIC TEE</h4><p class="font-mono text-xs text-neutral-300">$75.00 USD</p></div></div></div><div class="absolute top-[68%] left-[67%] -translate-x-1/2 -translate-y-1/2 z-20"><div class="relative group/tag"><button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-red3rd text-white cursor-pointer hover:scale-125 transition-transform shadow-lg focus:outline-none" onclick="openQuickView('illustration-tee')"><span class="w-8 h-8 rounded-full bg-red3rd absolute animate-ping-slow"></span><span class="font-mono text-xs font-bold">+</span></button><div class="absolute right-10 top-0 -translate-y-1/3 w-56 p-3 bg-carbon/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl pointer-events-none opacity-0 group-hover/tag:opacity-100 transition-all duration-200 z-30"><span class="text-[9px] font-mono text-red3rd uppercase tracking-widest font-bold">LIMITED ARCHIVE</span><h4 class="font-display text-base text-white uppercase tracking-tight mt-0.5">ETCHED TEE</h4><p class="font-mono text-xs text-neutral-300">$80.00 USD</p></div></div></div><div class="absolute bottom-0 inset-x-0 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs text-neutral-400 bg-gradient-to-t from-black via-black/80 to-transparent"><span class="text-white font-bold tracking-widest uppercase">LOCATION: 3RD WORLD ATELIER</span><a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2" href="#shop-section"><span class="">EXPLORE CAPSULE</span><span class="">↓</span></a></div></div></div></section>
 <!-- ======================================================= -->
 <!-- 4. CLEAN, CURATED ARCHIVE SHOP (SPACIOUS 3-COL GRID)    -->
 <!-- ======================================================= -->
@@ -302,7 +176,7 @@
 <div class="group flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300">
 <div>
 <div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-5">
-<img alt="Archive Tactical Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA"/>
+<img alt="Archive Tactical Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA">
 <span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[10px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">
               SPEC 01
             </span>
@@ -335,7 +209,7 @@
 <div class="group flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300">
 <div>
 <div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-5">
-<img alt="BORN Vault Crate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts"/>
+<img alt="BORN Vault Crate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts">
 <span class="absolute top-3 left-3 bg-neutral-900 border border-white/20 text-white font-mono text-[10px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">
               LTD 500
             </span>
@@ -364,7 +238,7 @@
 <div class="group flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300">
 <div>
 <div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-5">
-<img alt="Editorial Tactical Lookbook Suit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
+<img alt="Editorial Tactical Lookbook Suit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU">
 <span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[10px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">
               35MM ARCHIVE
             </span>
@@ -409,7 +283,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-surface-card rounded-2xl border border-white/10 p-6 lg:p-8">
 <!-- Contact Sheet Visual -->
 <div class="lg:col-span-7 rounded-xl overflow-hidden border border-white/15 shadow-2xl">
-<img alt="Editorial Lookbook 35mm" class="w-full h-auto object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
+<img alt="Editorial Lookbook 35mm" class="w-full h-auto object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU">
 </div>
 <!-- Editorial Narrative & Bundle Buy -->
 <div class="lg:col-span-5 flex flex-col justify-center space-y-6">
@@ -447,7 +321,7 @@
 <!-- Album Crate Thumbnail -->
 <div class="lg:col-span-4">
 <div class="relative aspect-square rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
-<img alt="BORN Visual Mixtape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts"/>
+<img alt="BORN Visual Mixtape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts">
 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
 <button class="w-16 h-16 rounded-full bg-white text-black hover:bg-red3rd hover:text-white transition-all transform hover:scale-110 flex items-center justify-center shadow-2xl" id="main-play-btn" onclick="toggleAudio()">
 <span class="material-symbols-outlined text-3xl" id="main-play-icon">play_arrow</span>
@@ -466,49 +340,11 @@
               BORN (THE VISUAL MIXTAPE)
             </h3>
 <p class="font-mono text-sm text-neutral-400">
-              O M A R   M A L I K • NOW TRANSMITTING // 3RD WORLD RADIO
+              O M A R &nbsp; M A L I K • NOW TRANSMITTING // 3RD WORLD RADIO
             </p>
 </div>
 <!-- Waveform Equalizer -->
-<div class="p-5 rounded-2xl bg-black/60 border border-white/10 space-y-4">
-<div class="flex items-center justify-between font-mono text-xs text-neutral-400">
-<span class="text-white">TRACK 04: “CONCRETE PROTOCOL”</span>
-<span class="" id="audio-time">01:42 / 03:30</span>
-</div>
-<!-- Wave Bars -->
-<div class="flex items-end gap-1.5 h-12 justify-between px-2" id="equalizer-bars">
-<div class="w-1.5 bg-red3rd h-6 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-white h-10 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-signal h-12 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-neutral-600 h-5 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-red3rd h-8 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-white h-4 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-signal h-11 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-neutral-500 h-7 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-red3rd h-12 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-white h-6 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-signal h-9 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-neutral-600 h-4 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-red3rd h-8 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-white h-11 rounded-full transition-all duration-200"></div>
-<div class="w-1.5 bg-signal h-6 rounded-full transition-all duration-200"></div>
-</div>
-<!-- Streaming links -->
-<div class="pt-3 border-t border-white/10 flex flex-wrap gap-4 font-mono text-xs uppercase text-neutral-400">
-<a class="hover:text-white transition-colors flex items-center gap-1.5" href="#">
-<span class="w-1.5 h-1.5 rounded-full bg-signal"></span>
-<span class="">SPOTIFY</span>
-</a>
-<a class="hover:text-white transition-colors flex items-center gap-1.5" href="#">
-<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-<span class="">APPLE MUSIC</span>
-</a>
-<a class="hover:text-white transition-colors flex items-center gap-1.5" href="#">
-<span class="w-1.5 h-1.5 rounded-full bg-red3rd"></span>
-<span class="">YOUTUBE MUSIC</span>
-</a>
-</div>
-</div>
+<div class="p-5 rounded-2xl bg-black/60 border border-white/10 space-y-4"><div class="flex items-center justify-between font-mono text-xs text-neutral-400"><span class="text-white tracking-wide">TRACK 04: “CONCRETE PROTOCOL”</span><span id="audio-time" class="">01:42 / 03:30</span></div><div class="flex items-end gap-2 h-10 justify-between px-1" id="equalizer-bars"><div class="w-1 bg-white h-5 rounded-full transition-all duration-200"></div><div class="w-1 bg-red3rd h-9 rounded-full transition-all duration-200"></div><div class="w-1 bg-white h-7 rounded-full transition-all duration-200"></div><div class="w-1 bg-white h-4 rounded-full transition-all duration-200"></div><div class="w-1 bg-red3rd h-10 rounded-full transition-all duration-200"></div><div class="w-1 bg-white h-6 rounded-full transition-all duration-200"></div><div class="w-1 bg-white h-8 rounded-full transition-all duration-200"></div><div class="w-1 bg-red3rd h-5 rounded-full transition-all duration-200"></div><div class="w-1 bg-white h-9 rounded-full transition-all duration-200"></div><div class="w-1 bg-white h-4 rounded-full transition-all duration-200"></div></div><div class="pt-3 border-t border-white/10 flex flex-wrap gap-6 font-mono text-xs uppercase text-neutral-400"><a class="hover:text-white transition-colors" href="#">SPOTIFY</a><a class="hover:text-white transition-colors" href="#">APPLE MUSIC</a><a class="hover:text-white transition-colors" href="#">YOUTUBE</a></div></div>
 </div>
 </div>
 </div>
@@ -527,7 +363,7 @@
       </p>
 <!-- Dispatch Form -->
 <form class="pt-6 max-w-md mx-auto flex flex-col sm:flex-row gap-2 font-mono text-xs" onsubmit="handleSubscribe(event)">
-<input class="flex-1 bg-surface-card border border-white/20 rounded-xl px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-red3rd" placeholder="ENTER YOUR EMAIL FOR DROP ACCESS" required="" type="email"/>
+<input class="flex-1 bg-surface-card border border-white/20 rounded-xl px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-red3rd" placeholder="ENTER YOUR EMAIL FOR DROP ACCESS" required="" type="email">
 <button class="bg-red3rd hover:bg-white hover:text-black text-white font-bold uppercase tracking-widest px-6 py-3 rounded-xl transition-colors whitespace-nowrap" type="submit">
           JOIN DISPATCH
         </button>
@@ -573,7 +409,7 @@
 <div class="space-y-4 max-h-[55vh] overflow-y-auto custom-scrollbar" id="cart-items-list">
 <!-- Empty state default -->
 <div class="text-center py-12 font-mono text-xs text-neutral-500" id="cart-empty-state">
-              YOUR CART IS CURRENTLY EMPTY.<br/>ADD PIECES FROM DROP 001.
+              YOUR CART IS CURRENTLY EMPTY.<br>ADD PIECES FROM DROP 001.
             </div>
 </div>
 </div>
@@ -601,7 +437,7 @@
 </button>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
 <div class="aspect-square rounded-xl overflow-hidden bg-surface">
-<img alt="Quick View" class="w-full h-full object-cover" id="qv-image" src="https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA"/>
+<img alt="Quick View" class="w-full h-full object-cover" id="qv-image" src="https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA">
 </div>
 <div class="space-y-4 font-mono">
 <span class="text-[10px] font-bold text-red3rd uppercase tracking-widest" id="qv-tag">SPECIFICATION</span>
@@ -875,4 +711,6 @@
       document.getElementById('subscribe-status').classList.remove('hidden');
     }
   </script>
+
+
 </body></html>
