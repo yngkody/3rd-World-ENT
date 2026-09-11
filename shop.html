@@ -1372,7 +1372,58 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }, e);
   }
 
-  function changeItemQty(index, delta, e) {
+  // UPDATE CART DRAWER UI & CALCULATIONS
+  function updateCartDrawerUI() {
+    const container = document.getElementById('cart-items-container');
+    const totalCountEl = document.getElementById('cart-counter');
+    const drawerCountEl = document.getElementById('cart-drawer-count');
+
+    let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    totalCountEl.innerText = totalQty;
+    drawerCountEl.innerText = `(${totalQty} ITEMS)`;
+
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-16 text-neutral-500 font-mono text-xs">
+          <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
+          YOUR ARCHIVE CART IS EMPTY.<br>SELECT PIECES FROM THE IKIGAI ATELIER.
+        </div>`;
+    } else {
+      container.innerHTML = cart.map((item, idx) => `
+        <div class="flex gap-3 p-3 bg-surface rounded-xl border border-white/10 items-center">
+          <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-cover rounded-lg border border-white/10 shrink-0">
+          <div class="flex-1 min-w-0">
+            <h4 class="font-display text-sm text-white truncate">${item.title}</h4>
+            <div class="text-[10px] text-neutral-400 space-y-0.5 mt-0.5">
+              <div>SIZE: <span class="text-white">${item.size}</span> ${item.sleeve ? `• ${item.sleeve.toUpperCase()}` : ''}</div>
+              <div>FINISH: <span class="text-white">${item.color}</span></div>
+            </div>
+            <div class="text-xs font-bold text-white mt-1">$${item.price}.00 USD</div>
+          </div>
+          <div class="flex flex-col items-end gap-2">
+            <button onclick="removeFromCart(${idx}, event)" class="text-neutral-500 hover:text-red3rd text-xs cursor-pointer">
+              <span class="material-symbols-outlined text-base">delete</span>
+            </button>
+            <div class="flex items-center gap-2 bg-carbon border border-white/10 rounded px-2 py-0.5 text-xs">
+              <button onclick="changeQty(${idx}, -1, event)" class="text-neutral-400 hover:text-white">-</button>
+              <span class="text-white font-bold">${item.qty}</span>
+              <button onclick="changeQty(${idx}, 1, event)" class="text-neutral-400 hover:text-white">+</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    calculateCartTotals();
+  }
+
+  function removeFromCart(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    cart.splice(index, 1);
+    updateCartDrawerUI();
+  }
+
+  function changeQty(index, delta, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     cart[index].qty += delta;
     if (cart[index].qty <= 0) {
@@ -1381,163 +1432,33 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     updateCartDrawerUI();
   }
 
-  function removeItemFromCart(index, e) {
-    if (e && e.stopPropagation) e.stopPropagation();
-    cart.splice(index, 1);
-    updateCartDrawerUI();
-  }
-
-  function updateCartDrawerUI() {
-    const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
-    document.getElementById('cart-counter').innerText = totalItems;
-    document.getElementById('cart-drawer-count').innerText = `(${totalItems} ${totalItems === 1 ? 'ITEM' : 'ITEMS'})`;
-
-    const container = document.getElementById('cart-items-container');
-    container.innerHTML = '';
-
-    if (cart.length === 0) {
-      container.innerHTML = `
-        <div class="text-center py-16 text-neutral-500 font-mono text-xs">
-          <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
-          YOUR ARCHIVE CART IS EMPTY.<br>SELECT PIECES FROM THE IKIGAI ATELIER.
-        </div>
-      `;
-      document.getElementById('cart-calc-subtotal').innerText = '$0.00 USD';
-      document.getElementById('cart-calc-shipping').innerText = '$0.00 USD';
-      document.getElementById('cart-calc-total').innerText = '$0.00 USD';
-      document.getElementById('cart-calc-discount-row').classList.add('hidden');
-      document.getElementById('shipping-progress-bar').style.width = '0%';
-      document.getElementById('shipping-progress-text').innerText = 'You’re $120.00 away from free U.S. shipping.';
-      return;
-    }
-
-    let subtotal = 0;
-    cart.forEach((item, index) => {
-      subtotal += item.price * item.qty;
-
-      const itemCard = document.createElement('div');
-      itemCard.className = 'flex gap-3 bg-surface p-3 rounded-xl border border-white/10 font-mono text-xs';
-      itemCard.innerHTML = `
-        <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg bg-carbon border border-white/10">
-        <div class="flex-1 min-w-0">
-          <div class="flex justify-between items-start">
-            <h5 class="text-white font-bold text-xs uppercase truncate pr-2">${item.title}</h5>
-            <button type="button" onclick="removeItemFromCart(${index}, event)" class="text-neutral-500 hover:text-red3rd text-base cursor-pointer">×</button>
-          </div>
-          <div class="text-[11px] text-neutral-400 mt-0.5 space-y-0.5">
-            <div>${item.color} • SIZE: ${item.size}${item.sleeve ? ` • ${item.sleeve}` : ''}</div>
-            <div class="${item.isTorched ? 'text-orange-400' : 'text-signal'} text-[10px] font-bold uppercase tracking-wider">
-              ${item.fulfillment}
-            </div>
-          </div>
-          <div class="flex justify-between items-center mt-2">
-            <div class="flex items-center border border-white/15 rounded bg-carbon">
-              <button type="button" class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, -1, event)">-</button>
-              <span class="px-2 text-white font-bold text-xs">${item.qty}</span>
-              <button type="button" class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, 1, event)">+</button>
-            </div>
-            <span class="text-white font-bold text-xs">$${item.price * item.qty}.00 USD</span>
-          </div>
-        </div>
-      `;
-      container.appendChild(itemCard);
-    });
-
-    const threshold = 120;
-    const progressFill = document.getElementById('shipping-progress-bar');
-    const progressText = document.getElementById('shipping-progress-text');
-    const progressBadge = document.getElementById('shipping-progress-badge');
-
-    if (subtotal >= threshold) {
-      progressFill.style.width = '100%';
-      progressFill.className = 'bg-signal h-full transition-all duration-500 rounded-full';
-      progressText.innerText = '✓ Free U.S. Shipping Unlocked!';
-      progressBadge.innerText = 'FREE SHIPPING';
-      progressBadge.className = 'text-signal text-[10px] font-bold uppercase';
-    } else {
-      const remaining = (threshold - subtotal).toFixed(2);
-      const pct = Math.min(100, Math.round((subtotal / threshold) * 100));
-      progressFill.style.width = `${pct}%`;
-      progressFill.className = 'bg-red3rd h-full transition-all duration-500 rounded-full';
-      progressText.innerText = `You’re $${remaining} away from free U.S. shipping.`;
-      progressBadge.innerText = '$120 THRESHOLD';
-      progressBadge.className = 'text-neutral-400 text-[10px] font-bold uppercase';
-    }
-
-    let discountAmount = 0;
-    if (appliedDiscount) {
-      if (appliedDiscount.type === 'percent') discountAmount = subtotal * (appliedDiscount.val / 100);
-      else if (appliedDiscount.type === 'fixed') discountAmount = appliedDiscount.val;
-    }
-
-    let finalShip = subtotal >= threshold || (appliedDiscount && appliedDiscount.type === 'free_ship') ? 0 : shippingCost;
-    const grandTotal = Math.max(0, subtotal - discountAmount + finalShip);
+  function calculateCartTotals() {
+    let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    let shipping = subtotal >= 120 || subtotal === 0 ? 0 : shippingCost;
 
     document.getElementById('cart-calc-subtotal').innerText = `$${subtotal.toFixed(2)} USD`;
-    document.getElementById('cart-calc-shipping').innerText = finalShip === 0 ? 'FREE' : `$${finalShip.toFixed(2)} USD`;
-    document.getElementById('cart-calc-total').innerText = `$${grandTotal.toFixed(2)} USD`;
+    document.getElementById('cart-calc-shipping').innerText = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)} USD`;
+    document.getElementById('cart-calc-total').innerText = `$${(subtotal + shipping).toFixed(2)} USD`;
 
-    const discountRow = document.getElementById('cart-calc-discount-row');
-    if (discountAmount > 0) {
-      discountRow.classList.remove('hidden');
-      document.getElementById('cart-calc-discount-val').innerText = `-$${discountAmount.toFixed(2)} USD`;
+    // Shipping progress bar update
+    const progressBar = document.getElementById('shipping-progress-bar');
+    const progressTxt = document.getElementById('shipping-progress-text');
+    if (subtotal >= 120) {
+      progressBar.style.width = '100%';
+      progressTxt.innerText = 'QUALIFIED FOR FREE U.S. SHIPPING!';
     } else {
-      discountRow.classList.add('hidden');
+      let pct = (subtotal / 120) * 100;
+      progressBar.style.width = `${pct}%`;
+      progressTxt.innerText = `You’re $${(120 - subtotal).toFixed(2)} away from free U.S. shipping.`;
     }
   }
 
-  function applyPromoCode(e) {
-    if (e && e.stopPropagation) e.stopPropagation();
-    const input = document.getElementById('cart-discount-input');
-    const code = input.value.trim().toUpperCase();
-    const statusRow = document.getElementById('cart-discount-status-row');
-    const msg = document.getElementById('cart-discount-msg');
-
-    if (!code) return;
-
-    if (PROMO_CODES[code]) {
-      const promo = PROMO_CODES[code];
-      const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-
-      if (promo.minSpend && subtotal < promo.minSpend) {
-        statusRow.classList.remove('hidden');
-        msg.className = "text-[11px] font-bold text-orange-400";
-        msg.innerText = `REQUIRES $${promo.minSpend}.00 MINIMUM ORDER`;
-        return;
-      }
-
-      appliedDiscount = promo;
-      statusRow.classList.remove('hidden');
-      msg.className = "text-[11px] font-bold text-signal";
-      msg.innerText = `✓ ${promo.label} (${code})`;
-      input.value = '';
-      updateCartDrawerUI();
-    } else {
-      statusRow.classList.remove('hidden');
-      msg.className = "text-[11px] font-bold text-red3rd";
-      msg.innerText = "THIS CODE HAS EXPIRED OR IS INVALID.";
-    }
-  }
-
-  function removePromoCode(e) {
-    if (e && e.stopPropagation) e.stopPropagation();
-    appliedDiscount = null;
-    document.getElementById('cart-discount-status-row').classList.add('hidden');
-    updateCartDrawerUI();
-  }
-
-  // 7. CHECKOUT CONTROLLER
-  let currentStep = 1;
-
+  // CHECKOUT MODAL TOGGLES
   function launchCheckoutFlow(e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    if (cart.length === 0) {
-      alert("Please add items to your cart before proceeding.");
-      return;
-    }
+    if (cart.length === 0) return;
     toggleCartDrawer(e);
     document.getElementById('checkout-modal').classList.remove('hidden');
-    setCheckoutStep(1, e);
   }
 
   function closeCheckoutModal(e) {
@@ -1547,81 +1468,18 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 
   function setCheckoutStep(step, e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    currentStep = step;
     for (let i = 1; i <= 5; i++) {
-      const tab = document.getElementById(`co-tab-${i}`);
-      const pane = document.getElementById(`co-pane-${i}`);
-      if (i === step) {
-        tab.className = "step-indicator border-b-2 border-red3rd pb-2 text-white font-bold";
-        pane.classList.remove('hidden');
-      } else if (i < step) {
-        tab.className = "step-indicator border-b-2 border-signal pb-2 text-signal";
-        pane.classList.add('hidden');
-      } else {
-        tab.className = "step-indicator border-b-2 border-white/20 pb-2 text-neutral-500";
-        pane.classList.add('hidden');
-      }
+      document.getElementById(`co-pane-${i}`).classList.add('hidden');
+      document.getElementById(`co-tab-${i}`).className = 'step-indicator border-b-2 border-white/20 pb-2 text-neutral-500';
     }
-
-    if (step === 5) renderStep5Summary();
-  }
-
-  function updateSelectedShippingRate(method, price) {
-    selectedShippingMethod = method;
-    shippingCost = price;
-    updateCartDrawerUI();
-  }
-
-  function renderStep5Summary() {
-    const summaryItems = document.getElementById('co-review-items');
-    summaryItems.innerHTML = '';
-    let subtotal = 0;
-
-    cart.forEach(item => {
-      subtotal += item.price * item.qty;
-      const row = document.createElement('div');
-      row.className = "flex justify-between items-center text-xs py-1 border-b border-white/5 last:border-0";
-      row.innerHTML = `
-        <span class="text-neutral-300 truncate max-w-[240px]">${item.qty}x ${item.title} (${item.size})</span>
-        <span class="text-white font-bold">$${item.price * item.qty}.00</span>
-      `;
-      summaryItems.appendChild(row);
-    });
-
-    let discountAmount = 0;
-    if (appliedDiscount) {
-      if (appliedDiscount.type === 'percent') discountAmount = subtotal * (appliedDiscount.val / 100);
-      else if (appliedDiscount.type === 'fixed') discountAmount = appliedDiscount.val;
-    }
-
-    let finalShip = subtotal >= 120 || (appliedDiscount && appliedDiscount.type === 'free_ship') ? 0 : shippingCost;
-    const total = Math.max(0, subtotal - discountAmount + finalShip);
-
-    document.getElementById('co-summary-subtotal').innerText = `$${subtotal.toFixed(2)} USD`;
-    document.getElementById('co-summary-shipping').innerText = finalShip === 0 ? 'FREE' : `$${finalShip.toFixed(2)} USD`;
-    document.getElementById('co-summary-total').innerText = `$${total.toFixed(2)} USD`;
-
-    const discRow = document.getElementById('co-summary-discount-row');
-    if (discountAmount > 0) {
-      discRow.classList.remove('hidden');
-      document.getElementById('co-summary-discount').innerText = `-$${discountAmount.toFixed(2)} USD`;
-    } else {
-      discRow.classList.add('hidden');
-    }
+    document.getElementById(`co-pane-${step}`).classList.remove('hidden');
+    document.getElementById(`co-tab-${step}`).className = 'step-indicator border-b-2 border-red3rd pb-2 text-white font-bold';
   }
 
   function submitFinalOrderCheckout(e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    const termsCheck = document.getElementById('co-terms-checkbox');
-    if (!termsCheck.checked) {
-      alert("Please confirm the verification checkbox regarding sizes and handcrafted details.");
-      return;
-    }
-
     document.getElementById('checkout-panes-wrapper').classList.add('hidden');
-    document.getElementById('checkout-stepper-bar').classList.add('hidden');
     document.getElementById('order-confirmed-view').classList.remove('hidden');
-
     cart = [];
     updateCartDrawerUI();
   }
@@ -1630,16 +1488,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     if (e && e.stopPropagation) e.stopPropagation();
     closeCheckoutModal(e);
     document.getElementById('checkout-panes-wrapper').classList.remove('hidden');
-    document.getElementById('checkout-stepper-bar').classList.remove('hidden');
     document.getElementById('order-confirmed-view').classList.add('hidden');
-    setCheckoutStep(1);
   }
-
-  // INITIALIZE ON LOAD (Strictly isolated button handlers, NO global click interception)
-  document.addEventListener('DOMContentLoaded', () => {
-    updateCartDrawerUI();
-  });
 </script>
-
-
-</body></html>
+</body>
+</html>
