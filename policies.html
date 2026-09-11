@@ -1,1 +1,493 @@
+<!DOCTYPE html>
 
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>POLICIES &amp; PROTOCOLS | 3RD WORLD ENT</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Anton & Space Mono & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@300;400;500;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#131313',
+              dark: '#0d0d0d',
+              surface: '#1b1b1b',
+              surfaceAlt: '#242424',
+              border: '#2e2e2e',
+              red: '#d51e1e',
+              redHover: '#b51616',
+              muted: '#8e8e8e',
+              light: '#f5f5f5'
+            }
+          },
+          fontFamily: {
+            display: ['Anton', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+            sans: ['Inter', 'sans-serif']
+          },
+          letterSpacing: {
+            tactical: '0.22em',
+            ultra: '0.35em'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Tactical Industrial Aesthetic -->
+<style data-purpose="custom-styling">
+    body {
+      background-color: #131313;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Technical crosshair grid overlay */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    /* Accordion styles */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    details[open] summary .indicator-icon {
+      transform: rotate(45deg);
+      color: #d51e1e;
+    }
+
+    .industrial-border {
+      border-color: #2e2e2e;
+    }
+
+    /* Subtle scanline animation effect on specific cards */
+    .scanline-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .scanline-card::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body class="bg-brand-black text-brand-light min-h-screen flex flex-col selection:bg-brand-red selection:text-white bg-grid-pattern">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border" data-purpose="site-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Brand Logo & Badge -->
+<div class="flex items-center space-x-4">
+<a class="group flex items-center gap-3" href="#">
+<span class="font-display text-2xl sm:text-3xl tracking-wider text-white group-hover:text-brand-red transition-colors duration-200">
+              3RD WORLD
+            </span>
+<span class="font-mono text-[10px] tracking-widest text-brand-red border border-brand-red/40 px-1.5 py-0.5 rounded uppercase hidden sm:inline-block">
+              ENT // PROTOCOL
+            </span>
+</a>
+</div>
+<!-- Navigation Links -->
+<nav class="flex items-center space-x-4 sm:space-x-8 font-mono text-xs tracking-tactical uppercase">
+<a class="text-brand-muted hover:text-brand-red transition-colors flex items-center gap-1" href="#">
+<span class="text-brand-red font-bold">←</span> RETURN TO STORE
+          </a>
+<a class="text-brand-muted hover:text-white transition-colors hidden md:inline-block" href="#">
+            IKIGAI
+          </a>
+<a class="text-brand-muted hover:text-white transition-colors hidden md:inline-block" href="#shipping-protocols">
+            SHIPPING PROTOCOLS
+          </a>
+<a class="text-brand-light hover:text-brand-red transition-colors flex items-center gap-2 border border-brand-border hover:border-brand-red px-3 py-1.5 transition-all" href="#">
+<span>CART</span>
+<span class="w-1.5 h-1.5 bg-brand-red rounded-full animate-pulse"></span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Red industrial sub-line -->
+<div class="h-[2px] w-full bg-gradient-to-r from-transparent via-brand-red to-transparent opacity-80"></div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: PageHero -->
+<section class="py-14 sm:py-20 border-b border-brand-border bg-gradient-to-b from-brand-dark to-brand-black relative" data-purpose="page-hero">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<!-- Monospaced Category Tag -->
+<div class="inline-flex items-center gap-2 mb-3">
+<span class="w-2 h-2 bg-brand-red"></span>
+<span class="font-mono text-xs tracking-ultra text-brand-red font-bold uppercase">Customer Directive • Doc Ref 094-CS</span>
+</div>
+<h1 class="font-display text-5xl sm:text-7xl lg:text-8xl tracking-tight uppercase leading-none text-white">
+            OPERATIONAL <span class="text-brand-red">POLICIES</span>
+</h1>
+<p class="font-mono text-xs sm:text-sm text-brand-muted mt-3 max-w-xl">
+            Read carefully before ordering. By confirming a transaction with 3rd World ENT, you acknowledge and accept our terms, processing timelines, and hand-distressing characteristics.
+          </p>
+</div>
+<!-- Quick Jump Status Card -->
+<div class="bg-brand-surface border border-brand-border p-4 font-mono text-xs max-w-xs w-full">
+<div class="text-brand-muted uppercase text-[10px] tracking-wider mb-2 flex justify-between">
+<span>System Status</span>
+<span class="text-green-500 font-bold">ONLINE</span>
+</div>
+<div class="text-brand-light font-bold">DISPATCH: ACTIVE</div>
+<div class="text-brand-muted text-[11px] mt-1">Ready to ship: 14D Exchange Portal</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PageHero -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full space-y-20">
+<!-- BEGIN: ReturnsAndExchangesSection -->
+<section data-purpose="returns-exchanges-policy" id="returns-and-exchanges">
+<!-- Section Header -->
+<div class="border-b border-brand-border pb-4 mb-10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="font-mono text-brand-red text-sm font-bold">[ 01 ]</span>
+<h2 class="font-display text-3xl sm:text-4xl uppercase tracking-wide text-white">
+            Returns &amp; Exchanges Policy
+          </h2>
+</div>
+<span class="font-mono text-xs text-brand-muted hidden sm:inline-block">HANDOFF // VERBATIM</span>
+</div>
+<!-- Policy Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Ready to Ship Items -->
+<div class="bg-brand-surface border border-brand-border p-6 relative flex flex-col justify-between hover:border-brand-muted transition-colors">
+<div class="absolute top-0 right-0 transform translate-x-1 -translate-y-2">
+<span class="bg-brand-surfaceAlt border border-brand-border text-brand-light font-mono text-[9px] px-2 py-0.5 uppercase tracking-widest">SEC-01</span>
+</div>
+<div>
+<h3 class="font-mono text-sm uppercase tracking-wider text-brand-red font-bold mb-3 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Eligible Ready to Ship Items
+            </h3>
+<p class="text-sm text-neutral-300 leading-relaxed">
+              A size exchange or store-credit return may be requested within 14 days of delivery for an eligible ready-to-ship item. The item must be unworn, unwashed, unaltered, free of odor, and returned in its original condition. Approval is required before mailing any return.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-brand-border/60 font-mono text-[11px] text-brand-muted">
+            Status: Request within 14 days of delivery.
+          </div>
+</div>
+<!-- Final Sale Items -->
+<div class="bg-brand-surface border border-brand-red/40 p-6 relative flex flex-col justify-between hover:border-brand-red transition-colors">
+<div class="absolute top-0 right-0 transform translate-x-1 -translate-y-2">
+<span class="bg-brand-red text-white font-mono text-[9px] px-2 py-0.5 uppercase tracking-widest font-bold">RESTRICTED</span>
+</div>
+<div>
+<h3 class="font-mono text-sm uppercase tracking-wider text-brand-red font-bold mb-3 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Final Sale Items
+            </h3>
+<p class="text-sm text-neutral-300 leading-relaxed">
+              Made-to-order pieces, torched pieces, discounted items, gift cards, and items marked final sale cannot be returned or exchanged unless the wrong item was sent or the item arrived damaged. Natural differences in hand distressing or torch placement are not defects.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-brand-border/60 font-mono text-[11px] text-brand-red">
+            No standard returns or cancellations.
+          </div>
+</div>
+<!-- Exchanges -->
+<div class="bg-brand-surface border border-brand-border p-6 relative flex flex-col justify-between hover:border-brand-muted transition-colors">
+<div class="absolute top-0 right-0 transform translate-x-1 -translate-y-2">
+<span class="bg-brand-surfaceAlt border border-brand-border text-brand-light font-mono text-[9px] px-2 py-0.5 uppercase tracking-widest">SEC-02</span>
+</div>
+<div>
+<h3 class="font-mono text-sm uppercase tracking-wider text-brand-red font-bold mb-3 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Exchanges
+            </h3>
+<p class="text-sm text-neutral-300 leading-relaxed">
+              Exchanges depend on available inventory and are not guaranteed. If the requested size is unavailable, approved customers will receive store credit. Customers are responsible for return shipping unless 3rd World Enterprise sent the wrong item or confirmed a manufacturing defect.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-brand-border/60 font-mono text-[11px] text-brand-muted">
+            Subject to live stock levels.
+          </div>
+</div>
+<!-- Damaged or Incorrect Items -->
+<div class="bg-brand-surface border border-brand-border p-6 relative flex flex-col justify-between hover:border-brand-muted transition-colors">
+<div class="absolute top-0 right-0 transform translate-x-1 -translate-y-2">
+<span class="bg-brand-surfaceAlt border border-brand-border text-brand-light font-mono text-[9px] px-2 py-0.5 uppercase tracking-widest">SEC-03</span>
+</div>
+<div>
+<h3 class="font-mono text-sm uppercase tracking-wider text-brand-red font-bold mb-3 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Damaged or Incorrect Items
+            </h3>
+<p class="text-sm text-neutral-300 leading-relaxed">
+              Report an incorrect or damaged item within 5 days of delivery by emailing <a class="text-white underline hover:text-brand-red font-mono" href="mailto:support@3rdworldent.com">support@3rdworldent.com</a>. Include the order number and clear photographs of the item and original packaging. Do not wear, wash, or alter the item while the claim is being reviewed.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-brand-border/60 font-mono text-[11px] text-brand-muted">
+            Critical window: Within 5 days of receipt.
+          </div>
+</div>
+<!-- Order Changes and Cancellations -->
+<div class="bg-brand-surface border border-brand-border p-6 relative flex flex-col justify-between hover:border-brand-muted transition-colors">
+<div class="absolute top-0 right-0 transform translate-x-1 -translate-y-2">
+<span class="bg-brand-surfaceAlt border border-brand-border text-brand-light font-mono text-[9px] px-2 py-0.5 uppercase tracking-widest">SEC-04</span>
+</div>
+<div>
+<h3 class="font-mono text-sm uppercase tracking-wider text-brand-red font-bold mb-3 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Order Changes &amp; Cancellations
+            </h3>
+<p class="text-sm text-neutral-300 leading-relaxed">
+              Change or cancellation requests must be sent within 12 hours of purchase. Requests are handled when possible but cannot be guaranteed after processing or hand-finishing begins.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-brand-border/60 font-mono text-[11px] text-brand-muted">
+            Window: 12 hours from time of order.
+          </div>
+</div>
+<!-- Shipping Charges and Approved Refunds -->
+<div class="bg-brand-surface border border-brand-border p-6 relative flex flex-col justify-between hover:border-brand-muted transition-colors" id="shipping-protocols">
+<div class="absolute top-0 right-0 transform translate-x-1 -translate-y-2">
+<span class="bg-brand-surfaceAlt border border-brand-border text-brand-light font-mono text-[9px] px-2 py-0.5 uppercase tracking-widest">SEC-05</span>
+</div>
+<div>
+<h3 class="font-mono text-sm uppercase tracking-wider text-brand-red font-bold mb-3 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Shipping &amp; Approved Refunds
+            </h3>
+<p class="text-sm text-neutral-300 leading-relaxed">
+              Original shipping charges are not refundable. If a refund to the original payment method is specifically approved for a damaged, incorrect, or unavailable item, processing by the bank or payment provider may take an additional 5 to 10 business days.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-brand-border/60 font-mono text-[11px] text-brand-muted">
+            Bank resolution: 5-10 business days.
+          </div>
+</div>
+</div>
+</section>
+<!-- END: ReturnsAndExchangesSection -->
+<!-- BEGIN: GarmentCareSection -->
+<section class="border border-brand-border bg-brand-surface p-6 sm:p-10 relative overflow-hidden" data-purpose="care-instructions" id="garment-care">
+<!-- Visual Accent Watermark -->
+<div class="absolute -right-6 -bottom-10 select-none pointer-events-none opacity-5">
+<span class="font-display text-9xl tracking-tighter">CARE</span>
+</div>
+<div class="flex flex-col lg:flex-row gap-10">
+<!-- Left Column: Care Protocols -->
+<div class="lg:w-1/2 space-y-6">
+<div class="flex items-center gap-3">
+<span class="font-mono text-brand-red text-sm font-bold">[ 02 ]</span>
+<h2 class="font-display text-3xl sm:text-4xl uppercase tracking-wide text-white">
+              Garment Care Protocol
+            </h2>
+</div>
+<p class="font-mono text-xs text-brand-muted uppercase tracking-wider">
+            Industrial wash instructions for longevity of handcrafted finishes:
+          </p>
+<ul class="space-y-3 font-mono text-xs sm:text-sm text-neutral-300">
+<li class="flex items-center gap-3 bg-brand-dark p-3 border-l-2 border-brand-red">
+<span class="text-brand-red font-bold">01.</span> Turn garment inside out before washing.
+            </li>
+<li class="flex items-center gap-3 bg-brand-dark p-3 border-l-2 border-brand-red">
+<span class="text-brand-red font-bold">02.</span> Use cold water with mild detergent only.
+            </li>
+<li class="flex items-center gap-3 bg-brand-dark p-3 border-l-2 border-brand-red">
+<span class="text-brand-red font-bold">03.</span> Hand wash torched pieces to preserve treatment integrity.
+            </li>
+<li class="flex items-center gap-3 bg-brand-dark p-3 border-l-2 border-brand-red">
+<span class="text-brand-red font-bold">04.</span> Do NOT bleach under any condition.
+            </li>
+<li class="flex items-center gap-3 bg-brand-dark p-3 border-l-2 border-brand-red">
+<span class="text-brand-red font-bold">05.</span> Air dry naturally. Never machine tumble high heat.
+            </li>
+<li class="flex items-center gap-3 bg-brand-dark p-3 border-l-2 border-brand-red">
+<span class="text-brand-red font-bold">06.</span> Do NOT iron directly over graphics or distress areas.
+            </li>
+</ul>
+</div>
+<!-- Right Column: Intentional Finish Notice -->
+<div class="lg:w-1/2 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-brand-border pt-8 lg:pt-0 lg:pl-10">
+<div>
+<div class="inline-block bg-brand-red/10 border border-brand-red text-brand-red font-mono text-[10px] tracking-tactical px-2.5 py-1 uppercase mb-4">
+              Hand-Finished Authenticity Notice
+            </div>
+<h3 class="font-display text-2xl uppercase tracking-wider text-white mb-4">
+              Intentional Finish Notice
+            </h3>
+<div class="bg-brand-dark/70 p-5 border border-brand-border/60 text-sm text-neutral-300 leading-relaxed mb-6 font-sans">
+<p class="font-mono text-xs uppercase tracking-wide text-brand-muted mb-3 font-semibold">
+                // CRITICAL ARCHIVAL NOTICE:
+              </p>
+              Every distressed and torched garment is finished individually. Openings, fraying, fading, and torch placement will vary slightly. These differences are intentional and make each piece unique.
+            </div>
+</div>
+<div class="font-mono text-xs text-brand-muted flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-brand-red"></span>
+<span>Uniqueness is engineered, not defective.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: GarmentCareSection -->
+<!-- BEGIN: FAQSection -->
+<section data-purpose="faq-accordions" id="faq">
+<!-- Section Header -->
+<div class="border-b border-brand-border pb-4 mb-8 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="font-mono text-brand-red text-sm font-bold">[ 03 ]</span>
+<h2 class="font-display text-3xl sm:text-4xl uppercase tracking-wide text-white">
+            Frequently Asked Questions
+          </h2>
+</div>
+<span class="font-mono text-xs text-brand-muted">EXPANDABLE DIRECTIVES</span>
+</div>
+<div class="space-y-4">
+<!-- FAQ Item 1 -->
+<details class="group bg-brand-surface border border-brand-border open:border-brand-red transition-colors">
+<summary class="flex justify-between items-center p-5 sm:p-6 cursor-pointer list-none select-none">
+<span class="font-mono text-sm sm:text-base font-bold text-white uppercase tracking-wider group-hover:text-brand-red transition-colors">
+              How do the shirts fit?
+            </span>
+<span class="indicator-icon font-mono text-xl text-brand-muted transition-transform duration-200 ml-4">
+              +
+            </span>
+</summary>
+<div class="px-5 pb-6 sm:px-6 pt-0 text-sm text-neutral-300 border-t border-brand-border/40 mt-2 pt-4">
+<p>
+              Unisex oversized, drop-shoulder fit. If you prefer a tailored or closer standard silhouette, we recommend sizing down one full size. Refer to individual drop product measurements on product drop pages.
+            </p>
+</div>
+</details>
+<!-- FAQ Item 2 -->
+<details class="group bg-brand-surface border border-brand-border open:border-brand-red transition-colors">
+<summary class="flex justify-between items-center p-5 sm:p-6 cursor-pointer list-none select-none">
+<span class="font-mono text-sm sm:text-base font-bold text-white uppercase tracking-wider group-hover:text-brand-red transition-colors">
+              What sizes are available?
+            </span>
+<span class="indicator-icon font-mono text-xl text-brand-muted transition-transform duration-200 ml-4">
+              +
+            </span>
+</summary>
+<div class="px-5 pb-6 sm:px-6 pt-0 text-sm text-neutral-300 border-t border-brand-border/40 mt-2 pt-4">
+<p>
+              Standard releases feature sizes <strong class="text-white">S, M, L, XL</strong>. Extended custom sizing or bespoke alterations are available only during specialized private archive drops.
+            </p>
+</div>
+</details>
+<!-- FAQ Item 3 -->
+<details class="group bg-brand-surface border border-brand-border open:border-brand-red transition-colors">
+<summary class="flex justify-between items-center p-5 sm:p-6 cursor-pointer list-none select-none">
+<span class="font-mono text-sm sm:text-base font-bold text-white uppercase tracking-wider group-hover:text-brand-red transition-colors">
+              Will my distressed or torched piece look exactly like the photo?
+            </span>
+<span class="indicator-icon font-mono text-xl text-brand-muted transition-transform duration-200 ml-4">
+              +
+            </span>
+</summary>
+<div class="px-5 pb-6 sm:px-6 pt-0 text-sm text-neutral-300 border-t border-brand-border/40 mt-2 pt-4">
+<p>
+              No two hand-finished pieces are identical. Because each item undergoes an artisan manual torching, washing, and distressing run, unique variations in tone, singe placement, and thread exposure are signature qualities of 3rd World ENT manufacturing.
+            </p>
+</div>
+</details>
+<!-- FAQ Item 4 -->
+<details class="group bg-brand-surface border border-brand-border open:border-brand-red transition-colors">
+<summary class="flex justify-between items-center p-5 sm:p-6 cursor-pointer list-none select-none">
+<span class="font-mono text-sm sm:text-base font-bold text-white uppercase tracking-wider group-hover:text-brand-red transition-colors">
+              Can I return or exchange an item?
+            </span>
+<span class="indicator-icon font-mono text-xl text-brand-muted transition-transform duration-200 ml-4">
+              +
+            </span>
+</summary>
+<div class="px-5 pb-6 sm:px-6 pt-0 text-sm text-neutral-300 border-t border-brand-border/40 mt-2 pt-4">
+<p>
+              14-day window for ready-to-ship items only. Torched pieces, made-to-order, and sale items remain strictly final sale unless defective upon unboxing. Approval from our concierge support team is mandated prior to dispatch.
+            </p>
+</div>
+</details>
+</div>
+</section>
+<!-- END: FAQSection -->
+<!-- BEGIN: CustomerSupportCard -->
+<section data-purpose="support-card" id="support-contact">
+<div class="bg-brand-dark border-2 border-brand-red p-8 sm:p-12 relative overflow-hidden">
+<!-- Industrial corner accents -->
+<div class="absolute top-0 left-0 w-3 h-3 bg-brand-red"></div>
+<div class="absolute top-0 right-0 w-3 h-3 bg-brand-red"></div>
+<div class="absolute bottom-0 left-0 w-3 h-3 bg-brand-red"></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-brand-red"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+<div class="space-y-4 max-w-xl">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-brand-red animate-ping"></span>
+<span class="font-mono text-xs text-brand-red font-bold tracking-widest uppercase">CONCIERGE CONTACT DESK</span>
+</div>
+<h2 class="font-display text-3xl sm:text-5xl uppercase tracking-wide text-white">
+              NEED DIRECT ASSISTANCE?
+            </h2>
+<p class="font-mono text-xs sm:text-sm text-brand-muted leading-relaxed">
+              For claims, size exchanges on ready-to-ship inventory, or order inquiries, reach out to our client services. Provide order ID and tracking data for immediate clearance.
+            </p>
+<div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-4 text-xs font-mono">
+<div class="bg-brand-surface px-3 py-2 border border-brand-border">
+<span class="text-brand-muted uppercase">OFFICIAL DISPATCH:</span>
+<a class="text-white hover:text-brand-red font-bold ml-1 underline" href="mailto:support@3rdworldent.com">support@3rdworldent.com</a>
+</div>
+<div class="bg-brand-surface px-3 py-2 border border-brand-border text-brand-muted">
+                RESPONSE TIME: <span class="text-brand-light font-bold">1-2 BUSINESS DAYS</span>
+</div>
+</div>
+</div>
+<!-- Return Action Button -->
+<div class="flex flex-col sm:flex-row gap-4 items-stretch md:items-center">
+<a class="bg-brand-red hover:bg-brand-redHover text-white font-mono text-xs uppercase tracking-tactical py-4 px-8 text-center font-bold transition-colors" href="#">
+              ← BACK TO STORE
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CustomerSupportCard -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="border-t border-brand-border bg-brand-dark py-12 text-center text-xs font-mono text-brand-muted mt-20" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+<div class="flex flex-wrap justify-center gap-6 sm:gap-10 uppercase tracking-widest text-[11px]">
+<a class="text-brand-light hover:text-brand-red transition-colors" href="#">FLAGSHIP STORE</a>
+<a class="text-brand-light hover:text-brand-red transition-colors" href="#">IKIGAI CAPSULE</a>
+<a class="text-brand-light hover:text-brand-red transition-colors" href="#returns-and-exchanges">RETURNS</a>
+<a class="text-brand-light hover:text-brand-red transition-colors" href="#garment-care">WASH PROTOCOLS</a>
+<a class="text-brand-light hover:text-brand-red transition-colors" href="#faq">FAQ</a>
+</div>
+<div class="w-16 h-[1px] bg-brand-border mx-auto"></div>
+<p class="tracking-widest">
+        © 2025 3RD WORLD ENTERPRISE. ALL RIGHTS RESERVED. DARK INDUSTRIAL ARCHIVE.
+      </p>
+<p class="text-[10px] text-neutral-600 uppercase tracking-ultra">
+        SECURED DISPATCH // OPERATIONAL ENCRYPTION ACTIVE
+      </p>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
