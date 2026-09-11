@@ -1,7 +1,7 @@
 <!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>3RD WORLD ENT — Official Store</title>
+<title>3RD WORLD ENT — Official Store // IKIGAI CAPSULE</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -41,14 +41,13 @@
     .custom-scrollbar::-webkit-scrollbar { display: none; }
     .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* CART DRAWER CLICK FIX: closed drawer must not intercept page clicks */
-    #cart-drawer {
+    /* Closed cart must make the ENTIRE drawer subtree non-interactive.
+       The drawer's children use pointer-events-auto, which can otherwise
+       still receive clicks even when the parent has pointer-events-none. */
+    #cart-drawer.opacity-0,
+    #cart-drawer.opacity-0 * {
       pointer-events: none !important;
     }
-    #cart-drawer.cart-open {
-      pointer-events: auto !important;
-    }
-
     .scanline-overlay {
       background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
       background-size: 100% 3px, 6px 100%;
@@ -1373,11 +1372,9 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     if (drawer.classList.contains('opacity-0')) {
       updateCartDrawerUI();
       drawer.classList.remove('opacity-0', 'pointer-events-none');
-      drawer.classList.add('cart-open');
       panel.classList.remove('translate-x-full');
     } else {
       drawer.classList.add('opacity-0', 'pointer-events-none');
-      drawer.classList.remove('cart-open');
       panel.classList.add('translate-x-full');
     }
   }
