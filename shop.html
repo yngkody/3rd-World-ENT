@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html class="dark scroll-smooth" lang="en"><head>
+<html class="dark scroll-smooth" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>3RD WORLD ENT — Official Store &amp; Archive // B O R N</title>
+<title>3RD WORLD ENT — Official Store // IKIGAI &amp; B O R N</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -17,7 +18,7 @@
           colors: {
             carbon: '#0c0c0c',
             surface: '#141414',
-            'surface-card': '#1a1a1a',
+            'surface-card': '#181818',
             'surface-border': '#262626',
             bone: '#F3EFE6',
             red3rd: '#D51E1E',
@@ -42,7 +43,6 @@
     }
     .custom-scrollbar::-webkit-scrollbar { display: none; }
     .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .crisp-img { image-rendering: -webkit-optimize-contrast; }
     .scanline-overlay {
       background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
       background-size: 100% 3px, 6px 100%;
@@ -50,51 +50,65 @@
 </style>
 </head>
 <body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased min-h-screen" data-shopify-domain="3rdworldent.myshopify.com" data-shopify-storefront-token="">
-<!-- TOP TICKER ANNOUNCEMENT -->
-<div class="bg-red3rd text-white text-[11px] font-mono tracking-wider px-6 py-2 flex items-center justify-between sticky top-0 z-50">
+<!-- WHISPER-THIN MINIMALIST ANNOUNCEMENT TICKER -->
+<div class="bg-black/95 border-b border-white/5 text-[10px] font-mono tracking-widest text-neutral-400 px-6 lg:px-12 py-1.5 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
 <div class="flex items-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap">
-<span class="bg-black text-white text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">OFFICIAL RELEASE</span>
-<span class="tracking-wide">B O R N CAPSULE &amp; ARCHIVE // CREATED BY OMAR KELLY (O M A R M A L I K)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd animate-pulse"></span>
+<span class="text-neutral-200">IKIGAI CAPSULE // ATELIER PREMIERE RELEASE</span>
+<span class="hidden md:inline text-neutral-600">•</span>
+<span class="hidden md:inline text-neutral-400">FREE U.S. SHIPPING OVER $120</span>
 </div>
-<div class="flex items-center gap-4 text-[10px] font-mono uppercase tracking-wider ml-4 shrink-0">
-<span class="hidden sm:inline-block">FREE U.S. SHIPPING ON ORDERS $120+</span>
-<button class="underline font-bold hover:text-black cursor-pointer" onclick="openPolicyModal('shipping')">SHIPPING PROTOCOLS →</button>
+<div class="flex items-center gap-4 text-[9px] font-mono uppercase tracking-widest shrink-0">
+<button class="hover:text-white transition-colors cursor-pointer" onclick="openPolicyModal('shipping')">SHIPPING PROTOCOLS →</button>
 </div>
 </div>
-<!-- NAVIGATION BAR -->
-<header class="sticky top-[35px] z-40 bg-carbon/95 backdrop-blur-md border-b border-white/10 px-6 lg:px-12 py-3.5 flex items-center justify-between">
-<nav class="hidden md:flex items-center gap-7 font-mono text-xs uppercase tracking-widest text-neutral-400">
-<a class="hover:text-red3rd transition-colors" href="#catalog-section">Collection (7)</a>
-<button class="hover:text-red3rd transition-colors cursor-pointer" onclick="openPolicyModal('sizeguide')">Size Guide</button>
-<button class="hover:text-red3rd transition-colors cursor-pointer" onclick="openPolicyModal('shipping')">Shipping &amp; FAQ</button>
-<button class="hover:text-red3rd transition-colors cursor-pointer" onclick="openPolicyModal('policies')">Returns &amp; Care</button>
+<!-- SLEEK, REFINED, LIGHTWEIGHT & AIRY NAVIGATION BAR -->
+<header class="sticky top-[29px] z-40 bg-black/85 backdrop-blur-md border-b border-white/5 px-6 lg:px-12 py-3.5 flex items-center justify-between transition-all duration-300">
+<!-- Left: Minimal Clean Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">
+<a class="hover:text-white transition-colors relative group py-1" href="#ikigai-section">
+<span>IKIGAI</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-red3rd transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="hover:text-white transition-colors relative group py-1" href="#born-archive-section">
+<span>ARCHIVE</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="hover:text-white transition-colors relative group py-1" href="#editorial-section">
+<span>LOOKBOOK</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+</a>
+<button class="hover:text-white transition-colors cursor-pointer relative group py-1" onclick="openPolicyModal('policies')">
+<span>POLICIES</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+</button>
 </nav>
-<a class="flex items-center gap-2 group" href="#">
-<span class="font-display text-2xl tracking-wider text-white">3RD WORLD</span>
-<span class="text-red3rd font-sans font-bold text-xs tracking-widest px-1.5 py-0.5 border border-red3rd rounded">ENT</span>
+<!-- Center: Iconic 3RD WORLD Wordmark -->
+<a class="flex items-center gap-2 group md:absolute md:left-1/2 md:-translate-x-1/2" href="#">
+<span class="font-display text-2xl tracking-[0.15em] text-white group-hover:text-neutral-200 transition-colors">3RD WORLD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd inline-block"></span>
 </a>
-<div class="flex items-center gap-4 font-mono">
-<!-- Discreet Shopify Integration Status Pill -->
-<div class="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/[0.04] border border-white/10 text-[9px] text-neutral-400 font-mono tracking-widest uppercase">
-<span class="w-1.5 h-1.5 rounded-full bg-signal"></span>
-<span>SHOPIFY STOREFRONT API READY // CART HOOKED</span>
-</div>
-<a class="hidden sm:flex items-center gap-2 text-xs text-signal bg-white/[0.04] border border-white/10 hover:border-signal/50 px-3 py-1.5 rounded-full transition-all" href="#audio-section">
-<span class="w-2 h-2 rounded-full bg-signal animate-pulse"></span>
-<span>B O R N RADIO</span>
+<!-- Right: Sleek Radio & Clean Minimal Cart Button -->
+<div class="flex items-center gap-5 font-mono">
+<a class="hidden sm:flex items-center gap-2 text-[11px] text-neutral-400 hover:text-signal transition-colors tracking-widest uppercase py-1" href="#audio-section">
+<span class="flex items-center gap-0.5">
+<span class="w-0.5 h-2.5 bg-signal animate-pulse"></span>
+<span class="w-0.5 h-4 bg-signal"></span>
+<span class="w-0.5 h-2 bg-signal animate-pulse"></span>
+</span>
+<span>BORN RADIO</span>
 </a>
-<!-- Cart Trigger Button -->
-<button aria-label="Open Cart" class="relative flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-white/20 bg-white/5 hover:border-red3rd text-bone transition-all cursor-pointer" data-shopify-cart-trigger="" onclick="toggleCartDrawer()">
-<span class="material-symbols-outlined text-xl text-white">shopping_bag</span>
-<span class="font-mono text-xs uppercase tracking-wider hidden sm:inline">Cart</span>
-<span class="bg-red3rd text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded-full" id="cart-counter">1</span>
+<!-- Minimalist Cart Pill -->
+<button aria-label="Open Cart" class="relative flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 hover:border-white/30 bg-white/[0.03] text-neutral-200 hover:text-white transition-all cursor-pointer group" data-shopify-cart-trigger="" onclick="toggleCartDrawer()">
+<span class="material-symbols-outlined text-lg group-hover:scale-105 transition-transform">shopping_bag</span>
+<span class="font-mono text-xs uppercase tracking-widest hidden sm:inline">CART</span>
+<span class="bg-red3rd text-white font-mono text-[9px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center" id="cart-counter">1</span>
 </button>
 </div>
 </header>
 <!-- HERO 3-VERTICAL VIDEOS TRIPTYCH SECTION -->
 <section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden">
 <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-12">
-<!-- Header banner placed at top so it doesn't obstruct video artwork -->
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
 <div>
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red3rd/20 border border-red3rd/40 font-mono text-[10px] tracking-widest uppercase text-red-300 mb-2">
@@ -118,20 +132,16 @@
 <!-- 3-Video Vertical Triptych Grid -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
 <!-- Video 1 (1012 × 1920 ~0.527 / 9:16) -->
-<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[580px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
-<!-- Video Layer -->
+<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
 <div class="absolute inset-0 w-full h-full">
 <video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
 <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_7997.MOV" type="video/mp4"/>
 <source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_7997.MOV" type="video/quicktime"/>
-<!-- Fallback visual backdrop -->
-<img alt="CAM 01 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmRVI3y0aI9FjWehL4xz-wM3pwHWPxQdz5AtcHBTgVGcFj443YLhVCMX1jdDn_lBz5cnvvlc5xbwD09Zpx0JhUvWE6dAnNmUvg4_X7nrTPl_LVi-9DQN05aQf0LFff7sHRy1bL5IFcTe7oIC9uKZVV0h-7GbabQ6ZTha0Ezodkx1ugzk4BwS6Nn_ConfG1sQJ1kdmASVAaJRsRVDV_QJgOS-LrC3Iko6RLsEgRilJrGekvp5PP5sFxAcqKrpVGYEGEDw"/>
+<img alt="CAM 01 Feed" class="w-full h-full object-cover" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
 </video>
 </div>
-<!-- Scanline & Gradient Overlays -->
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
 <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
-<!-- Top Marker -->
 <div class="relative z-10 p-4 flex items-center justify-between font-mono text-[10px] tracking-wider uppercase text-neutral-300">
 <div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
 <span class="w-2 h-2 rounded-full bg-red3rd animate-ping"></span>
@@ -139,33 +149,28 @@
 </div>
 <span class="text-neutral-400 bg-black/60 px-2 py-0.5 rounded border border-white/10">0.527 AR</span>
 </div>
-<!-- Bottom Overlay Info -->
 <div class="relative z-10 p-4 font-mono">
 <div class="space-y-1 mb-3">
 <span class="text-signal text-[10px] uppercase font-bold tracking-widest">ATELIER STUDY 01</span>
 <h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">THE FINISH &amp; TORCH</h3>
 <p class="text-[11px] text-neutral-300 leading-snug">Continuous wearable distressing tests captured at Atlanta workshop.</p>
 </div>
-<button class="w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm" onclick="openConfiguratorModal(0)">
-            VIEW GARMENT #3WE-01 →
+<button class="w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" onclick="openConfiguratorModal('ikigai-01')">
+            VIEW GARMENT #IK-01 →
           </button>
 </div>
 </div>
 <!-- Video 2 (1966 × 3550 ~0.553) -->
-<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[580px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
-<!-- Video Layer -->
+<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
 <div class="absolute inset-0 w-full h-full">
 <video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
 <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_8001.MOV" type="video/mp4"/>
 <source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_8001.MOV" type="video/quicktime"/>
-<!-- Fallback visual backdrop -->
-<img alt="CAM 02 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
+<img alt="CAM 02 Feed" class="w-full h-full object-cover" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
 </video>
 </div>
-<!-- Scanline & Gradient Overlays -->
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
 <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
-<!-- Top Marker -->
 <div class="relative z-10 p-4 flex items-center justify-between font-mono text-[10px] tracking-wider uppercase text-neutral-300">
 <div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
 <span class="w-2 h-2 rounded-full bg-signal animate-pulse"></span>
@@ -173,33 +178,28 @@
 </div>
 <span class="text-neutral-400 bg-black/60 px-2 py-0.5 rounded border border-white/10">0.553 AR</span>
 </div>
-<!-- Bottom Overlay Info -->
 <div class="relative z-10 p-4 font-mono">
 <div class="space-y-1 mb-3">
 <span class="text-signal text-[10px] uppercase font-bold tracking-widest">MOVEMENT SPEC 02</span>
 <h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">OVERSIZED DRAPING</h3>
 <p class="text-[11px] text-neutral-300 leading-snug">Heavyweight drop-shoulder cut responding to rapid body motion.</p>
 </div>
-<button class="w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm" onclick="openConfiguratorModal(5)">
-            VIEW GARMENT #3WE-06 →
+<button class="w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" onclick="openConfiguratorModal('ikigai-06')">
+            VIEW GARMENT #IK-06 →
           </button>
 </div>
 </div>
 <!-- Video 3 (1976 × 3102 ~0.637) -->
-<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[580px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
-<!-- Video Layer -->
+<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
 <div class="absolute inset-0 w-full h-full">
 <video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
 <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/hero-vid.mov" type="video/mp4"/>
 <source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/hero-vid.mov" type="video/quicktime"/>
-<!-- Fallback visual backdrop -->
-<img alt="CAM 03 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1XHuHzjtXioEXmxttAr9iqWqdQ_TZmCLrgX0vns0tEwtT8l3jbIp1blh7UlRQvCcTRNxNThmuFT54Uf7FNQ3hxtLcM_p_AtsYVHbB2l2I4cnjgpfuDfIsRZLU_kcG4bC-5n2RY7H-Qvgxb5Qji17TkqOvYfnpBnXjQX8TeKAwJLKkQdFLwz-7PdaFF-HnN1rp1bZ9EdFxlt6phA9zdPrH8JkQiKRCGfqIisWr5a2pDN5hDFyekGOGf7zgDUMjQFGX7w"/>
+<img alt="CAM 03 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
 </video>
 </div>
-<!-- Scanline & Gradient Overlays -->
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
 <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
-<!-- Top Marker -->
 <div class="relative z-10 p-4 flex items-center justify-between font-mono text-[10px] tracking-wider uppercase text-neutral-300">
 <div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
 <span class="w-2 h-2 rounded-full bg-red3rd animate-ping"></span>
@@ -207,14 +207,13 @@
 </div>
 <span class="text-neutral-400 bg-black/60 px-2 py-0.5 rounded border border-white/10">0.637 AR</span>
 </div>
-<!-- Bottom Overlay Info -->
 <div class="relative z-10 p-4 font-mono">
 <div class="space-y-1 mb-3">
 <span class="text-signal text-[10px] uppercase font-bold tracking-widest">LIVE LOOKBOOK 03</span>
 <h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">AFTERBURN &amp; ARCHIVE</h3>
 <p class="text-[11px] text-neutral-300 leading-snug">Torched hem details &amp; bespoke distressing filmed in natural daylight.</p>
 </div>
-<button class="w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm" onclick="openConfiguratorModal(6)">
+<button class="w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" onclick="openConfiguratorModal('3we-07')">
             VIEW GARMENT #3WE-07 →
           </button>
 </div>
@@ -224,43 +223,52 @@
 <div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs border border-white/10 rounded-xl p-4 bg-surface">
 <div class="flex items-center gap-3">
 <span class="w-2.5 h-2.5 rounded-full bg-signal animate-pulse"></span>
-<span class="text-white uppercase font-bold tracking-wider text-[11px]">7 CAPSULE EDITIONS LIVE • WORLDWIDE DISPATCH</span>
+<span class="text-white uppercase font-bold tracking-wider text-[11px]">14 EDITIONS LIVE IN ATELIER • WORLDWIDE DISPATCH</span>
 </div>
-<a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2 cursor-pointer ml-auto sm:ml-0" href="#catalog-section">
-<span>EXPLORE COMPLETE COLLECTION</span>
+<a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2 cursor-pointer ml-auto sm:ml-0" href="#ikigai-section">
+<span>EXPLORE IKIGAI CAPSULE</span>
 <span>↓</span>
 </a>
 </div>
 </div>
 </section>
 <!-- ======================================================= -->
-<!-- MASTER PRODUCT CATALOG (ALL 7 PRODUCTS)                 -->
+<!-- MASTER PRODUCT CATALOG (FEATURING IKIGAI FIRST)         -->
 <!-- ======================================================= -->
-<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="catalog-section">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-<div>
-<div class="flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest mb-1">
-<span>// OFFICIAL SPECIFICATION</span>
+<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="ikigai-section">
+<!-- Capsule 01 IKIGAI Section Header -->
+<div class="border-b border-white/10 pb-8 mb-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
+<span class="text-red3rd font-bold">// CAPSULE 01 — IKIGAI</span>
 <span>•</span>
-<span class="text-signal">LIVE INVENTORY &amp; MADE TO ORDER</span>
+<span class="text-signal font-bold">CONFIRMED ATELIER PRICING</span>
 </div>
-<h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white">THE B O R N ARCHIVE</h2>
+<h2 class="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white">IKIGAI ATELIER COLLECTION</h2>
+<p class="font-mono text-xs sm:text-sm text-neutral-300 max-w-2xl leading-relaxed">
+          The philosophical exploration of purpose, suffering, and rebirth. Unisex oversized silhouettes crafted with cold-pigment distressed washes and hand-torched finishes.
+        </p>
 </div>
-<!-- Category Filters -->
-<div class="flex flex-wrap items-center gap-2 font-mono text-xs">
-<button class="px-4 py-2 bg-white text-black font-bold uppercase rounded-lg" id="filter-btn-all" onclick="setCatalogFilter('all')">ALL PIECES (7)</button>
-<button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors" id="filter-btn-shirts" onclick="setCatalogFilter('shirts')">GRAPHIC SHIRTS (5)</button>
-<button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors" id="filter-btn-outerwear" onclick="setCatalogFilter('outerwear')">HOODIE &amp; SHORTS (2)</button>
+<!-- Filter Controls -->
+<div class="flex flex-wrap items-center gap-2 font-mono text-xs shrink-0">
+<button class="px-4 py-2 bg-white text-black font-bold uppercase rounded-lg transition-all cursor-pointer" id="filter-btn-all" onclick="setCatalogFilter('all')">ALL PIECES (14)</button>
+<button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors cursor-pointer" id="filter-btn-ikigai" onclick="setCatalogFilter('ikigai')">IKIGAI CAPSULE (7)</button>
+<button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors cursor-pointer" id="filter-btn-shirts" onclick="setCatalogFilter('shirts')">GRAPHIC SHIRTS (9)</button>
+<button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors cursor-pointer" id="filter-btn-outerwear" onclick="setCatalogFilter('outerwear')">HOODIES &amp; SHORTS (5)</button>
 <button class="px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors cursor-pointer" onclick="openPolicyModal('sizeguide')">SIZE GUIDE</button>
 </div>
 </div>
-<!-- Dynamic Product Grid (Injected with Shopify Data Attributes) -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-shopify-collection="born-archive" id="product-cards-container">
-<!-- Rendered via JavaScript from CATALOG array -->
+</div>
+<!-- Dynamic Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-shopify-collection="master-catalog" id="product-cards-container">
+<!-- Populated by JS: IKIGAI 7 items first, followed by BORN archive -->
 </div>
 </section>
+<!-- ARCHIVE ANCHOR TARGET -->
+<div id="born-archive-section"></div>
 <!-- 35MM EDITORIAL SECTION & BUNDLE PROMO -->
-<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10">
+<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="editorial-section">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-surface-card rounded-2xl border border-white/10 p-6 lg:p-8">
 <div class="lg:col-span-6 rounded-xl overflow-hidden border border-white/15">
 <img alt="3rd World Ent Editorial Contact Sheet" class="w-full h-auto object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
@@ -329,17 +337,13 @@
 </div>
 </footer>
 <!-- ======================================================= -->
-<!-- SECTION 1: INTERACTIVE SLIDE-OUT CART DRAWER            -->
+<!-- SLIDE-OUT CART DRAWER                                   -->
 <!-- ======================================================= -->
 <div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0" data-shopify-cart-drawer="" id="cart-drawer">
-<!-- Backdrop -->
 <div class="absolute inset-0 bg-black/80 backdrop-blur-sm pointer-events-auto transition-opacity" onclick="toggleCartDrawer()"></div>
-<!-- Off-Canvas Slideout Panel -->
 <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
 <div class="w-screen max-w-md bg-carbon border-l border-white/15 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 shadow-2xl font-mono" id="cart-panel">
-<!-- Top Container -->
 <div class="flex flex-col h-full overflow-hidden">
-<!-- Header -->
 <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
 <div class="flex items-center gap-2">
 <span class="font-display text-xl uppercase tracking-wider text-white">YOUR CART</span>
@@ -349,7 +353,6 @@
 <span class="material-symbols-outlined text-2xl">close</span>
 </button>
 </div>
-<!-- Free-Shipping Progress Bar ($120 threshold) -->
 <div class="p-3 bg-surface rounded-xl border border-white/10 mb-3">
 <div class="flex justify-between items-center text-xs mb-1.5">
 <span class="text-neutral-300 font-medium" id="shipping-progress-text">You’re $60.00 away from free U.S. shipping.</span>
@@ -359,19 +362,13 @@
 <div class="bg-red3rd h-full transition-all duration-500 rounded-full" id="shipping-progress-bar" style="width: 50%;"></div>
 </div>
 </div>
-<!-- Mixed Cart Notice -->
 <div class="mb-3 p-2.5 bg-neutral-900 border border-yellow-500/30 rounded-lg text-[11px] text-yellow-200 flex items-start gap-2 hidden" id="mixed-cart-banner">
 <span class="material-symbols-outlined text-base text-yellow-400 shrink-0">info</span>
 <span class="leading-tight">Ready-to-ship and made-to-order products may arrive separately. You will receive tracking information for each shipment.</span>
 </div>
-<!-- Items Scroll List -->
-<div class="space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1" id="cart-items-container">
-<!-- Populated by JavaScript -->
+<div class="space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1" id="cart-items-container"></div>
 </div>
-</div>
-<!-- Bottom Container: Discount & Totals & Checkout Trigger -->
 <div class="border-t border-white/10 pt-4 space-y-3 text-xs">
-<!-- Discount Code Input Field (Clean, ZERO PREFILLED) -->
 <div>
 <div class="flex gap-2">
 <input class="flex-1 bg-surface border border-white/20 rounded-lg px-3 py-2 text-white uppercase placeholder-neutral-500 text-xs focus:outline-none focus:border-red3rd" id="cart-discount-input" placeholder="DISCOUNT CODE (E.G. BORN10)" value=""/>
@@ -382,7 +379,6 @@
 <button class="text-[10px] text-red3rd underline cursor-pointer" onclick="removePromoCode()">REMOVE</button>
 </div>
 </div>
-<!-- Cost Breakdown -->
 <div class="space-y-1.5 pt-2 border-t border-white/5 text-neutral-400">
 <div class="flex justify-between">
 <span>Subtotal</span>
@@ -401,7 +397,6 @@
 <span class="text-white" id="cart-calc-total">$68.00 USD</span>
 </div>
 </div>
-<!-- Action CTAs -->
 <div class="space-y-2 pt-2">
 <button class="w-full py-3.5 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red3rd/30" data-shopify-checkout-button="" onclick="launchCheckoutFlow()">
 <span>PROCEED TO CHECKOUT</span>
@@ -416,11 +411,10 @@
 </div>
 </div>
 <!-- ======================================================= -->
-<!-- SECTION 2: 5-STEP CHECKOUT MODAL (DARK & CINEMATIC)     -->
+<!-- 5-STEP CHECKOUT MODAL                                   -->
 <!-- ======================================================= -->
 <div class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto" id="checkout-modal">
 <div class="relative w-full max-w-3xl bg-surface border border-white/20 rounded-2xl p-6 sm:p-8 max-h-[95vh] overflow-y-auto custom-scrollbar font-mono">
-<!-- Modal Top Bar -->
 <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
 <div class="flex items-center gap-3">
 <span class="font-display text-2xl text-white tracking-wide uppercase">3RD WORLD CHECKOUT</span>
@@ -430,7 +424,6 @@
 <span class="material-symbols-outlined text-2xl">close</span>
 </button>
 </div>
-<!-- 5-Step Stepper Tabs -->
 <div class="grid grid-cols-5 gap-1.5 mb-8 text-[11px] uppercase tracking-wider text-center" id="checkout-stepper-bar">
 <div class="step-indicator border-b-2 border-red3rd pb-2 text-white font-bold" id="co-tab-1">1. Contact</div>
 <div class="step-indicator border-b-2 border-white/20 pb-2 text-neutral-500" id="co-tab-2">2. Delivery</div>
@@ -438,9 +431,8 @@
 <div class="step-indicator border-b-2 border-white/20 pb-2 text-neutral-500" id="co-tab-4">4. Payment</div>
 <div class="step-indicator border-b-2 border-white/20 pb-2 text-neutral-500" id="co-tab-5">5. Review</div>
 </div>
-<!-- Stepper Forms Container (ZERO PREFILLED VALUES) -->
 <div id="checkout-panes-wrapper">
-<!-- STEP 1: Contact Information -->
+<!-- STEP 1: Contact -->
 <div class="step-pane space-y-5" id="co-pane-1">
 <div class="flex items-center justify-between">
 <h3 class="font-display text-xl text-white uppercase">CONTACT INFORMATION</h3>
@@ -473,7 +465,7 @@
 </button>
 </div>
 </div>
-<!-- STEP 2: Delivery Information -->
+<!-- STEP 2: Delivery -->
 <div class="step-pane space-y-5 hidden" id="co-pane-2">
 <div class="flex items-center justify-between">
 <h3 class="font-display text-xl text-white uppercase">DELIVERY ADDRESS</h3>
@@ -531,10 +523,9 @@
 </button>
 </div>
 </div>
-<!-- STEP 3: Shipping Method Selection -->
+<!-- STEP 3: Shipping -->
 <div class="step-pane space-y-5 hidden" id="co-pane-3">
 <h3 class="font-display text-xl text-white uppercase">SHIPPING METHOD</h3>
-<!-- Clear Fulfillment Timeline Notice -->
 <div class="p-3.5 bg-carbon rounded-xl border border-white/10 space-y-2 text-xs">
 <div class="flex items-center justify-between text-neutral-300">
 <span class="font-bold uppercase text-white flex items-center gap-1.5">
@@ -554,7 +545,6 @@
             * Orders containing both ready-to-ship and made-to-order items ship separately at no extra cost. Expedited shipping applies strictly to in-stock pieces.
           </p>
 </div>
-<!-- Shipping Protocol Radios -->
 <div class="space-y-3 text-xs" id="checkout-shipping-options">
 <label class="flex items-center justify-between p-3.5 rounded-xl border border-red3rd bg-red3rd/10 cursor-pointer">
 <div class="flex items-center gap-3">
@@ -595,7 +585,7 @@
 </button>
 </div>
 </div>
-<!-- STEP 4: Payment Method (ZERO PREFILLED) -->
+<!-- STEP 4: Payment -->
 <div class="step-pane space-y-5 hidden" id="co-pane-4">
 <div class="flex items-center justify-between">
 <h3 class="font-display text-xl text-white uppercase">PAYMENT</h3>
@@ -604,7 +594,6 @@
             ENCRYPTED &amp; SECURE
           </span>
 </div>
-<!-- Express One-Touch Payment -->
 <div class="grid grid-cols-3 gap-2 text-center text-xs">
 <button class="py-2.5 bg-[#5A31F4] hover:bg-[#4824d4] text-white font-bold rounded-lg transition-colors cursor-pointer">Shop Pay</button>
 <button class="py-2.5 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 transition-colors cursor-pointer">Apple Pay</button>
@@ -615,7 +604,6 @@
 <span class="flex-shrink mx-4 text-[10px] text-neutral-500 uppercase tracking-widest">OR CREDIT / DEBIT CARD</span>
 <div class="flex-grow border-t border-white/10"></div>
 </div>
-<!-- Credit Card Fields -->
 <div class="space-y-3 text-xs bg-carbon p-4 rounded-xl border border-white/10">
 <div>
 <label class="block text-neutral-300 mb-1">CARD NUMBER</label>
@@ -637,7 +625,7 @@
 </div>
 </div>
 <p class="text-[11px] text-neutral-400 leading-relaxed">
-          🔒 <strong>Secure encrypted checkout via Shopify / Stripe.</strong> Your payment details are processed directly through certified end-to-end tokenization.
+          🔒 <strong>Secure encrypted checkout via Shopify / Stripe.</strong> Payment details are processed directly through certified end-to-end tokenization.
         </p>
 <div class="pt-6 border-t border-white/10 flex justify-between items-center">
 <button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(3)">← BACK</button>
@@ -647,10 +635,9 @@
 </button>
 </div>
 </div>
-<!-- STEP 5: Final Review & Required Acknowledgment -->
+<!-- STEP 5: Final Review -->
 <div class="step-pane space-y-5 hidden" id="co-pane-5">
 <h3 class="font-display text-xl text-white uppercase">ORDER VERIFICATION</h3>
-<!-- Recaps -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
 <div class="p-3 bg-carbon rounded-xl border border-white/10 space-y-1">
 <span class="text-neutral-500 uppercase text-[10px] block">DELIVERY ADDRESS</span>
@@ -661,11 +648,7 @@
 <p class="text-white font-medium" id="co-review-shipping">Standard Domestic (3–7 Days) • Card Payment</p>
 </div>
 </div>
-<!-- Items Summary List -->
-<div class="p-3 bg-carbon rounded-xl border border-white/10 space-y-2 max-h-40 overflow-y-auto custom-scrollbar" id="co-review-items">
-<!-- Populated by JS -->
-</div>
-<!-- Financial Summary -->
+<div class="p-3 bg-carbon rounded-xl border border-white/10 space-y-2 max-h-40 overflow-y-auto custom-scrollbar" id="co-review-items"></div>
 <div class="p-3.5 bg-surface-card rounded-xl border border-white/10 space-y-1.5 text-xs">
 <div class="flex justify-between text-neutral-400">
 <span>Subtotal</span>
@@ -684,7 +667,6 @@
 <span class="text-red3rd" id="co-summary-total">$68.00 USD</span>
 </div>
 </div>
-<!-- Mandatory Acknowledgment Checkbox -->
 <div class="p-3 rounded-xl border border-red3rd/40 bg-red3rd/10 text-xs text-neutral-200">
 <label class="flex items-start gap-2.5 cursor-pointer">
 <input class="rounded border-white/20 bg-carbon text-red3rd focus:ring-red3rd mt-0.5" id="co-terms-checkbox" type="checkbox"/>
@@ -693,7 +675,6 @@
             </span>
 </label>
 </div>
-<!-- Policy links -->
 <div class="flex flex-wrap items-center justify-between text-[11px] text-neutral-400 pt-1">
 <button class="hover:text-white underline cursor-pointer" onclick="openPolicyModal('shipping')">Shipping Policy</button>
 <button class="hover:text-white underline cursor-pointer" onclick="openPolicyModal('policies')">Return &amp; Exchange Policy</button>
@@ -747,7 +728,7 @@
 </div>
 </div>
 <!-- ======================================================= -->
-<!-- SECTION 3: PRODUCT CONFIGURATOR MODAL                   -->
+<!-- PRODUCT CONFIGURATOR MODAL                              -->
 <!-- ======================================================= -->
 <div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" data-shopify-modal-product="" id="product-configurator-modal">
 <div class="relative w-full max-w-3xl bg-surface border border-white/20 rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto custom-scrollbar font-mono">
@@ -755,31 +736,26 @@
 <span class="material-symbols-outlined text-2xl">close</span>
 </button>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-<!-- Product Image -->
 <div class="relative aspect-square rounded-xl overflow-hidden bg-carbon border border-white/10">
 <img alt="Product Preview" class="w-full h-full object-cover" id="cfg-img" src=""/>
 <div class="absolute top-3 left-3 bg-red3rd text-white text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded" id="cfg-badge">
           3RD WORLD ARCHIVE
         </div>
 </div>
-<!-- Option Controls -->
 <div class="space-y-4 text-xs">
 <div>
-<span class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest block" id="cfg-code">CATALOG #3WE-01</span>
-<h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight mt-0.5" id="cfg-title">UNFINISHED FACE DISTRESSED SHIRT</h3>
+<span class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest block" id="cfg-code">CAPSULE #IK-01</span>
+<h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight mt-0.5" id="cfg-title">IKIGAI NOCTURNE DISTRESSED TEE</h3>
 <p class="text-xl font-bold text-white mt-1" id="cfg-price">$60.00 <span class="text-xs text-neutral-500">USD</span></p>
 </div>
-<!-- Fulfillment Badge -->
 <div class="p-2.5 rounded-lg border flex items-center gap-2" id="cfg-fulfillment-pill">
 <span class="w-2 h-2 rounded-full bg-signal animate-pulse" id="cfg-fulfillment-dot"></span>
 <span class="font-bold text-signal text-[11px]" id="cfg-fulfillment-text">READY TO SHIP — Processed within 2 to 4 business days.</span>
 </div>
-<!-- Garment and Finish Selector -->
 <div id="cfg-finish-section">
-<label class="block text-neutral-300 font-bold uppercase mb-1.5">GARMENT &amp; FINISH: <span class="text-white font-normal" id="cfg-selected-color-name">Black Distressed</span></label>
+<label class="block text-neutral-300 font-bold uppercase mb-1.5">GARMENT &amp; FINISH: <span class="text-white font-normal" id="cfg-selected-color-name">Washed Black Distressed</span></label>
 <div class="flex flex-wrap gap-2" id="cfg-color-pills"></div>
 </div>
-<!-- Sleeve Selector (if applicable) -->
 <div id="cfg-sleeve-section">
 <label class="block text-neutral-300 font-bold uppercase mb-1.5">SLEEVE CUT: <span class="text-white font-normal" id="cfg-selected-sleeve-name">Short Sleeve</span></label>
 <div class="grid grid-cols-2 gap-2" id="cfg-sleeve-buttons">
@@ -787,7 +763,6 @@
 <button class="py-2 border border-white/20 hover:border-white text-neutral-300 rounded-lg cursor-pointer" onclick="setModalSleeveChoice('Long Sleeve')">LONG SLEEVE</button>
 </div>
 </div>
-<!-- Size Selector -->
 <div>
 <div class="flex justify-between items-center mb-1.5">
 <label class="text-neutral-300 font-bold uppercase">SIZE: <span class="text-white font-normal" id="cfg-selected-size-name">L</span></label>
@@ -800,11 +775,9 @@
 <button class="py-2 border border-white/20 hover:border-white text-neutral-300 rounded-lg cursor-pointer" onclick="setModalSizeChoice('XL')">XL</button>
 </div>
 </div>
-<!-- Intentional Finish Notice -->
 <div class="p-2.5 bg-carbon rounded-lg border border-white/10 text-[11px] text-neutral-400 leading-relaxed">
           ⚡ <em>Intentional finish notice:</em> Every distressed and torched garment is finished individually. Openings, fraying, fading, and torch placement will vary slightly.
         </div>
-<!-- Add To Cart Button -->
 <button class="w-full py-3.5 bg-white text-black hover:bg-red3rd hover:text-white font-bold uppercase tracking-widest transition-colors rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg" data-shopify-add-to-cart="" onclick="addConfiguredItemToCart()">
 <span>ADD TO CART</span>
 <span>→</span>
@@ -814,7 +787,7 @@
 </div>
 </div>
 <!-- ======================================================= -->
-<!-- SECTION 4: SIZE GUIDE & POLICIES MODAL                  -->
+<!-- SIZE GUIDE & POLICIES MODAL                             -->
 <!-- ======================================================= -->
 <div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto" id="policies-modal">
 <div class="relative w-full max-w-3xl bg-surface border border-white/20 rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto custom-scrollbar font-mono text-xs">
@@ -824,7 +797,6 @@
 <span class="material-symbols-outlined text-2xl">close</span>
 </button>
 </div>
-<!-- Tabs Navigation -->
 <div class="flex border-b border-white/10 mb-6 gap-6 text-xs uppercase tracking-wider">
 <button class="pb-2 text-white border-b-2 border-red3rd font-bold cursor-pointer" id="pol-tab-size" onclick="switchPolicyTab('sizeguide')">SIZE GUIDE</button>
 <button class="pb-2 text-neutral-400 hover:text-white cursor-pointer" id="pol-tab-ship" onclick="switchPolicyTab('shipping')">SHIPPING &amp; FAQ</button>
@@ -856,7 +828,7 @@
 </div>
 </div>
 <div>
-<h5 class="font-display text-lg text-white uppercase mb-2">ZIP HOODIE (INCHES FLAT)</h5>
+<h5 class="font-display text-lg text-white uppercase mb-2">ZIP HOODIES (INCHES FLAT)</h5>
 <div class="overflow-x-auto border border-white/10 rounded-xl">
 <table class="w-full text-left">
 <thead class="bg-carbon border-b border-white/10 text-neutral-400">
@@ -901,34 +873,20 @@
 </div>
 </div>
 </div>
-<!-- TAB 2: Shipping & Fulfillment Policy -->
+<!-- TAB 2: Shipping -->
 <div class="space-y-4 text-neutral-300 hidden" id="pol-body-shipping">
 <h5 class="font-display text-lg text-white uppercase">SHIPPING AND FULFILLMENT POLICY</h5>
-<p>
-<strong>Order Processing:</strong> Ready-to-ship items are normally processed within 2 to 4 business days. Made-to-order, torched, and individually hand-finished items are normally processed within 7 to 14 business days. Business days do not include weekends or holidays.
-      </p>
-<p>
-<strong>Orders with Different Fulfillment Times:</strong> If one order contains both ready-to-ship and made-to-order items, split shipping is offered so your in-stock pieces arrive as soon as possible without delay.
-      </p>
-<p>
-<strong>Domestic Delivery:</strong> Standard delivery within the United States is estimated at 3 to 7 business days after shipment. Expedited delivery estimates apply only after processing. Free standard shipping applies to orders over $120.
-      </p>
-<p>
-<strong>Tracking Information:</strong> A shipping confirmation with tracking information will be sent when the package is accepted by the carrier. Tracking may take up to 48 hours to update.
-      </p>
+<p><strong>Order Processing:</strong> Ready-to-ship items are normally processed within 2 to 4 business days. Made-to-order, torched, and individually hand-finished items are normally processed within 7 to 14 business days. Business days do not include weekends or holidays.</p>
+<p><strong>Orders with Different Fulfillment Times:</strong> If one order contains both ready-to-ship and made-to-order items, split shipping is offered so your in-stock pieces arrive as soon as possible without delay.</p>
+<p><strong>Domestic Delivery:</strong> Standard delivery within the United States is estimated at 3 to 7 business days after shipment. Expedited delivery estimates apply only after processing. Free standard shipping applies to orders over $120.</p>
+<p><strong>Tracking Information:</strong> A shipping confirmation with tracking information will be sent when the package is accepted by the carrier. Tracking may take up to 48 hours to update.</p>
 </div>
-<!-- TAB 3: Returns & Care -->
+<!-- TAB 3: Policies -->
 <div class="space-y-4 text-neutral-300 hidden" id="pol-body-policies">
 <h5 class="font-display text-lg text-white uppercase">RETURNS AND EXCHANGES POLICY</h5>
-<p>
-<strong>Eligible Ready to Ship Items:</strong> A size exchange or store-credit return may be requested within 14 days of delivery for an eligible ready-to-ship item. The item must be unworn, unwashed, unaltered, free of odor, and returned in its original condition.
-      </p>
-<p>
-<strong>Final Sale Items:</strong> Made-to-order pieces, torched pieces, discounted items, and items marked final sale cannot be returned or exchanged. Natural differences in hand distressing or torch placement are intentional and not defects.
-      </p>
-<p>
-<strong>Damaged or Incorrect Items:</strong> Report an incorrect or damaged item within 5 days of delivery by emailing support@3rdworldent.com with photos of the item and original packaging.
-      </p>
+<p><strong>Eligible Ready to Ship Items:</strong> A size exchange or store-credit return may be requested within 14 days of delivery for an eligible ready-to-ship item. The item must be unworn, unwashed, unaltered, free of odor, and returned in its original condition.</p>
+<p><strong>Final Sale Items:</strong> Made-to-order pieces, torched pieces, discounted items, and items marked final sale cannot be returned or exchanged. Natural differences in hand distressing or torch placement are intentional and not defects.</p>
+<p><strong>Damaged or Incorrect Items:</strong> Report an incorrect or damaged item within 5 days of delivery by emailing support@3rdworldent.com with photos of the item and original packaging.</p>
 <div class="p-3.5 bg-carbon rounded-xl border border-white/10 space-y-1.5 text-neutral-300 mt-4">
 <span class="text-white font-bold block">GARMENT CARE PROTOCOL:</span>
 <p class="text-[11px] text-neutral-400">
@@ -939,69 +897,193 @@
 </div>
 </div>
 <!-- ======================================================= -->
-<!-- MASTER SCRIPT LOGIC (CATALOG, CART, SHOPIFY ARCHITECTURE)-->
+<!-- MASTER SCRIPT LOGIC (IKIGAI FIRST, PRICING & SHOPIFY)   -->
 <!-- ======================================================= -->
 <script>
-  // =========================================================
-  // SHOPIFY STOREFRONT CONFIGURATION ARCHITECTURE
-  // =========================================================
   window.ShopifyStorefrontConfig = {
     domain: '3rdworldent.myshopify.com',
-    storefrontAccessToken: '', // Populate with Storefront API Public Token
+    storefrontAccessToken: '',
     apiVersion: '2024-01',
     checkoutUrl: 'https://3rdworldent.myshopify.com/cart',
     ready: true,
     async createCheckout(lineItems) {
-      console.log("[Shopify SDK Mock Hook] Initializing checkout with items:", lineItems);
-      // Ready to bridge with: fetch(`https://${this.domain}/api/${this.apiVersion}/graphql.json`)
+      console.log("[Shopify SDK Hook] Line items:", lineItems);
       return { webUrl: this.checkoutUrl };
     }
   };
 
-  // Complete 7 Catalog Items with Shopify variant mapping hooks
+  // FULL MASTER CATALOG: IKIGAI COLLECTION FIRST (7 PIECES), FOLLOWED BY CORE ARCHIVE
   const CATALOG = [
+    // ----------------------------------------------------
+    // CAPSULE 01: IKIGAI COLLECTION (7 ITEMS FIRST)
+    // Graphic T-Shirts: $60 USD | Zip Hoodies: $70 USD
+    // ----------------------------------------------------
     {
-      id: 0,
-      shopifyProductId: "gid://shopify/Product/3we-01",
-      shopifyVariantId: "gid://shopify/ProductVariant/3we-01-def",
-      code: "CATALOG #3WE-01",
-      title: "UNFINISHED FACE DISTRESSED SHIRT",
+      id: "ikigai-01",
+      code: "CAPSULE #IK-01",
+      shopifyProductId: "gid://shopify/Product/ik-01",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-01-def",
+      title: "IKIGAI NOCTURNE DISTRESSED TEE",
+      collection: "ikigai",
       category: "shirts",
       price: 60,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBmRVI3y0aI9FjWehL4xz-wM3pwHWPxQdz5AtcHBTgVGcFj443YLhVCMX1jdDn_lBz5cnvvlc5xbwD09Zpx0JhUvWE6dAnNmUvg4_X7nrTPl_LVi-9DQN05aQf0LFff7sHRy1bL5IFcTe7oIC9uKZVV0h-7GbabQ6ZTha0Ezodkx1ugzk4BwS6Nn_ConfG1sQJ1kdmASVAaJRsRVDV_QJgOS-LrC3Iko6RLsEgRilJrGekvp5PP5sFxAcqKrpVGYEGEDw",
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png",
+      supportsSleeve: true,
+      colors: [
+        { name: "Washed Black Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#141414" },
+        { name: "Hand-Torched Black", type: "torched", badge: "MADE TO ORDER", bg: "#1f1d1d" }
+      ],
+      description: "Unisex oversized drop shoulder silhouette with abstract face study continuous line drawing and signature distressed raw-cut collar."
+    },
+    {
+      id: "ikigai-02",
+      code: "CAPSULE #IK-02",
+      shopifyProductId: "gid://shopify/Product/ik-02",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-02-def",
+      title: "IKIGAI BLUE ROSE DISTRESSED TEE",
+      collection: "ikigai",
+      category: "shirts",
+      price: 60,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(4).png",
+      supportsSleeve: true,
+      colors: [
+        { name: "Cobalt Wash Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#181d26" },
+        { name: "Deep Charcoal Torched", type: "torched", badge: "MADE TO ORDER", bg: "#232323" }
+      ],
+      description: "Unisex oversized drop shoulder with signature 3rd World motif juxtaposed against an intense cobalt blue botanical study."
+    },
+    {
+      id: "ikigai-03",
+      code: "CAPSULE #IK-03",
+      shopifyProductId: "gid://shopify/Product/ik-03",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-03-def",
+      title: "IKIGAI SEATED PORTRAIT TEE",
+      collection: "ikigai",
+      category: "shirts",
+      price: 60,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(5).png",
+      supportsSleeve: true,
+      colors: [
+        { name: "Crimson Ambient Black", type: "distressed", badge: "READY TO SHIP", bg: "#161313" },
+        { name: "Workshop Torched Edition", type: "torched", badge: "MADE TO ORDER", bg: "#281b1b" }
+      ],
+      description: "Crimson floral atelier portrait aesthetic. Relaxed drape with heavy hand-worn micro fraying across hem and neckline."
+    },
+    {
+      id: "ikigai-04",
+      code: "CAPSULE #IK-04",
+      shopifyProductId: "gid://shopify/Product/ik-04",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-04-def",
+      title: "IKIGAI BOTANICAL STUDY TEE",
+      collection: "ikigai",
+      category: "shirts",
+      price: 60,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(6).png",
+      supportsSleeve: true,
+      colors: [
+        { name: "Sanguine Black Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#161616" },
+        { name: "Vase Torched Finish", type: "torched", badge: "MADE TO ORDER", bg: "#1c1818" }
+      ],
+      description: "Gradient backdrop silhouette featuring the bespoke 3rd World line drawing paired with handcrafted micro distress cuts."
+    },
+    {
+      id: "ikigai-05",
+      code: "CAPSULE #IK-05",
+      shopifyProductId: "gid://shopify/Product/ik-05",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-05-def",
+      title: "IKIGAI SANGUINE WASH ZIP HOODIE",
+      collection: "ikigai",
+      category: "outerwear",
+      price: 70,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png",
+      supportsSleeve: false,
+      colors: [
+        { name: "Washed Black Terry", type: "distressed", badge: "READY TO SHIP", bg: "#141414" },
+        { name: "Charcoal Torched", type: "torched", badge: "MADE TO ORDER", bg: "#222020" }
+      ],
+      description: "Washed black heavyweight French terry with split face graphic across center zipper. Oversized drape and reinforced double hood."
+    },
+    {
+      id: "ikigai-06",
+      code: "CAPSULE #IK-06",
+      shopifyProductId: "gid://shopify/Product/ik-06",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-06-def",
+      title: "IKIGAI WESTERN VIPER ZIP HOODIE",
+      collection: "ikigai",
+      category: "outerwear",
+      price: 70,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png",
+      supportsSleeve: false,
+      colors: [
+        { name: "Washed Black 520 GSM", type: "distressed", badge: "READY TO SHIP", bg: "#141414" },
+        { name: "Hand-Torched Finish", type: "torched", badge: "MADE TO ORDER", bg: "#1c1a17" }
+      ],
+      description: "Heavyweight 520 GSM fleece, drop shoulder, washed black with industrial detailing and relaxed boxy waist."
+    },
+    {
+      id: "ikigai-07",
+      code: "CAPSULE #IK-07",
+      shopifyProductId: "gid://shopify/Product/ik-07",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-07-def",
+      title: "IKIGAI OPHIDIAN APPARITION HOODIE",
+      collection: "ikigai",
+      category: "outerwear",
+      price: 70,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png",
+      supportsSleeve: false,
+      colors: [
+        { name: "Acid Washed Charcoal", type: "distressed", badge: "READY TO SHIP", bg: "#181818" },
+        { name: "Bespoke Torched Edition", type: "torched", badge: "MADE TO ORDER", bg: "#2b2926" }
+      ],
+      description: "Minimal studio backdrop aesthetic. Heavyweight raw-hem zip hoodie featuring split screenprinted iconography."
+    },
+
+    // ----------------------------------------------------
+    // CAPSULE 02: B O R N ARCHIVE PIECES
+    // ----------------------------------------------------
+    {
+      id: "3we-01",
+      code: "CATALOG #3WE-01",
+      shopifyProductId: "gid://shopify/Product/3we-01",
+      shopifyVariantId: "gid://shopify/ProductVariant/3we-01-def",
+      title: "UNFINISHED FACE DISTRESSED SHIRT",
+      collection: "born",
+      category: "shirts",
+      price: 60,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png",
       supportsSleeve: true,
       colors: [
         { name: "Black Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#141414" },
         { name: "Charcoal Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#2a2a2a" },
         { name: "Cream Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#e6e0d3" },
-        { name: "Cream Torched", type: "torched", badge: "MADE TO ORDER", bg: "#c7bba6" },
-        { name: "White Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#f0f0f0" },
-        { name: "White Torched", type: "torched", badge: "MADE TO ORDER", bg: "#dad4c5" }
+        { name: "Cream Torched", type: "torched", badge: "MADE TO ORDER", bg: "#c7bba6" }
       ],
       description: "The original 3rd World face study on a relaxed drop-shoulder silhouette, finished with intentional wear."
     },
     {
-      id: 1,
+      id: "3we-02",
+      code: "CATALOG #3WE-02",
       shopifyProductId: "gid://shopify/Product/3we-02",
       shopifyVariantId: "gid://shopify/ProductVariant/3we-02-def",
-      code: "CATALOG #3WE-02",
       title: "SECOND FACE DISTRESSED SHIRT",
+      collection: "born",
       category: "shirts",
       price: 60,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB6KVmbf1xwniI2MWhO-p042ivXxOnVnYvJujQ3zP2e5fEK9lFu9GpHFMdU6kD6MsLOrbivStkAXuF52lHBn7lmFEYK_7t-TMTzB7WvZXDrdjyEGIEsU0MeAEWZu9Cafto9ax0yVVki7GsyWw7gkrp04DJJkW-ZbIvjWZQaJ8vn47awkOJ_61bzf0vnrDo5S1i831Qd7TLAfrZqHWpOfaTf1JI2OVomDMnAUy_P3tBe9yLAtgapoKK-EfWKJ7iP29k5Sw",
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(4).png",
       supportsSleeve: true,
       colors: [
         { name: "White Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#f0f0f0" },
         { name: "White Torched", type: "torched", badge: "MADE TO ORDER", bg: "#dad4c5" }
       ],
-      description: "A stripped-back second face study built from one continuous, distorted line across a white drop-shoulder body."
+      description: "A stripped-back second face study built from one continuous line across a white drop-shoulder body."
     },
     {
-      id: 2,
+      id: "3we-03",
+      code: "CATALOG #3WE-03",
       shopifyProductId: "gid://shopify/Product/3we-03",
       shopifyVariantId: "gid://shopify/ProductVariant/3we-03-def",
-      code: "CATALOG #3WE-03",
       title: "RAT RACE BLUEPRINT SHIRT",
+      collection: "born",
       category: "shirts",
       price: 60,
       image: "https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA",
@@ -1013,14 +1095,15 @@
       description: "A raw sketchbook diagram of pressure, movement, and the race to get out, finished with deliberate wear."
     },
     {
-      id: 3,
+      id: "3we-04",
+      code: "CATALOG #3WE-04",
       shopifyProductId: "gid://shopify/Product/3we-04",
       shopifyVariantId: "gid://shopify/ProductVariant/3we-04-def",
-      code: "CATALOG #3WE-04",
       title: "BURN NOTICE DISTRESSED SHIRT",
+      collection: "born",
       category: "shirts",
       price: 60,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBmRVI3y0aI9FjWehL4xz-wM3pwHWPxQdz5AtcHBTgVGcFj443YLhVCMX1jdDn_lBz5cnvvlc5xbwD09Zpx0JhUvWE6dAnNmUvg4_X7nrTPl_LVi-9DQN05aQf0LFff7sHRy1bL5IFcTe7oIC9uKZVV0h-7GbabQ6ZTha0Ezodkx1ugzk4BwS6Nn_ConfG1sQJ1kdmASVAaJRsRVDV_QJgOS-LrC3Iko6RLsEgRilJrGekvp5PP5sFxAcqKrpVGYEGEDw",
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(6).png",
       supportsSleeve: true,
       colors: [
         { name: "White Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#f0f0f0" },
@@ -1029,32 +1112,32 @@
       description: "A surreal hand-and-cigarette illustration set above the 3rd World Enterprise wordmark with scorched hem lines."
     },
     {
-      id: 4,
+      id: "3we-05",
+      code: "CATALOG #3WE-05",
       shopifyProductId: "gid://shopify/Product/3we-05",
       shopifyVariantId: "gid://shopify/ProductVariant/3we-05-def",
-      code: "CATALOG #3WE-05",
       title: "WORLD ORDER DISTRESSED SHIRT",
+      collection: "born",
       category: "shirts",
       price: 60,
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB6KVmbf1xwniI2MWhO-p042ivXxOnVnYvJujQ3zP2e5fEK9lFu9GpHFMdU6kD6MsLOrbivStkAXuF52lHBn7lmFEYK_7t-TMTzB7WvZXDrdjyEGIEsU0MeAEWZu9Cafto9ax0yVVki7GsyWw7gkrp04DJJkW-ZbIvjWZQaJ8vn47awkOJ_61bzf0vnrDo5S1i831Qd7TLAfrZqHWpOfaTf1JI2OVomDMnAUy_P3tBe9yLAtgapoKK-EfWKJ7iP29k5Sw",
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(5).png",
       supportsSleeve: true,
       colors: [
         { name: "Black Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#141414" },
-        { name: "Charcoal Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#2a2a2a" },
-        { name: "Cream Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#e6e0d3" },
-        { name: "White Torched", type: "torched", badge: "MADE TO ORDER", bg: "#dad4c5" }
+        { name: "Charcoal Distressed", type: "distressed", badge: "READY TO SHIP", bg: "#2a2a2a" }
       ],
       description: "A broken-globe graphic with red gothic 3rd World Enterprise lettering across the chest."
     },
     {
-      id: 5,
+      id: "3we-06",
+      code: "CATALOG #3WE-06",
       shopifyProductId: "gid://shopify/Product/3we-06",
       shopifyVariantId: "gid://shopify/ProductVariant/3we-06-def",
-      code: "CATALOG #3WE-06",
       title: "UNFINISHED FACE ZIP HOODIE",
+      collection: "born",
       category: "outerwear",
       price: 70,
-      image: "https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA",
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png",
       supportsSleeve: false,
       colors: [
         { name: "Black Wash", type: "distressed", badge: "READY TO SHIP", bg: "#141414" },
@@ -1063,11 +1146,12 @@
       description: "The original face graphic carried across a washed full-zip hoodie with front split pouch pockets."
     },
     {
-      id: 6,
+      id: "3we-07",
+      code: "CATALOG #3WE-07",
       shopifyProductId: "gid://shopify/Product/3we-07",
       shopifyVariantId: "gid://shopify/ProductVariant/3we-07-def",
-      code: "CATALOG #3WE-07",
       title: "AFTERBURN TORCHED SHORTS",
+      collection: "born",
       category: "outerwear",
       price: 50,
       image: "https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU",
@@ -1079,13 +1163,13 @@
     }
   ];
 
-  // Render Product Grid with explicit Shopify hooks
   function renderProductGrid(filter = 'all') {
     const container = document.getElementById('product-cards-container');
     container.innerHTML = '';
 
     const list = CATALOG.filter(item => {
       if (filter === 'all') return true;
+      if (filter === 'ikigai') return item.collection === 'ikigai';
       return item.category === filter;
     });
 
@@ -1094,9 +1178,10 @@
       const isReady = defColor.type === 'distressed';
       const badgeText = isReady ? 'READY TO SHIP (2-4 DAYS)' : 'MADE TO ORDER (7-14 DAYS)';
       const badgeClass = isReady ? 'text-signal border-signal/40 bg-signal/10' : 'text-orange-400 border-orange-400/40 bg-orange-400/10';
+      const isIkigai = p.collection === 'ikigai';
 
       const card = document.createElement('div');
-      card.className = "flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300";
+      card.className = "flex flex-col justify-between bg-surface-card rounded-2xl border border-white/10 p-5 hover:border-white/30 transition-all duration-300 group";
       card.setAttribute('data-product-id', p.shopifyProductId);
       card.setAttribute('data-variant-id', p.shopifyVariantId);
       card.setAttribute('data-sku', p.code);
@@ -1105,19 +1190,19 @@
 
       card.innerHTML = `
         <div>
-          <div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-4 cursor-pointer" onclick="openConfiguratorModal(${p.id})">
+          <div class="relative aspect-square rounded-xl overflow-hidden bg-black/40 mb-4 cursor-pointer" onclick="openConfiguratorModal('${p.id}')">
             <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded">
+            <span class="absolute top-3 left-3 ${isIkigai ? 'bg-red3rd' : 'bg-white/20 backdrop-blur-md'} text-white font-mono text-[9px] font-bold px-2.5 py-0.5 uppercase tracking-widest rounded">
               ${p.code}
             </span>
           </div>
 
           <div class="flex justify-between items-center mb-2 font-mono text-[11px]">
-            <span class="px-2 py-0.5 rounded border ${badgeClass} font-bold">${badgeText}</span>
-            <span class="text-neutral-400 uppercase">${p.colors.length} FINISHES</span>
+            <span class="px-2 py-0.5 rounded border ${badgeClass} font-bold text-[10px]">${badgeText}</span>
+            <span class="text-neutral-400 uppercase text-[10px]">${p.colors.length} FINISHES</span>
           </div>
 
-          <h3 class="font-display text-xl uppercase tracking-tight text-white mb-1 cursor-pointer" onclick="openConfiguratorModal(${p.id})">
+          <h3 class="font-display text-xl uppercase tracking-tight text-white mb-1 cursor-pointer group-hover:text-red-200 transition-colors" onclick="openConfiguratorModal('${p.id}')">
             ${p.title}
           </h3>
           <p class="font-mono text-sm text-neutral-200 mb-3">$${p.price}.00 <span class="text-xs text-neutral-500">USD</span></p>
@@ -1125,15 +1210,14 @@
         </div>
 
         <div>
-          <!-- S, M, L, XL quick add with variant binding -->
           <div class="grid grid-cols-4 gap-1.5 font-mono text-xs text-center mb-3">
-            <button class="py-1.5 border border-white/15 rounded hover:border-white text-neutral-300 cursor-pointer" onclick="quickAddSKU(${p.id}, 'S')">S</button>
-            <button class="py-1.5 border border-white/15 rounded hover:border-white text-neutral-300 cursor-pointer" onclick="quickAddSKU(${p.id}, 'M')">M</button>
-            <button class="py-1.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded cursor-pointer" onclick="quickAddSKU(${p.id}, 'L')">L</button>
-            <button class="py-1.5 border border-white/15 rounded hover:border-white text-neutral-300 cursor-pointer" onclick="quickAddSKU(${p.id}, 'XL')">XL</button>
+            <button class="py-1.5 border border-white/15 rounded hover:border-white text-neutral-300 cursor-pointer transition-colors" onclick="quickAddSKU('${p.id}', 'S')">S</button>
+            <button class="py-1.5 border border-white/15 rounded hover:border-white text-neutral-300 cursor-pointer transition-colors" onclick="quickAddSKU('${p.id}', 'M')">M</button>
+            <button class="py-1.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded cursor-pointer transition-colors" onclick="quickAddSKU('${p.id}', 'L')">L</button>
+            <button class="py-1.5 border border-white/15 rounded hover:border-white text-neutral-300 cursor-pointer transition-colors" onclick="quickAddSKU('${p.id}', 'XL')">XL</button>
           </div>
 
-          <button class="w-full py-3 bg-white text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-xl flex items-center justify-center gap-2 cursor-pointer" onclick="openConfiguratorModal(${p.id})">
+          <button class="w-full py-3 bg-white text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-xl flex items-center justify-center gap-2 cursor-pointer" onclick="openConfiguratorModal('${p.id}')">
             <span>CONFIGURE SPEC</span>
             <span>→</span>
           </button>
@@ -1144,30 +1228,31 @@
   }
 
   function setCatalogFilter(filter) {
-    document.getElementById('filter-btn-all').className = "px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors";
-    document.getElementById('filter-btn-shirts').className = "px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors";
-    document.getElementById('filter-btn-outerwear').className = "px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors";
-
-    if (filter === 'all') document.getElementById('filter-btn-all').className = "px-4 py-2 bg-white text-black font-bold uppercase rounded-lg";
-    if (filter === 'shirts') document.getElementById('filter-btn-shirts').className = "px-4 py-2 bg-white text-black font-bold uppercase rounded-lg";
-    if (filter === 'outerwear') document.getElementById('filter-btn-outerwear').className = "px-4 py-2 bg-white text-black font-bold uppercase rounded-lg";
-
+    const btnIds = ['all', 'ikigai', 'shirts', 'outerwear'];
+    btnIds.forEach(id => {
+      const btn = document.getElementById(`filter-btn-${id}`);
+      if (btn) {
+        if (id === filter) {
+          btn.className = "px-4 py-2 bg-white text-black font-bold uppercase rounded-lg transition-all cursor-pointer";
+        } else {
+          btn.className = "px-4 py-2 text-neutral-400 hover:text-white uppercase transition-colors cursor-pointer";
+        }
+      }
+    });
     renderProductGrid(filter);
   }
 
-  // =========================================================
-  // CART STATE & REAL-TIME SHIPPING PROGRESS LOGIC
-  // =========================================================
+  // CART LOGIC
   let cart = [
     {
-      id: 0,
-      shopifyVariantId: "gid://shopify/ProductVariant/3we-01-def",
-      title: "UNFINISHED FACE DISTRESSED SHIRT",
+      id: "ikigai-01",
+      shopifyVariantId: "gid://shopify/ProductVariant/ik-01-def",
+      title: "IKIGAI NOCTURNE DISTRESSED TEE",
       price: 60,
-      image: CATALOG[0].image,
+      image: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png",
       size: "L",
       sleeve: "Short Sleeve",
-      color: "Black Distressed",
+      color: "Washed Black Distressed",
       fulfillment: "READY TO SHIP",
       isTorched: false,
       qty: 1
@@ -1217,7 +1302,8 @@
   }
 
   function quickAddSKU(productId, size) {
-    const product = CATALOG[productId];
+    const product = CATALOG.find(p => p.id === productId);
+    if (!product) return;
     const defColor = product.colors[0];
     addToCartObject({
       id: product.id,
@@ -1235,32 +1321,38 @@
   }
 
   function addBundleToCart() {
-    addToCartObject({
-      id: 5,
-      shopifyVariantId: CATALOG[5].shopifyVariantId,
-      title: CATALOG[5].title,
-      price: 70,
-      image: CATALOG[5].image,
-      size: "L",
-      sleeve: null,
-      color: "Black Wash",
-      fulfillment: "READY TO SHIP",
-      isTorched: false,
-      qty: 1
-    });
-    addToCartObject({
-      id: 6,
-      shopifyVariantId: CATALOG[6].shopifyVariantId,
-      title: CATALOG[6].title,
-      price: 50,
-      image: CATALOG[6].image,
-      size: "L",
-      sleeve: null,
-      color: "Cream Torched",
-      fulfillment: "MADE TO ORDER",
-      isTorched: true,
-      qty: 1
-    });
+    const hoodie = CATALOG.find(p => p.id === '3we-06');
+    const shorts = CATALOG.find(p => p.id === '3we-07');
+    if (hoodie) {
+      addToCartObject({
+        id: hoodie.id,
+        shopifyVariantId: hoodie.shopifyVariantId,
+        title: hoodie.title,
+        price: 70,
+        image: hoodie.image,
+        size: "L",
+        sleeve: null,
+        color: "Black Wash",
+        fulfillment: "READY TO SHIP",
+        isTorched: false,
+        qty: 1
+      });
+    }
+    if (shorts) {
+      addToCartObject({
+        id: shorts.id,
+        shopifyVariantId: shorts.shopifyVariantId,
+        title: shorts.title,
+        price: 50,
+        image: shorts.image,
+        size: "L",
+        sleeve: null,
+        color: "Cream Torched",
+        fulfillment: "MADE TO ORDER",
+        isTorched: true,
+        qty: 1
+      });
+    }
   }
 
   function changeItemQty(index, delta) {
@@ -1288,7 +1380,7 @@
       container.innerHTML = `
         <div class="text-center py-16 text-neutral-500 font-mono text-xs">
           <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
-          YOUR ARCHIVE CART IS EMPTY.<br>DISCOVER PIECES FROM THE B O R N CATALOG.
+          YOUR ARCHIVE CART IS EMPTY.<br>DISCOVER PIECES FROM THE IKIGAI CAPSULE.
         </div>
       `;
       document.getElementById('cart-calc-subtotal').innerText = '$0.00 USD';
@@ -1339,7 +1431,6 @@
       container.appendChild(itemCard);
     });
 
-    // Mixed Cart Notice
     const mixedBanner = document.getElementById('mixed-cart-banner');
     if (hasReady && hasTorched) {
       mixedBanner.classList.remove('hidden');
@@ -1347,7 +1438,6 @@
       mixedBanner.classList.add('hidden');
     }
 
-    // Free Shipping Progress calculation
     const threshold = 120;
     const progressFill = document.getElementById('shipping-progress-bar');
     const progressText = document.getElementById('shipping-progress-text');
@@ -1369,7 +1459,6 @@
       progressBadge.className = 'text-neutral-400 text-[10px] font-bold uppercase';
     }
 
-    // Discount Calculation
     let discountAmount = 0;
     if (appliedDiscount) {
       if (appliedDiscount.type === 'percent') {
@@ -1433,9 +1522,7 @@
     updateCartDrawerUI();
   }
 
-  // =========================================================
-  // 5-STEP CHECKOUT ENGINE (ZERO PREFILLED VALUES)
-  // =========================================================
+  // CHECKOUT ENGINE
   let currentStep = 1;
 
   function launchCheckoutFlow() {
@@ -1545,7 +1632,6 @@
     document.getElementById('order-confirmed-view').classList.remove('hidden');
     document.getElementById('confirm-email-val').innerText = emailVal;
 
-    // Trigger Shopify Storefront order creation hook
     if (window.ShopifyStorefrontConfig) {
       window.ShopifyStorefrontConfig.createCheckout(cart);
     }
@@ -1562,18 +1648,16 @@
     setCheckoutStep(1);
   }
 
-  // =========================================================
-  // PRODUCT CONFIGURATOR MODAL CONTROLLER
-  // =========================================================
+  // CONFIGURATOR MODAL
   let modalState = {
-    productId: 0,
+    productId: "ikigai-01",
     size: 'L',
     sleeve: 'Short Sleeve',
     colorIdx: 0
   };
 
   function openConfiguratorModal(productId) {
-    const product = CATALOG[productId];
+    const product = CATALOG.find(p => p.id === productId);
     if (!product) return;
 
     modalState.productId = productId;
@@ -1626,7 +1710,8 @@
   }
 
   function updateModalFulfillmentBadge() {
-    const product = CATALOG[modalState.productId];
+    const product = CATALOG.find(p => p.id === modalState.productId);
+    if (!product) return;
     const col = product.colors[modalState.colorIdx];
     const pill = document.getElementById('cfg-fulfillment-pill');
     const dot = document.getElementById('cfg-fulfillment-dot');
@@ -1641,14 +1726,15 @@
       pill.className = "p-2.5 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2";
       dot.className = "w-2 h-2 rounded-full bg-signal animate-pulse";
       text.className = "font-bold text-signal text-[11px]";
-      text.innerText = "READY TO SHIP — In stock, normally processed within 2 to 4 business days.";
+      text.innerText = "READY TO SHIP — Processed within 2 to 4 business days.";
     }
   }
 
   function setModalSizeChoice(size) {
     modalState.size = size;
     document.getElementById('cfg-selected-size-name').innerText = size;
-    document.querySelectorAll('#cfg-size-buttons button').forEach(b => {
+    const btns = document.querySelectorAll('#cfg-size-buttons button');
+    btns.forEach(b => {
       if (b.innerText === size) {
         b.className = "py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer";
       } else {
@@ -1659,12 +1745,13 @@
 
   function setModalSleeveChoice(sleeve) {
     modalState.sleeve = sleeve;
+    document.getElementById('cfg-selected-sleeve-name').innerText = sleeve;
     updateModalSleeveButtons();
   }
 
   function updateModalSleeveButtons() {
-    document.getElementById('cfg-selected-sleeve-name').innerText = modalState.sleeve;
-    document.querySelectorAll('#cfg-sleeve-buttons button').forEach(b => {
+    const btns = document.querySelectorAll('#cfg-sleeve-buttons button');
+    btns.forEach(b => {
       if (b.innerText.toLowerCase().includes(modalState.sleeve.toLowerCase())) {
         b.className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer";
       } else {
@@ -1674,8 +1761,9 @@
   }
 
   function addConfiguredItemToCart() {
-    const product = CATALOG[modalState.productId];
-    const color = product.colors[modalState.colorIdx];
+    const product = CATALOG.find(p => p.id === modalState.productId);
+    if (!product) return;
+    const col = product.colors[modalState.colorIdx];
     addToCartObject({
       id: product.id,
       shopifyVariantId: product.shopifyVariantId,
@@ -1684,17 +1772,15 @@
       image: product.image,
       size: modalState.size,
       sleeve: product.supportsSleeve ? modalState.sleeve : null,
-      color: color.name,
-      fulfillment: color.type === 'torched' ? 'MADE TO ORDER' : 'READY TO SHIP',
-      isTorched: color.type === 'torched',
+      color: col.name,
+      fulfillment: col.type === 'torched' ? "MADE TO ORDER" : "READY TO SHIP",
+      isTorched: col.type === 'torched',
       qty: 1
     });
     closeConfiguratorModal();
   }
 
-  // =========================================================
-  // POLICY & SIZE GUIDE MODAL CONTROLLER
-  // =========================================================
+  // SIZE GUIDE / POLICIES MODAL TABS
   function openPolicyModal(tab = 'sizeguide') {
     document.getElementById('policies-modal').classList.remove('hidden');
     switchPolicyTab(tab);
@@ -1707,22 +1793,23 @@
   function switchPolicyTab(tab) {
     const tabs = ['sizeguide', 'shipping', 'policies'];
     tabs.forEach(t => {
-      const btn = document.getElementById(`pol-tab-${t === 'sizeguide' ? 'size' : t === 'shipping' ? 'ship' : 'ret'}`);
+      const tabBtn = document.getElementById(`pol-tab-${t === 'sizeguide' ? 'size' : t === 'shipping' ? 'ship' : 'ret'}`);
       const body = document.getElementById(`pol-body-${t}`);
       if (t === tab) {
-        btn.className = "pb-2 text-white border-b-2 border-red3rd font-bold cursor-pointer";
+        tabBtn.className = "pb-2 text-white border-b-2 border-red3rd font-bold cursor-pointer";
         body.classList.remove('hidden');
       } else {
-        btn.className = "pb-2 text-neutral-400 hover:text-white cursor-pointer";
+        tabBtn.className = "pb-2 text-neutral-400 hover:text-white cursor-pointer";
         body.classList.add('hidden');
       }
     });
   }
 
-  // Initialize
+  // INITIALIZE ON DOM READY
   document.addEventListener('DOMContentLoaded', () => {
     renderProductGrid('all');
     updateCartDrawerUI();
   });
 </script>
-</body></html>
+</body>
+</html>
