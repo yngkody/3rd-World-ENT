@@ -2,7 +2,13 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>3RD WORLD ENT — Official Store</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
+  // Initialize the hoodie carousel so slide 0 (video) and its thumbnail are synced on page load.
+  document.addEventListener('DOMContentLoaded', () => {
+    setHoodieSlide(0);
+  });
+
+</script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -73,13 +79,13 @@
 <!-- ======================================================= -->
 <header
   class="sticky top-[29px] z-40
-         bg-black/90 backdrop-blur-xl
+         bg-black/95 backdrop-blur-xl
          border-b border-white/10"
 >
   <div
-    class="max-w-[1600px] mx-auto
-           px-6 lg:px-12 xl:px-16
-           h-[82px]
+    class="w-full
+           px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32
+           h-[104px]
            grid grid-cols-[1fr_auto_1fr]
            items-center"
   >
@@ -87,7 +93,7 @@
     <!-- LEFT NAV -->
     <nav
       class="hidden md:flex items-center
-             gap-3 lg:gap-5
+             gap-6 lg:gap-10 xl:gap-12
              justify-self-start
              font-mono"
       aria-label="Primary navigation"
@@ -96,8 +102,8 @@
       <a
         href="/policies/"
         class="group relative
-               px-4 py-3
-               text-[12px] lg:text-[13px]
+               px-5 py-4
+               text-[13px] lg:text-[15px]
                font-semibold
                uppercase tracking-[0.14em]
                text-neutral-300
@@ -123,8 +129,8 @@
       <a
         href="/shipping/"
         class="group relative
-               px-4 py-3
-               text-[12px] lg:text-[13px]
+               px-5 py-4
+               text-[13px] lg:text-[15px]
                font-semibold
                uppercase tracking-[0.14em]
                text-neutral-300
@@ -149,16 +155,16 @@
     <a
       href="/"
       class="group
-             flex items-center gap-3
+             flex items-center gap-4
              justify-self-center
-             px-6"
+             px-8 lg:px-12"
       aria-label="3rd World Entertainment Home"
     >
       <span
         class="font-display
-               text-[27px] lg:text-[30px]
+               text-[31px] lg:text-[38px] xl:text-[42px]
                leading-none
-               tracking-[0.14em]
+               tracking-[0.12em]
                whitespace-nowrap
                text-white
                group-hover:text-neutral-200
@@ -179,7 +185,7 @@
     <!-- RIGHT NAV / ACTIONS -->
     <div
       class="flex items-center
-             gap-3 lg:gap-5
+             gap-5 lg:gap-8 xl:gap-10
              justify-self-end
              font-mono"
     >
@@ -188,9 +194,9 @@
       <a
         href="#audio-section"
         class="hidden sm:flex
-               items-center gap-3
-               px-4 py-3
-               text-[11px] lg:text-[12px]
+               items-center gap-4
+               px-5 py-4
+               text-[12px] lg:text-[14px]
                font-semibold
                uppercase tracking-[0.14em]
                text-neutral-300
@@ -230,8 +236,8 @@
         type="button"
         class="relative
                flex items-center gap-3
-               px-5 py-2.5
-               min-h-[44px]
+               px-6 lg:px-7 py-3
+               min-h-[50px]
                rounded-full
                border border-white/15
                bg-white/[0.04]
@@ -255,7 +261,7 @@
 
         <span
           class="hidden sm:inline
-                 text-[11px] lg:text-[12px]
+                 text-[12px] lg:text-[14px]
                  font-semibold
                  uppercase tracking-[0.14em]"
         >
@@ -537,46 +543,100 @@
 <!-- PRODUCT 2: IKIGAI FULL-ZIP HOODIE -->
 <div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative" id="ikigai-hoodie-card">
 <div>
-<!-- Carousel Image Box -->
-<video
-  id="hoodie-main-video"
-  class="absolute inset-0 w-full h-full object-cover"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="auto"
->
-  <source
-    src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/IMG_7983.MOV"
-    type="video/quicktime"
-  >
-</video>
+<!-- Carousel Media Box -->
+<div class="relative aspect-square rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 group">
 
-<img
-  alt="IKIGAI Full-Zip Hoodie View"
-  class="hidden absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-  id="hoodie-main-img"
-  src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png"
->
-<!-- Badge Top Left -->
-<div class="absolute top-4 left-4 bg-red3rd text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded shadow">
-      CAPSULE #IK-ZIP
-    </div>
-<!-- Carousel Nav Overlay Arrows -->
-<button aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-10" onclick="shiftHoodieSlide(-1, event)" type="button">
-<span class="material-symbols-outlined text-lg pointer-events-none">chevron_left</span>
-</button>
-<button aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-10" onclick="shiftHoodieSlide(1, event)" type="button">
-<span class="material-symbols-outlined text-lg pointer-events-none">chevron_right</span>
-</button>
-<!-- Slide Indicator Pill Bottom -->
-<div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded font-mono text-[10px] text-neutral-300 border border-white/10" id="hoodie-view-label">
-  LOOK 01 / 04 // IKIGAI
-    </div>
+  <video
+    id="hoodie-main-video"
+    class="absolute inset-0 w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+  >
+    <source
+      src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/IMG_7983.MOV"
+      type="video/quicktime"
+    >
+  </video>
+
+  <img
+    alt="IKIGAI Full-Zip Hoodie View"
+    class="hidden absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+    id="hoodie-main-img"
+    src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png"
+  >
+
+  <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
+
+  <div class="absolute top-4 left-4 bg-red3rd text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded shadow z-10">
+    CAPSULE #IK-ZIP
+  </div>
+
+  <button aria-label="Previous hoodie media"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-20"
+          onclick="shiftHoodieSlide(-1, event)"
+          type="button">
+    <span class="material-symbols-outlined text-lg pointer-events-none">chevron_left</span>
+  </button>
+
+  <button aria-label="Next hoodie media"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-20"
+          onclick="shiftHoodieSlide(1, event)"
+          type="button">
+    <span class="material-symbols-outlined text-lg pointer-events-none">chevron_right</span>
+  </button>
+
+  <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded font-mono text-[10px] text-neutral-300 border border-white/10 z-10"
+       id="hoodie-view-label">
+    LOOK 01 / 04 // IKIGAI
+  </div>
 </div>
-<!-- Thumbnails Row (3 images) -->
-<div class="grid grid-cols-3 gap-2 mb-6" id="hoodie-thumbnails"><button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all" onclick="setHoodieSlide(0, event)" type="button"><img alt="Hoodie Look 1" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png"></button><button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(1, event)" type="button"><img alt="Hoodie Look 2" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png"></button><button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(2, event)" type="button"><img alt="Hoodie Look 3" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png"></button></div>
+
+<!-- Thumbnails Row -->
+<div class="grid grid-cols-4 gap-2 mb-6" id="hoodie-thumbnails">
+
+  <button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all bg-black relative"
+          onclick="setHoodieSlide(0, event)"
+          type="button">
+    <video class="w-full h-full object-cover pointer-events-none"
+           muted
+           playsinline
+           preload="metadata">
+      <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/IMG_7983.MOV"
+              type="video/quicktime">
+    </video>
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none bg-black/15">
+      <span class="material-symbols-outlined text-white text-3xl drop-shadow-lg">play_circle</span>
+    </div>
+  </button>
+
+  <button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all"
+          onclick="setHoodieSlide(1, event)"
+          type="button">
+    <img alt="Hoodie Look 2"
+         class="w-full h-full object-cover pointer-events-none"
+         src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png">
+  </button>
+
+  <button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all"
+          onclick="setHoodieSlide(2, event)"
+          type="button">
+    <img alt="Hoodie Look 3"
+         class="w-full h-full object-cover pointer-events-none"
+         src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png">
+  </button>
+
+  <button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all"
+          onclick="setHoodieSlide(3, event)"
+          type="button">
+    <img alt="Hoodie Look 4"
+         class="w-full h-full object-cover pointer-events-none"
+         src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png">
+  </button>
+
+</div>
 <!-- Header Info -->
 <div class="flex items-start justify-between gap-4 mb-2">
 <div>
@@ -1484,18 +1544,48 @@ const MAIGO_SLIDES = [
   // 4. CAROUSEL FUNCTIONS: HOODIE
   function setHoodieSlide(index, e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    hoodieState.slide = (index + HOODIE_SLIDES.length) % HOODIE_SLIDES.length;
-    
+
+    hoodieState.slide =
+      (index + HOODIE_SLIDES.length) % HOODIE_SLIDES.length;
+
+    const slide = HOODIE_SLIDES[hoodieState.slide];
     const imgEl = document.getElementById('hoodie-main-img');
-    if (imgEl) imgEl.src = HOODIE_SLIDES[hoodieState.slide].src;
-    updateElementText('hoodie-view-label', HOODIE_SLIDES[hoodieState.slide].label);
+    const videoEl = document.getElementById('hoodie-main-video');
+
+    if (slide.type === "video") {
+      if (imgEl) imgEl.classList.add("hidden");
+
+      if (videoEl) {
+        videoEl.classList.remove("hidden");
+
+        if (videoEl.src !== slide.src) {
+          videoEl.src = slide.src;
+          videoEl.load();
+        }
+
+        videoEl.currentTime = 0;
+        videoEl.play().catch(() => {});
+      }
+    } else {
+      if (videoEl) {
+        videoEl.pause();
+        videoEl.classList.add("hidden");
+      }
+
+      if (imgEl) {
+        imgEl.classList.remove("hidden");
+        imgEl.src = slide.src;
+      }
+    }
+
+    updateElementText('hoodie-view-label', slide.label);
 
     const thumbs = document.querySelectorAll('#hoodie-thumbnails button');
     thumbs.forEach((btn, i) => {
       if (i === hoodieState.slide) {
-        btn.className = "aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all";
+        btn.className = "aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all bg-black relative";
       } else {
-        btn.className = "aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all";
+        btn.className = "aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all bg-black relative";
       }
     });
   }
