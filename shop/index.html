@@ -2606,15 +2606,7 @@ function toggleCartDrawer(e) {
       }
     }
   }
-
-  // 7. CHECKOUT CONTROLS
-function launchCheckoutFlow(e) {
-  if (e && e.preventDefault) e.preventDefault();
-  if (e && e.stopPropagation) e.stopPropagation();
-
-  createShopifyCheckout();
-}
-async function createShopifyCheckout() {
+    async function createShopifyCheckout() {
   if (!cart.length) {
     alert("YOUR CART IS EMPTY.");
     return;
@@ -2705,6 +2697,15 @@ async function createShopifyCheckout() {
     );
   }
 }
+
+  // 7. CHECKOUT CONTROLS
+function launchCheckoutFlow(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  if (e && e.stopPropagation) e.stopPropagation();
+
+  createShopifyCheckout();
+}
+
   function closeCheckoutModal(e) {
     if (e && e.stopPropagation) e.stopPropagation();
     const modal = document.getElementById('checkout-modal');
