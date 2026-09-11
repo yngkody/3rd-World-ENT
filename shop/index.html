@@ -358,9 +358,27 @@
 <div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative" id="ikigai-hoodie-card">
 <div>
 <!-- Carousel Image Box -->
-<div class="relative aspect-square rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 group">
-<img alt="IKIGAI Full-Zip Hoodie View" class="w-full h-full object-cover transition-opacity duration-300" id="hoodie-main-img" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png">
-<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
+<video
+  id="hoodie-main-video"
+  class="absolute inset-0 w-full h-full object-cover"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+>
+  <source
+    src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/IMG_7983.MOV"
+    type="video/quicktime"
+  >
+</video>
+
+<img
+  alt="IKIGAI Full-Zip Hoodie View"
+  class="hidden absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+  id="hoodie-main-img"
+  src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png"
+>
 <!-- Badge Top Left -->
 <div class="absolute top-4 left-4 bg-red3rd text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded shadow">
       CAPSULE #IK-ZIP
@@ -374,7 +392,7 @@
 </button>
 <!-- Slide Indicator Pill Bottom -->
 <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded font-mono text-[10px] text-neutral-300 border border-white/10" id="hoodie-view-label">
-      LOOK 01 / 03 // SANGUINE WASH
+  LOOK 01 / 04 // IKIGAI
     </div>
 </div>
 <!-- Thumbnails Row (3 images) -->
@@ -1104,19 +1122,28 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   ];
 
-  const HOODIE_SLIDES = [
-    {
-      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png",
-      label: "LOOK 01 / 03 // SANGUINE WASH"
-    },
-    {
-src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png",      label: "LOOK 02 / 03 // WESTERN VIPER"
-    },
-    {
-      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png",
-      label: "LOOK 03 / 03 // OPHIDIAN"
-    }
-  ];
+const HOODIE_SLIDES = [
+  {
+    type: "video",
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/IMG_7983.MOV",
+    label: "LOOK 01 / 04 // IKIGAI"
+  },
+  {
+    type: "image",
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png",
+    label: "LOOK 02 / 04 // SANGUINE WASH"
+  },
+  {
+    type: "image",
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png",
+    label: "LOOK 03 / 04 // WESTERN VIPER"
+  },
+  {
+    type: "image",
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png",
+    label: "LOOK 04 / 04 // OPHIDIAN"
+  }
+];
 
 const HANDAN_SLIDES = [
   {
@@ -1680,8 +1707,9 @@ function setMAIGOSlide(index, e) {
       id: "ikigai-hoodie",
       title: "IKIGAI FULL-ZIP HOODIE",
       price: 70,
-      image: HOODIE_SLIDES[hoodieState.slide].src,
-      size: hoodieState.size,
+      image: HOODIE_SLIDES[hoodieState.slide].type === "video"
+      ? HOODIE_SLIDES[1].src
+      : HOODIE_SLIDES[hoodieState.slide].src,      size: hoodieState.size,
       sleeve: null,
       color: hoodieState.finish,
       isTorched: hoodieState.isTorched,
