@@ -2,13 +2,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>3RD WORLD ENT — Official Store</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
-  // Initialize the hoodie carousel so slide 0 (video) and its thumbnail are synced on page load.
-  document.addEventListener('DOMContentLoaded', () => {
-    setHoodieSlide(0);
-  });
-
-</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -1784,6 +1778,21 @@ const HOODIE_SLIDES = [
   }
 ];
 
+const HEIWA_SLIDES = [
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/HEIWA-1.png",
+    label: "LOOK 01 / 03 // HEIWA STUDY"
+  },
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/HEIWA-2.png",
+    label: "LOOK 02 / 03 // WORLD ORDER"
+  },
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/HEIWA-3.png",
+    label: "LOOK 03 / 03 // DISTRESSED STUDY"
+  }
+];
+
 const HANDAN_SLIDES = [
   {
     src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20White%20Tee%20Finger%20Cigarette_Front%20worn%20by%2021%20year%20old%20blonde%20woman%20with%20lazy%20eyes_%20natural_%20no%20make-up_%20high%20cheeks%20Fiction%E2%84%A2%20%E2%80%93%20Sheer%20lace%20midi%20skirt%20Reddish%20Portrait%20(1).png",
@@ -1831,6 +1840,14 @@ const MAIGO_SLIDES = [
     slide: 0,
     size: 'L',
     finish: 'Sanguine Washed Black',
+    isTorched: false
+  };
+
+  let heiwaState = {
+    slide: 0,
+    size: 'L',
+    sleeve: 'Short Sleeve',
+    finish: 'Black Distressed',
     isTorched: false
   };
 
@@ -2387,6 +2404,22 @@ function setMAIGOSlide(index, e) {
     }, e);
   }
 
+  function addHeiwaToCart(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    addToCartObject({
+      id: "heiwa-shirt",
+      title: "HEIWA WORLD ORDER DISTRESSED SHIRT",
+      price: 60,
+      image: HEIWA_SLIDES[heiwaState.slide].src,
+      size: heiwaState.size,
+      sleeve: heiwaState.sleeve,
+      color: heiwaState.finish,
+      isTorched: heiwaState.isTorched,
+      fulfillment: heiwaState.isTorched ? "MADE TO ORDER" : "HYBRID FULFILLMENT",
+      qty: 1
+    }, e);
+  }
+
   function addMandanToCart(e) {
     if (e && e.stopPropagation) e.stopPropagation();
     addToCartObject({
@@ -2619,6 +2652,15 @@ function setMAIGOSlide(index, e) {
     if (panes) panes.classList.remove('hidden');
     if (stepper) stepper.classList.remove('hidden');
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setHoodieSlide(0);
+    setHeiwaSlide(0);
+    setHeiwaSleeve(heiwaState.sleeve);
+    setHeiwaFinish(heiwaState.finish, heiwaState.isTorched);
+    setHeiwaSize(heiwaState.size);
+  });
+
 </script>
 </body>
 </html>
