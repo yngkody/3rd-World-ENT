@@ -685,7 +685,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <div>
 <div class="flex gap-2">
 <input class="flex-1 bg-surface border border-white/20 rounded-lg px-3 py-2 text-white uppercase placeholder-neutral-500 text-xs focus:outline-none focus:border-red3rd" id="cart-discount-input" placeholder="DISCOUNT CODE (E.G. BORN10)" value="">
-<button class="bg-white/10 hover:bg-white hover:text-black text-white px-3.5 py-2 rounded-lg font-bold uppercase transition-colors cursor-pointer" onclick="applyPromoCode(event)" type="button">APPLY</button>
+<button class="bg-white/10 hover:bg-white hover:text-black text-white px-3.5 py-2 rounded-lg font-bold uppercase transition-colors cursor-pointer" onclick="applyPromoCode(document.getElementById('cart-discount-input').value, event)" type="button">APPLY</button>
 </div>
 <div class="mt-1.5 flex justify-between items-center hidden" id="cart-discount-status-row">
 <span class="text-[11px] font-bold" id="cart-discount-msg"></span>
@@ -1193,7 +1193,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  // 5. CAROUSEL FUNCTIONS: MANDAN & MAHGO (Fixed Naming Mismatch)
+  // 5. CAROUSEL FUNCTIONS: MANDAN & MAHGO
   function setMandanSlide(index, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     mandanState.slide = (index + MANDAN_SLIDES.length) % MANDAN_SLIDES.length;
@@ -1211,7 +1211,6 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
   
-  // Backwards compatibility alias for HTML elements calling setHandanSlide
   const setHandanSlide = setMandanSlide;
 
   function shiftMandanSlide(delta, e) {
@@ -1308,7 +1307,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  // 6. CART SYSTEM - STRICTLY TRIGGERED ONLY VIA CART BUTTON OR ADD-TO-CART
+  // 6. CART SYSTEM
   let cart = [];
   let appliedDiscount = null;
   let selectedShippingMethod = 'standard';
@@ -1337,6 +1336,22 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
 
     appliedDiscount = promo;
+    const statusRow = document.getElementById('cart-discount-status-row');
+    const statusMsg = document.getElementById('cart-discount-msg');
+    if (statusRow && statusMsg) {
+      statusRow.classList.remove('hidden');
+      statusMsg.innerText = `APPLIED: ${promo.label}`;
+    }
+    calculateCartTotals();
+  }
+
+  function removePromoCode(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    appliedDiscount = null;
+    const statusRow = document.getElementById('cart-discount-status-row');
+    const input = document.getElementById('cart-discount-input');
+    if (statusRow) statusRow.classList.add('hidden');
+    if (input) input.value = '';
     calculateCartTotals();
   }
 
@@ -1440,7 +1455,6 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }, e);
   }
 
-  // UPDATE CART DRAWER UI & CALCULATIONS
   function updateCartDrawerUI() {
     const container = document.getElementById('cart-items-container');
     let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -1511,7 +1525,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
         discountAmount = appliedDiscount.val;
       }
     } else {
-      appliedDiscount = null; // Auto-invalidate if subtotal drops below minSpend
+      appliedDiscount = null;
     }
 
     let isFreeShippingCode = appliedDiscount && appliedDiscount.type === 'free_ship';
@@ -1522,7 +1536,6 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     updateElementText('cart-calc-shipping', shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)} USD`);
     updateElementText('cart-calc-total', `$${total.toFixed(2)} USD`);
 
-    // Shipping progress bar update
     const progressBar = document.getElementById('shipping-progress-bar');
     const progressTxt = document.getElementById('shipping-progress-text');
     if (progressBar && progressTxt) {
@@ -1537,13 +1550,14 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   }
 
-  // CHECKOUT MODAL TOGGLES
+  // 7. CHECKOUT CONTROLS
   function launchCheckoutFlow(e) {
     if (e && e.stopPropagation) e.stopPropagation();
     if (cart.length === 0) return;
     toggleCartDrawer(e);
     const modal = document.getElementById('checkout-modal');
     if (modal) modal.classList.remove('hidden');
+    setCheckoutStep(1);
   }
 
   function closeCheckoutModal(e) {
@@ -1557,21 +1571,73 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     for (let i = 1; i <= 5; i++) {
       const pane = document.getElementById(`co-pane-${i}`);
       const tab = document.getElementById(`co-tab-${i}`);
-      if (pane) pane.classList.add('hidden');
-      if (tab) tab.className = 'step-indicator border-b-2 border-white/20 pb-2 text-neutral-500';
+      if (pane) pane.classList.toggle('hidden', i !== step);
+      if (tab) {
+        if (i === step) {
+          tab.className = "step-indicator border-b-2 border-red3rd pb-2 text-white font-bold";
+        } else if (i < step) {
+          tab.className = "step-indicator border-b-2 border-signal pb-2 text-signal font-bold";
+        } else {
+          tab.className = "step-indicator border-b-2 border-white/20 pb-2 text-neutral-500";
+        }
+      }
     }
-    const targetPane = document.getElementById(`co-pane-${step}`);
-    const targetTab = document.getElementById(`co-tab-${step}`);
-    if (targetPane) targetPane.classList.remove('hidden');
-    if (targetTab) targetTab.className = 'step-indicator border-b-2 border-red3rd pb-2 text-white font-bold';
+
+    if (step === 5) {
+      updateCheckoutSummary();
+    }
+  }
+
+  function updateSelectedShippingRate(method, cost) {
+    selectedShippingMethod = method;
+    shippingCost = cost;
+    calculateCartTotals();
+  }
+
+  function updateCheckoutSummary() {
+    const reviewContainer = document.getElementById('co-review-items');
+    if (reviewContainer) {
+      reviewContainer.innerHTML = cart.map(item => `
+        <div class="flex justify-between items-center text-xs">
+          <div>
+            <span class="text-white font-bold">${item.title}</span>
+            <span class="text-neutral-400 block text-[10px]">${item.size} • ${item.color} (x${item.qty})</span>
+          </div>
+          <span class="text-white font-mono">$${(item.price * item.qty).toFixed(2)}</span>
+        </div>
+      `).join('');
+    }
+
+    let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    let discountAmount = 0;
+    if (appliedDiscount) {
+      if (appliedDiscount.type === 'percent') discountAmount = (subtotal * appliedDiscount.val) / 100;
+      if (appliedDiscount.type === 'fixed') discountAmount = appliedDiscount.val;
+    }
+    let shipping = (subtotal >= 120 || subtotal === 0 || (appliedDiscount && appliedDiscount.type === 'free_ship')) ? 0 : shippingCost;
+    let total = Math.max(0, subtotal - discountAmount) + shipping;
+
+    updateElementText('co-summary-subtotal', `$${subtotal.toFixed(2)} USD`);
+    updateElementText('co-summary-shipping', shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)} USD`);
+    updateElementText('co-summary-total', `$${total.toFixed(2)} USD`);
   }
 
   function submitFinalOrderCheckout(e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    const wrapper = document.getElementById('checkout-panes-wrapper');
+    const checkbox = document.getElementById('co-terms-checkbox');
+    if (checkbox && !checkbox.checked) {
+      alert("PLEASE AGREE TO TERMS AND CONDITIONS TO PLACE YOUR ORDER.");
+      return;
+    }
+
+    const panes = document.getElementById('checkout-panes-wrapper');
     const confirmed = document.getElementById('order-confirmed-view');
-    if (wrapper) wrapper.classList.add('hidden');
+    const stepper = document.getElementById('checkout-stepper-bar');
+
+    if (panes) panes.classList.add('hidden');
+    if (stepper) stepper.classList.add('hidden');
     if (confirmed) confirmed.classList.remove('hidden');
+
     cart = [];
     appliedDiscount = null;
     updateCartDrawerUI();
@@ -1579,11 +1645,15 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 
   function closeOrderConfirmation(e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    closeCheckoutModal(e);
-    const wrapper = document.getElementById('checkout-panes-wrapper');
+    const modal = document.getElementById('checkout-modal');
+    const panes = document.getElementById('checkout-panes-wrapper');
     const confirmed = document.getElementById('order-confirmed-view');
-    if (wrapper) wrapper.classList.remove('hidden');
+    const stepper = document.getElementById('checkout-stepper-bar');
+
+    if (modal) modal.classList.add('hidden');
     if (confirmed) confirmed.classList.add('hidden');
+    if (panes) panes.classList.remove('hidden');
+    if (stepper) stepper.classList.remove('hidden');
   }
 </script>
 </body>
