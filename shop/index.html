@@ -2607,6 +2607,7 @@ function toggleCartDrawer(e) {
     }
   }
 
+
 async function createShopifyCheckout() {
   if (!cart || cart.length === 0) {
     alert("YOUR CART IS EMPTY.");
@@ -2614,26 +2615,16 @@ async function createShopifyCheckout() {
   }
 
   try {
-    console.log("Starting Shopify checkout...");
-    console.log("Current cart:", cart);
-
     const lines = [];
 
-    // Convert every item in your custom cart
-    // into a Shopify cart line.
     for (const item of cart) {
       const handle = SHOPIFY_PRODUCT_HANDLES[item.id];
 
       if (!handle) {
-        throw new Error(
-          `No Shopify product handle is mapped for "${item.id}".`
-        );
+        throw new Error(`No Shopify product mapped for: ${item.id}`);
       }
 
       const selectedOptions = getShopifyOptionsForCartItem(item);
-
-      console.log("Matching Shopify product:", handle);
-      console.log("Requested options:", selectedOptions);
 
       const merchandiseId = await getShopifyVariantId(
         handle,
@@ -2642,7 +2633,7 @@ async function createShopifyCheckout() {
 
       if (!merchandiseId) {
         throw new Error(
-          `Could not find a Shopify variant for "${item.title}".`
+          `Could not find Shopify variant for: ${item.title}`
         );
       }
 
@@ -2652,19 +2643,12 @@ async function createShopifyCheckout() {
       });
     }
 
-    console.log("Shopify cart lines:", lines);
-
-    // Grab discount code from your existing cart field.
-    const discountInput = document.getElementById(
-      "cart-discount-input"
-    );
+    const discountInput =
+      document.getElementById("cart-discount-input");
 
     const discountCode =
-      discountInput && discountInput.value
-        ? discountInput.value.trim()
-        : "";
+      discountInput?.value?.trim() || "";
 
-    // Shopify Storefront API mutation
     const mutation = `
       mutation CreateCart($input: CartInput!) {
         cartCreate(input: $input) {
@@ -2691,29 +2675,17 @@ async function createShopifyCheckout() {
       input.discountCodes = [discountCode];
     }
 
-    console.log("Creating Shopify cart...");
-
     const data = await shopifyRequest(mutation, {
       input: input
     });
 
-    console.log("Shopify response:", data);
-
-    if (!data || !data.cartCreate) {
-      throw new Error(
-        "Shopify returned an invalid cart response."
-      );
+    if (!data?.cartCreate) {
+      throw new Error("Shopify did not return a cart.");
     }
 
     const result = data.cartCreate;
 
-    // Shopify validation errors
-    if (result.userErrors && result.userErrors.length > 0) {
-      console.error(
-        "Shopify cart errors:",
-        result.userErrors
-      );
-
+    if (result.userErrors?.length) {
       throw new Error(
         result.userErrors
           .map(error => error.message)
@@ -2721,65 +2693,43 @@ async function createShopifyCheckout() {
       );
     }
 
-    // Shopify warnings
-    if (result.warnings && result.warnings.length > 0) {
-      console.warn(
-        "Shopify cart warnings:",
-        result.warnings
-      );
-    }
-
-    if (!result.cart) {
+    if (!result.cart?.checkoutUrl) {
       throw new Error(
-        "Shopify did not create the cart."
-      );
-    }
-
-    if (!result.cart.checkoutUrl) {
-      throw new Error(
-        "Shopify did not return a checkout URL."
+        "Shopify created the cart but did not return a checkout URL."
       );
     }
 
     console.log(
-      "Original Shopify checkout URL:",
+      "SHOPIFY ORIGINAL CHECKOUT:",
       result.cart.checkoutUrl
     );
 
-    // Shopify is currently returning 3rdworldent.com as the
-    // checkout hostname, but that domain is served by GitHub Pages.
-    // Force the checkout onto Shopify's hosted domain instead.
-    const checkoutUrl = new URL(
-      result.cart.checkoutUrl
-    );
+    const checkoutUrl = new URL(result.cart.checkoutUrl);
 
-    checkoutUrl.hostname =
-      "3rdworldent.myshopify.com";
+    /*
+      IMPORTANT:
+      3rdworldent.com is hosted by GitHub Pages.
+      Shopify is incorrectly returning that hostname for /cart/c/.
+      Send the Shopify cart path through the actual Shopify host.
+    */
+    checkoutUrl.hostname = "3rdworldent.myshopify.com";
 
     console.log(
-      "Final checkout URL:",
+      "SHOPIFY FINAL CHECKOUT:",
       checkoutUrl.toString()
     );
 
-    // Send customer to real Shopify checkout.
-    window.location.assign(
-      checkoutUrl.toString()
-    );
+    window.location.assign(checkoutUrl.toString());
 
   } catch (error) {
-    console.error(
-      "SHOPIFY CHECKOUT ERROR:",
-      error
-    );
+    console.error("SHOPIFY CHECKOUT FAILED:", error);
 
     alert(
       "CHECKOUT ERROR:\n\n" +
-      (error.message || "Unable to start checkout.")
+      (error?.message || String(error))
     );
   }
 }
-// 7. CHECKOUT CONTROLS
-function launchCheckoutFlow(e) {
 
   // 7. CHECKOUT CONTROLS
 function launchCheckoutFlow(e) {
