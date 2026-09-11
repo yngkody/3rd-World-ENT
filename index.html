@@ -174,25 +174,28 @@
     render3DDepth();
 
     // Entrance Gate Controls
-    function dismissEntrance() {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      
-      const img = document.getElementById('spatial-img');
-      if (img) {
-        img.style.transform = 'scale(1.15)';
-        img.style.filter = 'brightness(0.3) blur(6px)';
-      }
-      
-      gate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
-      setTimeout(() => {
-        gate.style.display = 'none';
-      }, 900);
+// Entrance Gate Controls
+function dismissEntrance() {
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  
+  const img = document.getElementById('spatial-img');
+  if (img) {
+    img.style.transform = 'scale(1.15)';
+    img.style.filter = 'brightness(0.3) blur(6px)';
+  }
+  
+  gate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+  
+  // Wait 900ms for the CSS transition to finish, then redirect
+  setTimeout(() => {
+    gate.style.display = 'none';
+    window.location.href = 'shop.html'; // <-- Redirect happens here
+  }, 900);
+} // <-- Correctly closes the dismissEntrance function
 
-    document.getElementById('dismiss-entrance').addEventListener('click', function() {
-    window.location.href = 'shop.html';
-});
+// Event Listener to trigger the function when clicked
+document.getElementById('dismiss-entrance').addEventListener('click', dismissEntrance);
 
-    }
 
     function showEntrance() {
       gate.style.display = 'flex';
