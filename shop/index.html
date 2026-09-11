@@ -2687,26 +2687,15 @@ async function createShopifyCheckout() {
       throw new Error("Shopify did not return a checkout URL.");
     }
 
-    const checkoutUrl = new URL(result.cart.checkoutUrl);
+const checkoutUrl = new URL(result.cart.checkoutUrl);
 
-    // Force checkout through Shopify instead of GitHub Pages
-    checkoutUrl.hostname = "3rdworldent.myshopify.com";
+checkoutUrl.searchParams.set(
+  "channel",
+  "headless-storefronts"
+);
 
-    console.log(
-      "Going to Shopify checkout:",
-      checkoutUrl.toString()
-    );
-
-    window.location.href = checkoutUrl.toString();
-
-  } catch (error) {
-    console.error("CHECKOUT ERROR:", error);
-
-    alert(
-      "CHECKOUT ERROR:\n\n" +
-      error.message
-    );
-  }
+window.location.href = checkoutUrl.toString();
+ 
 }
 
   // 7. CHECKOUT CONTROLS
