@@ -2687,14 +2687,7 @@ async function createShopifyCheckout() {
       throw new Error("Shopify did not return a checkout URL.");
     }
 
-const checkoutUrl = new URL(result.cart.checkoutUrl);
-
-checkoutUrl.searchParams.set(
-  "channel",
-  "headless-storefronts"
-);
-
-window.location.href = checkoutUrl.toString();
+    window.location.href = result.cart.checkoutUrl;
  
 }
 
