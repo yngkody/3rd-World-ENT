@@ -71,200 +71,55 @@
 <!-- ======================================================= -->
 <!-- PRIMARY NAVIGATION                                      -->
 <!-- ======================================================= -->
-<!-- ======================================================= -->
-<header class="sticky top-[29px] z-40 bg-black/95 backdrop-blur-xl border-b border-white/10">
+<header id="site-header" class="sticky top-[29px] z-40 bg-black/95 backdrop-blur-xl border-b border-white/10">
+  <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-[72px] lg:h-[82px] flex items-center justify-between gap-6">
 
-  <!-- MOBILE NAV -->
-  <div class="md:hidden flex items-center justify-between h-[72px] px-4 sm:px-5">
-    <a href="/" class="flex items-center gap-2 min-w-0" aria-label="3rd World Entertainment Home">
-      <span class="font-display text-[24px] leading-none tracking-[0.10em] text-white whitespace-nowrap">
-        3RD WORLD
-      </span>
-      <span class="w-2 h-2 rounded-full bg-red3rd shrink-0"></span>
-    </a>
+      <!-- BRAND -->
+      <a href="/" class="flex items-center gap-3 shrink-0" aria-label="3rd World Entertainment Home">
+        <span class="font-display text-[25px] sm:text-[28px] lg:text-[32px] leading-none tracking-[0.10em] text-white whitespace-nowrap">3RD WORLD</span>
+        <span class="w-2 h-2 rounded-full bg-red3rd shrink-0"></span>
+      </a>
 
-    <div class="flex items-center gap-2 shrink-0">
-      <button
-        aria-label="Open Cart"
-        data-cart-toggle
-        onclick="toggleCartDrawer(event)"
-        type="button"
-        class="relative flex items-center justify-center
-               w-11 h-11 rounded-full
-               border border-white/15 bg-white/[0.04]
-               text-white hover:border-white/35 hover:bg-white/[0.08]
-               transition-all"
-      >
-        <span class="material-symbols-outlined text-[21px]">shopping_bag</span>
-        <span
-          id="cart-counter-mobile"
-          class="absolute -top-1 -right-1
-                 min-w-[19px] h-[19px] px-1
-                 rounded-full bg-red3rd text-white
-                 text-[9px] font-bold
-                 flex items-center justify-center"
-        >0</span>
-      </button>
+      <!-- REGULAR DESKTOP NAV -->
+      <nav class="hidden lg:flex items-center gap-8 xl:gap-12 ml-auto font-mono text-[13px] uppercase tracking-[0.12em]" aria-label="Primary navigation">
+        <a href="/" class="text-neutral-300 hover:text-white transition-colors">Home</a>
+        <a href="#ikigai-line" class="text-neutral-300 hover:text-white transition-colors">Shop</a>
+        <a href="#audio-section" class="text-neutral-300 hover:text-white transition-colors">Born Radio</a>
+        <a href="/policies/" class="text-neutral-300 hover:text-white transition-colors">Policies</a>
+        <a href="/shipping/" class="text-neutral-300 hover:text-white transition-colors">Shipping</a>
+      </nav>
 
-      <button
-        id="mobile-menu-toggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        onclick="toggleMobileMenu(event)"
-        type="button"
-        class="w-11 h-11 rounded-full
-               border border-white/15 bg-white/[0.04]
-               text-white
-               flex items-center justify-center
-               hover:border-white/35 hover:bg-white/[0.08]
-               transition-all"
-      >
-        <span id="mobile-menu-icon" class="material-symbols-outlined text-[24px]">menu</span>
-      </button>
+      <!-- CART + MOBILE MENU -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <button aria-label="Open Cart" data-cart-toggle onclick="toggleCartDrawer(event)" type="button"
+                class="relative h-11 sm:h-12 px-3 sm:px-4 rounded-lg border border-white/15 bg-white/[0.04] text-white flex items-center gap-2 hover:border-white/35 hover:bg-white/[0.08] transition-all">
+          <span class="material-symbols-outlined text-[21px]">shopping_bag</span>
+          <span class="hidden sm:inline font-mono text-[11px] uppercase tracking-[0.12em]">Cart</span>
+          <span id="cart-counter" class="min-w-[19px] h-[19px] px-1 rounded-full bg-red3rd text-white text-[9px] font-bold flex items-center justify-center">0</span>
+        </button>
+
+        <button id="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu-panel"
+                onclick="toggleMobileMenu(event)" type="button"
+                class="lg:hidden w-11 h-11 sm:w-12 sm:h-12 rounded-lg border border-white/15 bg-white/[0.04] text-white flex items-center justify-center hover:border-white/35 hover:bg-white/[0.08] transition-all">
+          <span id="mobile-menu-icon" class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- MOBILE MENU PANEL -->
-  <div
-    id="mobile-menu-panel"
-    class="md:hidden hidden border-t border-white/10 bg-black/98 backdrop-blur-xl px-4 pb-5"
-  >
-    <nav class="flex flex-col font-mono uppercase tracking-[0.14em] text-sm">
-      <a href="/policies/"
-         class="py-4 border-b border-white/10 text-neutral-200 hover:text-white"
-         onclick="closeMobileMenu()">
-        Policies
-      </a>
-
-      <a href="/shipping/"
-         class="py-4 border-b border-white/10 text-neutral-200 hover:text-white"
-         onclick="closeMobileMenu()">
-        Shipping
-      </a>
-
-      <a href="#audio-section"
-         class="py-4 flex items-center justify-between text-neutral-200 hover:text-signal"
-         onclick="closeMobileMenu()">
-        <span>Born Radio</span>
-        <span class="flex items-center gap-[3px] h-4">
-          <span class="w-[2px] h-2 bg-signal"></span>
-          <span class="w-[2px] h-4 bg-signal"></span>
-          <span class="w-[2px] h-2.5 bg-signal"></span>
-        </span>
-      </a>
+  <!-- FULL-WIDTH MOBILE/TABLET MENU -->
+  <div id="mobile-menu-panel" class="lg:hidden hidden border-t border-white/10 bg-[#090909] shadow-2xl">
+    <nav class="px-4 sm:px-6 py-3 font-mono text-[14px] uppercase tracking-[0.12em]" aria-label="Mobile navigation">
+      <a href="/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Home <span aria-hidden="true">→</span></a>
+      <a href="#ikigai-line" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Shop <span aria-hidden="true">→</span></a>
+      <a href="#audio-section" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Born Radio <span aria-hidden="true">→</span></a>
+      <a href="/policies/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Policies <span aria-hidden="true">→</span></a>
+      <a href="/shipping/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 text-white">Shipping <span aria-hidden="true">→</span></a>
     </nav>
-  </div>
-
-  <!-- DESKTOP NAV -->
-  <div class="hidden md:grid w-full
-              px-10 lg:px-16 xl:px-24 2xl:px-32
-              h-[104px]
-              grid-cols-[1fr_auto_1fr]
-              items-center">
-
-    <!-- LEFT NAV -->
-    <nav
-      class="flex items-center
-             gap-6 lg:gap-10 xl:gap-12
-             justify-self-start
-             font-mono"
-      aria-label="Primary navigation"
-    >
-      <a
-        href="/policies/"
-        class="group relative px-5 py-4
-               text-[13px] lg:text-[15px]
-               font-semibold uppercase tracking-[0.14em]
-               text-neutral-300 hover:text-white transition-colors duration-200"
-      >
-        POLICIES
-        <span class="absolute left-5 right-5 bottom-2 h-px bg-red3rd scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300"></span>
-      </a>
-
-      <span class="h-4 w-px bg-white/15" aria-hidden="true"></span>
-
-      <a
-        href="/shipping/"
-        class="group relative px-5 py-4
-               text-[13px] lg:text-[15px]
-               font-semibold uppercase tracking-[0.14em]
-               text-neutral-300 hover:text-white transition-colors duration-200"
-      >
-        SHIPPING
-        <span class="absolute left-5 right-5 bottom-2 h-px bg-red3rd scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300"></span>
-      </a>
-    </nav>
-
-    <!-- CENTER BRAND -->
-    <a
-      href="/"
-      class="group flex items-center gap-4 justify-self-center px-8 lg:px-12"
-      aria-label="3rd World Entertainment Home"
-    >
-      <span class="font-display
-                   text-[31px] lg:text-[38px] xl:text-[42px]
-                   leading-none tracking-[0.12em]
-                   whitespace-nowrap text-white
-                   group-hover:text-neutral-200 transition-colors duration-200">
-        3RD WORLD
-      </span>
-
-      <span class="w-2 h-2 rounded-full bg-red3rd shadow-[0_0_12px_rgba(213,30,30,0.45)]"></span>
-    </a>
-
-    <!-- RIGHT NAV / ACTIONS -->
-    <div class="flex items-center gap-5 lg:gap-8 xl:gap-10 justify-self-end font-mono">
-      <a
-        href="#audio-section"
-        class="flex items-center gap-4 px-5 py-4
-               text-[12px] lg:text-[14px]
-               font-semibold uppercase tracking-[0.14em]
-               text-neutral-300 hover:text-signal transition-colors duration-200"
-      >
-        <span class="flex items-center gap-[3px] h-4">
-          <span class="w-[2px] h-2 bg-signal animate-pulse"></span>
-          <span class="w-[2px] h-4 bg-signal"></span>
-          <span class="w-[2px] h-2.5 bg-signal animate-pulse"></span>
-        </span>
-        <span class="whitespace-nowrap">BORN RADIO</span>
-      </a>
-
-      <span class="h-5 w-px bg-white/15" aria-hidden="true"></span>
-
-      <button
-        aria-label="Open Cart"
-        data-cart-toggle
-        id="header-cart-btn"
-        onclick="toggleCartDrawer(event)"
-        type="button"
-        class="relative flex items-center gap-3
-               px-6 lg:px-7 py-3
-               min-h-[50px]
-               rounded-full border border-white/15
-               bg-white/[0.04] text-neutral-100
-               hover:text-white hover:border-white/35 hover:bg-white/[0.08]
-               transition-all duration-200 cursor-pointer group"
-      >
-        <span class="material-symbols-outlined text-[20px] group-hover:scale-105 transition-transform">
-          shopping_bag
-        </span>
-
-        <span class="text-[12px] lg:text-[14px] font-semibold uppercase tracking-[0.14em]">
-          CART
-        </span>
-
-        <span
-          id="cart-counter"
-          class="flex items-center justify-center
-                 min-w-[22px] h-[22px] px-1.5
-                 rounded-full bg-red3rd text-white
-                 text-[10px] font-bold leading-none"
-        >0</span>
-      </button>
-    </div>
-
   </div>
 </header>
+
 <!-- HERO 3-VERTICAL VIDEOS TRIPTYCH SECTION -->
 <section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden">
 <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-12">
@@ -2335,7 +2190,37 @@ function setMAIGOSlide(index, e) {
     calculateCartTotals();
   }
 
-  function toggleCartDrawer(e) {
+  function toggleMobileMenu(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  const panel = document.getElementById('mobile-menu-panel');
+  const button = document.getElementById('mobile-menu-toggle');
+  const icon = document.getElementById('mobile-menu-icon');
+  if (!panel || !button || !icon) return;
+
+  const opening = panel.classList.contains('hidden');
+  panel.classList.toggle('hidden', !opening);
+  button.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  button.setAttribute('aria-label', opening ? 'Close navigation menu' : 'Open navigation menu');
+  icon.textContent = opening ? 'close' : 'menu';
+}
+
+function closeMobileMenu() {
+  const panel = document.getElementById('mobile-menu-panel');
+  const button = document.getElementById('mobile-menu-toggle');
+  const icon = document.getElementById('mobile-menu-icon');
+  if (panel) panel.classList.add('hidden');
+  if (button) {
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Open navigation menu');
+  }
+  if (icon) icon.textContent = 'menu';
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1024) closeMobileMenu();
+});
+
+function toggleCartDrawer(e) {
     if (e && e.stopPropagation) e.stopPropagation();
     const drawer = document.getElementById('cart-drawer');
     const panel = document.getElementById('cart-panel');
