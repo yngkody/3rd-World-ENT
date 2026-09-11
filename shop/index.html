@@ -2606,7 +2606,7 @@ function toggleCartDrawer(e) {
       }
     }
   }
-    async function createShopifyCheckout() {
+async function createShopifyCheckout() {
   if (!cart.length) {
     alert("YOUR CART IS EMPTY.");
     return;
@@ -2685,8 +2685,15 @@ function toggleCartDrawer(e) {
       throw new Error("Shopify did not return a checkout URL.");
     }
 
-    window.location.href = result.cart.checkoutUrl;
+   // window.location.href = result.cart.checkoutUrl;
+console.log("SHOPIFY CHECKOUT URL:", result.cart.checkoutUrl);
 
+alert(
+  "SHOPIFY CHECKOUT URL:\n\n" +
+  result.cart.checkoutUrl
+);
+
+window.location.href = result.cart.checkoutUrl;
   } catch (error) {
     console.error(error);
 
