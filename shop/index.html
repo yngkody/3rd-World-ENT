@@ -2681,28 +2681,21 @@ async function createShopifyCheckout() {
       );
     }
 
-    if (!result.cart?.checkoutUrl) {
-      throw new Error("Shopify did not return a checkout URL.");
-    }
+   if (!result.cart?.checkoutUrl) {
+  throw new Error("Shopify did not return a checkout URL.");
+}
 
-   // window.location.href = result.cart.checkoutUrl;
-console.log("SHOPIFY CHECKOUT URL:", result.cart.checkoutUrl);
+console.log("Original Shopify checkout:", result.cart.checkoutUrl);
 
-alert(
-  "SHOPIFY CHECKOUT URL:\n\n" +
-  result.cart.checkoutUrl
-);
+const checkoutUrl = new URL(result.cart.checkoutUrl);
 
-window.location.href = result.cart.checkoutUrl;
-  } catch (error) {
-    console.error(error);
+// 3rdworldent.com is hosted on GitHub Pages,
+// so send checkout traffic through Shopify's domain.
+checkoutUrl.hostname = SHOPIFY_DOMAIN;
 
-    alert(
-      "CHECKOUT ERROR:\n\n" +
-      error.message +
-      "\n\nCheck that the Shopify variants exactly match the options selected."
-    );
-  }
+console.log("Fixed Shopify checkout:", checkoutUrl.toString());
+
+window.location.href = checkoutUrl.toString();
 }
 
   // 7. CHECKOUT CONTROLS
