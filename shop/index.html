@@ -2586,7 +2586,18 @@ function toggleCartDrawer(e) {
     }
 
     let isFreeShippingCode = appliedDiscount && appliedDiscount.type === 'free_ship';
-    let shipping = (subtotal >= 120 || subtotal === 0 || isFreeShippingCode) ? 0 : shippingCost;
+    // Only physical merchandise is eligible for shipping charges.
+// B O R N tickets are non-physical products.
+const physicalSubtotal = cart
+  .filter(item => item.id !== "born-screening")
+  .reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+let shipping =
+  physicalSubtotal === 0 ||
+  physicalSubtotal >= 120 ||
+  isFreeShippingCode
+    ? 0
+    : shippingCost;
     let total = Math.max(0, subtotal - discountAmount) + shipping;
 
     updateElementText('cart-calc-subtotal', `$${subtotal.toFixed(2)} USD`);
@@ -2596,14 +2607,18 @@ function toggleCartDrawer(e) {
     const progressBar = document.getElementById('shipping-progress-bar');
     const progressTxt = document.getElementById('shipping-progress-text');
     if (progressBar && progressTxt) {
-      if (subtotal >= 120 || isFreeShippingCode) {
-        progressBar.style.width = '100%';
-        progressTxt.innerText = 'QUALIFIED FOR FREE U.S. SHIPPING!';
-      } else {
-        let pct = (subtotal / 120) * 100;
-        progressBar.style.width = `${pct}%`;
-        progressTxt.innerText = `You’re $${(120 - subtotal).toFixed(2)} away from free U.S. shipping.`;
-      }
+      if (physicalSubtotal === 0) {
+          progressBar.style.width = '100%';
+      progressTxt.innerText = 'NO SHIPPING REQUIRED FOR DIGITAL / EVENT TICKETS.';
+    } else if (physicalSubtotal >= 120 || isFreeShippingCode) {
+      progressBar.style.width = '100%';
+      progressTxt.innerText = 'QUALIFIED FOR FREE U.S. SHIPPING!';
+    } else {
+      const pct = Math.min((physicalSubtotal / 120) * 100, 100);
+      progressBar.style.width = `${pct}%`;
+      progressTxt.innerText =
+    `You’re $${(120 - physicalSubtotal).toFixed(2)} away from free U.S. shipping.`;
+}
     }
   }
 
