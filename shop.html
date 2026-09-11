@@ -1,12 +1,14 @@
-<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>3RD WORLD ENT — Official Store // IKIGAI CAPSULE</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script>
     tailwind.config = {
       darkMode: 'class',
@@ -46,7 +48,7 @@
     }
 </style>
 </head>
-<body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased min-h-screen" data-shopify-domain="3rdworldent.myshopify.com" data-shopify-storefront-token="">
+<body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased min-h-screen">
 <!-- WHISPER-THIN MINIMALIST ANNOUNCEMENT TICKER -->
 <div class="bg-black/95 border-b border-white/5 text-[10px] font-mono tracking-widest text-neutral-400 px-6 lg:px-12 py-1.5 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
 <div class="flex items-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap">
@@ -61,15 +63,17 @@
 </div>
 <!-- SLEEK, REFINED, LIGHTWEIGHT NAVIGATION BAR -->
 <header class="sticky top-[29px] z-40 bg-black/85 backdrop-blur-md border-b border-white/5 px-6 lg:px-12 py-3.5 flex items-center justify-between transition-all duration-300">
-<!-- Left: Clean Minimal Navigation Links (Archive and Lookbook removed as requested) -->
-<nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-[0.2em] text-neutral-400"><a class="hover:text-white transition-colors relative group py-1" href="policies.html">
+<!-- Left: Clean Minimal Navigation Links (Only POLICIES & SHIPPING) -->
+<nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">
+<a class="hover:text-white transition-colors relative group py-1" href="policy.html">
 <span class="">POLICIES</span>
 <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
 </a>
 <a class="hover:text-white transition-colors relative group py-1" href="shipping.html">
 <span class="">SHIPPING</span>
 <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-</a></nav>
+</a>
+</nav>
 <!-- Center: Iconic 3RD WORLD Wordmark -->
 <a class="flex items-center gap-2 group md:absolute md:left-1/2 md:-translate-x-1/2" href="#">
 <span class="font-display text-2xl tracking-[0.15em] text-white group-hover:text-neutral-200 transition-colors">3RD WORLD</span>
@@ -86,14 +90,14 @@
 <span class="">BORN RADIO</span>
 </a>
 <!-- Minimalist Cart Pill -->
-<button aria-label="Open Cart" class="relative flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 hover:border-white/30 bg-white/[0.03] text-neutral-200 hover:text-white transition-all cursor-pointer group" data-shopify-cart-trigger="" onclick="toggleCartDrawer()">
+<button aria-label="Open Cart" class="relative flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 hover:border-white/30 bg-white/[0.03] text-neutral-200 hover:text-white transition-all cursor-pointer group" data-cart-toggle="" id="cart-toggle-btn" onclick="toggleCartDrawer(event)" type="button">
 <span class="material-symbols-outlined text-lg group-hover:scale-105 transition-transform">shopping_bag</span>
 <span class="font-mono text-xs uppercase tracking-widest hidden sm:inline">CART</span>
 <span class="bg-red3rd text-white font-mono text-[9px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center" id="cart-counter">0</span>
 </button>
 </div>
 </header>
-<!-- HERO 3-VERTICAL VIDEOS TRIPTYCH SECTION (Preserved) -->
+<!-- HERO 3-VERTICAL VIDEOS TRIPTYCH SECTION -->
 <section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden">
 <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-12">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
@@ -122,9 +126,9 @@
 <div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
 <div class="absolute inset-0 w-full h-full">
 <video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
-<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_7997.MOV" type="video/mp4">
-<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_7997.MOV" type="video/quicktime">
-<img alt="CAM 01 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdJcrTGhCSMwYHdM1ge_snTPJTQ_juglmlq9KlDgzHyOlkSr3SGdLVMMxDZRpl3UH-fQT_lqAUY4nLOoDWS6kqr8tuaJpyMpwNj8YZ_dDaUnKOEIEwODYwOgVwNrCGmPgfDUCi84a0NaVsRDwnJB94xwNpWu3oxNEsGtFZOyHWKJ7wFDrHxV9u1QkLVXEYQ0CtqUeqRka2KXJkNrZ_pUFSVhAs0NgFRMi9Txu-R6W9LFDhislwqfe">
+<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_7997.MOV" type="video/mp4"/>
+<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_7997.MOV" type="video/quicktime"/>
+<img alt="CAM 01 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdJcrTGhCSMwYHdM1ge_snTPJTQ_juglmlq9KlDgzHyOlkSr3SGdLVMMxDZRpl3UH-fQT_lqAUY4nLOoDWS6kqr8tuaJpyMpwNj8YZ_dDaUnKOEIEwODYwOgVwNrCGmPgfDUCi84a0NaVsRDwnJB94xwNpWu3oxNEsGtFZOyHWKJ7wFDrHxV9u1QkLVXEYQ0CtqUeqRka2KXJkNrZ_pUFSVhAs0NgFRMi9Txu-R6W9LFDhislwqfe"/>
 </video>
 </div>
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
@@ -142,7 +146,7 @@
 <h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">THE FINISH &amp; TORCH</h3>
 <p class="text-[11px] text-neutral-300 leading-snug">Continuous wearable distressing tests captured at Atlanta workshop.</p>
 </div>
-<a class="block text-center w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" href="#ikigai-section">
+<a class="block text-center w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" href="#ikigai-capsule">
             VIEW IKIGAI TEE →
           </a>
 </div>
@@ -151,9 +155,9 @@
 <div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
 <div class="absolute inset-0 w-full h-full">
 <video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
-<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_8001.MOV" type="video/mp4">
-<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_8001.MOV" type="video/quicktime">
-<img alt="CAM 02 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVc_Y0Jd454GqNiCNLBxph4xq3UY7jO3DUT2fsMVjv7s1jJQLa3B75cB-hNwQH5s4qtA8Kow31mll7iMsUyqH-eZlkLJELewRB3s5WHGyjsJWbVe-k_MsatTGwYy5Co7gda4gTkhZYH5z2_YFCspePgXxFjVA87lNzGq0H4Loted99pcXORn9Ax1IOBFW1kPFHMyc6sCZhlBho5QDzaIz1FPU72MhZ2sCb3AwRFIEI-8nxysYf10-R">
+<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_8001.MOV" type="video/mp4"/>
+<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_8001.MOV" type="video/quicktime"/>
+<img alt="CAM 02 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVc_Y0Jd454GqNiCNLBxph4xq3UY7jO3DUT2fsMVjv7s1jJQLa3B75cB-hNwQH5s4qtA8Kow31mll7iMsUyqH-eZlkLJELewRB3s5WHGyjsJWbVe-k_MsatTGwYy5Co7gda4gTkhZYH5z2_YFCspePgXxFjVA87lNzGq0H4Loted99pcXORn9Ax1IOBFW1kPFHMyc6sCZhlBho5QDzaIz1FPU72MhZ2sCb3AwRFIEI-8nxysYf10-R"/>
 </video>
 </div>
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
@@ -180,9 +184,9 @@
 <div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
 <div class="absolute inset-0 w-full h-full">
 <video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
-<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/hero-vid.mov" type="video/mp4">
-<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/hero-vid.mov" type="video/quicktime">
-<img alt="CAM 03 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU">
+<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/hero-vid.mov" type="video/mp4"/>
+<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/hero-vid.mov" type="video/quicktime"/>
+<img alt="CAM 03 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU"/>
 </video>
 </div>
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
@@ -200,7 +204,7 @@
 <h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">AFTERBURN &amp; ARCHIVE</h3>
 <p class="text-[11px] text-neutral-300 leading-snug">Torched hem details &amp; bespoke distressing filmed in natural daylight.</p>
 </div>
-<a class="block text-center w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" href="#ikigai-section">
+<a class="block text-center w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" href="#ikigai-capsule">
             DISCOVER CAPSULE →
           </a>
 </div>
@@ -212,7 +216,7 @@
 <span class="w-2.5 h-2.5 rounded-full bg-signal animate-pulse"></span>
 <span class="text-white uppercase font-bold tracking-wider text-[11px]">IKIGAI CAPSULE LIVE • ORDER CONSOLIDATED CAROUSEL SPEC</span>
 </div>
-<a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2 cursor-pointer ml-auto sm:ml-0" href="#ikigai-section">
+<a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2 cursor-pointer ml-auto sm:ml-0" href="#ikigai-capsule">
 <span class="">VIEW IKIGAI GARMENTS</span>
 <span class="">↓</span>
 </a>
@@ -222,7 +226,7 @@
 <!-- ======================================================= -->
 <!-- PRODUCT CATALOG SECTION (UNIFIED CAROUSEL PRODUCTS)     -->
 <!-- ======================================================= -->
-<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="ikigai-section">
+<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="ikigai-capsule">
 <!-- Section Header -->
 <div class="border-b border-white/10 pb-8 mb-12">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -250,18 +254,18 @@
 <div>
 <!-- Carousel Image Box -->
 <div class="relative aspect-square rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 group">
-<img alt="IKIGAI Oversized T-Shirt View" class="w-full h-full object-cover transition-opacity duration-300" id="tee-main-img" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png">
+<img alt="IKIGAI Oversized T-Shirt View" class="w-full h-full object-cover transition-opacity duration-300" id="tee-main-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4p_UoHwX8PKbXkD4B9jMgAS5T3uXU2fkEcnhde3-F221tcPsiKCnq6QH5qBD92HSFiRheZNzbEkSO5dZopSAz14NC_aGFf_6H6_8xnz4WsnEba1zssC2fWP6Yjd4YXf0kU0Te4jInVbYBLdL4heiKIwiK-W00oQREM0NpgmfxE6iQBGvE4Kzp9keEKk5BKwQoYJBct9ODpzbyhv5Tt9pW80iQc129C0trxptnS7NEhq4uCi5Id1GO"/>
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
 <!-- Badge Top Left -->
 <div class="absolute top-4 left-4 bg-red3rd text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded shadow">
       CAPSULE #IK-TEE
     </div>
 <!-- Carousel Nav Overlay Arrows -->
-<button aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftTeeSlide(-1)">
-<span class="material-symbols-outlined text-lg">chevron_left</span>
+<button aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-10" onclick="shiftTeeSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_left</span>
 </button>
-<button aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftTeeSlide(1)">
-<span class="material-symbols-outlined text-lg">chevron_right</span>
+<button aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-10" onclick="shiftTeeSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_right</span>
 </button>
 <!-- Slide Indicator Pill Bottom -->
 <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded font-mono text-[10px] text-neutral-300 border border-white/10" id="tee-view-label">
@@ -270,17 +274,17 @@
 </div>
 <!-- Thumbnails Row -->
 <div class="grid grid-cols-4 gap-2 mb-6" id="tee-thumbnails">
-<button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all" onclick="setTeeSlide(0)">
-<img alt="Look 1" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png">
+<button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all" onclick="setTeeSlide(0, event)" type="button">
+<img alt="Look 1" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcvfXM0tU1Qp-YitVw7DCTYWg-VejoELGkMJl2hLp0_2QKwXNw0OAJ0777hJTHiUN6hAsrXThUwdujqPez7v_B695mAV-fMmqV88kJpe98qzpRFD416QBu9Q5JgI35PiVHxE62V9pmZUI6r-v31e6dxeJBnvdye_ZyFf2i71WP-lkHPnxTpudQ9AfxVaHR8kFRVyM9rdTTAtJXrKPw2wmv2AhwJKWpc5Y83O_fvBPUbBk8iWGyd1BR"/>
 </button>
-<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(1)">
-<img alt="Look 2" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(4).png">
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(1, event)" type="button">
+<img alt="Look 2" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbkzVH5ttkl8VROPcMckyKVX1fDUYONHAIh4tsid0tSrB5G3rmXFQ6i-k2xUTIZWyOydOPu3idBBUsIlrhzXjsL7SzHayzCwhmxCO5WcN5TevPJEVj1jTnWIaVuGkPv1HQOdsSNBOZrUt8e5fXXN4NP8hXIX6EWgUi-6D0uK2xMEMN3gPMYQ49Ft6AOt43kZO9RbZGKo8SIbqxQjECRf8qyNKuTdtEG4GctspUE0IFYwoRnCiFbyEh"/>
 </button>
-<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(2)">
-<img alt="Look 3" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(5).png">
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(2, event)" type="button">
+<img alt="Look 3" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqjHB_gUFehKUXbpANxCnO2VqmMQ8WTGMmbl1GKwKZRpBVkP-aaO1M0-rNCD0O-Zpb5fcvwIjUUXv451n5hbN0H8Uz-UZdkqfqaa35TIKUgJeQZqJqqVxyxcGW1oIfhk7rXQhI92b3MaK12P7U4KCb8Q0DxoVwg9LFefaHOoMbMjaNzhoNDwjfnJ4rD5LNvWPrvcBZWS3CABHbig2sDVzdZrKyZUG1u3YYLMpmXcXmQLk-QUjxjQ2k"/>
 </button>
-<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(3)">
-<img alt="Look 4" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(6).png">
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(3, event)" type="button">
+<img alt="Look 4" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ4Qp2BfiDhkZOYrsQ-vnRfxgAb_qamMImWG5V7ip-LIMgU8yf2lpa5u9lotaV3rTCX_i1VUS4asDA52Ti59hdKCMQ4Y723wZr6ev7qCIk79GQkHfxSFarTn1qb9tUm9RtC8Ppn0fply4JILXbXhgtcrFNxDTk0qLB3J076AfIcXlx63Naqzz8CfSbCjwy564eUexlILF7TwZF9lAFvjD-tlnYVNMV5JglIUjGA4CVlt8acHqwcmlX"/>
 </button>
 </div>
 <!-- Header Info -->
@@ -306,8 +310,8 @@
 <span class="text-white" id="tee-sleeve-label">SHORT SLEEVE</span>
 </div>
 <div class="grid grid-cols-2 gap-2" id="tee-sleeve-btns">
-<button class="py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer transition-colors" onclick="setTeeSleeve('Short Sleeve')">SHORT SLEEVE</button>
-<button class="py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer transition-colors" onclick="setTeeSleeve('Long Sleeve')">LONG SLEEVE</button>
+<button class="py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer transition-colors" onclick="setTeeSleeve('Short Sleeve', event)" type="button">SHORT SLEEVE</button>
+<button class="py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer transition-colors" onclick="setTeeSleeve('Long Sleeve', event)" type="button">LONG SLEEVE</button>
 </div>
 </div>
 <!-- Finish / Wash Option -->
@@ -317,11 +321,11 @@
 <span class="text-white" id="tee-finish-label">Washed Black Distressed</span>
 </div>
 <div class="grid grid-cols-2 gap-2" id="tee-finish-btns">
-<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setTeeFinish('Washed Black Distressed', false)">
+<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setTeeFinish('Washed Black Distressed', false, event)" type="button">
 <span class="w-2 h-2 rounded-full bg-neutral-900 border border-white/20"></span>
 <span class="">DISTRESSED WASH</span>
 </button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setTeeFinish('Hand-Torched Black', true)">
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setTeeFinish('Hand-Torched Black', true, event)" type="button">
 <span class="w-2 h-2 rounded-full bg-amber-700 border border-white/20"></span>
 <span class="">TORCHED (+MTO)</span>
 </button>
@@ -334,10 +338,10 @@
 <span class="text-white font-bold" id="tee-size-label">L</span>
 </div>
 <div class="grid grid-cols-4 gap-2 text-center" id="tee-size-btns">
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('S')">S</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('M')">M</button>
-<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setTeeSize('L')">L</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('XL')">XL</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('S', event)" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('M', event)" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setTeeSize('L', event)" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('XL', event)" type="button">XL</button>
 </div>
 </div>
 </div>
@@ -349,10 +353,10 @@
 </div>
 <!-- Add to cart -->
 <div>
-<button class="w-full py-4 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addConsolidatedTeeToCart()">
-<span class="material-symbols-outlined text-lg">shopping_cart</span>
-<span class="">ADD IKIGAI T-SHIRT TO CART — $60.00</span>
-<span class="">→</span>
+<button class="add-to-cart-btn w-full py-4 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addConsolidatedTeeToCart(event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD IKIGAI T-SHIRT TO CART — $60.00</span>
+<span class="pointer-events-none">→</span>
 </button>
 </div>
 </div>
@@ -361,18 +365,18 @@
 <div>
 <!-- Carousel Image Box -->
 <div class="relative aspect-square rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 group">
-<img alt="IKIGAI Full-Zip Hoodie View" class="w-full h-full object-cover transition-opacity duration-300" id="hoodie-main-img" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png">
+<img alt="IKIGAI Full-Zip Hoodie View" class="w-full h-full object-cover transition-opacity duration-300" id="hoodie-main-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdYyPBO_PsJ0MlKuku22Azl06opZu-drYtll01dnecNWmLGrT1EsSan7kNTCeTCKYtoL5vwoYOcxay0DA3VIGeGJyLDHqc6sQI8_GmN3bU4oyZG14z9oPxYn-STz0hC9fHjYbQ1XVhsTYFmv0uSwCIgvNt4gXAXA7qcaYi1Ag6gEi-gyTxx4rNm0EA-MvArJHbFYnPngqXEsU-I8cx9utmXUR2EXVZ1lHtesVyzu1rEmDNo-poSjOG"/>
 <div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
 <!-- Badge Top Left -->
 <div class="absolute top-4 left-4 bg-red3rd text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded shadow">
       CAPSULE #IK-ZIP
     </div>
 <!-- Carousel Nav Overlay Arrows -->
-<button aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftHoodieSlide(-1)">
-<span class="material-symbols-outlined text-lg">chevron_left</span>
+<button aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-10" onclick="shiftHoodieSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_left</span>
 </button>
-<button aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftHoodieSlide(1)">
-<span class="material-symbols-outlined text-lg">chevron_right</span>
+<button aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer z-10" onclick="shiftHoodieSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_right</span>
 </button>
 <!-- Slide Indicator Pill Bottom -->
 <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded font-mono text-[10px] text-neutral-300 border border-white/10" id="hoodie-view-label">
@@ -381,14 +385,14 @@
 </div>
 <!-- Thumbnails Row (3 images) -->
 <div class="grid grid-cols-3 gap-2 mb-6" id="hoodie-thumbnails">
-<button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all" onclick="setHoodieSlide(0)">
-<img alt="Hoodie Look 1" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png">
+<button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all" onclick="setHoodieSlide(0, event)" type="button">
+<img alt="Hoodie Look 1" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6LWQWsgAcZqC-b_wRwATCmP70zO8rJOUUIGaYRlaQ31gNIlwWIK3k7dTX1AqR9aU2mWbDOehiJV6SJyNSBrNM6VhX4vFRZ8-Yf9cJ0wVjgkNEH4XBwkgKrd2ONDI9tajNyvQyWucKK7D9kwMJT1ZZDBbHdjhxDA5SO3OVahu9xtj7oaFmcjn7BUbHIWtuPhnFqaxWPBElk2ep8iiw560VDRmc2XYGrli-VL0PT6cTJJNN7ajK6Urv"/>
 </button>
-<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(1)">
-<img alt="Hoodie Look 2" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png">
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(1, event)" type="button">
+<img alt="Hoodie Look 2" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjKyOMEHoTM7uITg1YRiN1FX3WqbX_hk6YNgOYjEzU1fYGoXIE5ZFhujx7AK4BXOGui6k5o4RCX0C4WM6POW15isKZySrzax-RNGzxPGM-IyLVoDE3fU3JHl9TMGxCIHulW0-Xu0ystkmQ5xezcA5o5hdPJ88LJvOaNMH86gt1K1-Oj97VsVxu6ijWftU0bZs0EfW0wfPBNVgbs5byK7sR-MtBOzSho8Nkglc4LImzC8urqBXu-xvQ"/>
 </button>
-<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(2)">
-<img alt="Hoodie Look 3" class="w-full h-full object-cover" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png">
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(2, event)" type="button">
+<img alt="Hoodie Look 3" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuDCsfL_WxwkMFXDsS0js0zucC_gq4jhL0zmQqrG--Jzgcs1iGAC265gVV30KqLh_kX41o8Hl_KEd1qWM2VL2reDaNRxuq4d954ULsREmd5WEqEvSzLGt7uMyIgczWUq8xW1XGJmi6nbqi5huG3fGLGQyLcbcEYyfG16_mralDPL_uSCRNts2G51jTXGIN645_a_oEHyEGjfSUbgsmwebQI2XIZ1Tab6PAZeG0U1ugWUKYgBflfkwv"/>
 </button>
 </div>
 <!-- Header Info -->
@@ -414,11 +418,11 @@
 <span class="text-white" id="hoodie-finish-label">Sanguine Washed Black</span>
 </div>
 <div class="grid grid-cols-2 gap-2" id="hoodie-finish-btns">
-<button class="py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setHoodieFinish('Sanguine Washed Black', false)">
+<button class="py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setHoodieFinish('Sanguine Washed Black', false, event)" type="button">
 <span class="w-2 h-2 rounded-full bg-neutral-900 border border-white/20"></span>
 <span class="">SANGUINE WASH</span>
 </button>
-<button class="py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setHoodieFinish('Bespoke Torched Wash', true)">
+<button class="py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setHoodieFinish('Bespoke Torched Wash', true, event)" type="button">
 <span class="w-2 h-2 rounded-full bg-amber-800 border border-white/20"></span>
 <span class="">TORCHED EDITION</span>
 </button>
@@ -431,10 +435,10 @@
 <span class="text-white font-bold" id="hoodie-size-label">L</span>
 </div>
 <div class="grid grid-cols-4 gap-2 text-center" id="hoodie-size-btns">
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('S')">S</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('M')">M</button>
-<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setHoodieSize('L')">L</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('XL')">XL</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('S', event)" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('M', event)" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setHoodieSize('L', event)" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('XL', event)" type="button">XL</button>
 </div>
 </div>
 </div>
@@ -446,17 +450,17 @@
 </div>
 <!-- Add to cart -->
 <div>
-<button class="w-full py-4 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addConsolidatedHoodieToCart()">
-<span class="material-symbols-outlined text-lg">shopping_cart</span>
-<span class="">ADD IKIGAI HOODIE TO CART — $70.00</span>
-<span class="">→</span>
+<button class="add-to-cart-btn w-full py-4 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addConsolidatedHoodieToCart(event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD IKIGAI HOODIE TO CART — $70.00</span>
+<span class="pointer-events-none">→</span>
 </button>
 </div>
 </div>
 </div>
 </section>
 <!-- ======================================================= -->
-<!-- UPCOMING CAPSULES: HANDAN & MAHGO (CAROUSEL PLACEHOLDERS)-->
+<!-- ACTIVE DROPS: HANDAN & MAHGO (CAROUSEL PLACEHOLDERS)    -->
 <!-- ======================================================= -->
 <section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="upcoming-section">
 <div class="border-b border-white/10 pb-6 mb-10"><div class="flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest mb-2">
@@ -470,7 +474,7 @@
 Original conceptual designs from the 3rd World studio. 4-angle and 3-angle rotational studio asset views loaded.
 </p></div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-<!-- UPCOMING 1: HANDAN -->
+<!-- ACTIVE 1: MANDAN -->
 <div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl" id="mandan-tee-card">
 <div>
 <div class="relative aspect-square rounded-xl overflow-hidden bg-carbon border border-white/10 mb-4 flex items-center justify-center text-center p-6 group">
@@ -486,11 +490,11 @@ Original conceptual designs from the 3rd World studio. 4-angle and 3-angle rotat
 </p>
 </div>
 </div>
-<button aria-label="Previous MANDAN preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftHandanSlide(-1)">
-<span class="material-symbols-outlined text-base">chevron_left</span>
+<button aria-label="Previous MANDAN preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer z-10" onclick="shiftHandanSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_left</span>
 </button>
-<button aria-label="Next MANDAN preview" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftHandanSlide(1)">
-<span class="material-symbols-outlined text-base">chevron_right</span>
+<button aria-label="Next MANDAN preview" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer z-10" onclick="shiftHandanSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_right</span>
 </button>
 <span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded shadow">
 CAPSULE #MANDAN
@@ -500,10 +504,10 @@ CAPSULE #MANDAN
 </span>
 </div>
 <div class="grid grid-cols-4 gap-2 mb-6" id="handan-thumbnails">
-<button class="py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer" onclick="setHandanSlide(0)">CAM 01</button>
-<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(1)">CAM 02</button>
-<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(2)">CAM 03</button>
-<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(3)">CAM 04</button>
+<button class="py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer" onclick="setHandanSlide(0, event)" type="button">CAM 01</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(1, event)" type="button">CAM 02</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(2, event)" type="button">CAM 03</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(3, event)" type="button">CAM 04</button>
 </div>
 <div class="flex items-start justify-between gap-4 mb-2">
 <div>
@@ -522,35 +526,35 @@ The second conceptual line from 3rd World ENT. Minimalist hand-stamped typograph
 <div>
 <div class="flex justify-between text-neutral-300 uppercase mb-2">
 <span class="font-bold">GARMENT FINISH:</span>
-<span class="text-white">Distressed Wash</span>
+<span class="text-white" id="mandan-finish-label">Distressed Wash</span>
 </div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]">DISTRESSED WASH</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]">TORCHED (+MTO)</button>
+<div class="grid grid-cols-2 gap-2" id="mandan-finish-btns">
+<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]" onclick="setMandanFinish('Distressed Wash', event)" type="button">DISTRESSED WASH</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]" onclick="setMandanFinish('Hand-Torched (+MTO)', event)" type="button">TORCHED (+MTO)</button>
 </div>
 </div>
 <div>
 <div class="flex justify-between text-neutral-300 uppercase mb-2">
 <span class="font-bold">SIZE:</span>
-<span class="text-white font-bold">L</span>
+<span class="text-white font-bold" id="mandan-size-label">L</span>
 </div>
-<div class="grid grid-cols-4 gap-2 text-center">
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer">S</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer">M</button>
-<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer">L</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer">XL</button>
+<div class="grid grid-cols-4 gap-2 text-center" id="mandan-size-btns">
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setMandanSize('S', event)" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setMandanSize('M', event)" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setMandanSize('L', event)" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setMandanSize('XL', event)" type="button">XL</button>
 </div>
 </div>
 </div>
 </div>
 <div>
-<button class="w-full py-3.5 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addToCartObject({id: 'mandan-tee', title: 'MANDAN OVERSIZED T-SHIRT', price: 60, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCHpoJn4g2Y5XMN67luXLDUxXnEXOkWk_bpQJWSI2HcROM1qWCVmB5jRUnqYNTO2FzsLsB8h1evTocx41Vw5_sv8meZQld4YEvH2Efffy3YlTXiIFvNWZVV4XBYtC1wSRfP8iejM3Cs8-1W5r23JD1IdDDyhP4NcZ0SXJr8Ltwpn0SVKFyH4FiYM2uby02vYHgSZVlmPfGilHzeCjvl78eFc3g6w5xfSkwpOmtxqVMHby1AsGQRXhtM', size: 'L', sleeve: 'Short Sleeve', color: 'Distressed Wash', isTorched: false, fulfillment: 'READY TO SHIP', qty: 1})">
-<span class="material-symbols-outlined text-base">shopping_cart</span>
-<span class="">ADD MANDAN T-SHIRT TO CART — $60.00 →</span>
+<button class="add-to-cart-btn w-full py-3.5 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addMandanToCart(event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD MANDAN T-SHIRT TO CART — $60.00 →</span>
 </button>
 </div>
 </div>
-<!-- UPCOMING 2: MAHGO -->
+<!-- ACTIVE 2: MAHGO -->
 <div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl" id="mahgo-tee-card">
 <div>
 <div class="relative aspect-square rounded-xl overflow-hidden bg-carbon border border-white/10 mb-4 flex items-center justify-center text-center p-6 group">
@@ -566,11 +570,11 @@ The second conceptual line from 3rd World ENT. Minimalist hand-stamped typograph
 </p>
 </div>
 </div>
-<button aria-label="Previous MAHGO preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftMahgoSlide(-1)">
-<span class="material-symbols-outlined text-base">chevron_left</span>
+<button aria-label="Previous MAHGO preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer z-10" onclick="shiftMahgoSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_left</span>
 </button>
-<button aria-label="Next MAHGO preview" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftMahgoSlide(1)">
-<span class="material-symbols-outlined text-base">chevron_right</span>
+<button aria-label="Next MAHGO preview" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer z-10" onclick="shiftMahgoSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_right</span>
 </button>
 <span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded shadow">
 CAPSULE #MAHGO
@@ -580,9 +584,9 @@ CAPSULE #MAHGO
 </span>
 </div>
 <div class="grid grid-cols-3 gap-2 mb-6" id="mahgo-thumbnails">
-<button class="py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer" onclick="setMahgoSlide(0)">CAM 01</button>
-<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setMahgoSlide(1)">CAM 02</button>
-<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setMahgoSlide(2)">CAM 03</button>
+<button class="py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer" onclick="setMahgoSlide(0, event)" type="button">CAM 01</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setMahgoSlide(1, event)" type="button">CAM 02</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setMahgoSlide(2, event)" type="button">CAM 03</button>
 </div>
 <div class="flex items-start justify-between gap-4 mb-2">
 <div>
@@ -601,39 +605,37 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <div>
 <div class="flex justify-between text-neutral-300 uppercase mb-2">
 <span class="font-bold">GARMENT FINISH:</span>
-<span class="text-white">Pigment Wash</span>
+<span class="text-white" id="mahgo-finish-label">Pigment Wash</span>
 </div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]">PIGMENT WASH</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]">TORCHED (+MTO)</button>
+<div class="grid grid-cols-2 gap-2" id="mahgo-finish-btns">
+<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]" onclick="setMahgoFinish('Pigment Wash', event)" type="button">PIGMENT WASH</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]" onclick="setMahgoFinish('Hand-Torched (+MTO)', event)" type="button">TORCHED (+MTO)</button>
 </div>
 </div>
 <div>
 <div class="flex justify-between text-neutral-300 uppercase mb-2">
 <span class="font-bold">SIZE:</span>
-<span class="text-white font-bold">L</span>
+<span class="text-white font-bold" id="mahgo-size-label">L</span>
 </div>
-<div class="grid grid-cols-4 gap-2 text-center">
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer">S</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer">M</button>
-<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer">L</button>
-<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer">XL</button>
+<div class="grid grid-cols-4 gap-2 text-center" id="mahgo-size-btns">
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setMahgoSize('S', event)" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setMahgoSize('M', event)" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setMahgoSize('L', event)" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setMahgoSize('XL', event)" type="button">XL</button>
 </div>
 </div>
 </div>
 </div>
 <div>
-<button class="w-full py-3.5 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addToCartObject({id: 'mahgo-tee', title: 'MAHGO OVERSIZED T-SHIRT', price: 60, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBOPWmstPV72cJ2S96ZlkDOIaQmJR1pinH8RB4CJjCEbUVSD-9_xXrSRgO19IPln9rIUzdu-kTvTdrae34kKO5mv0CgFlAul_XwbkteDN6etzt7lxXYZ5xICtHYB83pYK4FzYd4DbtmzyBOEF3y8EmzInbqrhdsVCucTFR-Vrj1Od9TZLt56v-aGUljL_WdMfOoisbZoprD_Iz1-Fn_iATbcQgTsudPi_44L2QRkM-Q0-grL4SD4izT', size: 'L', sleeve: 'Short Sleeve', color: 'Pigment Wash', isTorched: false, fulfillment: 'READY TO SHIP', qty: 1})">
-<span class="material-symbols-outlined text-base">shopping_cart</span>
-<span class="">ADD MAHGO T-SHIRT TO CART — $60.00 →</span>
+<button class="add-to-cart-btn w-full py-3.5 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addMahgoToCart(event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD MAHGO T-SHIRT TO CART — $60.00 →</span>
 </button>
 </div>
 </div>
 </div>
 </section>
-<!-- 35MM EDITORIAL SECTION (INTENTIONAL FINISH PHILOSOPHY) -->
-
-<!-- AUDIO VISUAL RADIO SECTION (Preserved) -->
+<!-- AUDIO VISUAL RADIO SECTION -->
 <section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="audio-section">
 <div class="bg-[#141414] rounded-2xl border border-white/15 p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 font-mono">
 <div class="flex items-center gap-4">
@@ -672,8 +674,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <!-- ======================================================= -->
 <!-- SLIDE-OUT CART DRAWER                                   -->
 <!-- ======================================================= -->
-<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0" data-shopify-cart-drawer="" id="cart-drawer">
-<div class="absolute inset-0 bg-black/80 backdrop-blur-sm pointer-events-auto transition-opacity" onclick="toggleCartDrawer()"></div>
+<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0" id="cart-drawer">
+<div class="absolute inset-0 bg-black/80 backdrop-blur-sm pointer-events-auto transition-opacity" onclick="toggleCartDrawer(event)"></div>
 <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
 <div class="w-screen max-w-md bg-carbon border-l border-white/15 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 shadow-2xl font-mono" id="cart-panel">
 <div class="flex flex-col h-full overflow-hidden">
@@ -682,7 +684,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <span class="font-display text-xl uppercase tracking-wider text-white">YOUR CART</span>
 <span class="text-xs text-neutral-400" id="cart-drawer-count">(0 ITEMS)</span>
 </div>
-<button class="text-neutral-400 hover:text-white p-1 cursor-pointer" onclick="toggleCartDrawer()">
+<button class="text-neutral-400 hover:text-white p-1 cursor-pointer" onclick="toggleCartDrawer(event)" type="button">
 <span class="material-symbols-outlined text-2xl">close</span>
 </button>
 </div>
@@ -697,22 +699,22 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </div>
 </div>
 <div class="space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1" id="cart-items-container">
-        <div class="text-center py-16 text-neutral-500 font-mono text-xs">
-          <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
-          YOUR ARCHIVE CART IS EMPTY.<br>SELECT PIECES FROM THE IKIGAI ATELIER.
+<div class="text-center py-16 text-neutral-500 font-mono text-xs">
+<span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
+          YOUR ARCHIVE CART IS EMPTY.<br/>SELECT PIECES FROM THE IKIGAI ATELIER.
         </div>
-      </div>
+</div>
 </div>
 <!-- Cart Total and Actions -->
 <div class="border-t border-white/10 pt-4 space-y-3 text-xs">
 <div>
 <div class="flex gap-2">
-<input class="flex-1 bg-surface border border-white/20 rounded-lg px-3 py-2 text-white uppercase placeholder-neutral-500 text-xs focus:outline-none focus:border-red3rd" id="cart-discount-input" placeholder="DISCOUNT CODE (E.G. BORN10)" value="">
-<button class="bg-white/10 hover:bg-white hover:text-black text-white px-3.5 py-2 rounded-lg font-bold uppercase transition-colors cursor-pointer" onclick="applyPromoCode()">APPLY</button>
+<input class="flex-1 bg-surface border border-white/20 rounded-lg px-3 py-2 text-white uppercase placeholder-neutral-500 text-xs focus:outline-none focus:border-red3rd" id="cart-discount-input" placeholder="DISCOUNT CODE (E.G. BORN10)" value=""/>
+<button class="bg-white/10 hover:bg-white hover:text-black text-white px-3.5 py-2 rounded-lg font-bold uppercase transition-colors cursor-pointer" onclick="applyPromoCode(event)" type="button">APPLY</button>
 </div>
 <div class="mt-1.5 flex justify-between items-center hidden" id="cart-discount-status-row">
 <span class="text-[11px] font-bold" id="cart-discount-msg"></span>
-<button class="text-[10px] text-red3rd underline cursor-pointer" onclick="removePromoCode()">REMOVE</button>
+<button class="text-[10px] text-red3rd underline cursor-pointer" onclick="removePromoCode(event)" type="button">REMOVE</button>
 </div>
 </div>
 <div class="space-y-1.5 pt-2 border-t border-white/5 text-neutral-400">
@@ -721,8 +723,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <span class="text-white" id="cart-calc-subtotal">$0.00 USD</span>
 </div>
 <div class="flex justify-between text-signal hidden" id="cart-calc-discount-row">
-<span id="cart-calc-discount-label" class="">Discount</span>
-<span id="cart-calc-discount-val" class="">-$0.00 USD</span>
+<span class="" id="cart-calc-discount-label">Discount</span>
+<span class="" id="cart-calc-discount-val">-$0.00 USD</span>
 </div>
 <div class="flex justify-between">
 <span class="">Estimated Shipping</span>
@@ -734,11 +736,11 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </div>
 </div>
 <div class="space-y-2 pt-2">
-<button class="w-full py-3.5 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red3rd/30" data-shopify-checkout-button="" onclick="launchCheckoutFlow()">
+<button class="w-full py-3.5 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red3rd/30" onclick="launchCheckoutFlow(event)" type="button">
 <span class="">PROCEED TO CHECKOUT</span>
 <span class="">→</span>
 </button>
-<button class="w-full py-2.5 bg-transparent border border-white/15 text-neutral-300 hover:text-white hover:border-white font-mono text-xs uppercase transition-colors rounded-xl cursor-pointer" onclick="toggleCartDrawer()">
+<button class="w-full py-2.5 bg-transparent border border-white/15 text-neutral-300 hover:text-white hover:border-white font-mono text-xs uppercase transition-colors rounded-xl cursor-pointer" onclick="toggleCartDrawer(event)" type="button">
   CONTINUE SHOPPING
 </button>
 </div>
@@ -756,7 +758,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <span class="font-display text-2xl text-white tracking-wide uppercase">3RD WORLD CHECKOUT</span>
 <span class="text-[10px] bg-red3rd text-white px-2 py-0.5 rounded font-bold uppercase tracking-wider">SHOPIFY SECURED</span>
 </div>
-<button class="text-neutral-400 hover:text-white cursor-pointer" onclick="closeCheckoutModal()">
+<button class="text-neutral-400 hover:text-white cursor-pointer" onclick="closeCheckoutModal(event)" type="button">
 <span class="material-symbols-outlined text-2xl">close</span>
 </button>
 </div>
@@ -777,15 +779,15 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <div class="space-y-3 text-xs">
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">EMAIL ADDRESS *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-email" placeholder="name@domain.com" type="email" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-email" placeholder="name@domain.com" type="email" value=""/>
 </div>
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">MOBILE PHONE NUMBER (FOR SMS DISPATCH) *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-phone" placeholder="+1 (404) 000-0000" type="tel" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-phone" placeholder="+1 (404) 000-0000" type="tel" value=""/>
 </div>
 </div>
 <div class="pt-6 border-t border-white/10 flex justify-end">
-<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(2)">
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(2, event)" type="button">
 <span class="">CONTINUE TO DELIVERY</span>
 <span class="">→</span>
 </button>
@@ -799,31 +801,31 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">FIRST NAME *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-first-name" placeholder="First Name" type="text" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-first-name" placeholder="First Name" type="text" value=""/>
 </div>
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">LAST NAME *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-last-name" placeholder="Last Name" type="text" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-last-name" placeholder="Last Name" type="text" value=""/>
 </div>
 <div class="sm:col-span-2">
 <label class="block text-neutral-300 mb-1 font-bold">STREET ADDRESS *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-address" placeholder="Street address or P.O. Box" type="text" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-address" placeholder="Street address or P.O. Box" type="text" value=""/>
 </div>
 <div class="sm:col-span-2">
 <label class="block text-neutral-300 mb-1">APARTMENT / UNIT</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-unit" placeholder="Apartment, suite, unit (optional)" type="text" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-unit" placeholder="Apartment, suite, unit (optional)" type="text" value=""/>
 </div>
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">CITY *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-city" placeholder="City" type="text" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-city" placeholder="City" type="text" value=""/>
 </div>
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">STATE / REGION *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-state" placeholder="State or Province" type="text" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-state" placeholder="State or Province" type="text" value=""/>
 </div>
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">POSTAL CODE *</label>
-<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-zip" placeholder="ZIP / Postal Code" type="text" value="">
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-zip" placeholder="ZIP / Postal Code" type="text" value=""/>
 </div>
 <div>
 <label class="block text-neutral-300 mb-1 font-bold">COUNTRY *</label>
@@ -838,8 +840,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </div>
 </div>
 <div class="pt-6 border-t border-white/10 flex justify-between items-center">
-<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(1)">← BACK</button>
-<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(3)">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(1, event)" type="button">← BACK</button>
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(3, event)" type="button">
 <span class="">CONTINUE TO SHIPPING</span>
 <span class="">→</span>
 </button>
@@ -851,7 +853,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <div class="space-y-3 text-xs" id="checkout-shipping-options">
 <label class="flex items-center justify-between p-3.5 rounded-xl border border-red3rd bg-red3rd/10 cursor-pointer">
 <div class="flex items-center gap-3">
-<input checked="" class="text-red3rd bg-carbon border-white/20 focus:ring-red3rd" name="co-shipping-radio" onchange="updateSelectedShippingRate('standard', 8)" type="radio" value="standard">
+<input checked="" class="text-red3rd bg-carbon border-white/20 focus:ring-red3rd" name="co-shipping-radio" onchange="updateSelectedShippingRate('standard', 8)" type="radio" value="standard"/>
 <div>
 <span class="text-white font-bold block">STANDARD TRACKED GROUND</span>
 <span class="text-neutral-400 text-[11px]">USPS Tracked (3–7 business days)</span>
@@ -861,7 +863,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </label>
 <label class="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-carbon hover:border-white/30 cursor-pointer">
 <div class="flex items-center gap-3">
-<input class="text-red3rd bg-carbon border-white/20 focus:ring-red3rd" name="co-shipping-radio" onchange="updateSelectedShippingRate('expedited', 18)" type="radio" value="expedited">
+<input class="text-red3rd bg-carbon border-white/20 focus:ring-red3rd" name="co-shipping-radio" onchange="updateSelectedShippingRate('expedited', 18)" type="radio" value="expedited"/>
 <div>
 <span class="text-white font-bold block">EXPEDITED AIR</span>
 <span class="text-neutral-400 text-[11px]">UPS 2-Day Air</span>
@@ -871,8 +873,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </label>
 </div>
 <div class="pt-6 border-t border-white/10 flex justify-between items-center">
-<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(2)">← BACK</button>
-<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(4)">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(2, event)" type="button">← BACK</button>
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(4, event)" type="button">
 <span class="">CONTINUE TO PAYMENT</span>
 <span class="">→</span>
 </button>
@@ -882,29 +884,29 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <div class="step-pane space-y-5 hidden" id="co-pane-4">
 <h3 class="font-display text-xl text-white uppercase">PAYMENT</h3>
 <div class="grid grid-cols-3 gap-2 text-center text-xs">
-<button class="py-2.5 bg-[#5A31F4] hover:bg-[#4824d4] text-white font-bold rounded-lg cursor-pointer">Shop Pay</button>
-<button class="py-2.5 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 cursor-pointer">Apple Pay</button>
-<button class="py-2.5 bg-[#FFC439] hover:bg-[#f0b52b] text-black font-bold rounded-lg cursor-pointer">PayPal</button>
+<button class="py-2.5 bg-[#5A31F4] hover:bg-[#4824d4] text-white font-bold rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">Shop Pay</button>
+<button class="py-2.5 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 cursor-pointer" onclick="event.stopPropagation()" type="button">Apple Pay</button>
+<button class="py-2.5 bg-[#FFC439] hover:bg-[#f0b52b] text-black font-bold rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">PayPal</button>
 </div>
 <div class="space-y-3 text-xs bg-carbon p-4 rounded-xl border border-white/10">
 <div>
 <label class="block text-neutral-300 mb-1">CARD NUMBER</label>
-<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd tracking-widest" placeholder="•••• •••• •••• ••••" value="">
+<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd tracking-widest" placeholder="•••• •••• •••• ••••" value=""/>
 </div>
 <div class="grid grid-cols-2 gap-3">
 <div>
 <label class="block text-neutral-300 mb-1">EXPIRATION (MM/YY)</label>
-<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" placeholder="MM / YY" value="">
+<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" placeholder="MM / YY" value=""/>
 </div>
 <div>
 <label class="block text-neutral-300 mb-1">CVC CODE</label>
-<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" placeholder="CVC" value="">
+<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" placeholder="CVC" value=""/>
 </div>
 </div>
 </div>
 <div class="pt-6 border-t border-white/10 flex justify-between items-center">
-<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(3)">← BACK</button>
-<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(5)">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(3, event)" type="button">← BACK</button>
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(5, event)" type="button">
 <span class="">REVIEW FINAL ORDER</span>
 <span class="">→</span>
 </button>
@@ -921,7 +923,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </div>
 <div class="flex justify-between text-signal hidden" id="co-summary-discount-row">
 <span class="">Discount</span>
-<span id="co-summary-discount" class="">-$0.00 USD</span>
+<span class="" id="co-summary-discount">-$0.00 USD</span>
 </div>
 <div class="flex justify-between text-neutral-400">
 <span class="">Shipping</span>
@@ -934,7 +936,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </div>
 <div class="p-3 rounded-xl border border-red3rd/40 bg-red3rd/10 text-xs text-neutral-200">
 <label class="flex items-start gap-2.5 cursor-pointer">
-<input class="rounded border-white/20 bg-carbon text-red3rd focus:ring-red3rd mt-0.5" id="co-terms-checkbox" type="checkbox">
+<input class="rounded border-white/20 bg-carbon text-red3rd focus:ring-red3rd mt-0.5" id="co-terms-checkbox" type="checkbox"/>
 <span class="leading-relaxed">
   I verify my size selections, shipping address, and understand handmade distress finishes vary slightly.
 </span>
@@ -945,8 +947,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <a class="hover:text-white underline" href="policy.html">Return &amp; Exchange Policy</a>
 </div>
 <div class="pt-4 border-t border-white/10 flex justify-between items-center">
-<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(4)">← BACK</button>
-<button class="px-8 py-3.5 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer shadow-lg shadow-red3rd/30" onclick="submitFinalOrderCheckout()">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(4, event)" type="button">← BACK</button>
+<button class="px-8 py-3.5 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer shadow-lg shadow-red3rd/30" onclick="submitFinalOrderCheckout(event)" type="button">
 <span class="">AUTHORIZE &amp; PLACE ORDER</span>
 <span class="">→</span>
 </button>
@@ -964,7 +966,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 </p>
 </div>
 <div class="pt-2">
-<button class="px-6 py-3 bg-white text-black font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-neutral-200 transition-colors cursor-pointer" onclick="closeOrderConfirmation()">
+<button class="px-6 py-3 bg-white text-black font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-neutral-200 transition-colors cursor-pointer" onclick="closeOrderConfirmation(event)" type="button">
   CONTINUE BROWSING
 </button>
 </div>
@@ -975,7 +977,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 <!-- MASTER SCRIPT LOGIC (CAROUSEL & CART ENGINE)            -->
 <!-- ======================================================= -->
 <script>
-  // 1. CAROUSEL ASSETS CONFIGURATION
+  // 1. CAROUSEL ASSETS CONFIGURATION (EXACT RAW GITHUB ASSETS)
   const TEE_SLIDES = [
     {
       src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png",
@@ -1010,21 +1012,20 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   ];
 
-  // UPCOMING SLIDES
-  const HANDAN_LABELS = [
-    "[HANDAN // CAM 01]",
-    "[HANDAN // CAM 02]",
-    "[HANDAN // CAM 03]",
-    "[HANDAN // CAM 04]"
+  const MANDAN_SLIDES = [
+    { label: "[MANDAN // CAM 01]" },
+    { label: "[MANDAN // CAM 02]" },
+    { label: "[MANDAN // CAM 03]" },
+    { label: "[MANDAN // CAM 04]" }
   ];
 
-  const MAHGO_LABELS = [
-    "[MAHGO // CAM 01]",
-    "[MAHGO // CAM 02]",
-    "[MAHGO // CAM 03]"
+  const MAHGO_SLIDES = [
+    { label: "[MAHGO // CAM 01]" },
+    { label: "[MAHGO // CAM 02]" },
+    { label: "[MAHGO // CAM 03]" }
   ];
 
-  // 2. STATE REPOSITORIES
+  // 2. STATE
   let teeState = {
     slide: 0,
     size: 'L',
@@ -1040,11 +1041,23 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     isTorched: false
   };
 
-  let handanIndex = 0;
-  let mahgoIndex = 0;
+  let mandanState = {
+    slide: 0,
+    size: 'L',
+    finish: 'Distressed Wash',
+    isTorched: false
+  };
+
+  let mahgoState = {
+    slide: 0,
+    size: 'L',
+    finish: 'Pigment Wash',
+    isTorched: false
+  };
 
   // 3. CAROUSEL FUNCTIONS: TEE
-  function setTeeSlide(index) {
+  function setTeeSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     teeState.slide = (index + TEE_SLIDES.length) % TEE_SLIDES.length;
     document.getElementById('tee-main-img').src = TEE_SLIDES[teeState.slide].src;
     document.getElementById('tee-view-label').innerText = TEE_SLIDES[teeState.slide].label;
@@ -1059,11 +1072,13 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  function shiftTeeSlide(delta) {
-    setTeeSlide(teeState.slide + delta);
+  function shiftTeeSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setTeeSlide(teeState.slide + delta, e);
   }
 
-  function setTeeSleeve(sleeve) {
+  function setTeeSleeve(sleeve, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     teeState.sleeve = sleeve;
     document.getElementById('tee-sleeve-label').innerText = sleeve.toUpperCase();
     const btns = document.querySelectorAll('#tee-sleeve-btns button');
@@ -1076,7 +1091,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  function setTeeFinish(finish, isTorched) {
+  function setTeeFinish(finish, isTorched, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     teeState.finish = finish;
     teeState.isTorched = isTorched;
     document.getElementById('tee-finish-label').innerText = finish;
@@ -1099,7 +1115,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   }
 
-  function setTeeSize(size) {
+  function setTeeSize(size, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     teeState.size = size;
     document.getElementById('tee-size-label').innerText = size;
     const btns = document.querySelectorAll('#tee-size-btns button');
@@ -1113,7 +1130,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
   }
 
   // 4. CAROUSEL FUNCTIONS: HOODIE
-  function setHoodieSlide(index) {
+  function setHoodieSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     hoodieState.slide = (index + HOODIE_SLIDES.length) % HOODIE_SLIDES.length;
     document.getElementById('hoodie-main-img').src = HOODIE_SLIDES[hoodieState.slide].src;
     document.getElementById('hoodie-view-label').innerText = HOODIE_SLIDES[hoodieState.slide].label;
@@ -1128,11 +1146,13 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  function shiftHoodieSlide(delta) {
-    setHoodieSlide(hoodieState.slide + delta);
+  function shiftHoodieSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setHoodieSlide(hoodieState.slide + delta, e);
   }
 
-  function setHoodieFinish(finish, isTorched) {
+  function setHoodieFinish(finish, isTorched, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     hoodieState.finish = finish;
     hoodieState.isTorched = isTorched;
     document.getElementById('hoodie-finish-label').innerText = finish;
@@ -1155,7 +1175,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   }
 
-  function setHoodieSize(size) {
+  function setHoodieSize(size, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     hoodieState.size = size;
     document.getElementById('hoodie-size-label').innerText = size;
     const btns = document.querySelectorAll('#hoodie-size-btns button');
@@ -1168,49 +1189,104 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  // 5. CAROUSEL FUNCTIONS: UPCOMING CAPSULES
-  function setHandanSlide(index) {
-    handanIndex = (index + 4) % 4;
-    document.getElementById('handan-placeholder-cam').innerText = HANDAN_LABELS[handanIndex];
-    document.getElementById('handan-index-pill').innerText = `${handanIndex + 1} / 4`;
+  // 5. CAROUSEL FUNCTIONS: MANDAN & MAHGO
+  function setHandanSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    mandanState.slide = (index + MANDAN_SLIDES.length) % MANDAN_SLIDES.length;
+    document.getElementById('handan-placeholder-cam').innerText = MANDAN_SLIDES[mandanState.slide].label;
+    document.getElementById('handan-index-pill').innerText = `${mandanState.slide + 1} / 4`;
     const btns = document.querySelectorAll('#handan-thumbnails button');
     btns.forEach((b, i) => {
-      if (i === handanIndex) {
+      if (i === mandanState.slide) {
         b.className = "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
       } else {
         b.className = "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
       }
     });
   }
-  function shiftHandanSlide(delta) {
-    setHandanSlide(handanIndex + delta);
+  function shiftHandanSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setHandanSlide(mandanState.slide + delta, e);
   }
 
-  function setMahgoSlide(index) {
-    mahgoIndex = (index + 3) % 3;
-    document.getElementById('mahgo-placeholder-cam').innerText = MAHGO_LABELS[mahgoIndex];
-    document.getElementById('mahgo-index-pill').innerText = `${mahgoIndex + 1} / 3`;
-    const btns = document.querySelectorAll('#mahgo-thumbnails button');
-    btns.forEach((b, i) => {
-      if (i === mahgoIndex) {
-        b.className = "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
-      } else {
-        b.className = "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
-      }
-    });
-  }
-  function shiftMahgoSlide(delta) {
-    setMahgoSlide(mahgoIndex + delta);
-  }
-
-  function promptNotifyMe(capsuleName) {
-    const email = prompt(`Enter your email to receive early priority access to the ${capsuleName} drop:`);
-    if (email) {
-      alert(`Thank you. ${email} has been subscribed for the ${capsuleName} priority drop list.`);
+  function setMandanFinish(finish, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    mandanState.finish = finish;
+    mandanState.isTorched = finish.includes('Torched');
+    document.getElementById('mandan-finish-label').innerText = finish;
+    const btns = document.querySelectorAll('#mandan-finish-btns button');
+    if (mandanState.isTorched) {
+      btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+      btns[1].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+    } else {
+      btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+      btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
     }
   }
 
-  // 6. CART SYSTEM
+  function setMandanSize(size, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    mandanState.size = size;
+    document.getElementById('mandan-size-label').innerText = size;
+    const btns = document.querySelectorAll('#mandan-size-btns button');
+    btns.forEach(b => {
+      if (b.innerText === size) {
+        b.className = "py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer";
+      } else {
+        b.className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer";
+      }
+    });
+  }
+
+  function setMahgoSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    mahgoState.slide = (index + MAHGO_SLIDES.length) % MAHGO_SLIDES.length;
+    document.getElementById('mahgo-placeholder-cam').innerText = MAHGO_SLIDES[mahgoState.slide].label;
+    document.getElementById('mahgo-index-pill').innerText = `${mahgoState.slide + 1} / 3`;
+    const btns = document.querySelectorAll('#mahgo-thumbnails button');
+    btns.forEach((b, i) => {
+      if (i === mahgoState.slide) {
+        b.className = "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
+      } else {
+        b.className = "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
+      }
+    });
+  }
+  function shiftMahgoSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setMahgoSlide(mahgoState.slide + delta, e);
+  }
+
+  function setMahgoFinish(finish, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    mahgoState.finish = finish;
+    mahgoState.isTorched = finish.includes('Torched');
+    document.getElementById('mahgo-finish-label').innerText = finish;
+    const btns = document.querySelectorAll('#mahgo-finish-btns button');
+    if (mahgoState.isTorched) {
+      btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+      btns[1].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+    } else {
+      btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+      btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+    }
+  }
+
+  function setMahgoSize(size, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    mahgoState.size = size;
+    document.getElementById('mahgo-size-label').innerText = size;
+    const btns = document.querySelectorAll('#mahgo-size-btns button');
+    btns.forEach(b => {
+      if (b.innerText === size) {
+        b.className = "py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer";
+      } else {
+        b.className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer";
+      }
+    });
+  }
+
+  // 6. CART SYSTEM - TRIGGERED ONLY ON EXPLICIT ACTIONS
   let cart = [];
   let appliedDiscount = null;
   let selectedShippingMethod = 'standard';
@@ -1223,7 +1299,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     '3RDWORLDSHIP': { type: 'free_ship', val: 0, minSpend: 120, label: 'FREE U.S. SHIPPING' }
   };
 
-  function toggleCartDrawer() {
+  function toggleCartDrawer(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     const drawer = document.getElementById('cart-drawer');
     const panel = document.getElementById('cart-panel');
     if (drawer.classList.contains('opacity-0')) {
@@ -1236,7 +1313,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   }
 
-  function addToCartObject(item) {
+  function addToCartObject(item, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     const existing = cart.find(i => 
       i.id === item.id && 
       i.size === item.size && 
@@ -1252,7 +1330,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     toggleCartDrawer();
   }
 
-  function addConsolidatedTeeToCart() {
+  function addConsolidatedTeeToCart(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     addToCartObject({
       id: "ikigai-tee",
       title: "IKIGAI OVERSIZED T-SHIRT",
@@ -1264,10 +1343,11 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
       isTorched: teeState.isTorched,
       fulfillment: teeState.isTorched ? "MADE TO ORDER" : "READY TO SHIP",
       qty: 1
-    });
+    }, e);
   }
 
-  function addConsolidatedHoodieToCart() {
+  function addConsolidatedHoodieToCart(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     addToCartObject({
       id: "ikigai-hoodie",
       title: "IKIGAI FULL-ZIP HOODIE",
@@ -1279,37 +1359,43 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
       isTorched: hoodieState.isTorched,
       fulfillment: hoodieState.isTorched ? "MADE TO ORDER" : "READY TO SHIP",
       qty: 1
-    });
+    }, e);
   }
 
-  function addSetBundle() {
+  function addMandanToCart(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     addToCartObject({
-      id: "ikigai-hoodie",
-      title: "IKIGAI FULL-ZIP HOODIE",
-      price: 70,
-      image: HOODIE_SLIDES[0].src,
-      size: "L",
-      sleeve: null,
-      color: "Sanguine Washed Black",
-      isTorched: false,
-      fulfillment: "READY TO SHIP",
-      qty: 1
-    });
-    addToCartObject({
-      id: "ikigai-tee",
-      title: "IKIGAI OVERSIZED T-SHIRT",
+      id: "mandan-tee",
+      title: "MANDAN OVERSIZED T-SHIRT",
       price: 60,
       image: TEE_SLIDES[0].src,
-      size: "L",
+      size: mandanState.size,
       sleeve: "Short Sleeve",
-      color: "Washed Black Distressed",
-      isTorched: false,
-      fulfillment: "READY TO SHIP",
+      color: mandanState.finish,
+      isTorched: mandanState.isTorched,
+      fulfillment: mandanState.isTorched ? "MADE TO ORDER" : "READY TO SHIP",
       qty: 1
-    });
+    }, e);
   }
 
-  function changeItemQty(index, delta) {
+  function addMahgoToCart(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    addToCartObject({
+      id: "mahgo-tee",
+      title: "MAHGO OVERSIZED T-SHIRT",
+      price: 60,
+      image: TEE_SLIDES[1].src,
+      size: mahgoState.size,
+      sleeve: "Short Sleeve",
+      color: mahgoState.finish,
+      isTorched: mahgoState.isTorched,
+      fulfillment: mahgoState.isTorched ? "MADE TO ORDER" : "READY TO SHIP",
+      qty: 1
+    }, e);
+  }
+
+  function changeItemQty(index, delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     cart[index].qty += delta;
     if (cart[index].qty <= 0) {
       cart.splice(index, 1);
@@ -1317,7 +1403,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     updateCartDrawerUI();
   }
 
-  function removeItemFromCart(index) {
+  function removeItemFromCart(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     cart.splice(index, 1);
     updateCartDrawerUI();
   }
@@ -1357,7 +1444,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
         <div class="flex-1 min-w-0">
           <div class="flex justify-between items-start">
             <h5 class="text-white font-bold text-xs uppercase truncate pr-2">${item.title}</h5>
-            <button onclick="removeItemFromCart(${index})" class="text-neutral-500 hover:text-red3rd text-base cursor-pointer">×</button>
+            <button type="button" onclick="removeItemFromCart(${index}, event)" class="text-neutral-500 hover:text-red3rd text-base cursor-pointer">×</button>
           </div>
           <div class="text-[11px] text-neutral-400 mt-0.5 space-y-0.5">
             <div>${item.color} • SIZE: ${item.size}${item.sleeve ? ` • ${item.sleeve}` : ''}</div>
@@ -1367,9 +1454,9 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
           </div>
           <div class="flex justify-between items-center mt-2">
             <div class="flex items-center border border-white/15 rounded bg-carbon">
-              <button class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, -1)">-</button>
+              <button type="button" class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, -1, event)">-</button>
               <span class="px-2 text-white font-bold text-xs">${item.qty}</span>
-              <button class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, 1)">+</button>
+              <button type="button" class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, 1, event)">+</button>
             </div>
             <span class="text-white font-bold text-xs">$${item.price * item.qty}.00 USD</span>
           </div>
@@ -1421,7 +1508,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   }
 
-  function applyPromoCode() {
+  function applyPromoCode(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     const input = document.getElementById('cart-discount-input');
     const code = input.value.trim().toUpperCase();
     const statusRow = document.getElementById('cart-discount-status-row');
@@ -1453,7 +1541,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   }
 
-  function removePromoCode() {
+  function removePromoCode(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     appliedDiscount = null;
     document.getElementById('cart-discount-status-row').classList.add('hidden');
     updateCartDrawerUI();
@@ -1462,21 +1551,24 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
   // 7. CHECKOUT CONTROLLER
   let currentStep = 1;
 
-  function launchCheckoutFlow() {
+  function launchCheckoutFlow(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     if (cart.length === 0) {
       alert("Please add items to your cart before proceeding.");
       return;
     }
-    toggleCartDrawer();
+    toggleCartDrawer(e);
     document.getElementById('checkout-modal').classList.remove('hidden');
-    setCheckoutStep(1);
+    setCheckoutStep(1, e);
   }
 
-  function closeCheckoutModal() {
+  function closeCheckoutModal(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     document.getElementById('checkout-modal').classList.add('hidden');
   }
 
-  function setCheckoutStep(step) {
+  function setCheckoutStep(step, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     currentStep = step;
     for (let i = 1; i <= 5; i++) {
       const tab = document.getElementById(`co-tab-${i}`);
@@ -1540,7 +1632,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   }
 
-  function submitFinalOrderCheckout() {
+  function submitFinalOrderCheckout(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     const termsCheck = document.getElementById('co-terms-checkbox');
     if (!termsCheck.checked) {
       alert("Please confirm the verification checkbox regarding sizes and handcrafted details.");
@@ -1555,19 +1648,18 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     updateCartDrawerUI();
   }
 
-  function closeOrderConfirmation() {
-    closeCheckoutModal();
+  function closeOrderConfirmation(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    closeCheckoutModal(e);
     document.getElementById('checkout-panes-wrapper').classList.remove('hidden');
     document.getElementById('checkout-stepper-bar').classList.remove('hidden');
     document.getElementById('order-confirmed-view').classList.add('hidden');
     setCheckoutStep(1);
   }
 
-  // INITIALIZE ON LOAD
+  // INITIALIZE ON LOAD (Strictly isolated button handlers, no global click hijacking)
   document.addEventListener('DOMContentLoaded', () => {
     updateCartDrawerUI();
   });
 </script>
-
-
 </body></html>
