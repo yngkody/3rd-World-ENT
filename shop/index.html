@@ -77,214 +77,196 @@
 <!-- ======================================================= -->
 <!-- PRIMARY NAVIGATION                                      -->
 <!-- ======================================================= -->
-<header
-  class="sticky top-[29px] z-40
-         bg-black/95 backdrop-blur-xl
-         border-b border-white/10"
->
+<!-- ======================================================= -->
+<header class="sticky top-[29px] z-40 bg-black/95 backdrop-blur-xl border-b border-white/10">
+
+  <!-- MOBILE NAV -->
+  <div class="md:hidden flex items-center justify-between h-[72px] px-4 sm:px-5">
+    <a href="/" class="flex items-center gap-2 min-w-0" aria-label="3rd World Entertainment Home">
+      <span class="font-display text-[24px] leading-none tracking-[0.10em] text-white whitespace-nowrap">
+        3RD WORLD
+      </span>
+      <span class="w-2 h-2 rounded-full bg-red3rd shrink-0"></span>
+    </a>
+
+    <div class="flex items-center gap-2 shrink-0">
+      <button
+        aria-label="Open Cart"
+        data-cart-toggle
+        onclick="toggleCartDrawer(event)"
+        type="button"
+        class="relative flex items-center justify-center
+               w-11 h-11 rounded-full
+               border border-white/15 bg-white/[0.04]
+               text-white hover:border-white/35 hover:bg-white/[0.08]
+               transition-all"
+      >
+        <span class="material-symbols-outlined text-[21px]">shopping_bag</span>
+        <span
+          id="cart-counter-mobile"
+          class="absolute -top-1 -right-1
+                 min-w-[19px] h-[19px] px-1
+                 rounded-full bg-red3rd text-white
+                 text-[9px] font-bold
+                 flex items-center justify-center"
+        >0</span>
+      </button>
+
+      <button
+        id="mobile-menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        onclick="toggleMobileMenu(event)"
+        type="button"
+        class="w-11 h-11 rounded-full
+               border border-white/15 bg-white/[0.04]
+               text-white
+               flex items-center justify-center
+               hover:border-white/35 hover:bg-white/[0.08]
+               transition-all"
+      >
+        <span id="mobile-menu-icon" class="material-symbols-outlined text-[24px]">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU PANEL -->
   <div
-    class="w-full
-           px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32
-           h-[104px]
-           grid grid-cols-[1fr_auto_1fr]
-           items-center"
+    id="mobile-menu-panel"
+    class="md:hidden hidden border-t border-white/10 bg-black/98 backdrop-blur-xl px-4 pb-5"
   >
+    <nav class="flex flex-col font-mono uppercase tracking-[0.14em] text-sm">
+      <a href="/policies/"
+         class="py-4 border-b border-white/10 text-neutral-200 hover:text-white"
+         onclick="closeMobileMenu()">
+        Policies
+      </a>
+
+      <a href="/shipping/"
+         class="py-4 border-b border-white/10 text-neutral-200 hover:text-white"
+         onclick="closeMobileMenu()">
+        Shipping
+      </a>
+
+      <a href="#audio-section"
+         class="py-4 flex items-center justify-between text-neutral-200 hover:text-signal"
+         onclick="closeMobileMenu()">
+        <span>Born Radio</span>
+        <span class="flex items-center gap-[3px] h-4">
+          <span class="w-[2px] h-2 bg-signal"></span>
+          <span class="w-[2px] h-4 bg-signal"></span>
+          <span class="w-[2px] h-2.5 bg-signal"></span>
+        </span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- DESKTOP NAV -->
+  <div class="hidden md:grid w-full
+              px-10 lg:px-16 xl:px-24 2xl:px-32
+              h-[104px]
+              grid-cols-[1fr_auto_1fr]
+              items-center">
 
     <!-- LEFT NAV -->
     <nav
-      class="hidden md:flex items-center
+      class="flex items-center
              gap-6 lg:gap-10 xl:gap-12
              justify-self-start
              font-mono"
       aria-label="Primary navigation"
     >
-
       <a
         href="/policies/"
-        class="group relative
-               px-5 py-4
+        class="group relative px-5 py-4
                text-[13px] lg:text-[15px]
-               font-semibold
-               uppercase tracking-[0.14em]
-               text-neutral-300
-               hover:text-white
-               transition-colors duration-200"
+               font-semibold uppercase tracking-[0.14em]
+               text-neutral-300 hover:text-white transition-colors duration-200"
       >
         POLICIES
-
-        <span
-          class="absolute left-4 right-4 bottom-2
-                 h-px bg-red3rd
-                 scale-x-0 origin-left
-                 group-hover:scale-x-100
-                 transition-transform duration-300">
-        </span>
+        <span class="absolute left-5 right-5 bottom-2 h-px bg-red3rd scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300"></span>
       </a>
 
-      <span
-        class="h-4 w-px bg-white/15"
-        aria-hidden="true">
-      </span>
+      <span class="h-4 w-px bg-white/15" aria-hidden="true"></span>
 
       <a
         href="/shipping/"
-        class="group relative
-               px-5 py-4
+        class="group relative px-5 py-4
                text-[13px] lg:text-[15px]
-               font-semibold
-               uppercase tracking-[0.14em]
-               text-neutral-300
-               hover:text-white
-               transition-colors duration-200"
+               font-semibold uppercase tracking-[0.14em]
+               text-neutral-300 hover:text-white transition-colors duration-200"
       >
         SHIPPING
-
-        <span
-          class="absolute left-4 right-4 bottom-2
-                 h-px bg-red3rd
-                 scale-x-0 origin-left
-                 group-hover:scale-x-100
-                 transition-transform duration-300">
-        </span>
+        <span class="absolute left-5 right-5 bottom-2 h-px bg-red3rd scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300"></span>
       </a>
-
     </nav>
-
 
     <!-- CENTER BRAND -->
     <a
       href="/"
-      class="group
-             flex items-center gap-4
-             justify-self-center
-             px-8 lg:px-12"
+      class="group flex items-center gap-4 justify-self-center px-8 lg:px-12"
       aria-label="3rd World Entertainment Home"
     >
-      <span
-        class="font-display
-               text-[31px] lg:text-[38px] xl:text-[42px]
-               leading-none
-               tracking-[0.12em]
-               whitespace-nowrap
-               text-white
-               group-hover:text-neutral-200
-               transition-colors duration-200"
-      >
+      <span class="font-display
+                   text-[31px] lg:text-[38px] xl:text-[42px]
+                   leading-none tracking-[0.12em]
+                   whitespace-nowrap text-white
+                   group-hover:text-neutral-200 transition-colors duration-200">
         3RD WORLD
       </span>
 
-      <span
-        class="w-2 h-2
-               rounded-full
-               bg-red3rd
-               shadow-[0_0_12px_rgba(213,30,30,0.45)]">
-      </span>
+      <span class="w-2 h-2 rounded-full bg-red3rd shadow-[0_0_12px_rgba(213,30,30,0.45)]"></span>
     </a>
 
-
     <!-- RIGHT NAV / ACTIONS -->
-    <div
-      class="flex items-center
-             gap-5 lg:gap-8 xl:gap-10
-             justify-self-end
-             font-mono"
-    >
-
-      <!-- RADIO -->
+    <div class="flex items-center gap-5 lg:gap-8 xl:gap-10 justify-self-end font-mono">
       <a
         href="#audio-section"
-        class="hidden sm:flex
-               items-center gap-4
-               px-5 py-4
+        class="flex items-center gap-4 px-5 py-4
                text-[12px] lg:text-[14px]
-               font-semibold
-               uppercase tracking-[0.14em]
-               text-neutral-300
-               hover:text-signal
-               transition-colors duration-200"
+               font-semibold uppercase tracking-[0.14em]
+               text-neutral-300 hover:text-signal transition-colors duration-200"
       >
-
-        <!-- Audio Bars -->
         <span class="flex items-center gap-[3px] h-4">
           <span class="w-[2px] h-2 bg-signal animate-pulse"></span>
           <span class="w-[2px] h-4 bg-signal"></span>
           <span class="w-[2px] h-2.5 bg-signal animate-pulse"></span>
         </span>
-
-        <span class="whitespace-nowrap">
-          BORN RADIO
-        </span>
-
+        <span class="whitespace-nowrap">BORN RADIO</span>
       </a>
 
+      <span class="h-5 w-px bg-white/15" aria-hidden="true"></span>
 
-      <!-- DIVIDER -->
-      <span
-        class="hidden sm:block
-               h-5 w-px
-               bg-white/15"
-        aria-hidden="true">
-      </span>
-
-
-      <!-- CART -->
       <button
         aria-label="Open Cart"
         data-cart-toggle
         id="header-cart-btn"
         onclick="toggleCartDrawer(event)"
         type="button"
-        class="relative
-               flex items-center gap-3
+        class="relative flex items-center gap-3
                px-6 lg:px-7 py-3
                min-h-[50px]
-               rounded-full
-               border border-white/15
-               bg-white/[0.04]
-               text-neutral-100
-               hover:text-white
-               hover:border-white/35
-               hover:bg-white/[0.08]
-               transition-all duration-200
-               cursor-pointer
-               group"
+               rounded-full border border-white/15
+               bg-white/[0.04] text-neutral-100
+               hover:text-white hover:border-white/35 hover:bg-white/[0.08]
+               transition-all duration-200 cursor-pointer group"
       >
-
-        <span
-          class="material-symbols-outlined
-                 text-[20px]
-                 group-hover:scale-105
-                 transition-transform"
-        >
+        <span class="material-symbols-outlined text-[20px] group-hover:scale-105 transition-transform">
           shopping_bag
         </span>
 
-        <span
-          class="hidden sm:inline
-                 text-[12px] lg:text-[14px]
-                 font-semibold
-                 uppercase tracking-[0.14em]"
-        >
+        <span class="text-[12px] lg:text-[14px] font-semibold uppercase tracking-[0.14em]">
           CART
         </span>
 
         <span
           id="cart-counter"
           class="flex items-center justify-center
-                 min-w-[22px] h-[22px]
-                 px-1.5
-                 rounded-full
-                 bg-red3rd
-                 text-white
-                 text-[10px]
-                 font-bold
-                 leading-none"
-        >
-          0
-        </span>
-
+                 min-w-[22px] h-[22px] px-1.5
+                 rounded-full bg-red3rd text-white
+                 text-[10px] font-bold leading-none"
+        >0</span>
       </button>
-
     </div>
 
   </div>
