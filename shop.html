@@ -1344,6 +1344,97 @@ const MAHGO_SLIDES = [
       }
     });
   }
+    // HEIWA LINE
+  function setHeiwaSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    heiwaState.slide = (index + HEIWA_SLIDES.length) % HEIWA_SLIDES.length;
+
+    const imgEl = document.getElementById('heiwa-main-img');
+    if (imgEl) imgEl.src = HEIWA_SLIDES[heiwaState.slide].src;
+    updateElementText('heiwa-view-label', HEIWA_SLIDES[heiwaState.slide].label);
+
+    const thumbs = document.querySelectorAll('#heiwa-thumbnails button');
+    thumbs.forEach((btn, i) => {
+      if (i === heiwaState.slide) {
+        btn.className = "aspect-[9/14] rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all bg-black/40";
+      } else {
+        btn.className = "aspect-[9/14] rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all bg-black/40";
+      }
+    });
+  }
+
+  function shiftHeiwaSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setHeiwaSlide(heiwaState.slide + delta, e);
+  }
+
+  function setHeiwaSleeve(sleeve, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    heiwaState.sleeve = sleeve;
+    updateElementText('heiwa-sleeve-label', sleeve.toUpperCase());
+
+    const btns = document.querySelectorAll('#heiwa-sleeve-btns button');
+    btns.forEach(btn => {
+      if (btn.innerText.trim().toLowerCase() === sleeve.toLowerCase()) {
+        btn.className = "py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer transition-colors";
+      } else {
+        btn.className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer transition-colors";
+      }
+    });
+  }
+
+  function setHeiwaFinish(finish, isTorched, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    heiwaState.finish = finish;
+    heiwaState.isTorched = isTorched;
+    updateElementText('heiwa-finish-label', finish);
+
+    const btns = document.querySelectorAll('#heiwa-finish-btns button');
+    btns.forEach(btn => {
+      if (btn.innerText.trim().toLowerCase() === finish.toLowerCase()) {
+        btn.className = isTorched
+          ? "py-2.5 border border-orange-400 bg-orange-400/10 text-white font-bold rounded-lg cursor-pointer text-[10px]"
+          : "py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[10px]";
+      } else {
+        btn.className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[10px]";
+      }
+    });
+
+    const banner = document.getElementById('heiwa-fulfillment-banner');
+    const dot = document.getElementById('heiwa-fulfillment-dot');
+    const txt = document.getElementById('heiwa-fulfillment-txt');
+
+    if (isTorched) {
+      if (banner) banner.className = "p-3 rounded-lg border border-orange-400/40 bg-orange-400/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      if (dot) dot.className = "w-2 h-2 rounded-full bg-orange-400 animate-pulse";
+      if (txt) {
+        txt.innerText = "MADE TO ORDER // 7–14 business days.";
+        txt.className = "text-orange-300 font-bold";
+      }
+    } else {
+      if (banner) banner.className = "p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      if (dot) dot.className = "w-2 h-2 rounded-full bg-signal animate-pulse";
+      if (txt) {
+        txt.innerText = "HYBRID FULFILLMENT // 2–4 business days if in stock; otherwise 7–14 business days.";
+        txt.className = "text-signal font-bold";
+      }
+    }
+  }
+
+  function setHeiwaSize(size, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    heiwaState.size = size;
+    updateElementText('heiwa-size-label', size);
+
+    const btns = document.querySelectorAll('#heiwa-size-btns button');
+    btns.forEach(btn => {
+      if (btn.innerText.trim() === size) {
+        btn.className = "py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer";
+      } else {
+        btn.className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer";
+      }
+    });
+  }
 
   // 5. CAROUSEL FUNCTIONS: HANDAN & MAHGO
 function setMandanSlide(index, e) {
