@@ -2687,9 +2687,16 @@ async function createShopifyCheckout() {
       throw new Error("Shopify did not return a checkout URL.");
     }
 
-    window.location.href = result.cart.checkoutUrl;
- 
+   window.location.href = result.cart.checkoutUrl;
+
+  } catch (error) {
+    console.error("Shopify checkout error:", error);
+    alert(error.message || "Unable to start checkout.");
+  }
 }
+
+// 7. CHECKOUT CONTROLS
+function launchCheckoutFlow(e) {
 
   // 7. CHECKOUT CONTROLS
 function launchCheckoutFlow(e) {
