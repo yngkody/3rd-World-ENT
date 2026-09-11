@@ -461,18 +461,14 @@ Original conceptual designs from the 3rd World studio. 4-angle and 3-angle rotat
 <div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl" id="handan-tee-card">
 <div>
 <div class="relative aspect-square rounded-xl overflow-hidden bg-carbon border border-white/10 mb-4 flex items-center justify-center text-center p-6 group">
-<div class="space-y-4">
-<div class="w-16 h-16 rounded-full bg-red3rd/10 border border-red3rd/30 flex items-center justify-center mx-auto text-red3rd">
-<span class="material-symbols-outlined text-2xl">photo_camera</span>
-</div>
-<div>
-<span class="font-mono text-xs text-signal font-bold uppercase tracking-widest block" id="handan-placeholder-cam">[HANDAN // CAM 01]</span>
-<span class="font-display text-2xl uppercase tracking-wider text-white mt-1 block">STUDIO ANGLE VIEW</span>
-<p class="font-mono text-[11px] text-neutral-400 mt-2 max-w-xs mx-auto">
-4-angle rotational camera stream indexed for active release.
-</p>
-</div>
-</div>
+<img
+  id="handan-main-img"
+  src="YOUR-HANDAN-IMAGE-1-URL"
+  alt="HANDAN Oversized T-Shirt"
+  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+/>
+
+<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
 <button aria-label="Previous HANDAN preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer z-10" onclick="shiftHandanSlide(-1, event)" type="button">
 <span class="material-symbols-outlined text-base pointer-events-none">chevron_left</span>
 </button>
@@ -541,18 +537,14 @@ The second conceptual line from 3rd World ENT. Minimalist hand-stamped typograph
 <div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl" id="mahgo-tee-card">
 <div>
 <div class="relative aspect-square rounded-xl overflow-hidden bg-carbon border border-white/10 mb-4 flex items-center justify-center text-center p-6 group">
-<div class="space-y-4">
-<div class="w-16 h-16 rounded-full bg-signal/10 border border-signal/30 flex items-center justify-center mx-auto text-signal">
-<span class="material-symbols-outlined text-2xl">photo_camera</span>
-</div>
-<div>
-<span class="font-mono text-xs text-signal font-bold uppercase tracking-widest block" id="mahgo-placeholder-cam">[MAHGO // CAM 01]</span>
-<span class="font-display text-2xl uppercase tracking-wider text-white mt-1 block">STUDIO ANGLE VIEW</span>
-<p class="font-mono text-[11px] text-neutral-400 mt-2 max-w-xs mx-auto">
-3-angle studio catalog rotation loaded for immediate fulfillment.
-</p>
-</div>
-</div>
+<img
+  id="mahgo-main-img"
+  src="YOUR-MAHGO-IMAGE-1-URL"
+  alt="MAHGO Oversized T-Shirt"
+  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+/>
+
+<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
 <button aria-label="Previous MAHGO preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer z-10" onclick="shiftMahgoSlide(-1, event)" type="button">
 <span class="material-symbols-outlined text-base pointer-events-none">chevron_left</span>
 </button>
@@ -995,18 +987,39 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
   ];
 
-  const HANDAN_SLIDES = [
-    { label: "[HANDAN // CAM 01]" },
-    { label: "[HANDAN // CAM 02]" },
-    { label: "[HANDAN // CAM 03]" },
-    { label: "[HANDAN // CAM 04]" }
-  ];
+const HANDAN_SLIDES = [
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20White%20Tee%20Finger%20Cigarette_Front%20worn%20by%2021%20year%20old%20blonde%20woman%20with%20lazy%20eyes_%20natural_%20no%20make-up_%20high%20cheeks%20Fiction%E2%84%A2%20%E2%80%93%20Sheer%20lace%20midi%20skirt%20Reddish%20Portrait%20(1).png",
+    label: "HANDAN // CAM 01"
+  },
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20White%20Tee%20Finger%20Cigarette_Front%20worn%20by%2021%20year%20old%20blonde%20woman%20with%20lazy%20eyes_%20natural_%20no%20make-up_%20high%20cheeks%20Fiction%E2%84%A2%20%E2%80%93%20Sheer%20lace%20midi%20skirt%20Reddish%20Portrait.png",
+    label: "HANDAN // CAM 02"
+  },
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20black%20male%2022%20_%20urban%20look_%20diamon%20grrill%20teeth%20flashing%20wearing%20White%20Tee%20Finger%20Cigarette_Front%20good%20clearn%20front%20image%20of%20the%20shirt_%20bottoms%20came%20be%20black%20cargo%20patns%20baggy.png",
+    label: "HANDAN // CAM 03"
+  },
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20black%20male%2022%20_%20urban%20look_%20diamon%20grrill%20teeth%20flashing%20wearing%20White%20Tee%20Finger%20Cigarette_Front%20looking%20into%20camera_%20high%20angle%20shot%20with%20fish-eye%20lens_%20good%20clearn%20front%20image%20of%20the%20shirt_%20bottoms%20came%20be%20.png",
+    label: "HANDAN // CAM 04"
+  }
+];
 
-  const MAHGO_SLIDES = [
-    { label: "[MAHGO // CAM 01]" },
-    { label: "[MAHGO // CAM 02]" },
-    { label: "[MAHGO // CAM 03]" }
-  ];
+const MAHGO_SLIDES = [
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Jun%20wearing%20Black%20sunglasses%20white%20back%20drop%20studio%20Rat%20Race%20Shirt%20Front%20White.png",
+    label: "MAHGO // CAM 01"
+  },
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20black%20male%2022%20_%20urban%20look_%20wearing%20Rat%20Race%20Shirt%20Front%20White%20white%20studio%20backdrop.png",
+    label: "MAHGO // CAM 02"
+  },
+  {
+    src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Rat%20Race%20Shirt%20Front%20White%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks.png",
+    label: "MAHGO // CAM 03"
+  }
+];   
 
   // 2. STATE
   let teeState = {
@@ -1202,22 +1215,34 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
   }
 
   // 5. CAROUSEL FUNCTIONS: HANDAN & MAHGO
-  function setMandanSlide(index, e) {
-    if (e && e.stopPropagation) e.stopPropagation();
-    handanState.slide = (index + HANDAN_SLIDES.length) % HANDAN_SLIDES.length;
-    
-    updateElementText('handan-placeholder-cam', HANDAN_SLIDES[handanState.slide].label);
-    updateElementText('handan-index-pill', `${handanState.slide + 1} / 4`);
-    
-    const btns = document.querySelectorAll('#handan-thumbnails button');
-    btns.forEach((b, i) => {
-      if (i === handanState.slide) {
-        b.className = "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
-      } else {
-        b.className = "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
-      }
-    });
-  }
+function setMandanSlide(index, e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+
+  handanState.slide =
+    (index + HANDAN_SLIDES.length) % HANDAN_SLIDES.length;
+
+  const slide = HANDAN_SLIDES[handanState.slide];
+
+  const img = document.getElementById('handan-main-img');
+  if (img) img.src = slide.src;
+
+  updateElementText(
+    'handan-index-pill',
+    `${handanState.slide + 1} / ${HANDAN_SLIDES.length}`
+  );
+
+  const btns = document.querySelectorAll('#handan-thumbnails button');
+
+  btns.forEach((b, i) => {
+    if (i === handanState.slide) {
+      b.className =
+        "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
+    } else {
+      b.className =
+        "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
+    }
+  });
+}
   
   const setHandanSlide = setMandanSlide;
 
@@ -1260,22 +1285,34 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  function setMahgoSlide(index, e) {
-    if (e && e.stopPropagation) e.stopPropagation();
-    mahgoState.slide = (index + MAHGO_SLIDES.length) % MAHGO_SLIDES.length;
-    
-    updateElementText('mahgo-placeholder-cam', MAHGO_SLIDES[mahgoState.slide].label);
-    updateElementText('mahgo-index-pill', `${mahgoState.slide + 1} / 3`);
-    
-    const btns = document.querySelectorAll('#mahgo-thumbnails button');
-    btns.forEach((b, i) => {
-      if (i === mahgoState.slide) {
-        b.className = "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
-      } else {
-        b.className = "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
-      }
-    });
-  }
+function setMahgoSlide(index, e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+
+  mahgoState.slide =
+    (index + MAHGO_SLIDES.length) % MAHGO_SLIDES.length;
+
+  const slide = MAHGO_SLIDES[mahgoState.slide];
+
+  const img = document.getElementById('mahgo-main-img');
+  if (img) img.src = slide.src;
+
+  updateElementText(
+    'mahgo-index-pill',
+    `${mahgoState.slide + 1} / ${MAHGO_SLIDES.length}`
+  );
+
+  const btns = document.querySelectorAll('#mahgo-thumbnails button');
+
+  btns.forEach((b, i) => {
+    if (i === mahgoState.slide) {
+      b.className =
+        "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
+    } else {
+      b.className =
+        "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
+    }
+  });
+}
 
   function shiftMahgoSlide(delta, e) {
     if (e && e.stopPropagation) e.stopPropagation();
