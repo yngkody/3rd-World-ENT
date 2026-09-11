@@ -68,40 +68,220 @@
 </div>
 </div>
 <!-- SLEEK, REFINED, LIGHTWEIGHT NAVIGATION BAR -->
-<header class="sticky top-[29px] z-40 bg-black/85 backdrop-blur-md border-b border-white/5 px-6 lg:px-12 py-3.5 flex items-center justify-between transition-all duration-300">
-<!-- Left: Clean Minimal Navigation Links (Only POLICIES & SHIPPING) -->
-<nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">
-<a class="hover:text-white transition-colors relative group py-1" href="/policies/">
-<span class="">POLICIES</span>
-<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-</a>
-<a class="hover:text-white transition-colors relative group py-1" href="/shipping/">
-<span class="">SHIPPING</span>
-<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-</a>
-</nav>
-<!-- Center: Iconic 3RD WORLD Wordmark -->
-<a class="flex items-center gap-2 group md:absolute md:left-1/2 md:-translate-x-1/2" href="#">
-<span class="font-display text-2xl tracking-[0.15em] text-white group-hover:text-neutral-200 transition-colors">3RD WORLD</span>
-<span class="w-1.5 h-1.5 rounded-full bg-red3rd inline-block"></span>
-</a>
-<!-- Right: Sleek Radio & Clean Minimal Cart Button -->
-<div class="flex items-center gap-5 font-mono">
-<a class="hidden sm:flex items-center gap-2 text-[11px] text-neutral-400 hover:text-signal transition-colors tracking-widest uppercase py-1" href="#audio-section">
-<span class="flex items-center gap-0.5">
-<span class="w-0.5 h-2.5 bg-signal animate-pulse"></span>
-<span class="w-0.5 h-4 bg-signal"></span>
-<span class="w-0.5 h-2 bg-signal animate-pulse"></span>
-</span>
-<span class="">BORN RADIO</span>
-</a>
-<!-- Minimalist Cart Pill -->
-<button aria-label="Open Cart" class="relative flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 hover:border-white/30 bg-white/[0.03] text-neutral-200 hover:text-white transition-all cursor-pointer group" data-cart-toggle="" id="header-cart-btn" onclick="toggleCartDrawer(event)" type="button">
-<span class="material-symbols-outlined text-lg group-hover:scale-105 transition-transform">shopping_bag</span>
-<span class="font-mono text-xs uppercase tracking-widest hidden sm:inline">CART</span>
-<span class="bg-red3rd text-white font-mono text-[9px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center" id="cart-counter">0</span>
-</button>
-</div>
+<!-- ======================================================= -->
+<!-- PRIMARY NAVIGATION                                      -->
+<!-- ======================================================= -->
+<header
+  class="sticky top-[29px] z-40
+         bg-black/90 backdrop-blur-xl
+         border-b border-white/10"
+>
+  <div
+    class="max-w-[1600px] mx-auto
+           px-6 lg:px-12 xl:px-16
+           h-[82px]
+           grid grid-cols-[1fr_auto_1fr]
+           items-center"
+  >
+
+    <!-- LEFT NAV -->
+    <nav
+      class="hidden md:flex items-center
+             gap-3 lg:gap-5
+             justify-self-start
+             font-mono"
+      aria-label="Primary navigation"
+    >
+
+      <a
+        href="/policies/"
+        class="group relative
+               px-4 py-3
+               text-[12px] lg:text-[13px]
+               font-semibold
+               uppercase tracking-[0.14em]
+               text-neutral-300
+               hover:text-white
+               transition-colors duration-200"
+      >
+        POLICIES
+
+        <span
+          class="absolute left-4 right-4 bottom-2
+                 h-px bg-red3rd
+                 scale-x-0 origin-left
+                 group-hover:scale-x-100
+                 transition-transform duration-300">
+        </span>
+      </a>
+
+      <span
+        class="h-4 w-px bg-white/15"
+        aria-hidden="true">
+      </span>
+
+      <a
+        href="/shipping/"
+        class="group relative
+               px-4 py-3
+               text-[12px] lg:text-[13px]
+               font-semibold
+               uppercase tracking-[0.14em]
+               text-neutral-300
+               hover:text-white
+               transition-colors duration-200"
+      >
+        SHIPPING
+
+        <span
+          class="absolute left-4 right-4 bottom-2
+                 h-px bg-red3rd
+                 scale-x-0 origin-left
+                 group-hover:scale-x-100
+                 transition-transform duration-300">
+        </span>
+      </a>
+
+    </nav>
+
+
+    <!-- CENTER BRAND -->
+    <a
+      href="/"
+      class="group
+             flex items-center gap-3
+             justify-self-center
+             px-6"
+      aria-label="3rd World Entertainment Home"
+    >
+      <span
+        class="font-display
+               text-[27px] lg:text-[30px]
+               leading-none
+               tracking-[0.14em]
+               whitespace-nowrap
+               text-white
+               group-hover:text-neutral-200
+               transition-colors duration-200"
+      >
+        3RD WORLD
+      </span>
+
+      <span
+        class="w-2 h-2
+               rounded-full
+               bg-red3rd
+               shadow-[0_0_12px_rgba(213,30,30,0.45)]">
+      </span>
+    </a>
+
+
+    <!-- RIGHT NAV / ACTIONS -->
+    <div
+      class="flex items-center
+             gap-3 lg:gap-5
+             justify-self-end
+             font-mono"
+    >
+
+      <!-- RADIO -->
+      <a
+        href="#audio-section"
+        class="hidden sm:flex
+               items-center gap-3
+               px-4 py-3
+               text-[11px] lg:text-[12px]
+               font-semibold
+               uppercase tracking-[0.14em]
+               text-neutral-300
+               hover:text-signal
+               transition-colors duration-200"
+      >
+
+        <!-- Audio Bars -->
+        <span class="flex items-center gap-[3px] h-4">
+          <span class="w-[2px] h-2 bg-signal animate-pulse"></span>
+          <span class="w-[2px] h-4 bg-signal"></span>
+          <span class="w-[2px] h-2.5 bg-signal animate-pulse"></span>
+        </span>
+
+        <span class="whitespace-nowrap">
+          BORN RADIO
+        </span>
+
+      </a>
+
+
+      <!-- DIVIDER -->
+      <span
+        class="hidden sm:block
+               h-5 w-px
+               bg-white/15"
+        aria-hidden="true">
+      </span>
+
+
+      <!-- CART -->
+      <button
+        aria-label="Open Cart"
+        data-cart-toggle
+        id="header-cart-btn"
+        onclick="toggleCartDrawer(event)"
+        type="button"
+        class="relative
+               flex items-center gap-3
+               px-5 py-2.5
+               min-h-[44px]
+               rounded-full
+               border border-white/15
+               bg-white/[0.04]
+               text-neutral-100
+               hover:text-white
+               hover:border-white/35
+               hover:bg-white/[0.08]
+               transition-all duration-200
+               cursor-pointer
+               group"
+      >
+
+        <span
+          class="material-symbols-outlined
+                 text-[20px]
+                 group-hover:scale-105
+                 transition-transform"
+        >
+          shopping_bag
+        </span>
+
+        <span
+          class="hidden sm:inline
+                 text-[11px] lg:text-[12px]
+                 font-semibold
+                 uppercase tracking-[0.14em]"
+        >
+          CART
+        </span>
+
+        <span
+          id="cart-counter"
+          class="flex items-center justify-center
+                 min-w-[22px] h-[22px]
+                 px-1.5
+                 rounded-full
+                 bg-red3rd
+                 text-white
+                 text-[10px]
+                 font-bold
+                 leading-none"
+        >
+          0
+        </span>
+
+      </button>
+
+    </div>
+
+  </div>
 </header>
 <!-- HERO 3-VERTICAL VIDEOS TRIPTYCH SECTION -->
 <section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden">
