@@ -1,6 +1,6 @@
-<!DOCTYPE html><html class="dark scroll-smooth" lang="en" style=""><head>
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 <title>3RD WORLD ENT — Operating Archive &amp; Store</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -31,22 +31,20 @@
     }
   </script>
 <style>
-    body {
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       background-color: #080808;
       color: #F1EDE4;
       font-family: 'Hanken Grotesk', sans-serif;
       -webkit-font-smoothing: antialiased;
-    }
-    .custom-scrollbar::-webkit-scrollbar { display: none; }
-    .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Interactive hotspot pulse */
-    @keyframes ping-slow {
-      0% { transform: scale(1); opacity: 0.8; }
-      80%, 100% { transform: scale(2.4); opacity: 0; }
-    }
-    .animate-ping-slow {
-      animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
 
     /* 3D Depth Spatial Stage */
@@ -70,305 +68,187 @@
       image-rendering: auto;
       image-rendering: -webkit-optimize-contrast;
     }
+
+    /* Responsive asset toggling */
+    .hero-art-mobile {
+      display: block;
+    }
+    .hero-art-desktop {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero-art-mobile {
+        display: none !important;
+      }
+      .hero-art-desktop {
+        display: block !important;
+      }
+    }
   </style>
 </head>
-<body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased min-h-screen">
+<body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased h-screen w-screen overflow-hidden">
 <!-- ======================================================= -->
-<!-- 1. FULLSCREEN CINEMATIC 3D SPATIAL ENTRANCE GATE       -->
+<!-- FULLSCREEN CINEMATIC 3D SPATIAL ENTRANCE GATE           -->
 <!-- ======================================================= -->
-<div class="fixed inset-0 z-50 w-full h-screen min-h-screen bg-carbon overflow-hidden select-none transition-all duration-1000 ease-out flex flex-col justify-between" id="entrance-gate">
-<!-- Full viewport 3D Parallax Canvas (Inset -5% for seamless bleed without edge clipping) -->
+<div class="fixed inset-0 z-50 w-full h-full min-h-screen bg-carbon overflow-hidden select-none transition-all duration-1000 ease-out flex flex-col justify-between" id="entrance-gate">
+<!-- Full viewport 3D Parallax Canvas (Inset for seamless bleed without edge clipping) -->
 <div class="absolute inset-0 w-full h-full spatial-stage overflow-hidden cursor-pointer" id="stage-container" onclick="dismissEntrance()">
-<div class="absolute inset-[-6%] w-[112%] h-[112%] spatial-layer" id="spatial-artwork-wrap" style="transform: scale(1.04) translate3d(-19.5px, 17.8567px, 0px) rotateX(6.94426deg) rotateY(6.5deg);">
-<!-- Fullscreen Crisp Unstretched Artwork -->
-<img alt="3RD WORLD Spatial Artwork" class="w-full h-full object-cover object-center pointer-events-none select-none transition-transform duration-700 ease-out crisp-artwork filter contrast-[1.04] brightness-[0.96]" id="spatial-img" src="assets/3rd-World-Hero.png">
+<div class="absolute inset-[-6%] w-[112%] h-[112%] spatial-layer" id="spatial-artwork-wrap" style="transform: scale(1.05) translate3d(-19.9375px, -0.1875px, 0px) rotateX(-0.0703125deg) rotateY(6.34375deg);">
+<!-- Responsive Artwork Toggle -->
+<picture class="w-full h-full block">
+<!-- Mobile asset: assets/mobile-hero-ent.png (falls back to https://lh3.googleusercontent.com/aida/AEtjO1XFG-ct_cPX6UTTlTj2tIQqMs7gu755RPlxGLqKhNi3bwDcsXAEF-VMvXKdmVuBT1A8KNeEMH6CDYlxUZFepLuGtFRF3euNyhGyamQl_ghB1N356UBMpnSJMy4lgLAFEmFHih-hdSht_PFDsR2YqXfIPydD8qfbqJsAegLodBr7uzLVpzDmfnG3m3-wxVHojOwhXbtL5KVYsDKA6-nYnuyctVfsSMROX_mjidX1yyMZJc2Mh_jcdlmZOg8 in mockup preview) -->
+<source media="(max-width: 767px)" srcset="assets/mobile-hero-ent.png, https://lh3.googleusercontent.com/aida/AEtjO1XFG-ct_cPX6UTTlTj2tIQqMs7gu755RPlxGLqKhNi3bwDcsXAEF-VMvXKdmVuBT1A8KNeEMH6CDYlxUZFepLuGtFRF3euNyhGyamQl_ghB1N356UBMpnSJMy4lgLAFEmFHih-hdSht_PFDsR2YqXfIPydD8qfbqJsAegLodBr7uzLVpzDmfnG3m3-wxVHojOwhXbtL5KVYsDKA6-nYnuyctVfsSMROX_mjidX1yyMZJc2Mh_jcdlmZOg8">
+<!-- Desktop asset: assets/3rd-World-Hero.png (falls back to https://lh3.googleusercontent.com/aida-public/AB6AXuCw2po9CYLfS6gHcT2REtg7triLTYKBBkcM894FHm9rORuhDPVRuirWBdoVEXnTBxUKimIC4OTHDRCvnOqUBqzAN8BnmbDP7LFur8z75HsG9hLW6J_g743ErqbEuNeciXrwugefkzSHrSNn4V2qOUcyQo-1t4cFCR1cJsKUvXNEGRmcB2249uGMhPLl6gl2MKzuU7FIeH-zEp0RBTDVVHAqmh5E-spnZo9I_B5tEIZGOdNMieiIuPGU96HtptGVHp0usw in mockup preview) -->
+<source media="(min-width: 768px)" srcset="assets/3rd-World-Hero.png, https://lh3.googleusercontent.com/aida-public/AB6AXuCpogdkHLOsWK8b1rDVrI8lx7bCYGB6Km3f0lvkBJa2A3n6XzMecGn6wNtcN8FzZdqq0F79rl2M291PXsDuUbU0oTsem6FVP8yHrD8ypjGvhQLF4mNWu8JscLFknploapKsdMXoU34bWK-JqhwK96wV_6spShnHQZ3Rvcpk86jPsGLz5JH2H0ZlEa5cOBcXQPiVyjGe6hnK36YRj5jM4BIDEDclIkvdQU0CMmZlDEWe2RZNRsAdSfVa-HyU8QybDCfXpQ">
+<!-- Default Img Element -->
+<img alt="3RD WORLD Spatial Artwork" class="w-full h-full object-cover object-center pointer-events-none select-none transition-transform duration-700 ease-out crisp-artwork filter contrast-[1.04] brightness-[0.96]" id="spatial-img" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg" srcset="https://lh3.googleusercontent.com/aida/AEtjO1XFG-ct_cPX6UTTlTj2tIQqMs7gu755RPlxGLqKhNi3bwDcsXAEF-VMvXKdmVuBT1A8KNeEMH6CDYlxUZFepLuGtFRF3euNyhGyamQl_ghB1N356UBMpnSJMy4lgLAFEmFHih-hdSht_PFDsR2YqXfIPydD8qfbqJsAegLodBr7uzLVpzDmfnG3m3-wxVHojOwhXbtL5KVYsDKA6-nYnuyctVfsSMROX_mjidX1yyMZJc2Mh_jcdlmZOg8 768w, https://lh3.googleusercontent.com/aida-public/AB6AXuDP8cWTJfi4lAmQ8vg3RhwcIYk3b5lt0WLXc86mqpLFTHoA-nBRmgPxu49oAthQS_o0gQZAnuGsUOwhD0u9m0TwHlwEnapCTOg_KDQhCf82DEdyLCgNct8d0B0i39-vklRgAiVmvr3byZjNscyQSFvGb3_EzKVer5nNiSCpMiN6vk47x3mio0RLYnh6BXiNo8IY83RY9hmm8UlS9G5PajCkW1iVZaY_Cp9EkhzLQHQ8pgEqIIi8Q20itVxH3QPy2M2saA 1366w">
+</picture>
 <!-- Dynamic Atmospheric Glare / Specular Lighting -->
-<div class="absolute inset-0 spatial-glare opacity-70 transition-opacity duration-300" id="spatial-glare-layer" style="background: radial-gradient(circle at 78.4375% 15.2787%, rgba(255, 255, 255, 0.22) 0%, rgba(213, 30, 30, 0.1) 35%, transparent 70%);"></div>
+<div class="absolute inset-0 spatial-glare opacity-70 transition-opacity duration-300" id="spatial-glare-layer" style="background: radial-gradient(circle at 81.7187% 50.4102%, rgba(255, 255, 255, 0.22) 0%, rgba(213, 30, 30, 0.1) 35%, transparent 70%);"></div>
 <!-- Subtle Depth Vignette for Dramatic Contrast & Readability -->
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/75 pointer-events-none"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_15%,rgba(8,8,8,0.7)_100%)] pointer-events-none"></div>
-<!-- Subtle Brutalist Overlay Grid Guidelines -->
-
-
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(8,8,8,0.75)_100%)] pointer-events-none"></div>
 </div>
 </div>
 <!-- Floating UI Content Layer (Opposite 3D Parallax Tilt) -->
-<div class="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none p-6 sm:p-10 lg:p-12">
-<!-- Top System Line -->
-<header class="w-full flex items-center justify-between pointer-events-auto"><div class="font-mono text-xs tracking-widest text-neutral-300 uppercase font-semibold">3RD WORLD ENT // 2025</div><button class="font-mono text-xs uppercase tracking-widest text-neutral-300 hover:text-white transition-colors cursor-pointer" onclick="dismissEntrance()">[ENTER STORE →]</button></header>
-<!-- Center Floating Typography & Spatial CTA -->
-<main class="mt-4 mb-auto max-w-2xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out pt-3" id="spatial-hero-text"><h1 class="font-display text-3xl sm:text-5xl uppercase tracking-tight leading-none mb-2 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] text-white">ENTER THE <span class="text-red3rd drop-shadow-[0_0_30px_rgba(213,30,30,0.7)]">3RD WORLD</span></h1><p class="font-mono text-[11px] sm:text-xs text-neutral-300 max-w-md mx-auto leading-relaxed mb-4 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)]">Streetwear archives, audio frequencies, and brutalist editions by Omar Malik.</p><button class="px-5 py-2.5 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center gap-2 cursor-pointer group transform hover:-translate-y-0.5" onclick="dismissEntrance()"><span class="">ENTER ATELIER &amp; STORE →</span></button></main>
-<!-- Entrance Footer & Gyro / Pan Hint -->
-<footer class="w-full flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-neutral-400 gap-3 pointer-events-auto"><div class="font-mono text-[11px] text-neutral-400 tracking-wider uppercase">NYC • LON • LOS ANGELES</div><div class="font-mono text-[11px] text-neutral-500 tracking-wider uppercase">© 2025 ATELIER ARCHIVE</div></footer>
+<div class="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none p-5 sm:p-8 md:p-10 lg:p-12">
+<!-- Top System Line (Responsive Mobile/Desktop Header) -->
+<header class="w-full flex items-center justify-between pointer-events-auto pt-1 sm:pt-0">
+<div class="font-mono text-[11px] sm:text-xs tracking-widest text-neutral-300 uppercase font-semibold flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-red3rd animate-pulse"></span>
+<span class="">3RD WORLD ENT // 2025</span>
+</div>
+<button class="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-neutral-300 hover:text-white transition-colors cursor-pointer py-1 px-2 rounded border border-white/10 hover:border-red3rd/60 bg-black/40 backdrop-blur-sm" onclick="dismissEntrance()">
+        [ENTER STORE →]
+      </button>
+</header>
+<!-- Center Floating Typography & Spatial CTA (Optimized for Mobile Ergonomics & Desktop Balance) -->
+<main class="mt-4 mb-auto max-w-2xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out pt-3 px-2" id="spatial-hero-text" style="transform: translate3d(12.6875px, 0.117188px, 35px) rotateX(-0.0210938deg) rotateY(1.90312deg);">
+<div class="font-mono text-[10px] tracking-[0.25em] text-neutral-400 uppercase mb-2">
+        OFFICIAL ATELIER &amp; SOUND ARCHIVE
+      </div>
+<h1 class="font-display text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-none mb-3 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] text-white">
+        ENTER THE <span class="text-red3rd drop-shadow-[0_0_30px_rgba(213,30,30,0.75)]">3RD WORLD</span>
+</h1>
+<p class="font-mono text-[11px] sm:text-xs text-neutral-300 max-w-sm sm:max-w-md mx-auto leading-relaxed mb-6 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)]">
+        Streetwear archives, audio frequencies, and brutalist editions by Omar Malik.
+      </p>
+<!-- Primary Entrance CTA Button -->
+<button class="w-full sm:w-auto px-7 py-3.5 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2 cursor-pointer group transform hover:-translate-y-0.5 active:scale-95" id="dismiss-entrance" onclick="dismissEntrance()">
+<span class="">ENTER ATELIER &amp; STORE →</span>
+</button>
+</main>
+<!-- Entrance Footer: Clean Mobile / Desktop Metadata -->
+<footer class="w-full flex flex-row items-center justify-between text-[10px] sm:text-[11px] font-mono text-neutral-400 gap-2 pointer-events-auto pb-1 sm:pb-0">
+<div class="font-mono text-[10px] sm:text-[11px] text-neutral-400 tracking-wider uppercase">
+        NYC • LON • LOS ANGELES
+      </div>
+<div class="font-mono text-[10px] sm:text-[11px] text-neutral-500 tracking-wider uppercase">
+        © 2025 ATELIER ARCHIVE
+      </div>
+</footer>
 </div>
 </div>
-
 <!-- ======================================================= -->
 <!-- SCRIPT CONTROLLER & 3D PARALLAX ENGINE                  -->
 <!-- ======================================================= -->
 <script>
-    // 3D Spatial Depth / Parallax Engine
-    const artworkWrap = document.getElementById('spatial-artwork-wrap');
-    const glareLayer = document.getElementById('spatial-glare-layer');
-    const heroText = document.getElementById('spatial-hero-text');
-    const gate = document.getElementById('entrance-gate');
+  // 3D Spatial Depth / Parallax Engine
+  const artworkWrap = document.getElementById('spatial-artwork-wrap');
+  const glareLayer = document.getElementById('spatial-glare-layer');
+  const heroText = document.getElementById('spatial-hero-text');
+  const gate = document.getElementById('entrance-gate');
 
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let animationFrameId = null;
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let animationFrameId = null;
 
-    function handlePointerMove(e) {
-      const { innerWidth: w, innerHeight: h } = window;
-      const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : w / 2);
-      const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : h / 2);
+  function handlePointerMove(e) {
+    const { innerWidth: w, innerHeight: h } = window;
+    const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : w / 2);
+    const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : h / 2);
 
-      // Normalized coordinates from -1 to 1
-      targetX = (clientX / w - 0.5) * 2;
-      targetY = (clientY / h - 0.5) * 2;
-    }
-
-    // Gyroscope / Device orientation support for mobile
-    window.addEventListener('deviceorientation', (e) => {
-      if (!e.gamma || !e.beta) return;
-      const gamma = Math.min(Math.max(e.gamma, -30), 30);
-      const beta = Math.min(Math.max(e.beta - 35, -30), 30);
-      targetX = gamma / 30;
-      targetY = beta / 30;
-    });
-
-    window.addEventListener('mousemove', handlePointerMove);
-    window.addEventListener('touchmove', handlePointerMove, { passive: true });
-
-    // Smooth Lerp Rendering Loop for 3D depth and specular reaction
-    function render3DDepth() {
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
-
-      const rotateY = currentX * 8;      // Balanced tilt
-      const rotateX = -currentY * 7;     // Balanced pitch
-      const panX = -currentX * 24;       // Horizontal parallax shift
-      const panY = -currentY * 18;       // Vertical parallax shift
-
-      if (artworkWrap) {
-        artworkWrap.style.transform = `scale(1.04) translate3d(${panX}px, ${panY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      }
-
-      // Specular glare dynamic tracking
-      if (glareLayer) {
-        const glarePosX = 50 + (currentX * 35);
-        const glarePosY = 50 + (currentY * 35);
-        glareLayer.style.background = `radial-gradient(circle at ${glarePosX}% ${glarePosY}%, rgba(255,255,255,0.22) 0%, rgba(213,30,30,0.1) 35%, transparent 70%)`;
-      }
-
-      // Floating foreground text counter-parallax
-      if (heroText) {
-        const textPanX = currentX * 18;
-        const textPanY = currentY * 14;
-        heroText.style.transform = `translate3d(${textPanX}px, ${textPanY}px, 40px) rotateX(${rotateX * 0.35}deg) rotateY(${rotateY * 0.35}deg)`;
-      }
-
-      animationFrameId = requestAnimationFrame(render3DDepth);
-    }
-    render3DDepth();
-
-    // Entrance Gate Controls
-// Entrance Gate Controls
-function dismissEntrance() {
-  if (animationFrameId) cancelAnimationFrame(animationFrameId);
-  
-  const img = document.getElementById('spatial-img');
-  if (img) {
-    img.style.transform = 'scale(1.15)';
-    img.style.filter = 'brightness(0.3) blur(6px)';
+    // Normalized coordinates from -1 to 1
+    targetX = (clientX / w - 0.5) * 2;
+    targetY = (clientY / h - 0.5) * 2;
   }
-  
-  gate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
-  
-  // Wait 900ms for the CSS transition to finish, then redirect
-  setTimeout(() => {
-    gate.style.display = 'none';
-    window.location.href = 'shop.html'; // <-- Redirect happens here
-  }, 900);
-} // <-- Correctly closes the dismissEntrance function
 
-// Event Listener to trigger the function when clicked
-document.getElementById('dismiss-entrance').addEventListener('click', dismissEntrance);
+  // Gyroscope / Device orientation support for mobile phone pan
+  window.addEventListener('deviceorientation', (e) => {
+    if (!e.gamma || !e.beta) return;
+    const gamma = Math.min(Math.max(e.gamma, -30), 30);
+    const beta = Math.min(Math.max(e.beta - 35, -30), 30);
+    targetX = gamma / 30;
+    targetY = beta / 30;
+  });
 
+  window.addEventListener('mousemove', handlePointerMove);
+  window.addEventListener('touchmove', handlePointerMove, { passive: true });
 
-    function showEntrance() {
-      gate.style.display = 'flex';
-      const img = document.getElementById('spatial-img');
-      if (img) {
-        img.style.transform = 'scale(1)';
-        img.style.filter = 'contrast(1.04) brightness(0.96)';
-      }
-      setTimeout(() => {
-        gate.classList.remove('opacity-0', 'pointer-events-none', 'scale-105');
-        render3DDepth();
-      }, 20);
+  // Smooth Lerp Rendering Loop for 3D depth and specular reaction
+  function render3DDepth() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+
+    const rotateY = currentX * 7;      // Balanced tilt
+    const rotateX = -currentY * 6;     // Balanced pitch
+    const panX = -currentX * 22;       // Horizontal parallax shift
+    const panY = -currentY * 16;       // Vertical parallax shift
+
+    if (artworkWrap) {
+      artworkWrap.style.transform = `scale(1.05) translate3d(${panX}px, ${panY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     }
 
-    // Cart Management
-    let cart = [];
-
-    function toggleCartDrawer() {
-      const drawer = document.getElementById('cart-drawer');
-      const panel = document.getElementById('cart-panel');
-      if (drawer.classList.contains('opacity-0')) {
-        drawer.classList.remove('opacity-0', 'pointer-events-none');
-        panel.classList.remove('translate-x-full');
-      } else {
-        drawer.classList.add('opacity-0', 'pointer-events-none');
-        panel.classList.add('translate-x-full');
-      }
+    // Specular glare dynamic tracking
+    if (glareLayer) {
+      const glarePosX = 50 + (currentX * 35);
+      const glarePosY = 50 + (currentY * 35);
+      glareLayer.style.background = `radial-gradient(circle at ${glarePosX}% ${glarePosY}%, rgba(255,255,255,0.22) 0%, rgba(213,30,30,0.1) 35%, transparent 70%)`;
     }
 
-    function addToCart(title, price, image) {
-      cart.push({ title, price, image });
-      updateCartUI();
-      toggleCartDrawer();
+    // Floating foreground text counter-parallax
+    if (heroText) {
+      const textPanX = currentX * 14;
+      const textPanY = currentY * 10;
+      heroText.style.transform = `translate3d(${textPanX}px, ${textPanY}px, 35px) rotateX(${rotateX * 0.3}deg) rotateY(${rotateY * 0.3}deg)`;
     }
 
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartUI();
+    animationFrameId = requestAnimationFrame(render3DDepth);
+  }
+  render3DDepth();
+
+  // Entrance Gate Exit Transition & Redirect
+  function dismissEntrance() {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    
+    const img = document.getElementById('spatial-img');
+    if (img) {
+      img.style.transform = 'scale(1.15)';
+      img.style.filter = 'brightness(0.3) blur(6px)';
     }
+    
+    gate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+    
+    // Wait for transition before routing
+    setTimeout(() => {
+      gate.style.display = 'none';
+      window.location.href = 'shop.html';
+    }, 900);
+  }
 
-    function updateCartUI() {
-      const counter = document.getElementById('cart-counter');
-      const countLabel = document.getElementById('cart-item-count');
-      const list = document.getElementById('cart-items-list');
-      const emptyState = document.getElementById('cart-empty-state');
-      const subtotalEl = document.getElementById('cart-subtotal');
+  const dismissBtn = document.getElementById('dismiss-entrance');
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dismissEntrance();
+    });
+  }
+</script>
 
-      counter.innerText = cart.length;
-      countLabel.innerText = `(${cart.length} ITEMS)`;
 
-      if (cart.length === 0) {
-        list.innerHTML = '';
-        list.appendChild(emptyState);
-        subtotalEl.innerText = '$0.00 USD';
-        return;
-      }
-
-      let subtotal = 0;
-      list.innerHTML = '';
-      cart.forEach((item, index) => {
-        subtotal += item.price;
-        const itemEl = document.createElement('div');
-        itemEl.className = 'flex items-center gap-4 bg-surface p-3 rounded-xl border border-white/10';
-        itemEl.innerHTML = `
-          <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg">
-          <div class="flex-1 font-mono">
-            <h5 class="text-xs uppercase text-white font-bold leading-snug">${item.title}</h5>
-            <p class="text-xs text-neutral-400">$${item.price}.00 USD</p>
-          </div>
-          <button onclick="removeFromCart(${index})" class="text-neutral-500 hover:text-red3rd p-1">
-            <span class="material-symbols-outlined text-sm">delete</span>
-          </button>
-        `;
-        list.appendChild(itemEl);
-      });
-
-      subtotalEl.innerText = `$${subtotal}.00 USD`;
-    }
-
-    // Audio Playback Equalizer Simulation
-    let isPlaying = false;
-    let eqInterval = null;
-
-    function toggleAudio() {
-      isPlaying = !isPlaying;
-      const mainBtn = document.getElementById('main-play-btn');
-      const playIcon = document.getElementById('main-play-icon');
-      const navStatus = document.getElementById('nav-audio-status');
-      const bars = document.querySelectorAll('#equalizer-bars div');
-
-      if (isPlaying) {
-        playIcon.innerText = 'pause';
-        navStatus.innerText = 'PLAYING';
-        eqInterval = setInterval(() => {
-          bars.forEach(bar => {
-            const randomH = Math.floor(Math.random() * 40) + 10;
-            bar.style.height = `${randomH}px`;
-          });
-        }, 150);
-      } else {
-        playIcon.innerText = 'play_arrow';
-        navStatus.innerText = 'ON AIR';
-        clearInterval(eqInterval);
-        bars.forEach((bar, i) => {
-          bar.style.height = `${(i % 3 + 1) * 12}px`;
-        });
-      }
-    }
-
-    // Quick View Modal Data
-    const quickViewData = {
-      'archive-hoodie': {
-        title: '3RD WORLD ARCHIVE HOODIE',
-        price: 145,
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA',
-        tag: 'DROP 01 &bull; 520 GSM',
-        desc: 'Constructed from heavy 520 GSM washed french terry cotton. Engineered boxy cut with signature red 3rd World bar-tack stencils.'
-      },
-      'street-tee': {
-        title: 'DISTRESSED GRAPHIC TEE',
-        price: 75,
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB6KVmbf1xwniI2MWhO-p042ivXxOnVnYvJujQ3zP2e5fEK9lFu9GpHFMdU6kD6MsLOrbivStkAXuF52lHBn7lmFEYK_7t-TMTzB7WvZXDrdjyEGIEsU0MeAEWZu9Cafto9ax0yVVki7GsyWw7gkrp04DJJkW-ZbIvjWZQaJ8vn47awkOJ_61bzf0vnrDo5S1i831Qd7TLAfrZqHWpOfaTf1JI2OVomDMnAUy_P3tBe9yLAtgapoKK-EfWKJ7iP29k5Sw',
-        tag: 'DROP 01 &bull; 300 GSM',
-        desc: 'Garment dyed, vintage distressed heavy jersey tee with screenprinted archive artwork.'
-      },
-      'illustration-tee': {
-        title: '3RD WORLD ETCHED TEE',
-        price: 80,
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmRVI3y0aI9FjWehL4xz-wM3pwHWPxQdz5AtcHBTgVGcFj443YLhVCMX1jdDn_lBz5cnvvlc5xbwD09Zpx0JhUvWE6dAnNmUvg4_X7nrTPl_LVi-9DQN05aQf0LFff7sHRy1bL5IFcTe7oIC9uKZVV0h-7GbabQ6ZTha0Ezodkx1ugzk4BwS6Nn_ConfG1sQJ1kdmASVAaJRsRVDV_QJgOS-LrC3Iko6RLsEgRilJrGekvp5PP5sFxAcqKrpVGYEGEDw',
-        tag: 'DROP 01 &bull; GRAPHIC EDITION',
-        desc: 'Custom hand-drawn illustrated face graphic, finished with raw edge collars and pre-shrunk wash.'
-      },
-      'crate-boxset': {
-        title: 'BORN VAULT STEEL CRATE',
-        price: 85,
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts',
-        tag: 'PHYSICAL MEDIA EDITION',
-        desc: 'Limited edition of 500. Heavy metal locked crate containing the BORN vinyl mixtape, 35mm photo zine, and steel keytag.'
-      },
-      'tactical-cargo': {
-        title: 'MODULAR FLIGHT CARGO',
-        price: 165,
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU',
-        tag: 'TECHNICAL UTILITY',
-        desc: 'Technical ripstop modular combat trousers with multi-pocket storage and custom tension buckles.'
-      }
-    };
-
-    function openQuickView(id) {
-      const data = quickViewData[id];
-      if (!data) return;
-      document.getElementById('qv-title').innerText = data.title;
-      document.getElementById('qv-price').innerText = `$${data.price}.00 USD`;
-      document.getElementById('qv-image').src = data.image;
-      document.getElementById('qv-tag').innerHTML = data.tag;
-      document.getElementById('qv-desc').innerText = data.desc;
-      document.getElementById('qv-add-btn').onclick = () => {
-        addToCart(data.title, data.price, data.image);
-        closeQuickView();
-      };
-      document.getElementById('quickview-modal').classList.remove('hidden');
-    }
-
-    function closeQuickView() {
-      document.getElementById('quickview-modal').classList.add('hidden');
-    }
-
-    // Dispatch form
-    function handleSubscribe(e) {
-      e.preventDefault();
-      document.getElementById('subscribe-status').classList.remove('hidden');
-    }
-  </script>
 
 
 </body></html>
