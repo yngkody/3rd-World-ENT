@@ -2141,6 +2141,261 @@ function setMAIGOSlide(index, e) {
     });
   }
 
+const SHOPIFY_DOMAIN = "3rdworldent.myshopify.com";
+const SHOPIFY_STOREFRONT_TOKEN = "37956e759eaf4bd0bb35bb1a4cebd924";
+const SHOPIFY_API_URL = `https://${SHOPIFY_DOMAIN}/api/2026-07/graphql.json`;
+
+const SHOPIFY_PRODUCT_HANDLES = {
+  "ikigai-tee": "ikigai-oversized-t-shirt",
+  "ikigai-hoodie": "ikigai-full-zip-hoodie",
+  "heiwa-shirt": "heiwa-world-order-distressed-shirt",
+  "handan-tee": "handan-oversized-t-shirt",
+  "maigo-tee": "maigo-oversized-t-shirt",
+  "born-screening": "b-o-r-n-screening-experience"
+};
+
+async function shopifyRequest(query, variables = {}) {
+  const response = await fetch(SHOPIFY_API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Shopify-Storefront-Access-Token": SHOPIFY_STOREFRONT_TOKEN
+    },
+    body: JSON.stringify({
+      query,
+      variables
+    })
+  });
+
+  const json = await response.json();
+
+  if (!response.ok || json.errors) {
+    console.error("Shopify API error:", json);
+    throw new Error("Shopify API request failed.");
+  }
+
+  return json.data;
+}
+
+  async function getShopifyVariantId(handle, selectedOptions) {
+  const query = `
+    query GetVariant(
+      $handle: String!,
+      $selectedOptions: [SelectedOptionInput!]!
+    ) {
+      product(handle: $handle) {
+        title
+        variantBySelectedOptions(
+          selectedOptions: $selectedOptions,
+          caseInsensitiveMatch: true
+        ) {
+          id
+          title
+          availableForSale
+        }
+      }
+    }
+  `;
+
+  const data = await shopifyRequest(query, {
+    handle,
+    selectedOptions
+  });
+
+  if (!data.product) {
+    throw new Error(`Shopify product not found: ${handle}`);
+  }
+
+  const variant = data.product.variantBySelectedOptions;
+
+  if (!variant) {
+    console.error("Variant options not found:", {
+      handle,
+      selectedOptions
+    });
+
+    throw new Error(
+      `No Shopify variant matches ${data.product.title}`
+    );
+  }
+
+  if (!variant.availableForSale) {
+    throw new Error(
+      `${data.product.title} - ${variant.title} is unavailable.`
+    );
+  }
+
+  return variant.id;
+}
+
+    function getShopifyOptionsForCartItem(item) {
+  switch (item.id) {
+
+    case "ikigai-tee":
+      return [
+        { name: "Size", value: item.size },
+        { name: "Sleeve", value: item.sleeve },
+        { name: "Finish", value: item.color }
+      ];
+
+    case "ikigai-hoodie":
+      return [
+        { name: "Size", value: item.size },
+        { name: "Finish", value: item.color }
+      ];
+
+    case "heiwa-shirt":
+      return [
+        { name: "Size", value: item.size },
+        { name: "Sleeve", value: item.sleeve },
+        { name: "Finish", value: item.color }
+      ];
+
+    case "handan-tee":
+      return [
+        { name: "Size", value: item.size },
+        { name: "Finish", value: item.color }
+      ];
+
+    case "maigo-tee":
+      return [
+        { name: "Size", value: item.size },
+        { name: "Finish", value: item.color }
+      ];
+
+    case "born-screening":
+      return [
+        { name: "Experience", value: item.color }
+      ];
+
+    default:
+      throw new Error(`Unknown product: ${item.id}`);
+  }
+}
+    async function createShopifyCheckout() {
+  if (!cart.length) {
+    alert("YOUR CART IS EMPTY.");
+    return;
+  }
+
+  try {
+    const lines = [];
+
+    for (const item of cart) {
+      const handle = SHOPIFY_PRODUCT_HANDLES[item.id];
+
+      if (!handle) {
+        throw new Error(`No Shopify handle mapped for ${item.id}`);
+      }
+
+      const selectedOptions = getShopifyOptionsForCartItem(item);
+
+      const merchandiseId = await getShopifyVariantId(
+        handle,
+        selectedOptions
+      );
+
+      lines.push({
+        merchandiseId,
+        quantity: item.qty
+      });
+    }
+
+    const discountInput =
+      document.getElementById("cart-discount-input");
+
+    const discountCode =
+      discountInput?.value?.trim() || "";
+
+    const mutation = `
+      mutation CreateCart($input: CartInput!) {
+        cartCreate(input: $input) {
+          cart {
+            id
+            checkoutUrl
+          }
+          userErrors {
+            field
+            message
+          }
+          warnings {
+            message
+          }
+        }
+      }
+    `;
+
+    const input = {
+      lines
+    };
+
+    if (discountCode) {
+      input.discountCodes = [discountCode];
+    }
+
+    const data = await shopifyRequest(mutation, {
+      input
+    });
+
+    const result = data.cartCreate;
+
+    if (result.userErrors?.length) {
+      console.error(result.userErrors);
+
+      throw new Error(
+        result.userErrors.map(error => error.message).join("\n")
+      );
+    }
+
+    if (!result.cart?.checkoutUrl) {
+      throw new Error("Shopify did not return a checkout URL.");
+    }
+
+    window.location.href = result.cart.checkoutUrl;
+
+  } catch (error) {
+    console.error(error);
+
+    alert(
+      "CHECKOUT ERROR:\n\n" +
+      error.message +
+      "\n\nCheck that the Shopify variants exactly match the options selected."
+    );
+  }
+}
+    function addBornTicketToCart(type, e) {
+  if (e && e.preventDefault) e.preventDefault();
+  if (e && e.stopPropagation) e.stopPropagation();
+
+  const isInPerson = type === "in-person";
+
+  addToCartObject({
+    id: "born-screening",
+    title: isInPerson
+      ? "B O R N — IN PERSON"
+      : "B O R N — STREAMING ACCESS",
+
+    price: isInPerson ? 19.99 : 9,
+
+    image:
+      "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/BORN.PNG",
+
+    size: null,
+    sleeve: null,
+
+    // Used as the Shopify Experience option:
+    color: isInPerson
+      ? "In Person"
+      : "Streaming Access",
+
+    isTorched: false,
+    fulfillment: isInPerson
+      ? "EVENT ADMISSION"
+      : "DIGITAL ACCESS",
+
+    qty: 1
+  }, e);
+}
   // 6. CART SYSTEM
   let cart = [];
   let appliedDiscount = null;
@@ -2432,14 +2687,12 @@ function toggleCartDrawer(e) {
   }
 
   // 7. CHECKOUT CONTROLS
-  function launchCheckoutFlow(e) {
-    if (e && e.stopPropagation) e.stopPropagation();
-    if (cart.length === 0) return;
-    toggleCartDrawer(e);
-    const modal = document.getElementById('checkout-modal');
-    if (modal) modal.classList.remove('hidden');
-    setCheckoutStep(1);
-  }
+function launchCheckoutFlow(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  if (e && e.stopPropagation) e.stopPropagation();
+
+  createShopifyCheckout();
+}
 
   function closeCheckoutModal(e) {
     if (e && e.stopPropagation) e.stopPropagation();
