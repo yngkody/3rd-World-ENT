@@ -1030,12 +1030,20 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     isTorched: false
   };
 
+  // Safe DOM helper to prevent script halts
+  function updateElementText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = value;
+  }
+
   // 3. CAROUSEL FUNCTIONS: TEE
   function setTeeSlide(index, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     teeState.slide = (index + TEE_SLIDES.length) % TEE_SLIDES.length;
-    document.getElementById('tee-main-img').src = TEE_SLIDES[teeState.slide].src;
-    document.getElementById('tee-view-label').innerText = TEE_SLIDES[teeState.slide].label;
+    
+    const imgEl = document.getElementById('tee-main-img');
+    if (imgEl) imgEl.src = TEE_SLIDES[teeState.slide].src;
+    updateElementText('tee-view-label', TEE_SLIDES[teeState.slide].label);
 
     const thumbs = document.querySelectorAll('#tee-thumbnails button');
     thumbs.forEach((btn, i) => {
@@ -1055,7 +1063,8 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
   function setTeeSleeve(sleeve, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     teeState.sleeve = sleeve;
-    document.getElementById('tee-sleeve-label').innerText = sleeve.toUpperCase();
+    updateElementText('tee-sleeve-label', sleeve.toUpperCase());
+    
     const btns = document.querySelectorAll('#tee-sleeve-btns button');
     btns.forEach(b => {
       if (b.innerText.toLowerCase().includes(sleeve.toLowerCase())) {
@@ -1070,30 +1079,39 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     if (e && e.stopPropagation) e.stopPropagation();
     teeState.finish = finish;
     teeState.isTorched = isTorched;
-    document.getElementById('tee-finish-label').innerText = finish;
+    updateElementText('tee-finish-label', finish);
 
     const btns = document.querySelectorAll('#tee-finish-btns button');
+    const banner = document.getElementById('tee-fulfillment-banner');
+    const dot = document.getElementById('tee-fulfillment-dot');
+    const txt = document.getElementById('tee-fulfillment-txt');
+
     if (isTorched) {
-      btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      btns[1].className = "py-2 border border-orange-400 bg-orange-400/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      document.getElementById('tee-fulfillment-banner').className = "p-3 rounded-lg border border-orange-400/40 bg-orange-400/10 flex items-center gap-2 mb-6 font-mono text-xs";
-      document.getElementById('tee-fulfillment-dot').className = "w-2 h-2 rounded-full bg-orange-400 animate-pulse";
-      document.getElementById('tee-fulfillment-txt').innerText = "MADE TO ORDER // 7–14 days hand torched finishing.";
-      document.getElementById('tee-fulfillment-txt').className = "text-orange-300 font-bold";
+      if (btns[0]) btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (btns[1]) btns[1].className = "py-2 border border-orange-400 bg-orange-400/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (banner) banner.className = "p-3 rounded-lg border border-orange-400/40 bg-orange-400/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      if (dot) dot.className = "w-2 h-2 rounded-full bg-orange-400 animate-pulse";
+      if (txt) {
+        txt.innerText = "MADE TO ORDER // 7–14 days hand torched finishing.";
+        txt.className = "text-orange-300 font-bold";
+      }
     } else {
-      btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      document.getElementById('tee-fulfillment-banner').className = "p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs";
-      document.getElementById('tee-fulfillment-dot').className = "w-2 h-2 rounded-full bg-signal animate-pulse";
-      document.getElementById('tee-fulfillment-txt').innerText = "READY TO SHIP // Dispatches in 2–4 business days.";
-      document.getElementById('tee-fulfillment-txt').className = "text-signal font-bold";
+      if (btns[0]) btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (btns[1]) btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (banner) banner.className = "p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      if (dot) dot.className = "w-2 h-2 rounded-full bg-signal animate-pulse";
+      if (txt) {
+        txt.innerText = "READY TO SHIP // Dispatches in 2–4 business days.";
+        txt.className = "text-signal font-bold";
+      }
     }
   }
 
   function setTeeSize(size, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     teeState.size = size;
-    document.getElementById('tee-size-label').innerText = size;
+    updateElementText('tee-size-label', size);
+    
     const btns = document.querySelectorAll('#tee-size-btns button');
     btns.forEach(b => {
       if (b.innerText.trim() === size) {
@@ -1108,8 +1126,10 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
   function setHoodieSlide(index, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     hoodieState.slide = (index + HOODIE_SLIDES.length) % HOODIE_SLIDES.length;
-    document.getElementById('hoodie-main-img').src = HOODIE_SLIDES[hoodieState.slide].src;
-    document.getElementById('hoodie-view-label').innerText = HOODIE_SLIDES[hoodieState.slide].label;
+    
+    const imgEl = document.getElementById('hoodie-main-img');
+    if (imgEl) imgEl.src = HOODIE_SLIDES[hoodieState.slide].src;
+    updateElementText('hoodie-view-label', HOODIE_SLIDES[hoodieState.slide].label);
 
     const thumbs = document.querySelectorAll('#hoodie-thumbnails button');
     thumbs.forEach((btn, i) => {
@@ -1130,30 +1150,39 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     if (e && e.stopPropagation) e.stopPropagation();
     hoodieState.finish = finish;
     hoodieState.isTorched = isTorched;
-    document.getElementById('hoodie-finish-label').innerText = finish;
+    updateElementText('hoodie-finish-label', finish);
 
     const btns = document.querySelectorAll('#hoodie-finish-btns button');
+    const banner = document.getElementById('hoodie-fulfillment-banner');
+    const dot = document.getElementById('hoodie-fulfillment-dot');
+    const txt = document.getElementById('hoodie-fulfillment-txt');
+
     if (isTorched) {
-      btns[0].className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      btns[1].className = "py-2.5 border border-orange-400 bg-orange-400/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      document.getElementById('hoodie-fulfillment-banner').className = "p-3 rounded-lg border border-orange-400/40 bg-orange-400/10 flex items-center gap-2 mb-6 font-mono text-xs";
-      document.getElementById('hoodie-fulfillment-dot').className = "w-2 h-2 rounded-full bg-orange-400 animate-pulse";
-      document.getElementById('hoodie-fulfillment-txt').innerText = "MADE TO ORDER // 7–14 days hand torched finishing.";
-      document.getElementById('hoodie-fulfillment-txt').className = "text-orange-300 font-bold";
+      if (btns[0]) btns[0].className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (btns[1]) btns[1].className = "py-2.5 border border-orange-400 bg-orange-400/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (banner) banner.className = "p-3 rounded-lg border border-orange-400/40 bg-orange-400/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      if (dot) dot.className = "w-2 h-2 rounded-full bg-orange-400 animate-pulse";
+      if (txt) {
+        txt.innerText = "MADE TO ORDER // 7–14 days hand torched finishing.";
+        txt.className = "text-orange-300 font-bold";
+      }
     } else {
-      btns[0].className = "py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      btns[1].className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
-      document.getElementById('hoodie-fulfillment-banner').className = "p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs";
-      document.getElementById('hoodie-fulfillment-dot').className = "w-2 h-2 rounded-full bg-signal animate-pulse";
-      document.getElementById('hoodie-fulfillment-txt').innerText = "READY TO SHIP // Dispatches in 2–4 business days.";
-      document.getElementById('hoodie-fulfillment-txt').className = "text-signal font-bold";
+      if (btns[0]) btns[0].className = "py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (btns[1]) btns[1].className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      if (banner) banner.className = "p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      if (dot) dot.className = "w-2 h-2 rounded-full bg-signal animate-pulse";
+      if (txt) {
+        txt.innerText = "READY TO SHIP // Dispatches in 2–4 business days.";
+        txt.className = "text-signal font-bold";
+      }
     }
   }
 
   function setHoodieSize(size, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     hoodieState.size = size;
-    document.getElementById('hoodie-size-label').innerText = size;
+    updateElementText('hoodie-size-label', size);
+    
     const btns = document.querySelectorAll('#hoodie-size-btns button');
     btns.forEach(b => {
       if (b.innerText.trim() === size) {
@@ -1164,12 +1193,14 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     });
   }
 
-  // 5. CAROUSEL FUNCTIONS: MANDAN & MAHGO
-  function setHandanSlide(index, e) {
+  // 5. CAROUSEL FUNCTIONS: MANDAN & MAHGO (Fixed Naming Mismatch)
+  function setMandanSlide(index, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     mandanState.slide = (index + MANDAN_SLIDES.length) % MANDAN_SLIDES.length;
-    document.getElementById('handan-placeholder-cam').innerText = MANDAN_SLIDES[mandanState.slide].label;
-    document.getElementById('handan-index-pill').innerText = `${mandanState.slide + 1} / 4`;
+    
+    updateElementText('handan-placeholder-cam', MANDAN_SLIDES[mandanState.slide].label);
+    updateElementText('handan-index-pill', `${mandanState.slide + 1} / 4`);
+    
     const btns = document.querySelectorAll('#handan-thumbnails button');
     btns.forEach((b, i) => {
       if (i === mandanState.slide) {
@@ -1179,30 +1210,39 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
       }
     });
   }
-  function shiftHandanSlide(delta, e) {
+  
+  // Backwards compatibility alias for HTML elements calling setHandanSlide
+  const setHandanSlide = setMandanSlide;
+
+  function shiftMandanSlide(delta, e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    setHandanSlide(mandanState.slide + delta, e);
+    setMandanSlide(mandanState.slide + delta, e);
   }
+  const shiftHandanSlide = shiftMandanSlide;
 
   function setMandanFinish(finish, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     mandanState.finish = finish;
     mandanState.isTorched = finish.includes('Torched');
-    document.getElementById('mandan-finish-label').innerText = finish;
+    updateElementText('mandan-finish-label', finish);
+    
     const btns = document.querySelectorAll('#mandan-finish-btns button');
-    if (mandanState.isTorched) {
-      btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
-      btns[1].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
-    } else {
-      btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
-      btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+    if (btns.length >= 2) {
+      if (mandanState.isTorched) {
+        btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+        btns[1].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+      } else {
+        btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+        btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+      }
     }
   }
 
   function setMandanSize(size, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     mandanState.size = size;
-    document.getElementById('mandan-size-label').innerText = size;
+    updateElementText('mandan-size-label', size);
+    
     const btns = document.querySelectorAll('#mandan-size-btns button');
     btns.forEach(b => {
       if (b.innerText.trim() === size) {
@@ -1216,8 +1256,10 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
   function setMahgoSlide(index, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     mahgoState.slide = (index + MAHGO_SLIDES.length) % MAHGO_SLIDES.length;
-    document.getElementById('mahgo-placeholder-cam').innerText = MAHGO_SLIDES[mahgoState.slide].label;
-    document.getElementById('mahgo-index-pill').innerText = `${mahgoState.slide + 1} / 3`;
+    
+    updateElementText('mahgo-placeholder-cam', MAHGO_SLIDES[mahgoState.slide].label);
+    updateElementText('mahgo-index-pill', `${mahgoState.slide + 1} / 3`);
+    
     const btns = document.querySelectorAll('#mahgo-thumbnails button');
     btns.forEach((b, i) => {
       if (i === mahgoState.slide) {
@@ -1227,6 +1269,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
       }
     });
   }
+
   function shiftMahgoSlide(delta, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     setMahgoSlide(mahgoState.slide + delta, e);
@@ -1236,21 +1279,25 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     if (e && e.stopPropagation) e.stopPropagation();
     mahgoState.finish = finish;
     mahgoState.isTorched = finish.includes('Torched');
-    document.getElementById('mahgo-finish-label').innerText = finish;
+    updateElementText('mahgo-finish-label', finish);
+    
     const btns = document.querySelectorAll('#mahgo-finish-btns button');
-    if (mahgoState.isTorched) {
-      btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
-      btns[1].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
-    } else {
-      btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
-      btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+    if (btns.length >= 2) {
+      if (mahgoState.isTorched) {
+        btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+        btns[1].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+      } else {
+        btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]";
+        btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]";
+      }
     }
   }
 
   function setMahgoSize(size, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     mahgoState.size = size;
-    document.getElementById('mahgo-size-label').innerText = size;
+    updateElementText('mahgo-size-label', size);
+    
     const btns = document.querySelectorAll('#mahgo-size-btns button');
     btns.forEach(b => {
       if (b.innerText.trim() === size) {
@@ -1274,10 +1321,31 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     '3RDWORLDSHIP': { type: 'free_ship', val: 0, minSpend: 120, label: 'FREE U.S. SHIPPING' }
   };
 
+  function applyPromoCode(code, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const cleanCode = code ? code.trim().toUpperCase() : '';
+    const promo = PROMO_CODES[cleanCode];
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    if (!promo) {
+      alert("INVALID PROMO CODE");
+      return;
+    }
+    if (subtotal < promo.minSpend) {
+      alert(`MINIMUM SPEND OF $${promo.minSpend}.00 REQUIRED FOR THIS CODE.`);
+      return;
+    }
+
+    appliedDiscount = promo;
+    calculateCartTotals();
+  }
+
   function toggleCartDrawer(e) {
     if (e && e.stopPropagation) e.stopPropagation();
     const drawer = document.getElementById('cart-drawer');
     const panel = document.getElementById('cart-panel');
+    if (!drawer || !panel) return;
+
     if (drawer.classList.contains('opacity-0')) {
       updateCartDrawerUI();
       drawer.classList.remove('opacity-0', 'pointer-events-none');
@@ -1303,7 +1371,7 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     }
     updateCartDrawerUI();
     const drawer = document.getElementById('cart-drawer');
-    if (drawer.classList.contains('opacity-0')) {
+    if (drawer && drawer.classList.contains('opacity-0')) {
       toggleCartDrawer(e);
     }
   }
@@ -1375,43 +1443,43 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
   // UPDATE CART DRAWER UI & CALCULATIONS
   function updateCartDrawerUI() {
     const container = document.getElementById('cart-items-container');
-    const totalCountEl = document.getElementById('cart-counter');
-    const drawerCountEl = document.getElementById('cart-drawer-count');
-
     let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-    totalCountEl.innerText = totalQty;
-    drawerCountEl.innerText = `(${totalQty} ITEMS)`;
+    
+    updateElementText('cart-counter', totalQty);
+    updateElementText('cart-drawer-count', `(${totalQty} ITEMS)`);
 
-    if (cart.length === 0) {
-      container.innerHTML = `
-        <div class="text-center py-16 text-neutral-500 font-mono text-xs">
-          <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
-          YOUR ARCHIVE CART IS EMPTY.<br>SELECT PIECES FROM THE IKIGAI ATELIER.
-        </div>`;
-    } else {
-      container.innerHTML = cart.map((item, idx) => `
-        <div class="flex gap-3 p-3 bg-surface rounded-xl border border-white/10 items-center">
-          <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-cover rounded-lg border border-white/10 shrink-0">
-          <div class="flex-1 min-w-0">
-            <h4 class="font-display text-sm text-white truncate">${item.title}</h4>
-            <div class="text-[10px] text-neutral-400 space-y-0.5 mt-0.5">
-              <div>SIZE: <span class="text-white">${item.size}</span> ${item.sleeve ? `• ${item.sleeve.toUpperCase()}` : ''}</div>
-              <div>FINISH: <span class="text-white">${item.color}</span></div>
+    if (container) {
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 text-neutral-500 font-mono text-xs">
+            <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
+            YOUR ARCHIVE CART IS EMPTY.<br>SELECT PIECES FROM THE IKIGAI ATELIER.
+          </div>`;
+      } else {
+        container.innerHTML = cart.map((item, idx) => `
+          <div class="flex gap-3 p-3 bg-surface rounded-xl border border-white/10 items-center">
+            <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-cover rounded-lg border border-white/10 shrink-0">
+            <div class="flex-1 min-w-0">
+              <h4 class="font-display text-sm text-white truncate">${item.title}</h4>
+              <div class="text-[10px] text-neutral-400 space-y-0.5 mt-0.5">
+                <div>SIZE: <span class="text-white">${item.size}</span> ${item.sleeve ? `• ${item.sleeve.toUpperCase()}` : ''}</div>
+                <div>FINISH: <span class="text-white">${item.color}</span></div>
+              </div>
+              <div class="text-xs font-bold text-white mt-1">$${item.price}.00 USD</div>
             </div>
-            <div class="text-xs font-bold text-white mt-1">$${item.price}.00 USD</div>
-          </div>
-          <div class="flex flex-col items-end gap-2">
-            <button onclick="removeFromCart(${idx}, event)" class="text-neutral-500 hover:text-red3rd text-xs cursor-pointer">
-              <span class="material-symbols-outlined text-base">delete</span>
-            </button>
-            <div class="flex items-center gap-2 bg-carbon border border-white/10 rounded px-2 py-0.5 text-xs">
-              <button onclick="changeQty(${idx}, -1, event)" class="text-neutral-400 hover:text-white">-</button>
-              <span class="text-white font-bold">${item.qty}</span>
-              <button onclick="changeQty(${idx}, 1, event)" class="text-neutral-400 hover:text-white">+</button>
+            <div class="flex flex-col items-end gap-2">
+              <button onclick="removeFromCart(${idx}, event)" class="text-neutral-500 hover:text-red3rd text-xs cursor-pointer">
+                <span class="material-symbols-outlined text-base">delete</span>
+              </button>
+              <div class="flex items-center gap-2 bg-carbon border border-white/10 rounded px-2 py-0.5 text-xs">
+                <button onclick="changeQty(${idx}, -1, event)" class="text-neutral-400 hover:text-white">-</button>
+                <span class="text-white font-bold">${item.qty}</span>
+                <button onclick="changeQty(${idx}, 1, event)" class="text-neutral-400 hover:text-white">+</button>
+              </div>
             </div>
           </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
     }
 
     calculateCartTotals();
@@ -1434,22 +1502,38 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
 
   function calculateCartTotals() {
     let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    let shipping = subtotal >= 120 || subtotal === 0 ? 0 : shippingCost;
+    
+    let discountAmount = 0;
+    if (appliedDiscount && subtotal >= appliedDiscount.minSpend) {
+      if (appliedDiscount.type === 'percent') {
+        discountAmount = (subtotal * appliedDiscount.val) / 100;
+      } else if (appliedDiscount.type === 'fixed') {
+        discountAmount = appliedDiscount.val;
+      }
+    } else {
+      appliedDiscount = null; // Auto-invalidate if subtotal drops below minSpend
+    }
 
-    document.getElementById('cart-calc-subtotal').innerText = `$${subtotal.toFixed(2)} USD`;
-    document.getElementById('cart-calc-shipping').innerText = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)} USD`;
-    document.getElementById('cart-calc-total').innerText = `$${(subtotal + shipping).toFixed(2)} USD`;
+    let isFreeShippingCode = appliedDiscount && appliedDiscount.type === 'free_ship';
+    let shipping = (subtotal >= 120 || subtotal === 0 || isFreeShippingCode) ? 0 : shippingCost;
+    let total = Math.max(0, subtotal - discountAmount) + shipping;
+
+    updateElementText('cart-calc-subtotal', `$${subtotal.toFixed(2)} USD`);
+    updateElementText('cart-calc-shipping', shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)} USD`);
+    updateElementText('cart-calc-total', `$${total.toFixed(2)} USD`);
 
     // Shipping progress bar update
     const progressBar = document.getElementById('shipping-progress-bar');
     const progressTxt = document.getElementById('shipping-progress-text');
-    if (subtotal >= 120) {
-      progressBar.style.width = '100%';
-      progressTxt.innerText = 'QUALIFIED FOR FREE U.S. SHIPPING!';
-    } else {
-      let pct = (subtotal / 120) * 100;
-      progressBar.style.width = `${pct}%`;
-      progressTxt.innerText = `You’re $${(120 - subtotal).toFixed(2)} away from free U.S. shipping.`;
+    if (progressBar && progressTxt) {
+      if (subtotal >= 120 || isFreeShippingCode) {
+        progressBar.style.width = '100%';
+        progressTxt.innerText = 'QUALIFIED FOR FREE U.S. SHIPPING!';
+      } else {
+        let pct = (subtotal / 120) * 100;
+        progressBar.style.width = `${pct}%`;
+        progressTxt.innerText = `You’re $${(120 - subtotal).toFixed(2)} away from free U.S. shipping.`;
+      }
     }
   }
 
@@ -1458,37 +1542,48 @@ Bespoke wash treatments exploring pigment distress and solar wear. Featuring han
     if (e && e.stopPropagation) e.stopPropagation();
     if (cart.length === 0) return;
     toggleCartDrawer(e);
-    document.getElementById('checkout-modal').classList.remove('hidden');
+    const modal = document.getElementById('checkout-modal');
+    if (modal) modal.classList.remove('hidden');
   }
 
   function closeCheckoutModal(e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    document.getElementById('checkout-modal').classList.add('hidden');
+    const modal = document.getElementById('checkout-modal');
+    if (modal) modal.classList.add('hidden');
   }
 
   function setCheckoutStep(step, e) {
     if (e && e.stopPropagation) e.stopPropagation();
     for (let i = 1; i <= 5; i++) {
-      document.getElementById(`co-pane-${i}`).classList.add('hidden');
-      document.getElementById(`co-tab-${i}`).className = 'step-indicator border-b-2 border-white/20 pb-2 text-neutral-500';
+      const pane = document.getElementById(`co-pane-${i}`);
+      const tab = document.getElementById(`co-tab-${i}`);
+      if (pane) pane.classList.add('hidden');
+      if (tab) tab.className = 'step-indicator border-b-2 border-white/20 pb-2 text-neutral-500';
     }
-    document.getElementById(`co-pane-${step}`).classList.remove('hidden');
-    document.getElementById(`co-tab-${step}`).className = 'step-indicator border-b-2 border-red3rd pb-2 text-white font-bold';
+    const targetPane = document.getElementById(`co-pane-${step}`);
+    const targetTab = document.getElementById(`co-tab-${step}`);
+    if (targetPane) targetPane.classList.remove('hidden');
+    if (targetTab) targetTab.className = 'step-indicator border-b-2 border-red3rd pb-2 text-white font-bold';
   }
 
   function submitFinalOrderCheckout(e) {
     if (e && e.stopPropagation) e.stopPropagation();
-    document.getElementById('checkout-panes-wrapper').classList.add('hidden');
-    document.getElementById('order-confirmed-view').classList.remove('hidden');
+    const wrapper = document.getElementById('checkout-panes-wrapper');
+    const confirmed = document.getElementById('order-confirmed-view');
+    if (wrapper) wrapper.classList.add('hidden');
+    if (confirmed) confirmed.classList.remove('hidden');
     cart = [];
+    appliedDiscount = null;
     updateCartDrawerUI();
   }
 
   function closeOrderConfirmation(e) {
     if (e && e.stopPropagation) e.stopPropagation();
     closeCheckoutModal(e);
-    document.getElementById('checkout-panes-wrapper').classList.remove('hidden');
-    document.getElementById('order-confirmed-view').classList.add('hidden');
+    const wrapper = document.getElementById('checkout-panes-wrapper');
+    const confirmed = document.getElementById('order-confirmed-view');
+    if (wrapper) wrapper.classList.remove('hidden');
+    if (confirmed) confirmed.classList.add('hidden');
   }
 </script>
 </body>
