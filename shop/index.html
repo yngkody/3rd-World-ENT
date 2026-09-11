@@ -2677,25 +2677,36 @@ async function createShopifyCheckout() {
       console.error(result.userErrors);
 
       throw new Error(
-        result.userErrors.map(error => error.message).join("\n")
+        result.userErrors
+          .map(error => error.message)
+          .join("\n")
       );
     }
 
-   if (!result.cart?.checkoutUrl) {
-  throw new Error("Shopify did not return a checkout URL.");
-}
+    if (!result.cart?.checkoutUrl) {
+      throw new Error("Shopify did not return a checkout URL.");
+    }
 
-console.log("Original Shopify checkout:", result.cart.checkoutUrl);
+    const checkoutUrl = new URL(result.cart.checkoutUrl);
 
-const checkoutUrl = new URL(result.cart.checkoutUrl);
+    // Force checkout through Shopify instead of GitHub Pages
+    checkoutUrl.hostname = "3rdworldent.myshopify.com";
 
-// 3rdworldent.com is hosted on GitHub Pages,
-// so send checkout traffic through Shopify's domain.
-checkoutUrl.hostname = SHOPIFY_DOMAIN;
+    console.log(
+      "Going to Shopify checkout:",
+      checkoutUrl.toString()
+    );
 
-console.log("Fixed Shopify checkout:", checkoutUrl.toString());
+    window.location.href = checkoutUrl.toString();
 
-window.location.href = checkoutUrl.toString();
+  } catch (error) {
+    console.error("CHECKOUT ERROR:", error);
+
+    alert(
+      "CHECKOUT ERROR:\n\n" +
+      error.message
+    );
+  }
 }
 
   // 7. CHECKOUT CONTROLS
