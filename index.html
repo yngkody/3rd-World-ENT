@@ -1,7 +1,7 @@
-<!DOCTYPE html><html class="dark scroll-smooth" lang="en" style=""><head>
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>3RD WORLD ENT — Operating Archive &amp; Store</title>
+<title>3RD WORLD ENT — Official Store // IKIGAI CAPSULE</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -13,13 +13,14 @@
       theme: {
         extend: {
           colors: {
-            carbon: '#080808',
-            surface: '#111111',
-            'surface-card': '#161616',
-            bone: '#F1EDE4',
+            carbon: '#0c0c0c',
+            surface: '#141414',
+            'surface-card': '#181818',
+            'surface-border': '#262626',
+            bone: '#F3EFE6',
             red3rd: '#D51E1E',
-            concrete: '#888888',
             signal: '#B8F500',
+            neutralDim: '#888888',
           },
           fontFamily: {
             display: ['Anton', 'sans-serif'],
@@ -29,346 +30,1535 @@
         }
       }
     }
-  </script>
+</script>
 <style>
     body {
-      background-color: #080808;
-      color: #F1EDE4;
+      background-color: #0c0c0c;
+      color: #F3EFE6;
       font-family: 'Hanken Grotesk', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
     .custom-scrollbar::-webkit-scrollbar { display: none; }
     .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Interactive hotspot pulse */
-    @keyframes ping-slow {
-      0% { transform: scale(1); opacity: 0.8; }
-      80%, 100% { transform: scale(2.4); opacity: 0; }
+    .scanline-overlay {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 6px 100%;
     }
-    .animate-ping-slow {
-      animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
-    }
-
-    /* 3D Depth Spatial Stage */
-    .spatial-stage {
-      perspective: 1000px;
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-    .spatial-layer {
-      transform-style: preserve-3d;
-      will-change: transform;
-      backface-visibility: hidden;
-    }
-    .spatial-glare {
-      pointer-events: none;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18) 0%, rgba(213,30,30,0.08) 35%, transparent 70%);
-      mix-blend-mode: screen;
-      will-change: transform, opacity;
-    }
-    .crisp-artwork {
-      image-rendering: auto;
-      image-rendering: -webkit-optimize-contrast;
-    }
-  </style>
+</style>
 </head>
 <body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased min-h-screen">
+<!-- WHISPER-THIN MINIMALIST ANNOUNCEMENT TICKER -->
+<div class="bg-black/95 border-b border-white/5 text-[10px] font-mono tracking-widest text-neutral-400 px-6 lg:px-12 py-1.5 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
+<div class="flex items-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd animate-pulse"></span>
+<span class="text-neutral-200 font-semibold">IKIGAI CAPSULE // ATELIER PREMIERE RELEASE</span>
+<span class="hidden md:inline text-neutral-600">•</span>
+<span class="hidden md:inline text-neutral-400">FREE U.S. SHIPPING OVER $120</span>
+</div>
+<div class="flex items-center gap-4 text-[9px] font-mono uppercase tracking-widest shrink-0">
+<a class="hover:text-white transition-colors cursor-pointer" href="shipping.html">SHIPPING PROTOCOLS →</a>
+</div>
+</div>
+<!-- SLEEK, REFINED, LIGHTWEIGHT NAVIGATION BAR -->
+<header class="sticky top-[29px] z-40 bg-black/85 backdrop-blur-md border-b border-white/5 px-6 lg:px-12 py-3.5 flex items-center justify-between transition-all duration-300">
+<!-- Left: Clean Minimal Navigation Links (Only POLICIES & SHIPPING) -->
+<nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">
+<a class="hover:text-white transition-colors relative group py-1" href="policies.html">
+<span class="">POLICIES</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="hover:text-white transition-colors relative group py-1" href="shipping.html">
+<span class="">SHIPPING</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+</a>
+</nav>
+<!-- Center: Iconic 3RD WORLD Wordmark -->
+<a class="flex items-center gap-2 group md:absolute md:left-1/2 md:-translate-x-1/2" href="#">
+<span class="font-display text-2xl tracking-[0.15em] text-white group-hover:text-neutral-200 transition-colors">3RD WORLD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd inline-block"></span>
+</a>
+<!-- Right: Sleek Radio & Clean Minimal Cart Button -->
+<div class="flex items-center gap-5 font-mono">
+<a class="hidden sm:flex items-center gap-2 text-[11px] text-neutral-400 hover:text-signal transition-colors tracking-widest uppercase py-1" href="#audio-section">
+<span class="flex items-center gap-0.5">
+<span class="w-0.5 h-2.5 bg-signal animate-pulse"></span>
+<span class="w-0.5 h-4 bg-signal"></span>
+<span class="w-0.5 h-2 bg-signal animate-pulse"></span>
+</span>
+<span class="">BORN RADIO</span>
+</a>
+<!-- Minimalist Cart Pill -->
+<button aria-label="Open Cart" class="relative flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 hover:border-white/30 bg-white/[0.03] text-neutral-200 hover:text-white transition-all cursor-pointer group" data-cart-toggle="" id="cart-btn" onclick="toggleCartDrawer(event)" type="button">
+<span class="material-symbols-outlined text-lg group-hover:scale-105 transition-transform">shopping_bag</span>
+<span class="font-mono text-xs uppercase tracking-widest hidden sm:inline">CART</span>
+<span class="bg-red3rd text-white font-mono text-[9px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center" id="cart-counter">0</span>
+</button>
+</div>
+</header>
+<!-- HERO 3-VERTICAL VIDEOS TRIPTYCH SECTION -->
+<section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red3rd/20 border border-red3rd/40 font-mono text-[10px] tracking-widest uppercase text-red-300 mb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd animate-ping"></span>
+          OFFICIAL ATELIER &amp; MOTION ARCHIVE // OMAR KELLY
+        </div>
+<h1 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white">
+          ENTER THE <span class="text-red3rd">3RD WORLD</span>
+</h1>
+</div>
+<div class="flex flex-col md:items-end gap-2">
+<p class="font-mono text-xs text-neutral-400 max-w-md tracking-wide leading-relaxed md:text-right">
+          Unisex oversized drop-shoulder silhouettes, cold-pigment distressed finishes, and handcrafted one-of-one torched pieces documented in live motion.
+        </p>
+<div class="flex items-center gap-2 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd animate-pulse"></span>
+<span class="">SYNCED 3-FEED TRIPTYCH BROADCAST</span>
+</div>
+</div>
+</div>
+<!-- 3-Video Vertical Triptych Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+<!-- Video 1 -->
+<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
+<div class="absolute inset-0 w-full h-full">
+<video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
+<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_7997.MOV" type="video/mp4">
+<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_7997.MOV" type="video/quicktime">
+<img alt="CAM 01 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdJcrTGhCSMwYHdM1ge_snTPJTQ_juglmlq9KlDgzHyOlkSr3SGdLVMMxDZRpl3UH-fQT_lqAUY4nLOoDWS6kqr8tuaJpyMpwNj8YZ_dDaUnKOEIEwODYwOgVwNrCGmPgfDUCi84a0NaVsRDwnJB94xwNpWu3oxNEsGtFZOyHWKJ7wFDrHxV9u1QkLVXEYQ0CtqUeqRka2KXJkNrZ_pUFSVhAs0NgFRMi9Txu-R6W9LFDhislwqfe">
+</video>
+</div>
+<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+<div class="relative z-10 p-4 flex items-center justify-between font-mono text-[10px] tracking-wider uppercase text-neutral-300">
+<div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
+<span class="w-2 h-2 rounded-full bg-red3rd animate-ping"></span>
+<span class="font-bold text-white">CAM 01 // 1012×1920</span>
+</div>
+<span class="text-neutral-400 bg-black/60 px-2 py-0.5 rounded border border-white/10">0.527 AR</span>
+</div>
+<div class="relative z-10 p-4 font-mono">
+<div class="space-y-1 mb-3">
+<span class="text-signal text-[10px] uppercase font-bold tracking-widest">ATELIER STUDY 01</span>
+<h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">THE FINISH &amp; TORCH</h3>
+<p class="text-[11px] text-neutral-300 leading-snug">Continuous wearable distressing tests captured at Atlanta workshop.</p>
+</div>
+<a class="block text-center w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" href="#ikigai-section">
+            VIEW IKIGAI TEE →
+          </a>
+</div>
+</div>
+<!-- Video 2 -->
+<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
+<div class="absolute inset-0 w-full h-full">
+<video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
+<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/IMG_8001.MOV" type="video/mp4">
+<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/IMG_8001.MOV" type="video/quicktime">
+<img alt="CAM 02 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVc_Y0Jd454GqNiCNLBxph4xq3UY7jO3DUT2fsMVjv7s1jJQLa3B75cB-hNwQH5s4qtA8Kow31mll7iMsUyqH-eZlkLJELewRB3s5WHGyjsJWbVe-k_MsatTGwYy5Co7gda4gTkhZYH5z2_YFCspePgXxFjVA87lNzGq0H4Loted99pcXORn9Ax1IOBFW1kPFHMyc6sCZhlBho5QDzaIz1FPU72MhZ2sCb3AwRFIEI-8nxysYf10-R">
+</video>
+</div>
+<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+<div class="relative z-10 p-4 flex items-center justify-between font-mono text-[10px] tracking-wider uppercase text-neutral-300">
+<div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
+<span class="w-2 h-2 rounded-full bg-signal animate-pulse"></span>
+<span class="font-bold text-white">CAM 02 // 1966×3550</span>
+</div>
+<span class="text-neutral-400 bg-black/60 px-2 py-0.5 rounded border border-white/10">0.553 AR</span>
+</div>
+<div class="relative z-10 p-4 font-mono">
+<div class="space-y-1 mb-3">
+<span class="text-signal text-[10px] uppercase font-bold tracking-widest">MOVEMENT SPEC 02</span>
+<h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">OVERSIZED DRAPING</h3>
+<p class="text-[11px] text-neutral-300 leading-snug">Heavyweight drop-shoulder cut responding to rapid body motion.</p>
+</div>
+<a class="block text-center w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" href="#ikigai-hoodie-card">
+            VIEW IKIGAI HOODIE →
+          </a>
+</div>
+</div>
+<!-- Video 3 -->
+<div class="relative group rounded-2xl overflow-hidden border border-white/15 bg-surface aspect-[9/16] sm:max-h-[560px] shadow-2xl flex flex-col justify-between transition-all duration-300 hover:border-red3rd/60">
+<div class="absolute inset-0 w-full h-full">
+<video autoplay="" class="w-full h-full object-cover filter contrast-105 brightness-95" loop="" muted="" playsinline="" preload="auto">
+<source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/hero-vid.mov" type="video/mp4">
+<source src="https://github.com/yngkody/3rd-World-ENT/raw/main/assets/hero-vid.mov" type="video/quicktime">
+<img alt="CAM 03 Feed" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU">
+</video>
+</div>
+<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-40"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+<div class="relative z-10 p-4 flex items-center justify-between font-mono text-[10px] tracking-wider uppercase text-neutral-300">
+<div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/10">
+<span class="w-2 h-2 rounded-full bg-red3rd animate-ping"></span>
+<span class="font-bold text-white">CAM 03 // 1976×3102</span>
+</div>
+<span class="text-neutral-400 bg-black/60 px-2 py-0.5 rounded border border-white/10">0.637 AR</span>
+</div>
+<div class="relative z-10 p-4 font-mono">
+<div class="space-y-1 mb-3">
+<span class="text-signal text-[10px] uppercase font-bold tracking-widest">LIVE LOOKBOOK 03</span>
+<h3 class="font-display text-xl text-white tracking-wide uppercase leading-tight">AFTERBURN &amp; ARCHIVE</h3>
+<p class="text-[11px] text-neutral-300 leading-snug">Torched hem details &amp; bespoke distressing filmed in natural daylight.</p>
+</div>
+<a class="block text-center w-full py-2 bg-white/10 hover:bg-white hover:text-black text-white text-[11px] font-mono uppercase tracking-widest transition-colors rounded-lg border border-white/20 backdrop-blur-sm cursor-pointer" href="#ikigai-section">
+            DISCOVER CAPSULE →
+          </a>
+</div>
+</div>
+</div>
+<!-- Triptych Bar Footer -->
+<div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs border border-white/10 rounded-xl p-4 bg-surface">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-signal animate-pulse"></span>
+<span class="text-white uppercase font-bold tracking-wider text-[11px]">IKIGAI CAPSULE LIVE • ORDER CONSOLIDATED CAROUSEL SPEC</span>
+</div>
+<a class="px-5 py-2.5 bg-bone text-black hover:bg-red3rd hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors rounded-lg flex items-center gap-2 cursor-pointer ml-auto sm:ml-0" href="#ikigai-section">
+<span class="">VIEW IKIGAI GARMENTS</span>
+<span class="">↓</span>
+</a>
+</div>
+</div>
+</section>
 <!-- ======================================================= -->
-<!-- 1. FULLSCREEN CINEMATIC 3D SPATIAL ENTRANCE GATE       -->
+<!-- PRODUCT CATALOG SECTION (UNIFIED CAROUSEL PRODUCTS)     -->
 <!-- ======================================================= -->
-<div class="fixed inset-0 z-50 w-full h-screen min-h-screen bg-carbon overflow-hidden select-none transition-all duration-1000 ease-out flex flex-col justify-between" id="entrance-gate">
-<!-- Full viewport 3D Parallax Canvas (Inset -5% for seamless bleed without edge clipping) -->
-<div class="absolute inset-0 w-full h-full spatial-stage overflow-hidden cursor-pointer" id="stage-container" onclick="dismissEntrance()">
-<div class="absolute inset-[-6%] w-[112%] h-[112%] spatial-layer" id="spatial-artwork-wrap" style="transform: scale(1.04) translate3d(-19.5px, 17.8567px, 0px) rotateX(6.94426deg) rotateY(6.5deg);">
-<!-- Fullscreen Crisp Unstretched Artwork -->
-<img alt="3RD WORLD Spatial Artwork" class="w-full h-full object-cover object-center pointer-events-none select-none transition-transform duration-700 ease-out crisp-artwork filter contrast-[1.04] brightness-[0.96]" id="spatial-img" src="assets/3rd-World-Hero.png">
-<!-- Dynamic Atmospheric Glare / Specular Lighting -->
-<div class="absolute inset-0 spatial-glare opacity-70 transition-opacity duration-300" id="spatial-glare-layer" style="background: radial-gradient(circle at 78.4375% 15.2787%, rgba(255, 255, 255, 0.22) 0%, rgba(213, 30, 30, 0.1) 35%, transparent 70%);"></div>
-<!-- Subtle Depth Vignette for Dramatic Contrast & Readability -->
-<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/75 pointer-events-none"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_15%,rgba(8,8,8,0.7)_100%)] pointer-events-none"></div>
-<!-- Subtle Brutalist Overlay Grid Guidelines -->
-
-
+<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="ikigai-section">
+<!-- Section Header -->
+<div class="border-b border-white/10 pb-8 mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
+<span class="text-red3rd font-bold">// CAPSULE 01 — IKIGAI</span>
+<span class="">•</span>
+<span class="text-signal font-bold">CONFIRMED ATELIER PRICING</span>
+</div>
+<h2 class="font-display text-4xl sm:text-6xl uppercase tracking-tight text-white">IKIGAI ATELIER CAPSULE</h2>
+<p class="font-mono text-xs sm:text-sm text-neutral-300 max-w-2xl leading-relaxed">
+          Consolidated studio view. Select your preferred garment model view via interactive carousel, configure sleeve, finish, and sizing.
+        </p>
+</div>
+<div class="flex items-center gap-3 font-mono text-xs">
+<a class="px-4 py-2 border border-white/20 hover:border-white text-neutral-300 hover:text-white uppercase rounded-lg transition-colors" href="shipping.html">SHIPPING INFO</a>
+<a class="px-4 py-2 border border-white/20 hover:border-white text-neutral-300 hover:text-white uppercase rounded-lg transition-colors" href="policies.html">POLICIES &amp; SIZING</a>
 </div>
 </div>
-<!-- Floating UI Content Layer (Opposite 3D Parallax Tilt) -->
-<div class="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none p-6 sm:p-10 lg:p-12">
-<!-- Top System Line -->
-<header class="w-full flex items-center justify-between pointer-events-auto"><div class="font-mono text-xs tracking-widest text-neutral-300 uppercase font-semibold">3RD WORLD ENT // 2025</div><button class="font-mono text-xs uppercase tracking-widest text-neutral-300 hover:text-white transition-colors cursor-pointer" onclick="dismissEntrance()">[ENTER STORE →]</button></header>
-<!-- Center Floating Typography & Spatial CTA -->
-<main class="mt-4 mb-auto max-w-2xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out pt-3" id="spatial-hero-text"><h1 class="font-display text-3xl sm:text-5xl uppercase tracking-tight leading-none mb-2 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] text-white">ENTER THE <span class="text-red3rd drop-shadow-[0_0_30px_rgba(213,30,30,0.7)]">3RD WORLD</span></h1><p class="font-mono text-[11px] sm:text-xs text-neutral-300 max-w-md mx-auto leading-relaxed mb-4 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)]">Streetwear archives, audio frequencies, and brutalist editions by Omar Malik.</p><button class="px-5 py-2.5 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center gap-2 cursor-pointer group transform hover:-translate-y-0.5" onclick="dismissEntrance()"><span class="">ENTER ATELIER &amp; STORE →</span></button></main>
-<!-- Entrance Footer & Gyro / Pan Hint -->
-<footer class="w-full flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-neutral-400 gap-3 pointer-events-auto"><div class="font-mono text-[11px] text-neutral-400 tracking-wider uppercase">NYC • LON • LOS ANGELES</div><div class="font-mono text-[11px] text-neutral-500 tracking-wider uppercase">© 2025 ATELIER ARCHIVE</div></footer>
+</div>
+<!-- 2 UNIFIED CONSOLIDATED PRODUCT CARDS WITH CAROUSELS -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+<!-- PRODUCT 1: IKIGAI OVERSIZED T-SHIRT -->
+<div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative" id="ikigai-tee-card">
+<div>
+<!-- Carousel Image Box -->
+<div class="relative aspect-square rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 group">
+<img alt="IKIGAI Oversized T-Shirt View" class="w-full h-full object-cover transition-opacity duration-300" id="tee-main-img" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png">
+<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
+<!-- Badge Top Left -->
+<div class="absolute top-4 left-4 bg-red3rd text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded shadow">
+      CAPSULE #IK-TEE
+    </div>
+<!-- Carousel Nav Overlay Arrows -->
+<button aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftTeeSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_left</span>
+</button>
+<button aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftTeeSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_right</span>
+</button>
+<!-- Slide Indicator Pill Bottom -->
+<div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded font-mono text-[10px] text-neutral-300 border border-white/10" id="tee-view-label">
+      LOOK 01 / 04 // NOCTURNE
+    </div>
+</div>
+<!-- Thumbnails Row -->
+<div class="grid grid-cols-4 gap-2 mb-6" id="tee-thumbnails">
+<button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all" onclick="setTeeSlide(0, event)" type="button">
+<img alt="Look 1" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png">
+</button>
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(1, event)" type="button">
+<img alt="Look 2" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(4).png">
+</button>
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(2, event)" type="button">
+<img alt="Look 3" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(5).png">
+</button>
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setTeeSlide(3, event)" type="button">
+<img alt="Look 4" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(6).png">
+</button>
+</div>
+<!-- Header Info -->
+<div class="flex items-start justify-between gap-4 mb-2">
+<div>
+<span class="text-signal font-mono text-[10px] font-bold uppercase tracking-widest block mb-1">IKIGAI ATELIER SERIES</span>
+<h3 class="font-display text-2xl sm:text-3xl uppercase text-white tracking-tight">IKIGAI OVERSIZED T-SHIRT</h3>
+</div>
+<div class="text-right shrink-0">
+<span class="font-mono text-2xl font-bold text-white">$60.00</span>
+<span class="font-mono text-[10px] text-neutral-500 block">USD</span>
 </div>
 </div>
-
+<p class="font-mono text-xs text-neutral-400 mb-6 leading-relaxed">
+    Unisex oversized drop-shoulder silhouette, heavyweight 280 GSM cold-pigment dyed cotton. Features the continuous line face drawing iconography, handcrafted micro-distressing along neckline and hem.
+  </p>
+<!-- Options Selector Form -->
+<div class="space-y-4 font-mono text-xs mb-6">
+<!-- Sleeve Cut -->
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">SLEEVE CUT:</span>
+<span class="text-white" id="tee-sleeve-label">SHORT SLEEVE</span>
+</div>
+<div class="grid grid-cols-2 gap-2" id="tee-sleeve-btns">
+<button class="py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer transition-colors" onclick="setTeeSleeve('Short Sleeve', event)" type="button">SHORT SLEEVE</button>
+<button class="py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer transition-colors" onclick="setTeeSleeve('Long Sleeve', event)" type="button">LONG SLEEVE</button>
+</div>
+</div>
+<!-- Finish / Wash Option -->
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">GARMENT FINISH:</span>
+<span class="text-white" id="tee-finish-label">Washed Black Distressed</span>
+</div>
+<div class="grid grid-cols-2 gap-2" id="tee-finish-btns">
+<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setTeeFinish('Washed Black Distressed', false, event)" type="button">
+<span class="w-2 h-2 rounded-full bg-neutral-900 border border-white/20"></span>
+<span class="">DISTRESSED WASH</span>
+</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setTeeFinish('Hand-Torched Black', true, event)" type="button">
+<span class="w-2 h-2 rounded-full bg-amber-700 border border-white/20"></span>
+<span class="">TORCHED (+MTO)</span>
+</button>
+</div>
+</div>
+<!-- Sizing -->
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">SIZE:</span>
+<span class="text-white font-bold" id="tee-size-label">L</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center" id="tee-size-btns">
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('S', event)" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('M', event)" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setTeeSize('L', event)" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setTeeSize('XL', event)" type="button">XL</button>
+</div>
+</div>
+</div>
+<!-- Status pill -->
+<div class="p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs" id="tee-fulfillment-banner">
+<span class="w-2 h-2 rounded-full bg-signal animate-pulse" id="tee-fulfillment-dot"></span>
+<span class="text-signal font-bold" id="tee-fulfillment-txt">READY TO SHIP // Dispatches in 2–4 business days.</span>
+</div>
+</div>
+<!-- Add to cart -->
+<div>
+<button class="add-to-cart-btn w-full py-4 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addConsolidatedTeeToCart(event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD IKIGAI T-SHIRT TO CART — $60.00</span>
+<span class="pointer-events-none">→</span>
+</button>
+</div>
+</div>
+<!-- PRODUCT 2: IKIGAI FULL-ZIP HOODIE -->
+<div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative" id="ikigai-hoodie-card">
+<div>
+<!-- Carousel Image Box -->
+<div class="relative aspect-square rounded-xl overflow-hidden bg-black/60 border border-white/10 mb-4 group">
+<img alt="IKIGAI Full-Zip Hoodie View" class="w-full h-full object-cover transition-opacity duration-300" id="hoodie-main-img" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png">
+<div class="absolute inset-0 scanline-overlay pointer-events-none opacity-20"></div>
+<!-- Badge Top Left -->
+<div class="absolute top-4 left-4 bg-red3rd text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded shadow">
+      CAPSULE #IK-ZIP
+    </div>
+<!-- Carousel Nav Overlay Arrows -->
+<button aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftHoodieSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_left</span>
+</button>
+<button aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-red3rd text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer" onclick="shiftHoodieSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">chevron_right</span>
+</button>
+<!-- Slide Indicator Pill Bottom -->
+<div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded font-mono text-[10px] text-neutral-300 border border-white/10" id="hoodie-view-label">
+      LOOK 01 / 03 // SANGUINE WASH
+    </div>
+</div>
+<!-- Thumbnails Row (3 images) -->
+<div class="grid grid-cols-3 gap-2 mb-6" id="hoodie-thumbnails">
+<button class="aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all" onclick="setHoodieSlide(0, event)" type="button">
+<img alt="Hoodie Look 1" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png">
+</button>
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(1, event)" type="button">
+<img alt="Hoodie Look 2" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png">
+</button>
+<button class="aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all" onclick="setHoodieSlide(2, event)" type="button">
+<img alt="Hoodie Look 3" class="w-full h-full object-cover pointer-events-none" src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png">
+</button>
+</div>
+<!-- Header Info -->
+<div class="flex items-start justify-between gap-4 mb-2">
+<div>
+<span class="text-signal font-mono text-[10px] font-bold uppercase tracking-widest block mb-1">IKIGAI HEAVY FLEECE</span>
+<h3 class="font-display text-2xl sm:text-3xl uppercase text-white tracking-tight">IKIGAI FULL-ZIP HOODIE</h3>
+</div>
+<div class="text-right shrink-0">
+<span class="font-mono text-2xl font-bold text-white">$70.00</span>
+<span class="font-mono text-[10px] text-neutral-500 block">USD</span>
+</div>
+</div>
+<p class="font-mono text-xs text-neutral-400 mb-6 leading-relaxed">
+    Heavyweight 520 GSM French terry cotton with industrial split center zipper, double-layered architectural hood, and split face artwork screenprinted across chest zipper.
+  </p>
+<!-- Options Selector Form -->
+<div class="space-y-4 font-mono text-xs mb-6">
+<!-- Color Wash -->
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">COLOR &amp; FINISH:</span>
+<span class="text-white" id="hoodie-finish-label">Sanguine Washed Black</span>
+</div>
+<div class="grid grid-cols-2 gap-2" id="hoodie-finish-btns">
+<button class="py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setHoodieFinish('Sanguine Washed Black', false, event)" type="button">
+<span class="w-2 h-2 rounded-full bg-neutral-900 border border-white/20"></span>
+<span class="">SANGUINE WASH</span>
+</button>
+<button class="py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5" onclick="setHoodieFinish('Bespoke Torched Wash', true, event)" type="button">
+<span class="w-2 h-2 rounded-full bg-amber-800 border border-white/20"></span>
+<span class="">TORCHED EDITION</span>
+</button>
+</div>
+</div>
+<!-- Sizing -->
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">SIZE:</span>
+<span class="text-white font-bold" id="hoodie-size-label">L</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center" id="hoodie-size-btns">
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('S', event)" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('M', event)" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="setHoodieSize('L', event)" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="setHoodieSize('XL', event)" type="button">XL</button>
+</div>
+</div>
+</div>
+<!-- Status pill -->
+<div class="p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs" id="hoodie-fulfillment-banner">
+<span class="w-2 h-2 rounded-full bg-signal animate-pulse" id="hoodie-fulfillment-dot"></span>
+<span class="text-signal font-bold" id="hoodie-fulfillment-txt">READY TO SHIP // Dispatches in 2–4 business days.</span>
+</div>
+</div>
+<!-- Add to cart -->
+<div>
+<button class="add-to-cart-btn w-full py-4 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addConsolidatedHoodieToCart(event)" type="button">
+<span class="material-symbols-outlined text-lg pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD IKIGAI HOODIE TO CART — $70.00</span>
+<span class="pointer-events-none">→</span>
+</button>
+</div>
+</div>
+</div>
+</section>
 <!-- ======================================================= -->
-<!-- SCRIPT CONTROLLER & 3D PARALLAX ENGINE                  -->
+<!-- ACTIVE DROPS: HANDAN & MAHGO (CAROUSEL PLACEHOLDERS)    -->
+<!-- ======================================================= -->
+<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="upcoming-section">
+<div class="border-b border-white/10 pb-6 mb-10"><div class="flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest mb-2">
+<span class="w-2 h-2 rounded-full bg-signal animate-pulse"></span>
+<span class="text-signal font-bold">// ACTIVE ATELIER DROPS</span>
+<span class="">•</span>
+<span class="">STUDIO EDITIONS</span>
+</div>
+<h2 class="font-display text-4xl sm:text-5xl uppercase text-white tracking-tight">ACTIVE DROPS // MANDAN &amp; MAHGO</h2>
+<p class="font-mono text-xs text-neutral-300 max-w-xl mt-1">
+Original conceptual designs from the 3rd World studio. 4-angle and 3-angle rotational studio asset views loaded.
+</p></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+<!-- ACTIVE 1: MANDAN -->
+<div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl" id="mandan-tee-card">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden bg-carbon border border-white/10 mb-4 flex items-center justify-center text-center p-6 group">
+<div class="space-y-4">
+<div class="w-16 h-16 rounded-full bg-red3rd/10 border border-red3rd/30 flex items-center justify-center mx-auto text-red3rd">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+<div>
+<span class="font-mono text-xs text-signal font-bold uppercase tracking-widest block" id="handan-placeholder-cam">[MANDAN // CAM 01]</span>
+<span class="font-display text-2xl uppercase tracking-wider text-white mt-1 block">STUDIO ANGLE VIEW</span>
+<p class="font-mono text-[11px] text-neutral-400 mt-2 max-w-xs mx-auto">
+4-angle rotational camera stream indexed for active release.
+</p>
+</div>
+</div>
+<button aria-label="Previous MANDAN preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftHandanSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_left</span>
+</button>
+<button aria-label="Next MANDAN preview" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftHandanSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_right</span>
+</button>
+<span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded shadow">
+CAPSULE #MANDAN
+</span>
+<span class="absolute bottom-3 right-3 bg-black/70 px-2 py-0.5 rounded font-mono text-[10px] text-neutral-400 border border-white/10" id="handan-index-pill">
+1 / 4
+</span>
+</div>
+<div class="grid grid-cols-4 gap-2 mb-6" id="handan-thumbnails">
+<button class="py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer" onclick="setHandanSlide(0, event)" type="button">CAM 01</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(1, event)" type="button">CAM 02</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(2, event)" type="button">CAM 03</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setHandanSlide(3, event)" type="button">CAM 04</button>
+</div>
+<div class="flex items-start justify-between gap-4 mb-2">
+<div>
+<span class="text-signal font-mono text-[10px] font-bold uppercase tracking-widest block mb-0.5">// ACTIVE DROP</span>
+<h3 class="font-display text-2xl uppercase text-white tracking-tight">MANDAN OVERSIZED T-SHIRT</h3>
+</div>
+<div class="text-right shrink-0 font-mono">
+<span class="text-xl font-bold text-white">$60.00</span>
+<span class="text-[10px] text-neutral-500 block">USD</span>
+</div>
+</div>
+<p class="font-mono text-xs text-neutral-400 mb-6 leading-relaxed">
+The second conceptual line from 3rd World ENT. Minimalist hand-stamped typographic detailing and torched edge finishing.
+</p>
+<div class="space-y-4 font-mono text-xs mb-6">
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">GARMENT FINISH:</span>
+<span class="text-white">Distressed Wash</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]" onclick="event.stopPropagation()" type="button">DISTRESSED WASH</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]" onclick="event.stopPropagation()" type="button">TORCHED (+MTO)</button>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">SIZE:</span>
+<span class="text-white font-bold">L</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center">
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">XL</button>
+</div>
+</div>
+</div>
+</div>
+<div>
+<button class="add-to-cart-btn w-full py-3.5 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addToCartObject({id: 'mandan-tee', title: 'MANDAN OVERSIZED T-SHIRT', price: 60, image: 'https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png', size: 'L', sleeve: 'Short Sleeve', color: 'Distressed Wash', isTorched: false, fulfillment: 'READY TO SHIP', qty: 1}, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD MANDAN T-SHIRT TO CART — $60.00 →</span>
+</button>
+</div>
+</div>
+<!-- ACTIVE 2: MAHGO -->
+<div class="bg-surface-card rounded-2xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between shadow-2xl" id="mahgo-tee-card">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden bg-carbon border border-white/10 mb-4 flex items-center justify-center text-center p-6 group">
+<div class="space-y-4">
+<div class="w-16 h-16 rounded-full bg-signal/10 border border-signal/30 flex items-center justify-center mx-auto text-signal">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+<div>
+<span class="font-mono text-xs text-signal font-bold uppercase tracking-widest block" id="mahgo-placeholder-cam">[MAHGO // CAM 01]</span>
+<span class="font-display text-2xl uppercase tracking-wider text-white mt-1 block">STUDIO ANGLE VIEW</span>
+<p class="font-mono text-[11px] text-neutral-400 mt-2 max-w-xs mx-auto">
+3-angle studio catalog rotation loaded for immediate fulfillment.
+</p>
+</div>
+</div>
+<button aria-label="Previous MAHGO preview" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftMahgoSlide(-1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_left</span>
+</button>
+<button aria-label="Next MAHGO preview" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-white hover:text-black text-white flex items-center justify-center border border-white/20 cursor-pointer" onclick="shiftMahgoSlide(1, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">chevron_right</span>
+</button>
+<span class="absolute top-3 left-3 bg-red3rd text-white font-mono text-[9px] font-bold px-2 py-0.5 uppercase tracking-widest rounded shadow">
+CAPSULE #MAHGO
+</span>
+<span class="absolute bottom-3 right-3 bg-black/70 px-2 py-0.5 rounded font-mono text-[10px] text-neutral-400 border border-white/10" id="mahgo-index-pill">
+1 / 3
+</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-6" id="mahgo-thumbnails">
+<button class="py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer" onclick="setMahgoSlide(0, event)" type="button">CAM 01</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setMahgoSlide(1, event)" type="button">CAM 02</button>
+<button class="py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer" onclick="setMahgoSlide(2, event)" type="button">CAM 03</button>
+</div>
+<div class="flex items-start justify-between gap-4 mb-2">
+<div>
+<span class="text-signal font-mono text-[10px] font-bold uppercase tracking-widest block mb-0.5">// ACTIVE DROP</span>
+<h3 class="font-display text-2xl uppercase text-white tracking-tight">MAHGO OVERSIZED T-SHIRT</h3>
+</div>
+<div class="text-right shrink-0 font-mono">
+<span class="text-xl font-bold text-white">$60.00</span>
+<span class="text-[10px] text-neutral-500 block">USD</span>
+</div>
+</div>
+<p class="font-mono text-xs text-neutral-400 mb-6 leading-relaxed">
+Bespoke wash treatments exploring pigment distress and solar wear. Featuring handcrafted raw-edge stitching.
+</p>
+<div class="space-y-4 font-mono text-xs mb-6">
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">GARMENT FINISH:</span>
+<span class="text-white">Pigment Wash</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px]" onclick="event.stopPropagation()" type="button">PIGMENT WASH</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px]" onclick="event.stopPropagation()" type="button">TORCHED (+MTO)</button>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-neutral-300 uppercase mb-2">
+<span class="font-bold">SIZE:</span>
+<span class="text-white font-bold">L</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center">
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">S</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">M</button>
+<button class="py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">L</button>
+<button class="py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">XL</button>
+</div>
+</div>
+</div>
+</div>
+<div>
+<button class="add-to-cart-btn w-full py-3.5 bg-white hover:bg-red3rd text-black hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg group" onclick="addToCartObject({id: 'mahgo-tee', title: 'MAHGO OVERSIZED T-SHIRT', price: 60, image: 'https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(4).png', size: 'L', sleeve: 'Short Sleeve', color: 'Pigment Wash', isTorched: false, fulfillment: 'READY TO SHIP', qty: 1}, event)" type="button">
+<span class="material-symbols-outlined text-base pointer-events-none">shopping_cart</span>
+<span class="pointer-events-none">ADD MAHGO T-SHIRT TO CART — $60.00 →</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- AUDIO VISUAL RADIO SECTION -->
+<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="audio-section">
+<div class="bg-[#141414] rounded-2xl border border-white/15 p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 font-mono">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl bg-surface-card border border-white/10 flex items-center justify-center text-red3rd">
+<span class="material-symbols-outlined text-3xl">graphic_eq</span>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[10px] text-neutral-400 uppercase tracking-wider mb-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-signal animate-pulse"></span>
+<span class="">108.4 MHZ BROADCAST // OMAR KELLY</span>
+</div>
+<h4 class="font-display text-2xl text-white uppercase tracking-tight">B O R N (THE VISUAL MIXTAPE)</h4>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-4 text-xs">
+<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">SPOTIFY</a>
+<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">APPLE MUSIC</a>
+<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">YOUTUBE</a>
+</div>
+</div>
+</section>
+<!-- FOOTER WITH DIRECT POLICY & SHIPPING LINKS -->
+<footer class="py-12 px-6 lg:px-12 max-w-7xl mx-auto font-mono text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-3">
+<span class="font-display text-xl text-white tracking-wider uppercase">3RD WORLD ENT</span>
+<span class="">•</span>
+<span class="">ALL RIGHTS RESERVED 2026</span>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<a class="hover:text-white transition-colors" href="policies.html">SIZE GUIDE</a>
+<a class="hover:text-white transition-colors" href="shipping.html">SHIPPING &amp; FAQ</a>
+<a class="hover:text-white transition-colors" href="policies.html">RETURNS &amp; POLICIES</a>
+<a class="hover:text-white transition-colors" href="mailto:support@3rdworldent.com">CONTACT SUPPORT</a>
+</div>
+</footer>
+<!-- ======================================================= -->
+<!-- SLIDE-OUT CART DRAWER                                   -->
+<!-- ======================================================= -->
+<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0" id="cart-drawer">
+<div class="absolute inset-0 bg-black/80 backdrop-blur-sm pointer-events-auto transition-opacity" onclick="toggleCartDrawer(event)"></div>
+<div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+<div class="w-screen max-w-md bg-carbon border-l border-white/15 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 shadow-2xl font-mono" id="cart-panel">
+<div class="flex flex-col h-full overflow-hidden">
+<div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+<div class="flex items-center gap-2">
+<span class="font-display text-xl uppercase tracking-wider text-white">YOUR CART</span>
+<span class="text-xs text-neutral-400" id="cart-drawer-count">(0 ITEMS)</span>
+</div>
+<button class="text-neutral-400 hover:text-white p-1 cursor-pointer" onclick="toggleCartDrawer(event)" type="button">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+</div>
+<!-- Free Shipping Progress -->
+<div class="p-3 bg-surface rounded-xl border border-white/10 mb-3">
+<div class="flex justify-between items-center text-xs mb-1.5">
+<span class="text-neutral-300 font-medium" id="shipping-progress-text">You’re $120.00 away from free U.S. shipping.</span>
+<span class="text-signal text-[10px] font-bold uppercase" id="shipping-progress-badge">$120 THRESHOLD</span>
+</div>
+<div class="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+<div class="bg-red3rd h-full transition-all duration-500 rounded-full" id="shipping-progress-bar" style="width: 0%;"></div>
+</div>
+</div>
+<div class="space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1" id="cart-items-container">
+        <div class="text-center py-16 text-neutral-500 font-mono text-xs">
+          <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
+          YOUR ARCHIVE CART IS EMPTY.<br>SELECT PIECES FROM THE IKIGAI ATELIER.
+        </div>
+      </div>
+</div>
+<!-- Cart Total and Actions -->
+<div class="border-t border-white/10 pt-4 space-y-3 text-xs">
+<div>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface border border-white/20 rounded-lg px-3 py-2 text-white uppercase placeholder-neutral-500 text-xs focus:outline-none focus:border-red3rd" id="cart-discount-input" placeholder="DISCOUNT CODE (E.G. BORN10)" value="">
+<button class="bg-white/10 hover:bg-white hover:text-black text-white px-3.5 py-2 rounded-lg font-bold uppercase transition-colors cursor-pointer" onclick="applyPromoCode(event)" type="button">APPLY</button>
+</div>
+<div class="mt-1.5 flex justify-between items-center hidden" id="cart-discount-status-row">
+<span class="text-[11px] font-bold" id="cart-discount-msg"></span>
+<button class="text-[10px] text-red3rd underline cursor-pointer" onclick="removePromoCode(event)" type="button">REMOVE</button>
+</div>
+</div>
+<div class="space-y-1.5 pt-2 border-t border-white/5 text-neutral-400">
+<div class="flex justify-between">
+<span class="">Subtotal</span>
+<span class="text-white" id="cart-calc-subtotal">$0.00 USD</span>
+</div>
+<div class="flex justify-between text-signal hidden" id="cart-calc-discount-row">
+<span id="cart-calc-discount-label" class="">Discount</span>
+<span id="cart-calc-discount-val" class="">-$0.00 USD</span>
+</div>
+<div class="flex justify-between">
+<span class="">Estimated Shipping</span>
+<span class="text-white" id="cart-calc-shipping">$0.00 USD</span>
+</div>
+<div class="flex justify-between text-white font-bold text-sm pt-2 border-t border-white/10">
+<span class="">Total</span>
+<span class="text-white" id="cart-calc-total">$0.00 USD</span>
+</div>
+</div>
+<div class="space-y-2 pt-2">
+<button class="w-full py-3.5 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red3rd/30" onclick="launchCheckoutFlow(event)" type="button">
+<span class="">PROCEED TO CHECKOUT</span>
+<span class="">→</span>
+</button>
+<button class="w-full py-2.5 bg-transparent border border-white/15 text-neutral-300 hover:text-white hover:border-white font-mono text-xs uppercase transition-colors rounded-xl cursor-pointer" onclick="toggleCartDrawer(event)" type="button">
+  CONTINUE SHOPPING
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- 5-STEP CHECKOUT MODAL                                   -->
+<!-- ======================================================= -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto" id="checkout-modal">
+<div class="relative w-full max-w-3xl bg-surface border border-white/20 rounded-2xl p-6 sm:p-8 max-h-[95vh] overflow-y-auto custom-scrollbar font-mono">
+<div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+<div class="flex items-center gap-3">
+<span class="font-display text-2xl text-white tracking-wide uppercase">3RD WORLD CHECKOUT</span>
+<span class="text-[10px] bg-red3rd text-white px-2 py-0.5 rounded font-bold uppercase tracking-wider">SHOPIFY SECURED</span>
+</div>
+<button class="text-neutral-400 hover:text-white cursor-pointer" onclick="closeCheckoutModal(event)" type="button">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+</div>
+<div class="grid grid-cols-5 gap-1.5 mb-8 text-[11px] uppercase tracking-wider text-center" id="checkout-stepper-bar">
+<div class="step-indicator border-b-2 border-red3rd pb-2 text-white font-bold" id="co-tab-1">1. Contact</div>
+<div class="step-indicator border-b-2 border-white/20 pb-2 text-neutral-500" id="co-tab-2">2. Delivery</div>
+<div class="step-indicator border-b-2 border-white/20 pb-2 text-neutral-500" id="co-tab-3">3. Shipping</div>
+<div class="step-indicator border-b-2 border-white/20 pb-2 text-neutral-500" id="co-tab-4">4. Payment</div>
+<div class="step-indicator border-b-2 border-white/20 pb-2 text-neutral-500" id="co-tab-5">5. Review</div>
+</div>
+<div id="checkout-panes-wrapper">
+<!-- STEP 1: Contact -->
+<div class="step-pane space-y-5" id="co-pane-1">
+<div class="flex items-center justify-between">
+<h3 class="font-display text-xl text-white uppercase">CONTACT INFORMATION</h3>
+<span class="text-xs text-signal font-bold">GUEST CHECKOUT ACTIVE</span>
+</div>
+<div class="space-y-3 text-xs">
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">EMAIL ADDRESS *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-email" placeholder="name@domain.com" type="email" value="">
+</div>
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">MOBILE PHONE NUMBER (FOR SMS DISPATCH) *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-phone" placeholder="+1 (404) 000-0000" type="tel" value="">
+</div>
+</div>
+<div class="pt-6 border-t border-white/10 flex justify-end">
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(2, event)" type="button">
+<span class="">CONTINUE TO DELIVERY</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+<!-- STEP 2: Delivery -->
+<div class="step-pane space-y-5 hidden" id="co-pane-2">
+<div class="flex items-center justify-between">
+<h3 class="font-display text-xl text-white uppercase">DELIVERY ADDRESS</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">FIRST NAME *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-first-name" placeholder="First Name" type="text" value="">
+</div>
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">LAST NAME *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-last-name" placeholder="Last Name" type="text" value="">
+</div>
+<div class="sm:col-span-2">
+<label class="block text-neutral-300 mb-1 font-bold">STREET ADDRESS *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-address" placeholder="Street address or P.O. Box" type="text" value="">
+</div>
+<div class="sm:col-span-2">
+<label class="block text-neutral-300 mb-1">APARTMENT / UNIT</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-unit" placeholder="Apartment, suite, unit (optional)" type="text" value="">
+</div>
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">CITY *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-city" placeholder="City" type="text" value="">
+</div>
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">STATE / REGION *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-state" placeholder="State or Province" type="text" value="">
+</div>
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">POSTAL CODE *</label>
+<input class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-zip" placeholder="ZIP / Postal Code" type="text" value="">
+</div>
+<div>
+<label class="block text-neutral-300 mb-1 font-bold">COUNTRY *</label>
+<select class="w-full bg-carbon border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" id="input-co-country">
+<option value="US">UNITED STATES (DOMESTIC)</option>
+<option value="CA">CANADA</option>
+<option value="UK">UNITED KINGDOM</option>
+<option value="EU">EUROPEAN UNION</option>
+<option value="JP">JAPAN</option>
+<option value="AU">AUSTRALIA</option>
+</select>
+</div>
+</div>
+<div class="pt-6 border-t border-white/10 flex justify-between items-center">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(1, event)" type="button">← BACK</button>
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(3, event)" type="button">
+<span class="">CONTINUE TO SHIPPING</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+<!-- STEP 3: Shipping -->
+<div class="step-pane space-y-5 hidden" id="co-pane-3">
+<h3 class="font-display text-xl text-white uppercase">SHIPPING METHOD</h3>
+<div class="space-y-3 text-xs" id="checkout-shipping-options">
+<label class="flex items-center justify-between p-3.5 rounded-xl border border-red3rd bg-red3rd/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<input checked="" class="text-red3rd bg-carbon border-white/20 focus:ring-red3rd" name="co-shipping-radio" onchange="updateSelectedShippingRate('standard', 8)" type="radio" value="standard">
+<div>
+<span class="text-white font-bold block">STANDARD TRACKED GROUND</span>
+<span class="text-neutral-400 text-[11px]">USPS Tracked (3–7 business days)</span>
+</div>
+</div>
+<span class="font-bold text-white">$8.00 USD</span>
+</label>
+<label class="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-carbon hover:border-white/30 cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="text-red3rd bg-carbon border-white/20 focus:ring-red3rd" name="co-shipping-radio" onchange="updateSelectedShippingRate('expedited', 18)" type="radio" value="expedited">
+<div>
+<span class="text-white font-bold block">EXPEDITED AIR</span>
+<span class="text-neutral-400 text-[11px]">UPS 2-Day Air</span>
+</div>
+</div>
+<span class="font-bold text-white">$18.00 USD</span>
+</label>
+</div>
+<div class="pt-6 border-t border-white/10 flex justify-between items-center">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(2, event)" type="button">← BACK</button>
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(4, event)" type="button">
+<span class="">CONTINUE TO PAYMENT</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+<!-- STEP 4: Payment -->
+<div class="step-pane space-y-5 hidden" id="co-pane-4">
+<h3 class="font-display text-xl text-white uppercase">PAYMENT</h3>
+<div class="grid grid-cols-3 gap-2 text-center text-xs">
+<button class="py-2.5 bg-[#5A31F4] hover:bg-[#4824d4] text-white font-bold rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">Shop Pay</button>
+<button class="py-2.5 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 cursor-pointer" onclick="event.stopPropagation()" type="button">Apple Pay</button>
+<button class="py-2.5 bg-[#FFC439] hover:bg-[#f0b52b] text-black font-bold rounded-lg cursor-pointer" onclick="event.stopPropagation()" type="button">PayPal</button>
+</div>
+<div class="space-y-3 text-xs bg-carbon p-4 rounded-xl border border-white/10">
+<div>
+<label class="block text-neutral-300 mb-1">CARD NUMBER</label>
+<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd tracking-widest" placeholder="•••• •••• •••• ••••" value="">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-neutral-300 mb-1">EXPIRATION (MM/YY)</label>
+<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" placeholder="MM / YY" value="">
+</div>
+<div>
+<label class="block text-neutral-300 mb-1">CVC CODE</label>
+<input class="w-full bg-surface border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-red3rd" placeholder="CVC" value="">
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-white/10 flex justify-between items-center">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(3, event)" type="button">← BACK</button>
+<button class="px-6 py-3 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer" onclick="setCheckoutStep(5, event)" type="button">
+<span class="">REVIEW FINAL ORDER</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+<!-- STEP 5: Final Review -->
+<div class="step-pane space-y-5 hidden" id="co-pane-5">
+<h3 class="font-display text-xl text-white uppercase">ORDER VERIFICATION</h3>
+<div class="p-3 bg-carbon rounded-xl border border-white/10 space-y-2 max-h-40 overflow-y-auto custom-scrollbar" id="co-review-items"></div>
+<div class="p-3.5 bg-surface-card rounded-xl border border-white/10 space-y-1.5 text-xs">
+<div class="flex justify-between text-neutral-400">
+<span class="">Subtotal</span>
+<span class="text-white" id="co-summary-subtotal">$0.00 USD</span>
+</div>
+<div class="flex justify-between text-signal hidden" id="co-summary-discount-row">
+<span class="">Discount</span>
+<span id="co-summary-discount" class="">-$0.00 USD</span>
+</div>
+<div class="flex justify-between text-neutral-400">
+<span class="">Shipping</span>
+<span class="text-white" id="co-summary-shipping">$8.00 USD</span>
+</div>
+<div class="flex justify-between text-white font-bold text-sm pt-2 border-t border-white/10">
+<span class="">Total</span>
+<span class="text-red3rd" id="co-summary-total">$0.00 USD</span>
+</div>
+</div>
+<div class="p-3 rounded-xl border border-red3rd/40 bg-red3rd/10 text-xs text-neutral-200">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input class="rounded border-white/20 bg-carbon text-red3rd focus:ring-red3rd mt-0.5" id="co-terms-checkbox" type="checkbox">
+<span class="leading-relaxed">
+  I verify my size selections, shipping address, and understand handmade distress finishes vary slightly.
+</span>
+</label>
+</div>
+<div class="flex flex-wrap items-center justify-between text-[11px] text-neutral-400 pt-1">
+<a class="hover:text-white underline" href="shipping.html">Shipping Policy</a>
+<a class="hover:text-white underline" href="policies.html">Return &amp; Exchange Policy</a>
+</div>
+<div class="pt-4 border-t border-white/10 flex justify-between items-center">
+<button class="text-neutral-400 hover:text-white text-xs uppercase cursor-pointer" onclick="setCheckoutStep(4, event)" type="button">← BACK</button>
+<button class="px-8 py-3.5 bg-red3rd text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-xl flex items-center gap-2 cursor-pointer shadow-lg shadow-red3rd/30" onclick="submitFinalOrderCheckout(event)" type="button">
+<span class="">AUTHORIZE &amp; PLACE ORDER</span>
+<span class="">→</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ORDER CONFIRMATION SCREEN -->
+<div class="hidden space-y-6 text-center py-4" id="order-confirmed-view">
+<div class="w-16 h-16 rounded-full bg-signal/15 border-2 border-signal text-signal mx-auto flex items-center justify-center text-3xl font-bold">✓</div>
+<div>
+<span class="text-xs text-signal font-bold uppercase tracking-widest">TRANSACTION CONFIRMED // #3WE-94821</span>
+<h2 class="font-display text-4xl text-white uppercase mt-1">ORDER CONFIRMED</h2>
+<p class="text-xs text-neutral-300 max-w-lg mx-auto mt-2 leading-relaxed">
+  Your order is registered. Thank you for supporting 3rd World ENT. You will receive tracking notifications when dispatch begins.
+</p>
+</div>
+<div class="pt-2">
+<button class="px-6 py-3 bg-white text-black font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-neutral-200 transition-colors cursor-pointer" onclick="closeOrderConfirmation(event)" type="button">
+  CONTINUE BROWSING
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- MASTER SCRIPT LOGIC (CAROUSEL & CART ENGINE)            -->
 <!-- ======================================================= -->
 <script>
-    // 3D Spatial Depth / Parallax Engine
-    const artworkWrap = document.getElementById('spatial-artwork-wrap');
-    const glareLayer = document.getElementById('spatial-glare-layer');
-    const heroText = document.getElementById('spatial-hero-text');
-    const gate = document.getElementById('entrance-gate');
+  // 1. CAROUSEL ASSETS CONFIGURATION (EXACT GITHUB ORIGINAL IMAGES)
+  const TEE_SLIDES = [
+    {
+      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Tee%20Face%20Darwing%201_Front%20worn%20by%2030-year-old%20American%20woman%20with%20asymmetrical%20cut_%20pale%20sheen_%20and%20high%20blush%20placement%20on%20temples%20Auto.png",
+      label: "LOOK 01 / 04 // NOCTURNE"
+    },
+    {
+      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(4).png",
+      label: "LOOK 02 / 04 // BLUE ROSE"
+    },
+    {
+      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(5).png",
+      label: "LOOK 03 / 04 // SEATED PORTRAIT"
+    },
+    {
+      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20kive-image%20(6).png",
+      label: "LOOK 04 / 04 // BOTANICAL STUDY"
+    }
+  ];
 
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let animationFrameId = null;
+  const HOODIE_SLIDES = [
+    {
+      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20Marco%20Sanguine.png",
+      label: "LOOK 01 / 03 // SANGUINE WASH"
+    },
+    {
+      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20Black%20Hoodie%20Face%20Drawing%201_Front%20worn%20by%2022-year-old%20Ma%CC%84ori-Turkish%20woman_%20warm%20amber%20skin_%20textured%20hair_%20bold%20nose%20ring_%20and%20faint%20shimmer%20of%20gold%20on%20her%20eyelids_%20black%20Fiction%E2%84%A2%20%E2%80%93%20Western%20boot%20black%20Fiction.png",
+      label: "LOOK 02 / 03 // WESTERN VIPER"
+    },
+    {
+      src: "https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/merch/Generated%20with%20Kive.ai%20-%20young%20latin%20woman%20standing%20with%20white%20back%20drop%20wearing%20Black%20Hoodie%20Face%20Drawing%201_Front%20with%20tight%20black%20jeans%20and%20no%20shoes%20or%20socks_%20snakes%20on%20the%20ground.png",
+      label: "LOOK 03 / 03 // OPHIDIAN"
+    }
+  ];
 
-    function handlePointerMove(e) {
-      const { innerWidth: w, innerHeight: h } = window;
-      const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : w / 2);
-      const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : h / 2);
+  const HANDAN_LABELS = [
+    "[MANDAN // CAM 01]",
+    "[MANDAN // CAM 02]",
+    "[MANDAN // CAM 03]",
+    "[MANDAN // CAM 04]"
+  ];
 
-      // Normalized coordinates from -1 to 1
-      targetX = (clientX / w - 0.5) * 2;
-      targetY = (clientY / h - 0.5) * 2;
+  const MAHGO_LABELS = [
+    "[MAHGO // CAM 01]",
+    "[MAHGO // CAM 02]",
+    "[MAHGO // CAM 03]"
+  ];
+
+  // 2. STATE
+  let teeState = {
+    slide: 0,
+    size: 'L',
+    sleeve: 'Short Sleeve',
+    finish: 'Washed Black Distressed',
+    isTorched: false
+  };
+
+  let hoodieState = {
+    slide: 0,
+    size: 'L',
+    finish: 'Sanguine Washed Black',
+    isTorched: false
+  };
+
+  let handanIndex = 0;
+  let mahgoIndex = 0;
+
+  // 3. CAROUSEL FUNCTIONS: TEE
+  function setTeeSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    teeState.slide = (index + TEE_SLIDES.length) % TEE_SLIDES.length;
+    document.getElementById('tee-main-img').src = TEE_SLIDES[teeState.slide].src;
+    document.getElementById('tee-view-label').innerText = TEE_SLIDES[teeState.slide].label;
+
+    const thumbs = document.querySelectorAll('#tee-thumbnails button');
+    thumbs.forEach((btn, i) => {
+      if (i === teeState.slide) {
+        btn.className = "aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all";
+      } else {
+        btn.className = "aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all";
+      }
+    });
+  }
+
+  function shiftTeeSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setTeeSlide(teeState.slide + delta, e);
+  }
+
+  function setTeeSleeve(sleeve, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    teeState.sleeve = sleeve;
+    document.getElementById('tee-sleeve-label').innerText = sleeve.toUpperCase();
+    const btns = document.querySelectorAll('#tee-sleeve-btns button');
+    btns.forEach(b => {
+      if (b.innerText.toLowerCase().includes(sleeve.toLowerCase())) {
+        b.className = "py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer transition-colors";
+      } else {
+        b.className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer transition-colors";
+      }
+    });
+  }
+
+  function setTeeFinish(finish, isTorched, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    teeState.finish = finish;
+    teeState.isTorched = isTorched;
+    document.getElementById('tee-finish-label').innerText = finish;
+
+    const btns = document.querySelectorAll('#tee-finish-btns button');
+    if (isTorched) {
+      btns[0].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      btns[1].className = "py-2 border border-orange-400 bg-orange-400/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      document.getElementById('tee-fulfillment-banner').className = "p-3 rounded-lg border border-orange-400/40 bg-orange-400/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      document.getElementById('tee-fulfillment-dot').className = "w-2 h-2 rounded-full bg-orange-400 animate-pulse";
+      document.getElementById('tee-fulfillment-txt').innerText = "MADE TO ORDER // 7–14 days hand torched finishing.";
+      document.getElementById('tee-fulfillment-txt').className = "text-orange-300 font-bold";
+    } else {
+      btns[0].className = "py-2 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      btns[1].className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      document.getElementById('tee-fulfillment-banner').className = "p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      document.getElementById('tee-fulfillment-dot').className = "w-2 h-2 rounded-full bg-signal animate-pulse";
+      document.getElementById('tee-fulfillment-txt').innerText = "READY TO SHIP // Dispatches in 2–4 business days.";
+      document.getElementById('tee-fulfillment-txt').className = "text-signal font-bold";
+    }
+  }
+
+  function setTeeSize(size, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    teeState.size = size;
+    document.getElementById('tee-size-label').innerText = size;
+    const btns = document.querySelectorAll('#tee-size-btns button');
+    btns.forEach(b => {
+      if (b.innerText === size) {
+        b.className = "py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer";
+      } else {
+        b.className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer";
+      }
+    });
+  }
+
+  // 4. CAROUSEL FUNCTIONS: HOODIE
+  function setHoodieSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    hoodieState.slide = (index + HOODIE_SLIDES.length) % HOODIE_SLIDES.length;
+    document.getElementById('hoodie-main-img').src = HOODIE_SLIDES[hoodieState.slide].src;
+    document.getElementById('hoodie-view-label').innerText = HOODIE_SLIDES[hoodieState.slide].label;
+
+    const thumbs = document.querySelectorAll('#hoodie-thumbnails button');
+    thumbs.forEach((btn, i) => {
+      if (i === hoodieState.slide) {
+        btn.className = "aspect-square rounded-lg overflow-hidden border-2 border-red3rd cursor-pointer opacity-100 transition-all";
+      } else {
+        btn.className = "aspect-square rounded-lg overflow-hidden border border-white/20 hover:border-white/60 cursor-pointer opacity-60 hover:opacity-100 transition-all";
+      }
+    });
+  }
+
+  function shiftHoodieSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setHoodieSlide(hoodieState.slide + delta, e);
+  }
+
+  function setHoodieFinish(finish, isTorched, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    hoodieState.finish = finish;
+    hoodieState.isTorched = isTorched;
+    document.getElementById('hoodie-finish-label').innerText = finish;
+
+    const btns = document.querySelectorAll('#hoodie-finish-btns button');
+    if (isTorched) {
+      btns[0].className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      btns[1].className = "py-2.5 border border-orange-400 bg-orange-400/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      document.getElementById('hoodie-fulfillment-banner').className = "p-3 rounded-lg border border-orange-400/40 bg-orange-400/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      document.getElementById('hoodie-fulfillment-dot').className = "w-2 h-2 rounded-full bg-orange-400 animate-pulse";
+      document.getElementById('hoodie-fulfillment-txt').innerText = "MADE TO ORDER // 7–14 days hand torched finishing.";
+      document.getElementById('hoodie-fulfillment-txt').className = "text-orange-300 font-bold";
+    } else {
+      btns[0].className = "py-2.5 border border-red3rd bg-red3rd/10 text-white font-bold rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      btns[1].className = "py-2.5 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer text-[11px] flex items-center justify-center gap-1.5";
+      document.getElementById('hoodie-fulfillment-banner').className = "p-3 rounded-lg border border-signal/40 bg-signal/10 flex items-center gap-2 mb-6 font-mono text-xs";
+      document.getElementById('hoodie-fulfillment-dot').className = "w-2 h-2 rounded-full bg-signal animate-pulse";
+      document.getElementById('hoodie-fulfillment-txt').innerText = "READY TO SHIP // Dispatches in 2–4 business days.";
+      document.getElementById('hoodie-fulfillment-txt').className = "text-signal font-bold";
+    }
+  }
+
+  function setHoodieSize(size, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    hoodieState.size = size;
+    document.getElementById('hoodie-size-label').innerText = size;
+    const btns = document.querySelectorAll('#hoodie-size-btns button');
+    btns.forEach(b => {
+      if (b.innerText === size) {
+        b.className = "py-2 border border-red3rd bg-red3rd/20 text-white font-bold rounded-lg cursor-pointer";
+      } else {
+        b.className = "py-2 border border-white/20 hover:border-white text-neutral-400 rounded-lg cursor-pointer";
+      }
+    });
+  }
+
+  // 5. CAROUSEL FUNCTIONS: MANDAN & MAHGO
+  function setHandanSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    handanIndex = (index + 4) % 4;
+    document.getElementById('handan-placeholder-cam').innerText = HANDAN_LABELS[handanIndex];
+    document.getElementById('handan-index-pill').innerText = `${handanIndex + 1} / 4`;
+    const btns = document.querySelectorAll('#handan-thumbnails button');
+    btns.forEach((b, i) => {
+      if (i === handanIndex) {
+        b.className = "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
+      } else {
+        b.className = "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
+      }
+    });
+  }
+  function shiftHandanSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setHandanSlide(handanIndex + delta, e);
+  }
+
+  function setMahgoSlide(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    mahgoIndex = (index + 3) % 3;
+    document.getElementById('mahgo-placeholder-cam').innerText = MAHGO_LABELS[mahgoIndex];
+    document.getElementById('mahgo-index-pill').innerText = `${mahgoIndex + 1} / 3`;
+    const btns = document.querySelectorAll('#mahgo-thumbnails button');
+    btns.forEach((b, i) => {
+      if (i === mahgoIndex) {
+        b.className = "py-2.5 bg-black/60 border-2 border-red3rd rounded-lg text-center font-mono text-[10px] text-white font-bold cursor-pointer";
+      } else {
+        b.className = "py-2.5 bg-black/60 border border-white/15 hover:border-white/50 rounded-lg text-center font-mono text-[10px] text-neutral-400 cursor-pointer";
+      }
+    });
+  }
+  function shiftMahgoSlide(delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setMahgoSlide(mahgoIndex + delta, e);
+  }
+
+  // 6. CART SYSTEM - TRIGGERED ONLY ON EXPLICIT ACTIONS
+  let cart = [];
+  let appliedDiscount = null;
+  let selectedShippingMethod = 'standard';
+  let shippingCost = 8.00;
+
+  const PROMO_CODES = {
+    'BORN10': { type: 'percent', val: 10, minSpend: 60, label: '10% OFF FIRST ORDER' },
+    'WELCOME10': { type: 'percent', val: 10, minSpend: 60, label: '10% OFF SIGNUP' },
+    'BORNSET': { type: 'fixed', val: 15, minSpend: 120, label: '$15 OFF BUNDLE ($120+)' },
+    '3RDWORLDSHIP': { type: 'free_ship', val: 0, minSpend: 120, label: 'FREE U.S. SHIPPING' }
+  };
+
+  function toggleCartDrawer(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const drawer = document.getElementById('cart-drawer');
+    const panel = document.getElementById('cart-panel');
+    if (drawer.classList.contains('opacity-0')) {
+      updateCartDrawerUI();
+      drawer.classList.remove('opacity-0', 'pointer-events-none');
+      panel.classList.remove('translate-x-full');
+    } else {
+      drawer.classList.add('opacity-0', 'pointer-events-none');
+      panel.classList.add('translate-x-full');
+    }
+  }
+
+  function addToCartObject(item, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const existing = cart.find(i => 
+      i.id === item.id && 
+      i.size === item.size && 
+      i.sleeve === item.sleeve && 
+      i.color === item.color
+    );
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push(item);
+    }
+    updateCartDrawerUI();
+    toggleCartDrawer();
+  }
+
+  function addConsolidatedTeeToCart(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    addToCartObject({
+      id: "ikigai-tee",
+      title: "IKIGAI OVERSIZED T-SHIRT",
+      price: 60,
+      image: TEE_SLIDES[teeState.slide].src,
+      size: teeState.size,
+      sleeve: teeState.sleeve,
+      color: teeState.finish,
+      isTorched: teeState.isTorched,
+      fulfillment: teeState.isTorched ? "MADE TO ORDER" : "READY TO SHIP",
+      qty: 1
+    }, e);
+  }
+
+  function addConsolidatedHoodieToCart(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    addToCartObject({
+      id: "ikigai-hoodie",
+      title: "IKIGAI FULL-ZIP HOODIE",
+      price: 70,
+      image: HOODIE_SLIDES[hoodieState.slide].src,
+      size: hoodieState.size,
+      sleeve: null,
+      color: hoodieState.finish,
+      isTorched: hoodieState.isTorched,
+      fulfillment: hoodieState.isTorched ? "MADE TO ORDER" : "READY TO SHIP",
+      qty: 1
+    }, e);
+  }
+
+  function changeItemQty(index, delta, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    cart[index].qty += delta;
+    if (cart[index].qty <= 0) {
+      cart.splice(index, 1);
+    }
+    updateCartDrawerUI();
+  }
+
+  function removeItemFromCart(index, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    cart.splice(index, 1);
+    updateCartDrawerUI();
+  }
+
+  function updateCartDrawerUI() {
+    const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+    document.getElementById('cart-counter').innerText = totalItems;
+    document.getElementById('cart-drawer-count').innerText = `(${totalItems} ${totalItems === 1 ? 'ITEM' : 'ITEMS'})`;
+
+    const container = document.getElementById('cart-items-container');
+    container.innerHTML = '';
+
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-16 text-neutral-500 font-mono text-xs">
+          <span class="material-symbols-outlined text-4xl block mb-2 text-neutral-600">shopping_bag</span>
+          YOUR ARCHIVE CART IS EMPTY.<br>SELECT PIECES FROM THE IKIGAI ATELIER.
+        </div>
+      `;
+      document.getElementById('cart-calc-subtotal').innerText = '$0.00 USD';
+      document.getElementById('cart-calc-shipping').innerText = '$0.00 USD';
+      document.getElementById('cart-calc-total').innerText = '$0.00 USD';
+      document.getElementById('cart-calc-discount-row').classList.add('hidden');
+      document.getElementById('shipping-progress-bar').style.width = '0%';
+      document.getElementById('shipping-progress-text').innerText = 'You’re $120.00 away from free U.S. shipping.';
+      return;
     }
 
-    // Gyroscope / Device orientation support for mobile
-    window.addEventListener('deviceorientation', (e) => {
-      if (!e.gamma || !e.beta) return;
-      const gamma = Math.min(Math.max(e.gamma, -30), 30);
-      const beta = Math.min(Math.max(e.beta - 35, -30), 30);
-      targetX = gamma / 30;
-      targetY = beta / 30;
+    let subtotal = 0;
+    cart.forEach((item, index) => {
+      subtotal += item.price * item.qty;
+
+      const itemCard = document.createElement('div');
+      itemCard.className = 'flex gap-3 bg-surface p-3 rounded-xl border border-white/10 font-mono text-xs';
+      itemCard.innerHTML = `
+        <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg bg-carbon border border-white/10">
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h5 class="text-white font-bold text-xs uppercase truncate pr-2">${item.title}</h5>
+            <button type="button" onclick="removeItemFromCart(${index}, event)" class="text-neutral-500 hover:text-red3rd text-base cursor-pointer">×</button>
+          </div>
+          <div class="text-[11px] text-neutral-400 mt-0.5 space-y-0.5">
+            <div>${item.color} • SIZE: ${item.size}${item.sleeve ? ` • ${item.sleeve}` : ''}</div>
+            <div class="${item.isTorched ? 'text-orange-400' : 'text-signal'} text-[10px] font-bold uppercase tracking-wider">
+              ${item.fulfillment}
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div class="flex items-center border border-white/15 rounded bg-carbon">
+              <button type="button" class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, -1, event)">-</button>
+              <span class="px-2 text-white font-bold text-xs">${item.qty}</span>
+              <button type="button" class="px-2 py-0.5 text-neutral-400 hover:text-white cursor-pointer" onclick="changeItemQty(${index}, 1, event)">+</button>
+            </div>
+            <span class="text-white font-bold text-xs">$${item.price * item.qty}.00 USD</span>
+          </div>
+        </div>
+      `;
+      container.appendChild(itemCard);
     });
 
-    window.addEventListener('mousemove', handlePointerMove);
-    window.addEventListener('touchmove', handlePointerMove, { passive: true });
+    const threshold = 120;
+    const progressFill = document.getElementById('shipping-progress-bar');
+    const progressText = document.getElementById('shipping-progress-text');
+    const progressBadge = document.getElementById('shipping-progress-badge');
 
-    // Smooth Lerp Rendering Loop for 3D depth and specular reaction
-    function render3DDepth() {
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
-
-      const rotateY = currentX * 8;      // Balanced tilt
-      const rotateX = -currentY * 7;     // Balanced pitch
-      const panX = -currentX * 24;       // Horizontal parallax shift
-      const panY = -currentY * 18;       // Vertical parallax shift
-
-      if (artworkWrap) {
-        artworkWrap.style.transform = `scale(1.04) translate3d(${panX}px, ${panY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      }
-
-      // Specular glare dynamic tracking
-      if (glareLayer) {
-        const glarePosX = 50 + (currentX * 35);
-        const glarePosY = 50 + (currentY * 35);
-        glareLayer.style.background = `radial-gradient(circle at ${glarePosX}% ${glarePosY}%, rgba(255,255,255,0.22) 0%, rgba(213,30,30,0.1) 35%, transparent 70%)`;
-      }
-
-      // Floating foreground text counter-parallax
-      if (heroText) {
-        const textPanX = currentX * 18;
-        const textPanY = currentY * 14;
-        heroText.style.transform = `translate3d(${textPanX}px, ${textPanY}px, 40px) rotateX(${rotateX * 0.35}deg) rotateY(${rotateY * 0.35}deg)`;
-      }
-
-      animationFrameId = requestAnimationFrame(render3DDepth);
+    if (subtotal >= threshold) {
+      progressFill.style.width = '100%';
+      progressFill.className = 'bg-signal h-full transition-all duration-500 rounded-full';
+      progressText.innerText = '✓ Free U.S. Shipping Unlocked!';
+      progressBadge.innerText = 'FREE SHIPPING';
+      progressBadge.className = 'text-signal text-[10px] font-bold uppercase';
+    } else {
+      const remaining = (threshold - subtotal).toFixed(2);
+      const pct = Math.min(100, Math.round((subtotal / threshold) * 100));
+      progressFill.style.width = `${pct}%`;
+      progressFill.className = 'bg-red3rd h-full transition-all duration-500 rounded-full';
+      progressText.innerText = `You’re $${remaining} away from free U.S. shipping.`;
+      progressBadge.innerText = '$120 THRESHOLD';
+      progressBadge.className = 'text-neutral-400 text-[10px] font-bold uppercase';
     }
-    render3DDepth();
 
-    // Entrance Gate Controls
-// Entrance Gate Controls
-function dismissEntrance() {
-  if (animationFrameId) cancelAnimationFrame(animationFrameId);
-  
-  const img = document.getElementById('spatial-img');
-  if (img) {
-    img.style.transform = 'scale(1.15)';
-    img.style.filter = 'brightness(0.3) blur(6px)';
+    let discountAmount = 0;
+    if (appliedDiscount) {
+      if (appliedDiscount.type === 'percent') discountAmount = subtotal * (appliedDiscount.val / 100);
+      else if (appliedDiscount.type === 'fixed') discountAmount = appliedDiscount.val;
+    }
+
+    let finalShip = subtotal >= threshold || (appliedDiscount && appliedDiscount.type === 'free_ship') ? 0 : shippingCost;
+    const grandTotal = Math.max(0, subtotal - discountAmount + finalShip);
+
+    document.getElementById('cart-calc-subtotal').innerText = `$${subtotal.toFixed(2)} USD`;
+    document.getElementById('cart-calc-shipping').innerText = finalShip === 0 ? 'FREE' : `$${finalShip.toFixed(2)} USD`;
+    document.getElementById('cart-calc-total').innerText = `$${grandTotal.toFixed(2)} USD`;
+
+    const discountRow = document.getElementById('cart-calc-discount-row');
+    if (discountAmount > 0) {
+      discountRow.classList.remove('hidden');
+      document.getElementById('cart-calc-discount-val').innerText = `-$${discountAmount.toFixed(2)} USD`;
+    } else {
+      discountRow.classList.add('hidden');
+    }
   }
-  
-  gate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
-  
-  // Wait 900ms for the CSS transition to finish, then redirect
-  setTimeout(() => {
-    gate.style.display = 'none';
-    window.location.href = 'shop.html'; // <-- Redirect happens here
-  }, 900);
-} // <-- Correctly closes the dismissEntrance function
 
-// Event Listener to trigger the function when clicked
-document.getElementById('dismiss-entrance').addEventListener('click', dismissEntrance);
+  function applyPromoCode(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const input = document.getElementById('cart-discount-input');
+    const code = input.value.trim().toUpperCase();
+    const statusRow = document.getElementById('cart-discount-status-row');
+    const msg = document.getElementById('cart-discount-msg');
 
+    if (!code) return;
 
-    function showEntrance() {
-      gate.style.display = 'flex';
-      const img = document.getElementById('spatial-img');
-      if (img) {
-        img.style.transform = 'scale(1)';
-        img.style.filter = 'contrast(1.04) brightness(0.96)';
-      }
-      setTimeout(() => {
-        gate.classList.remove('opacity-0', 'pointer-events-none', 'scale-105');
-        render3DDepth();
-      }, 20);
-    }
+    if (PROMO_CODES[code]) {
+      const promo = PROMO_CODES[code];
+      const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
 
-    // Cart Management
-    let cart = [];
-
-    function toggleCartDrawer() {
-      const drawer = document.getElementById('cart-drawer');
-      const panel = document.getElementById('cart-panel');
-      if (drawer.classList.contains('opacity-0')) {
-        drawer.classList.remove('opacity-0', 'pointer-events-none');
-        panel.classList.remove('translate-x-full');
-      } else {
-        drawer.classList.add('opacity-0', 'pointer-events-none');
-        panel.classList.add('translate-x-full');
-      }
-    }
-
-    function addToCart(title, price, image) {
-      cart.push({ title, price, image });
-      updateCartUI();
-      toggleCartDrawer();
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      const counter = document.getElementById('cart-counter');
-      const countLabel = document.getElementById('cart-item-count');
-      const list = document.getElementById('cart-items-list');
-      const emptyState = document.getElementById('cart-empty-state');
-      const subtotalEl = document.getElementById('cart-subtotal');
-
-      counter.innerText = cart.length;
-      countLabel.innerText = `(${cart.length} ITEMS)`;
-
-      if (cart.length === 0) {
-        list.innerHTML = '';
-        list.appendChild(emptyState);
-        subtotalEl.innerText = '$0.00 USD';
+      if (promo.minSpend && subtotal < promo.minSpend) {
+        statusRow.classList.remove('hidden');
+        msg.className = "text-[11px] font-bold text-orange-400";
+        msg.innerText = `REQUIRES $${promo.minSpend}.00 MINIMUM ORDER`;
         return;
       }
 
-      let subtotal = 0;
-      list.innerHTML = '';
-      cart.forEach((item, index) => {
-        subtotal += item.price;
-        const itemEl = document.createElement('div');
-        itemEl.className = 'flex items-center gap-4 bg-surface p-3 rounded-xl border border-white/10';
-        itemEl.innerHTML = `
-          <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg">
-          <div class="flex-1 font-mono">
-            <h5 class="text-xs uppercase text-white font-bold leading-snug">${item.title}</h5>
-            <p class="text-xs text-neutral-400">$${item.price}.00 USD</p>
-          </div>
-          <button onclick="removeFromCart(${index})" class="text-neutral-500 hover:text-red3rd p-1">
-            <span class="material-symbols-outlined text-sm">delete</span>
-          </button>
-        `;
-        list.appendChild(itemEl);
-      });
-
-      subtotalEl.innerText = `$${subtotal}.00 USD`;
+      appliedDiscount = promo;
+      statusRow.classList.remove('hidden');
+      msg.className = "text-[11px] font-bold text-signal";
+      msg.innerText = `✓ ${promo.label} (${code})`;
+      input.value = '';
+      updateCartDrawerUI();
+    } else {
+      statusRow.classList.remove('hidden');
+      msg.className = "text-[11px] font-bold text-red3rd";
+      msg.innerText = "THIS CODE HAS EXPIRED OR IS INVALID.";
     }
+  }
 
-    // Audio Playback Equalizer Simulation
-    let isPlaying = false;
-    let eqInterval = null;
+  function removePromoCode(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    appliedDiscount = null;
+    document.getElementById('cart-discount-status-row').classList.add('hidden');
+    updateCartDrawerUI();
+  }
 
-    function toggleAudio() {
-      isPlaying = !isPlaying;
-      const mainBtn = document.getElementById('main-play-btn');
-      const playIcon = document.getElementById('main-play-icon');
-      const navStatus = document.getElementById('nav-audio-status');
-      const bars = document.querySelectorAll('#equalizer-bars div');
+  // 7. CHECKOUT CONTROLLER
+  let currentStep = 1;
 
-      if (isPlaying) {
-        playIcon.innerText = 'pause';
-        navStatus.innerText = 'PLAYING';
-        eqInterval = setInterval(() => {
-          bars.forEach(bar => {
-            const randomH = Math.floor(Math.random() * 40) + 10;
-            bar.style.height = `${randomH}px`;
-          });
-        }, 150);
+  function launchCheckoutFlow(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    if (cart.length === 0) {
+      alert("Please add items to your cart before proceeding.");
+      return;
+    }
+    toggleCartDrawer(e);
+    document.getElementById('checkout-modal').classList.remove('hidden');
+    setCheckoutStep(1, e);
+  }
+
+  function closeCheckoutModal(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    document.getElementById('checkout-modal').classList.add('hidden');
+  }
+
+  function setCheckoutStep(step, e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    currentStep = step;
+    for (let i = 1; i <= 5; i++) {
+      const tab = document.getElementById(`co-tab-${i}`);
+      const pane = document.getElementById(`co-pane-${i}`);
+      if (i === step) {
+        tab.className = "step-indicator border-b-2 border-red3rd pb-2 text-white font-bold";
+        pane.classList.remove('hidden');
+      } else if (i < step) {
+        tab.className = "step-indicator border-b-2 border-signal pb-2 text-signal";
+        pane.classList.add('hidden');
       } else {
-        playIcon.innerText = 'play_arrow';
-        navStatus.innerText = 'ON AIR';
-        clearInterval(eqInterval);
-        bars.forEach((bar, i) => {
-          bar.style.height = `${(i % 3 + 1) * 12}px`;
-        });
+        tab.className = "step-indicator border-b-2 border-white/20 pb-2 text-neutral-500";
+        pane.classList.add('hidden');
       }
     }
 
-    // Quick View Modal Data
-    const quickViewData = {
-      'archive-hoodie': {
-        title: '3RD WORLD ARCHIVE HOODIE',
-        price: 145,
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1W-XZagLn4sZ_p34BE1XXkm4nq5xEoooikMTyMqP9UWYDCAATqPzSgKAuK-SQPxx2beMubQwrk4Nlij3AYNexTa4D26aGfHeu7Aqel1yPd3fUkZfnG39Furc2hxPu73RDRdzTIR8VbMuT1vGedz_nCtCMwFdJaqerL6Z86hXSyJ8hL-HULcsAyeSUXpY1AVHr6m_9sEDfGtMRoeudRrd7BGnaBUNj6IOS0esC6eXnq47wdWIIWebYVmpA',
-        tag: 'DROP 01 &bull; 520 GSM',
-        desc: 'Constructed from heavy 520 GSM washed french terry cotton. Engineered boxy cut with signature red 3rd World bar-tack stencils.'
-      },
-      'street-tee': {
-        title: 'DISTRESSED GRAPHIC TEE',
-        price: 75,
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB6KVmbf1xwniI2MWhO-p042ivXxOnVnYvJujQ3zP2e5fEK9lFu9GpHFMdU6kD6MsLOrbivStkAXuF52lHBn7lmFEYK_7t-TMTzB7WvZXDrdjyEGIEsU0MeAEWZu9Cafto9ax0yVVki7GsyWw7gkrp04DJJkW-ZbIvjWZQaJ8vn47awkOJ_61bzf0vnrDo5S1i831Qd7TLAfrZqHWpOfaTf1JI2OVomDMnAUy_P3tBe9yLAtgapoKK-EfWKJ7iP29k5Sw',
-        tag: 'DROP 01 &bull; 300 GSM',
-        desc: 'Garment dyed, vintage distressed heavy jersey tee with screenprinted archive artwork.'
-      },
-      'illustration-tee': {
-        title: '3RD WORLD ETCHED TEE',
-        price: 80,
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmRVI3y0aI9FjWehL4xz-wM3pwHWPxQdz5AtcHBTgVGcFj443YLhVCMX1jdDn_lBz5cnvvlc5xbwD09Zpx0JhUvWE6dAnNmUvg4_X7nrTPl_LVi-9DQN05aQf0LFff7sHRy1bL5IFcTe7oIC9uKZVV0h-7GbabQ6ZTha0Ezodkx1ugzk4BwS6Nn_ConfG1sQJ1kdmASVAaJRsRVDV_QJgOS-LrC3Iko6RLsEgRilJrGekvp5PP5sFxAcqKrpVGYEGEDw',
-        tag: 'DROP 01 &bull; GRAPHIC EDITION',
-        desc: 'Custom hand-drawn illustrated face graphic, finished with raw edge collars and pre-shrunk wash.'
-      },
-      'crate-boxset': {
-        title: 'BORN VAULT STEEL CRATE',
-        price: 85,
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1VQxdpznOmSKbF9dpoI01Ak4soxdiGpxOmHqq7KNTjmq0leHDHal3-RKkjsbUfuVtWSZyrjqXl_cepBtgCRgApY5p4wBgxxzowa9GJjM5Uu5NJXTZtygv1Mpd6r_W94ENPbTmGFsvKOcMAtochULtF1-HiJfHJRhCuGFGjta29SHXzf1P7eFYN5uwXdn9odPDESUtk5nDWKUlOjJtAreWtKwyKtAYvjVaXGcbBcFDcWt-SYM5CM3hnSKts',
-        tag: 'PHYSICAL MEDIA EDITION',
-        desc: 'Limited edition of 500. Heavy metal locked crate containing the BORN vinyl mixtape, 35mm photo zine, and steel keytag.'
-      },
-      'tactical-cargo': {
-        title: 'MODULAR FLIGHT CARGO',
-        price: 165,
-        image: 'https://lh3.googleusercontent.com/aida/AEtjO1V5LQB9NOZ1KQ2XrNFbKW_lshhKRhNi8eb6KkNpsFvBeOK3gTp3JiKCvTBJ2pcgZBjt_djJfxqY5NdKSrHUmMeaH6lDfmIMPvQ8amWmCsOL0ZjDWXF3E1iKptggz0IH_R7qlaxPlZyw4ajPLpnSqCN9YyQYJ_YK5cVkbkUpGFBRqyEuHQoGYWw2vSyt_4evmEbnbRlAkoGIEfiSWnLuPia3aXkyDtNRVcfCHxaredFL9WcgaiM1H3t-NiU',
-        tag: 'TECHNICAL UTILITY',
-        desc: 'Technical ripstop modular combat trousers with multi-pocket storage and custom tension buckles.'
-      }
-    };
+    if (step === 5) renderStep5Summary();
+  }
 
-    function openQuickView(id) {
-      const data = quickViewData[id];
-      if (!data) return;
-      document.getElementById('qv-title').innerText = data.title;
-      document.getElementById('qv-price').innerText = `$${data.price}.00 USD`;
-      document.getElementById('qv-image').src = data.image;
-      document.getElementById('qv-tag').innerHTML = data.tag;
-      document.getElementById('qv-desc').innerText = data.desc;
-      document.getElementById('qv-add-btn').onclick = () => {
-        addToCart(data.title, data.price, data.image);
-        closeQuickView();
-      };
-      document.getElementById('quickview-modal').classList.remove('hidden');
+  function updateSelectedShippingRate(method, price) {
+    selectedShippingMethod = method;
+    shippingCost = price;
+    updateCartDrawerUI();
+  }
+
+  function renderStep5Summary() {
+    const summaryItems = document.getElementById('co-review-items');
+    summaryItems.innerHTML = '';
+    let subtotal = 0;
+
+    cart.forEach(item => {
+      subtotal += item.price * item.qty;
+      const row = document.createElement('div');
+      row.className = "flex justify-between items-center text-xs py-1 border-b border-white/5 last:border-0";
+      row.innerHTML = `
+        <span class="text-neutral-300 truncate max-w-[240px]">${item.qty}x ${item.title} (${item.size})</span>
+        <span class="text-white font-bold">$${item.price * item.qty}.00</span>
+      `;
+      summaryItems.appendChild(row);
+    });
+
+    let discountAmount = 0;
+    if (appliedDiscount) {
+      if (appliedDiscount.type === 'percent') discountAmount = subtotal * (appliedDiscount.val / 100);
+      else if (appliedDiscount.type === 'fixed') discountAmount = appliedDiscount.val;
     }
 
-    function closeQuickView() {
-      document.getElementById('quickview-modal').classList.add('hidden');
+    let finalShip = subtotal >= 120 || (appliedDiscount && appliedDiscount.type === 'free_ship') ? 0 : shippingCost;
+    const total = Math.max(0, subtotal - discountAmount + finalShip);
+
+    document.getElementById('co-summary-subtotal').innerText = `$${subtotal.toFixed(2)} USD`;
+    document.getElementById('co-summary-shipping').innerText = finalShip === 0 ? 'FREE' : `$${finalShip.toFixed(2)} USD`;
+    document.getElementById('co-summary-total').innerText = `$${total.toFixed(2)} USD`;
+
+    const discRow = document.getElementById('co-summary-discount-row');
+    if (discountAmount > 0) {
+      discRow.classList.remove('hidden');
+      document.getElementById('co-summary-discount').innerText = `-$${discountAmount.toFixed(2)} USD`;
+    } else {
+      discRow.classList.add('hidden');
+    }
+  }
+
+  function submitFinalOrderCheckout(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const termsCheck = document.getElementById('co-terms-checkbox');
+    if (!termsCheck.checked) {
+      alert("Please confirm the verification checkbox regarding sizes and handcrafted details.");
+      return;
     }
 
-    // Dispatch form
-    function handleSubscribe(e) {
-      e.preventDefault();
-      document.getElementById('subscribe-status').classList.remove('hidden');
-    }
-  </script>
+    document.getElementById('checkout-panes-wrapper').classList.add('hidden');
+    document.getElementById('checkout-stepper-bar').classList.add('hidden');
+    document.getElementById('order-confirmed-view').classList.remove('hidden');
+
+    cart = [];
+    updateCartDrawerUI();
+  }
+
+  function closeOrderConfirmation(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    closeCheckoutModal(e);
+    document.getElementById('checkout-panes-wrapper').classList.remove('hidden');
+    document.getElementById('checkout-stepper-bar').classList.remove('hidden');
+    document.getElementById('order-confirmed-view').classList.add('hidden');
+    setCheckoutStep(1);
+  }
+
+  // INITIALIZE ON LOAD (No global click interceptors attached)
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCartDrawerUI();
+  });
+</script>
 
 
 </body></html>
