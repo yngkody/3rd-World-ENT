@@ -2606,41 +2606,65 @@ function toggleCartDrawer(e) {
       }
     }
   }
+
 async function createShopifyCheckout() {
-  if (!cart.length) {
+  if (!cart || cart.length === 0) {
     alert("YOUR CART IS EMPTY.");
     return;
   }
 
   try {
+    console.log("Starting Shopify checkout...");
+    console.log("Current cart:", cart);
+
     const lines = [];
 
+    // Convert every item in your custom cart
+    // into a Shopify cart line.
     for (const item of cart) {
       const handle = SHOPIFY_PRODUCT_HANDLES[item.id];
 
       if (!handle) {
-        throw new Error(`No Shopify handle mapped for ${item.id}`);
+        throw new Error(
+          `No Shopify product handle is mapped for "${item.id}".`
+        );
       }
 
       const selectedOptions = getShopifyOptionsForCartItem(item);
+
+      console.log("Matching Shopify product:", handle);
+      console.log("Requested options:", selectedOptions);
 
       const merchandiseId = await getShopifyVariantId(
         handle,
         selectedOptions
       );
 
+      if (!merchandiseId) {
+        throw new Error(
+          `Could not find a Shopify variant for "${item.title}".`
+        );
+      }
+
       lines.push({
-        merchandiseId,
-        quantity: item.qty
+        merchandiseId: merchandiseId,
+        quantity: Number(item.qty) || 1
       });
     }
 
-    const discountInput =
-      document.getElementById("cart-discount-input");
+    console.log("Shopify cart lines:", lines);
+
+    // Grab discount code from your existing cart field.
+    const discountInput = document.getElementById(
+      "cart-discount-input"
+    );
 
     const discountCode =
-      discountInput?.value?.trim() || "";
+      discountInput && discountInput.value
+        ? discountInput.value.trim()
+        : "";
 
+    // Shopify Storefront API mutation
     const mutation = `
       mutation CreateCart($input: CartInput!) {
         cartCreate(input: $input) {
@@ -2660,21 +2684,35 @@ async function createShopifyCheckout() {
     `;
 
     const input = {
-      lines
+      lines: lines
     };
 
     if (discountCode) {
       input.discountCodes = [discountCode];
     }
 
+    console.log("Creating Shopify cart...");
+
     const data = await shopifyRequest(mutation, {
-      input
+      input: input
     });
+
+    console.log("Shopify response:", data);
+
+    if (!data || !data.cartCreate) {
+      throw new Error(
+        "Shopify returned an invalid cart response."
+      );
+    }
 
     const result = data.cartCreate;
 
-    if (result.userErrors?.length) {
-      console.error(result.userErrors);
+    // Shopify validation errors
+    if (result.userErrors && result.userErrors.length > 0) {
+      console.error(
+        "Shopify cart errors:",
+        result.userErrors
+      );
 
       throw new Error(
         result.userErrors
@@ -2683,18 +2721,63 @@ async function createShopifyCheckout() {
       );
     }
 
-    if (!result.cart?.checkoutUrl) {
-      throw new Error("Shopify did not return a checkout URL.");
+    // Shopify warnings
+    if (result.warnings && result.warnings.length > 0) {
+      console.warn(
+        "Shopify cart warnings:",
+        result.warnings
+      );
     }
 
-   window.location.href = result.cart.checkoutUrl;
+    if (!result.cart) {
+      throw new Error(
+        "Shopify did not create the cart."
+      );
+    }
+
+    if (!result.cart.checkoutUrl) {
+      throw new Error(
+        "Shopify did not return a checkout URL."
+      );
+    }
+
+    console.log(
+      "Original Shopify checkout URL:",
+      result.cart.checkoutUrl
+    );
+
+    // Shopify is currently returning 3rdworldent.com as the
+    // checkout hostname, but that domain is served by GitHub Pages.
+    // Force the checkout onto Shopify's hosted domain instead.
+    const checkoutUrl = new URL(
+      result.cart.checkoutUrl
+    );
+
+    checkoutUrl.hostname =
+      "3rdworldent.myshopify.com";
+
+    console.log(
+      "Final checkout URL:",
+      checkoutUrl.toString()
+    );
+
+    // Send customer to real Shopify checkout.
+    window.location.assign(
+      checkoutUrl.toString()
+    );
 
   } catch (error) {
-    console.error("Shopify checkout error:", error);
-    alert(error.message || "Unable to start checkout.");
+    console.error(
+      "SHOPIFY CHECKOUT ERROR:",
+      error
+    );
+
+    alert(
+      "CHECKOUT ERROR:\n\n" +
+      (error.message || "Unable to start checkout.")
+    );
   }
 }
-
 // 7. CHECKOUT CONTROLS
 function launchCheckoutFlow(e) {
 
