@@ -1,1 +1,586 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>3RD WORLD ENT — Official Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            carbon: '#0c0c0c',
+            surface: '#141414',
+            'surface-card': '#181818',
+            'surface-border': '#262626',
+            bone: '#F3EFE6',
+            red3rd: '#D51E1E',
+            signal: '#B8F500',
+            neutralDim: '#888888',
+          },
+          fontFamily: {
+            display: ['Anton', 'sans-serif'],
+            sans: ['"Hanken Grotesk"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+</script>
+<style>
+    body {
+      background-color: #0c0c0c;
+      color: #F3EFE6;
+      font-family: 'Hanken Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-scrollbar::-webkit-scrollbar { display: none; }
+    .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+    /* Closed cart must make the ENTIRE drawer subtree non-interactive.
+       The drawer's children use pointer-events-auto, which can otherwise
+       still receive clicks even when the parent has pointer-events-none. */
+    #cart-drawer.opacity-0,
+    #cart-drawer.opacity-0 * {
+      pointer-events: none !important;
+    }
+    .scanline-overlay {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 6px 100%;
+    }
+</style>
+</head>
+<body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased min-h-screen">
+<!-- WHISPER-THIN MINIMALIST ANNOUNCEMENT TICKER -->
+<div class="bg-black/95 border-b border-white/5 text-[10px] font-mono tracking-widest text-neutral-400 px-6 lg:px-12 py-1.5 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
+<div class="flex items-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd animate-pulse"></span>
+<span class="hidden md:inline text-neutral-600">•</span>
+<span class="hidden md:inline text-neutral-400">FREE U.S. SHIPPING OVER $120</span>
+</div>
+<div class="flex items-center gap-4 text-[9px] font-mono uppercase tracking-widest shrink-0">
+<a class="hover:text-white transition-colors cursor-pointer" href="/shipping/">SHIPPING PROTOCOLS →</a>
+</div>
+</div>
+<!-- SLEEK, REFINED, LIGHTWEIGHT NAVIGATION BAR -->
+<!-- ======================================================= -->
+<!-- PRIMARY NAVIGATION                                      -->
+<!-- ======================================================= -->
+<header id="site-header" class="sticky top-[29px] z-40 bg-black/95 backdrop-blur-xl border-b border-white/10">
+  <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-[72px] lg:h-[82px] flex items-center justify-between gap-6">
+
+      <!-- BRAND -->
+      <a href="/" class="flex items-center gap-3 shrink-0" aria-label="3rd World Entertainment Home">
+        <span class="font-display text-[25px] sm:text-[28px] lg:text-[32px] leading-none tracking-[0.10em] text-white whitespace-nowrap">3RD WORLD</span>
+        <span class="w-2 h-2 rounded-full bg-red3rd shrink-0"></span>
+      </a>
+
+      <!-- REGULAR DESKTOP NAV -->
+      <nav class="hidden lg:flex items-center gap-8 xl:gap-12 ml-auto font-mono text-[13px] uppercase tracking-[0.12em]" aria-label="Primary navigation">
+        <a href="/" class="text-neutral-300 hover:text-white transition-colors">Home</a>
+        <a href="#ikigai-line" class="text-neutral-300 hover:text-white transition-colors">Shop</a>
+        <a href="#audio-section" class="text-neutral-300 hover:text-white transition-colors">Born Radio</a>
+        <a href="/policies/" class="text-neutral-300 hover:text-white transition-colors">Policies</a>
+        <a href="/shipping/" class="text-neutral-300 hover:text-white transition-colors">Shipping</a>
+      </nav>
+
+      <!-- CART + MOBILE MENU -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <button aria-label="Open Cart" data-cart-toggle onclick="toggleCartDrawer(event)" type="button"
+                class="relative h-11 sm:h-12 px-3 sm:px-4 rounded-lg border border-white/15 bg-white/[0.04] text-white flex items-center gap-2 hover:border-white/35 hover:bg-white/[0.08] transition-all">
+          <span class="material-symbols-outlined text-[21px]">shopping_bag</span>
+          <span class="hidden sm:inline font-mono text-[11px] uppercase tracking-[0.12em]">Cart</span>
+          <span id="cart-counter" class="min-w-[19px] h-[19px] px-1 rounded-full bg-red3rd text-white text-[9px] font-bold flex items-center justify-center">0</span>
+        </button>
+
+        <button id="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu-panel"
+                onclick="toggleMobileMenu(event)" type="button"
+                class="lg:hidden w-11 h-11 sm:w-12 sm:h-12 rounded-lg border border-white/15 bg-white/[0.04] text-white flex items-center justify-center hover:border-white/35 hover:bg-white/[0.08] transition-all">
+          <span id="mobile-menu-icon" class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL-WIDTH MOBILE/TABLET MENU -->
+  <div id="mobile-menu-panel" class="lg:hidden hidden border-t border-white/10 bg-[#090909] shadow-2xl">
+    <nav class="px-4 sm:px-6 py-3 font-mono text-[14px] uppercase tracking-[0.12em]" aria-label="Mobile navigation">
+      <a href="/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Home <span aria-hidden="true">→</span></a>
+      <a href="#ikigai-line" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Shop <span aria-hidden="true">→</span></a>
+      <a href="#audio-section" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Born Radio <span aria-hidden="true">→</span></a>
+      <a href="/policies/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Policies <span aria-hidden="true">→</span></a>
+      <a href="/shipping/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 text-white">Shipping <span aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO 3-VERTICAL VIDEOS TRIPTYCH SECTION -->
+<section class="relative w-full border-b border-white/10 bg-carbon overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red3rd/20 border border-red3rd/40 font-mono text-[10px] tracking-widest uppercase text-red-300 mb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd animate-ping"></span>
+          OFFICIAL ATELIER &amp; MOTION ARCHIVE // <br>
+          O M A R M A L I K 
+        </div>
+<h1 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white">
+          ENTER THE <span class="text-red3rd">3RD WORLD</span>
+</h1>
+</div>
+<div class="flex flex-col md:items-end gap-2">
+<p class="font-mono text-xs text-neutral-400 max-w-md tracking-wide leading-relaxed md:text-right">
+          Unisex oversized drop-shoulder silhouettes, cold-pigment distressed finishes, and handcrafted one-of-one torched pieces documented in live motion.
+        </p>
+<div class="flex items-center gap-2 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+<span class="w-1.5 h-1.5 rounded-full bg-red3rd animate-pulse"></span>
+<span class="">SYNCED 3-FEED TRIPTYCH BROADCAST</span>
+</div>
+</div>
+</div>
+
+
+<!-- ======================================================= -->
+<!-- B O R N — SCREENING EXPERIENCE                          -->
+<!-- Shopify-ready ticket product section                    -->
+<!-- ======================================================= -->
+
+<section
+  id="born-screening"
+  class="relative py-20 px-6 lg:px-12 border-t border-white/10 bg-black overflow-hidden"
+>
+
+  <!-- Background treatment -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-30"
+    style="
+      background:
+        radial-gradient(circle at 20% 20%, rgba(213,30,30,.18), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,.04), transparent 35%);
+    "
+  ></div>
+
+  <div class="relative max-w-7xl mx-auto">
+
+    <!-- Section heading -->
+    <div
+      class="flex flex-col md:flex-row md:items-end justify-between
+             gap-6 pb-8 mb-10 border-b border-white/10"
+    >
+
+      <div>
+        <div
+          class="flex items-center gap-2
+                 font-mono text-[10px] sm:text-xs
+                 uppercase tracking-[0.18em]
+                 text-red-300 mb-3"
+        >
+          <span class="w-2 h-2 rounded-full bg-red3rd animate-pulse"></span>
+          <span>3RD WORLD ENT // FILM PREMIERE</span>
+        </div>
+
+        <h2
+          class="font-display
+                 text-5xl sm:text-6xl lg:text-7xl
+                 uppercase tracking-tight text-white"
+        >
+          B O R N
+        </h2>
+
+        <p
+          class="font-mono
+                 text-[10px] sm:text-xs
+                 uppercase tracking-[0.2em]
+                 text-neutral-500 mt-2"
+        >
+          A VISUAL MIXTAPE BY O M A R M A L I K
+        </p>
+      </div>
+
+      <div
+        class="font-mono text-[10px]
+               uppercase tracking-widest
+               text-neutral-500 md:text-right"
+      >
+        <div>PRESENTED BY</div>
+        <div class="text-white font-bold mt-1">3RD WORLD ENT.</div>
+      </div>
+
+    </div>
+
+
+    <!-- Main content -->
+    <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16">
+
+      <!-- Artwork -->
+      <div>
+        <div
+          class="relative overflow-hidden
+                 rounded-2xl border border-white/15
+                 bg-surface-card shadow-2xl"
+        >
+
+          <img
+            src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/BORN.PNG"
+            alt="B O R N — A visual mixtape by O M A R M A L I K"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          >
+
+          <div
+            class="absolute inset-0
+                   bg-gradient-to-t
+                   from-black/60 via-transparent to-transparent
+                   pointer-events-none"
+          ></div>
+
+          <div
+            class="absolute top-4 left-4
+                   bg-red3rd text-white
+                   font-mono text-[9px] sm:text-[10px]
+                   font-bold uppercase tracking-widest
+                   px-3 py-1.5 rounded"
+          >
+            DEBUT SCREENING
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Information / tickets -->
+      <div class="flex flex-col justify-center">
+
+        <span
+          class="font-mono text-signal
+                 text-[10px] uppercase
+                 tracking-[0.2em] font-bold mb-3"
+        >
+          EXPERIENCE THE FILM
+        </span>
+
+        <h3
+          class="font-display
+                 text-3xl sm:text-4xl
+                 uppercase text-white
+                 tracking-tight mb-5"
+        >
+          DOCTOR. RAPPER. HUMAN.
+        </h3>
+
+        <p
+          class="text-neutral-300
+                 text-base sm:text-lg
+                 leading-relaxed mb-8"
+        >
+          Experience <strong class="text-white">B O R N</strong>,
+          the debut visual mixtape from
+          <strong class="text-white">O M A R M A L I K</strong>,
+          presented by 3rd World ENT.
+          Blending five interconnected music videos with documentary
+          footage from his self-funded tour, the film captures ambition,
+          sacrifice, brotherhood, and his journey into music and medicine.
+        </p>
+
+
+        <!-- Ticket options -->
+        <div class="space-y-4">
+
+          <!-- IN PERSON -->
+          <div
+            class="group
+                   border border-white/15 hover:border-red3rd/70
+                   bg-surface-card
+                   rounded-2xl p-5 sm:p-6
+                   transition-all duration-300"
+          >
+
+            <div
+              class="flex flex-col sm:flex-row
+                     sm:items-center justify-between
+                     gap-5"
+            >
+
+              <div>
+
+                <div
+                  class="flex items-center gap-2
+                         font-mono text-[10px]
+                         uppercase tracking-widest
+                         text-red-300 mb-2"
+                >
+                  <span class="w-2 h-2 rounded-full bg-red3rd"></span>
+                  ATLANTA // LIVE SCREENING
+                </div>
+
+                <h4
+                  class="font-display
+                         text-2xl sm:text-3xl
+                         uppercase text-white"
+                >
+                  IN PERSON
+                </h4>
+
+                <p
+                  class="font-mono
+                         text-xs text-neutral-400
+                         leading-relaxed mt-2"
+                >
+                  Admission to the B O R N screening event in Atlanta.
+                </p>
+
+              </div>
+
+
+              <div
+                class="flex sm:flex-col
+                       items-center sm:items-end
+                       justify-between gap-3
+                       shrink-0"
+              >
+
+                <div class="sm:text-right">
+                  <span
+                    class="font-mono
+                           text-2xl sm:text-3xl
+                           font-bold text-white"
+                  >
+                    $19.99
+                  </span>
+
+                  <span
+                    class="font-mono
+                           text-[9px]
+                           text-neutral-500
+                           block"
+                  >
+                    USD
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!--
+              SHOPIFY:
+              Replace YOUR_IN_PERSON_VARIANT_ID
+              with the numeric Shopify variant ID.
+            -->
+
+            <button
+              type="button"
+              data-born-ticket="in-person"
+              data-shopify-variant-id="YOUR_IN_PERSON_VARIANT_ID"
+              onclick="addBornTicketToCart('in-person', event)"
+              class="
+                mt-5 w-full
+                py-3.5 px-5
+                rounded-xl
+                bg-white hover:bg-red3rd
+                text-black hover:text-white
+                font-mono text-xs font-bold
+                uppercase tracking-widest
+                flex items-center justify-center gap-2
+                transition-all
+                cursor-pointer
+              "
+            >
+              <span class="material-symbols-outlined text-lg">
+                confirmation_number
+              </span>
+
+              <span>
+                GET IN-PERSON TICKET — $19.99
+              </span>
+
+              <span>→</span>
+            </button>
+
+          </div>
+
+
+
+          <!-- STREAMING -->
+          <div
+            class="group
+                   border border-white/15 hover:border-signal/60
+                   bg-surface-card
+                   rounded-2xl p-5 sm:p-6
+                   transition-all duration-300"
+          >
+
+            <div
+              class="flex flex-col sm:flex-row
+                     sm:items-center justify-between
+                     gap-5"
+            >
+
+              <div>
+
+                <div
+                  class="flex items-center gap-2
+                         font-mono text-[10px]
+                         uppercase tracking-widest
+                         text-signal mb-2"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full
+                           bg-signal animate-pulse"
+                  ></span>
+
+                  WORLDWIDE // DIGITAL ACCESS
+                </div>
+
+                <h4
+                  class="font-display
+                         text-2xl sm:text-3xl
+                         uppercase text-white"
+                >
+                  STREAMING ACCESS
+                </h4>
+
+                <p
+                  class="font-mono
+                         text-xs text-neutral-400
+                         leading-relaxed mt-2"
+                >
+                  Watch the film remotely and experience B O R N
+                  wherever you are.
+                </p>
+
+              </div>
+
+
+              <div
+                class="flex sm:flex-col
+                       items-center sm:items-end
+                       justify-between gap-3
+                       shrink-0"
+              >
+
+                <div class="sm:text-right">
+                  <span
+                    class="font-mono
+                           text-2xl sm:text-3xl
+                           font-bold text-white"
+                  >
+                    $9.00
+                  </span>
+
+                  <span
+                    class="font-mono
+                           text-[9px]
+                           text-neutral-500
+                           block"
+                  >
+                    USD
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!--
+              SHOPIFY:
+              Replace YOUR_STREAMING_VARIANT_ID
+              with the numeric Shopify variant ID.
+            -->
+
+            <button
+              type="button"
+              data-born-ticket="streaming"
+              data-shopify-variant-id="YOUR_STREAMING_VARIANT_ID"
+              onclick="addBornTicketToCart('streaming', event)"
+              class="
+                mt-5 w-full
+                py-3.5 px-5
+                rounded-xl
+                border border-white/20
+                bg-white/[0.05]
+                hover:bg-signal
+                hover:text-black
+                hover:border-signal
+                text-white
+                font-mono text-xs font-bold
+                uppercase tracking-widest
+                flex items-center justify-center gap-2
+                transition-all
+                cursor-pointer
+              "
+            >
+              <span class="material-symbols-outlined text-lg">
+                play_circle
+              </span>
+
+              <span>
+                GET STREAMING ACCESS — $9.00
+              </span>
+
+              <span>→</span>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Small print -->
+        <div
+          class="mt-6 pt-5
+                 border-t border-white/10
+                 flex items-start gap-3
+                 font-mono text-[10px]
+                 leading-relaxed text-neutral-500"
+        >
+          <span
+            class="material-symbols-outlined
+                   text-base text-neutral-400"
+          >
+            lock
+          </span>
+
+          <p>
+            Secure checkout powered by Shopify.
+            Ticket and access information will be associated with
+            the email address used at checkout.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- AUDIO VISUAL RADIO SECTION -->
+<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="audio-section">
+<div class="bg-[#141414] rounded-2xl border border-white/15 p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 font-mono">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl bg-surface-card border border-white/10 flex items-center justify-center text-red3rd">
+<span class="material-symbols-outlined text-3xl">graphic_eq</span>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[10px] text-neutral-400 uppercase tracking-wider mb-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-signal animate-pulse"></span>
+<span class="">108.4 MHZ BROADCAST // O M A R M A L I K </span>
+</div>
+<h4 class="font-display text-2xl text-white uppercase tracking-tight">B O R N (THE VISUAL MIXTAPE)</h4>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-4 text-xs">
+<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">SPOTIFY</a>
+<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">APPLE MUSIC</a>
+<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">YOUTUBE</a>
+</div>
+</div>
+</section>
