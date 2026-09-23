@@ -584,6 +584,44 @@
 </div>
 </div>
 </section>
-    
+<script>
+const SHOPIFY_STORE = "3rdworldent.myshopify.com";
+
+function addBornTicketToCart(type, event) {
+  event?.preventDefault();
+
+  const button = document.querySelector(
+    `[data-born-ticket="${type}"]`
+  );
+
+  if (!button) {
+    console.error("B O R N ticket button not found:", type);
+    return;
+  }
+
+  const variantId = button.dataset.shopifyVariantId;
+
+  if (!variantId) {
+    console.error("Missing Shopify variant ID:", type);
+    alert("This ticket is currently unavailable.");
+    return;
+  }
+
+  // Prevent double-clicks
+  const originalHTML = button.innerHTML;
+  button.disabled = true;
+  button.style.opacity = "0.65";
+  button.innerHTML = `
+    <span class="material-symbols-outlined text-lg">
+      progress_activity
+    </span>
+    <span>LOADING CHECKOUT...</span>
+  `;
+
+  // Send customer to Shopify with the Evey ticket variant
+  window.location.href =
+    `https://${SHOPIFY_STORE}/cart/${variantId}:1`;
+}
+</script>
 </body>
 </html>
