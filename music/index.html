@@ -83,10 +83,10 @@
       <!-- REGULAR DESKTOP NAV -->
       <nav class="hidden lg:flex items-center gap-8 xl:gap-12 ml-auto font-mono text-[13px] uppercase tracking-[0.12em]" aria-label="Primary navigation">
         <a href="/" class="text-neutral-300 hover:text-white transition-colors">Home</a>
-        <a href="#ikigai-line" class="text-neutral-300 hover:text-white transition-colors">Shop</a>
-        <a href="#audio-section" class="text-neutral-300 hover:text-white transition-colors">Born Radio</a>
-        <a href="/policies/" class="text-neutral-300 hover:text-white transition-colors">Policies</a>
-        <a href="/shipping/" class="text-neutral-300 hover:text-white transition-colors">Shipping</a>
+        <a href="#born-screening" class="text-neutral-300 hover:text-white transition-colors">Tickets</a>
+        <a href="#born-videos" class="text-neutral-300 hover:text-white transition-colors">B O R N</a>
+        <a href="#music-videos" class="text-neutral-300 hover:text-white transition-colors">Music Videos</a>
+        <a href="#music-socials" class="text-neutral-300 hover:text-white transition-colors">Music &amp; Socials</a>
       </nav>
 
       <!-- CART + MOBILE MENU -->
@@ -111,10 +111,10 @@
   <div id="mobile-menu-panel" class="lg:hidden hidden border-t border-white/10 bg-[#090909] shadow-2xl">
     <nav class="px-4 sm:px-6 py-3 font-mono text-[14px] uppercase tracking-[0.12em]" aria-label="Mobile navigation">
       <a href="/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Home <span aria-hidden="true">→</span></a>
-      <a href="#ikigai-line" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Shop <span aria-hidden="true">→</span></a>
-      <a href="#audio-section" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Born Radio <span aria-hidden="true">→</span></a>
-      <a href="/policies/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Policies <span aria-hidden="true">→</span></a>
-      <a href="/shipping/" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 text-white">Shipping <span aria-hidden="true">→</span></a>
+      <a href="#born-screening" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Tickets <span aria-hidden="true">→</span></a>
+      <a href="#born-videos" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">B O R N <span aria-hidden="true">→</span></a>
+      <a href="#music-videos" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 border-b border-white/10 text-white">Music Videos <span aria-hidden="true">→</span></a>
+      <a href="#music-socials" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 text-white">Music &amp; Socials <span aria-hidden="true">→</span></a>
     </nav>
   </div>
 </header>
@@ -144,42 +144,6 @@
 </div>
 </div>
 
-
-
-<!-- HERO VIDEO TRIPTYCH -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-  <video autoplay muted loop playsinline preload="auto"
-         class="w-full aspect-[9/16] object-cover rounded-2xl bg-black">
-    <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/copy_B03C3EBA-EA9B-4935-B047-8E8A9B1567BD.mov" type="video/quicktime">
-  </video>
-
-  <video autoplay muted loop playsinline preload="auto"
-         class="w-full aspect-[9/16] object-cover rounded-2xl bg-black">
-    <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/994defd443e84b7e8d5e4484728cddda.mov" type="video/quicktime">
-  </video>
-
-  <video autoplay muted loop playsinline preload="auto"
-         class="w-full aspect-[9/16] object-cover rounded-2xl bg-black">
-    <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/UDCIDE.mov" type="video/quicktime">
-  </video>
-</div>
-
-<script>
-document.querySelectorAll('video[autoplay]').forEach(function(video) {
-  video.muted = true;
-  video.defaultMuted = true;
-  video.playsInline = true;
-
-  function playVideo() {
-    var p = video.play();
-    if (p) p.catch(function(){});
-  }
-
-  if (video.readyState >= 2) playVideo();
-  video.addEventListener('canplay', playVideo);
-  window.addEventListener('load', playVideo);
-});
-</script>
 
 <!-- ======================================================= -->
 <!-- B O R N — SCREENING EXPERIENCE                          -->
@@ -598,30 +562,143 @@ document.querySelectorAll('video[autoplay]').forEach(function(video) {
   </div>
 
 </section>
-<!-- AUDIO VISUAL RADIO SECTION -->
-<section class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10" id="audio-section">
-<div class="bg-[#141414] rounded-2xl border border-white/15 p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 font-mono">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-xl bg-surface-card border border-white/10 flex items-center justify-center text-red3rd">
-<span class="material-symbols-outlined text-3xl">graphic_eq</span>
-</div>
-<div>
-<div class="flex items-center gap-2 text-[10px] text-neutral-400 uppercase tracking-wider mb-0.5">
-<span class="w-1.5 h-1.5 rounded-full bg-signal animate-pulse"></span>
-<span class="">108.4 MHZ BROADCAST // O M A R M A L I K </span>
-</div>
-<h4 class="font-display text-2xl text-white uppercase tracking-tight">B O R N (THE VISUAL MIXTAPE)</h4>
-</div>
-</div>
-<div class="flex flex-wrap items-center gap-4 text-xs">
-<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">SPOTIFY</a>
-<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">APPLE MUSIC</a>
-<a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="#">YOUTUBE</a>
-</div>
-</div>
+<!-- ======================================================= -->
+<!-- B O R N — VIDEO CONTENT                                 -->
+<!-- ======================================================= -->
+<section id="born-videos" class="relative py-20 px-6 lg:px-12 bg-carbon border-t border-white/10 overflow-hidden scroll-mt-28">
+  <div class="relative max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 mb-10 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-2 font-mono text-[10px] sm:text-xs uppercase tracking-[0.18em] text-red-300 mb-3">
+          <span class="w-2 h-2 rounded-full bg-red3rd animate-pulse"></span>
+          3RD WORLD ENT // VISUAL MIXTAPE
+        </div>
+        <h2 class="font-display text-5xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white">B O R N</h2>
+        <p class="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-500 mt-3">O M A R M A L I K // VIDEO ARCHIVE</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <article class="group bg-surface-card border border-white/15 rounded-2xl overflow-hidden hover:border-red3rd/60 transition-all duration-300">
+        <div class="aspect-video bg-black">
+          <video class="w-full h-full object-cover" controls playsinline preload="auto" autoplay muted loop>
+            <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/copy_B03C3EBA-EA9B-4935-B047-8E8A9B1567BD.mov" type="video/quicktime">
+            Your browser does not support video playback.
+          </video>
+        </div>
+        <div class="p-5 border-t border-white/10">
+          <span class="font-mono text-[9px] text-red-300 uppercase tracking-[0.2em]">001 // B O R N</span>
+          <h3 class="font-display text-2xl sm:text-3xl uppercase text-white mt-2">B O R N</h3>
+          <p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 mt-2">O M A R M A L I K</p>
+        </div>
+      </article>
+
+      <article class="group bg-surface-card border border-white/15 rounded-2xl overflow-hidden hover:border-red3rd/60 transition-all duration-300">
+        <div class="aspect-video bg-black">
+          <video class="w-full h-full object-cover" controls playsinline preload="auto" autoplay muted loop>
+            <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/994defd443e84b7e8d5e4484728cddda.mov" type="video/quicktime">
+            Your browser does not support video playback.
+          </video>
+        </div>
+        <div class="p-5 border-t border-white/10">
+          <span class="font-mono text-[9px] text-red-300 uppercase tracking-[0.2em]">002 // B O R N</span>
+          <h3 class="font-display text-2xl sm:text-3xl uppercase text-white mt-2">B O R N</h3>
+          <p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 mt-2">O M A R M A L I K</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- MUSIC VIDEOS                                            -->
+<!-- ======================================================= -->
+<section id="music-videos" class="relative py-20 px-6 lg:px-12 bg-black border-t border-white/10 overflow-hidden scroll-mt-28">
+  <div class="relative max-w-7xl mx-auto">
+    <div class="pb-8 mb-10 border-b border-white/10">
+      <div class="flex items-center gap-2 font-mono text-[10px] sm:text-xs uppercase tracking-[0.18em] text-red-300 mb-3">
+        <span class="w-2 h-2 rounded-full bg-red3rd"></span>
+        3RD WORLD // OFFICIAL VISUALS
+      </div>
+      <h2 class="font-display text-5xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white">MUSIC VIDEOS</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <article class="group bg-surface-card border border-white/15 rounded-2xl overflow-hidden hover:border-red3rd/60 transition-all duration-300">
+        <div class="aspect-video bg-black"><video class="w-full h-full object-cover" controls playsinline preload="auto" autoplay muted loop><source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/UDCIDE.mov" type="video/quicktime">Your browser does not support video playback.</video></div>
+        <div class="p-5 border-t border-white/10"><span class="font-mono text-[9px] text-red-300 uppercase tracking-[0.2em]">001 // 3RDWORLD</span><h3 class="font-display text-2xl sm:text-3xl uppercase text-white mt-2">UDCIDE</h3><p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 mt-2">3rdWorld</p></div>
+      </article>
+      <article class="group bg-surface-card border border-white/15 rounded-2xl overflow-hidden hover:border-red3rd/60 transition-all duration-300">
+        <div class="aspect-video bg-black"><video class="w-full h-full object-cover" controls playsinline preload="auto" autoplay muted loop><source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/No%20Mileage.mov" type="video/quicktime">Your browser does not support video playback.</video></div>
+        <div class="p-5 border-t border-white/10"><span class="font-mono text-[9px] text-red-300 uppercase tracking-[0.2em]">002 // 3RDWORLD</span><h3 class="font-display text-2xl sm:text-3xl uppercase text-white mt-2">NO MILEAGE</h3><p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 mt-2">3rdWorld</p></div>
+      </article>
+      <article class="group bg-surface-card border border-white/15 rounded-2xl overflow-hidden hover:border-red3rd/60 transition-all duration-300">
+        <div class="aspect-video bg-black"><video class="w-full h-full object-cover" controls playsinline preload="auto" autoplay muted loop><source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/LOL%20NEXT.mov" type="video/quicktime">Your browser does not support video playback.</video></div>
+        <div class="p-5 border-t border-white/10"><span class="font-mono text-[9px] text-red-300 uppercase tracking-[0.2em]">003 // 3RDWORLD</span><h3 class="font-display text-2xl sm:text-3xl uppercase text-white mt-2">LOL NEXT</h3><p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 mt-2">3rdWorld</p></div>
+      </article>
+      <article class="group bg-surface-card border border-white/15 rounded-2xl overflow-hidden hover:border-red3rd/60 transition-all duration-300">
+        <div class="aspect-video bg-black"><video class="w-full h-full object-cover" controls playsinline preload="auto" autoplay muted loop><source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/PUSHUPS.mov" type="video/quicktime">Your browser does not support video playback.</video></div>
+        <div class="p-5 border-t border-white/10"><span class="font-mono text-[9px] text-red-300 uppercase tracking-[0.2em]">004 // 3RDWORLD</span><h3 class="font-display text-2xl sm:text-3xl uppercase text-white mt-2">PUSHUPS</h3><p class="font-mono text-[10px] uppercase tracking-widest text-neutral-500 mt-2">3rdWorld</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- MUSIC & SOCIALS                                         -->
+<!-- ======================================================= -->
+<section id="music-socials" class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-b border-white/10 scroll-mt-28">
+  <div class="bg-[#141414] rounded-2xl border border-white/15 p-6 lg:p-8 font-mono">
+    <div class="mb-8 pb-6 border-b border-white/10">
+      <div class="text-[10px] text-neutral-400 uppercase tracking-wider mb-2">O M A R M A L I K // 3rdWorld</div>
+      <h2 class="font-display text-3xl sm:text-4xl text-white uppercase tracking-tight">Music and Socials</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="font-display text-2xl text-white uppercase mb-4">O M A R M A L I K</h3>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="https://music.apple.com/us/artist/o-m-a-r-m-a-l-i-k/1788949200" target="_blank" rel="noopener noreferrer">Apple Music</a>
+          <a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="https://open.spotify.com/artist/66zyyVPc12fffs3IYMEfng?si=KUeQvvDFSguE7qF-XWdlhQ" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="https://youtube.com/@omarmalik33?si=Okuj8QgeWJMjMcIc" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="https://www.instagram.com/dr.omarmalik?stkn=aXVtd3AxdWc0cWlp&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-display text-2xl text-white uppercase mb-4">3rdWorld</h3>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="https://music.apple.com/us/artist/3rdworld/1894258406" target="_blank" rel="noopener noreferrer">Apple Music</a>
+          <a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="https://open.spotify.com/artist/3lDvguZJk0MtILVkeJolrq?si=Cx8hF537T7GRqz17qOKd5A" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a class="px-4 py-2 bg-white/10 hover:bg-white hover:text-black rounded-lg transition-colors uppercase" href="https://on.soundcloud.com/3oSVzZU4xXQf5hjDBN" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <script>
 const SHOPIFY_STORE = "3rdworldent.myshopify.com";
+
+function toggleMobileMenu(event) {
+  event?.preventDefault();
+  const panel = document.getElementById("mobile-menu-panel");
+  const button = document.getElementById("mobile-menu-toggle");
+  const icon = document.getElementById("mobile-menu-icon");
+  if (!panel || !button) return;
+  const isOpen = !panel.classList.contains("hidden");
+  panel.classList.toggle("hidden", isOpen);
+  button.setAttribute("aria-expanded", String(!isOpen));
+  if (icon) icon.textContent = isOpen ? "menu" : "close";
+}
+
+function closeMobileMenu() {
+  const panel = document.getElementById("mobile-menu-panel");
+  const button = document.getElementById("mobile-menu-toggle");
+  const icon = document.getElementById("mobile-menu-icon");
+  if (panel) panel.classList.add("hidden");
+  if (button) button.setAttribute("aria-expanded", "false");
+  if (icon) icon.textContent = "menu";
+}
 
 function addBornTicketToCart(type, event) {
   event?.preventDefault();
@@ -659,5 +736,45 @@ function addBornTicketToCart(type, event) {
     `https://${SHOPIFY_STORE}/cart/${variantId}:1`;
 }
 </script>
+
+<script>
+// Generate lightweight thumbnails directly from each video file.
+// Once metadata is available, seek to ~1 second so the player shows
+// a useful still frame before the visitor presses play.
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#born-videos video, #music-videos video').forEach((video) => {
+    video.muted = true;
+
+    const setThumbnailFrame = () => {
+      if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+      const thumbnailTime = Math.min(1, Math.max(0, video.duration - 0.1));
+      try {
+        video.currentTime = thumbnailTime;
+      } catch (error) {
+        console.warn('Could not set video thumbnail frame:', error);
+      }
+    };
+
+    if (video.readyState >= 1) {
+      setThumbnailFrame();
+    } else {
+      video.addEventListener('loadedmetadata', setThumbnailFrame, { once: true });
+    }
+
+    // Keep autoplay videos muted; browsers block autoplay with sound.
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const startAutoplay = () => {
+      const playPromise = video.play();
+      if (playPromise) playPromise.catch(() => {});
+    };
+
+    video.addEventListener('canplay', startAutoplay, { once: true });
+    startAutoplay();
+  });
+});
+</script>
+
 </body>
 </html>
