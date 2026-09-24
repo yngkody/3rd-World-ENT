@@ -146,75 +146,39 @@
 
 
 
-<!-- AUTOPLAY VIDEO TRIPTYCH -->
+<!-- HERO VIDEO TRIPTYCH -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-  <div class="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 bg-black">
-    <video class="autoplay-video w-full h-full object-cover"
-           autoplay muted loop playsinline webkit-playsinline preload="auto"
-           disablepictureinpicture>
-      <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/copy_B03C3EBA-EA9B-4935-B047-8E8A9B1567BD.mov" type="video/quicktime">
-    </video>
-  </div>
+  <video autoplay muted loop playsinline preload="auto"
+         class="w-full aspect-[9/16] object-cover rounded-2xl bg-black">
+    <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/copy_B03C3EBA-EA9B-4935-B047-8E8A9B1567BD.mov" type="video/quicktime">
+  </video>
 
-  <div class="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 bg-black">
-    <video class="autoplay-video w-full h-full object-cover"
-           autoplay muted loop playsinline webkit-playsinline preload="auto"
-           disablepictureinpicture>
-      <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/994defd443e84b7e8d5e4484728cddda.mov" type="video/quicktime">
-    </video>
-  </div>
+  <video autoplay muted loop playsinline preload="auto"
+         class="w-full aspect-[9/16] object-cover rounded-2xl bg-black">
+    <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/994defd443e84b7e8d5e4484728cddda.mov" type="video/quicktime">
+  </video>
 
-  <div class="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 bg-black">
-    <video class="autoplay-video w-full h-full object-cover"
-           autoplay muted loop playsinline webkit-playsinline preload="auto"
-           disablepictureinpicture>
-      <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/UDCIDE.mov" type="video/quicktime">
-    </video>
-  </div>
+  <video autoplay muted loop playsinline preload="auto"
+         class="w-full aspect-[9/16] object-cover rounded-2xl bg-black">
+    <source src="https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/UDCIDE.mov" type="video/quicktime">
+  </video>
 </div>
-</div>
-</section>
 
 <script>
-(function () {
-  const videos = document.querySelectorAll('.autoplay-video');
+document.querySelectorAll('video[autoplay]').forEach(function(video) {
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
 
-  function forcePlay(video) {
-    video.muted = true;
-    video.defaultMuted = true;
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
-    const attempt = video.play();
-    if (attempt && typeof attempt.catch === 'function') {
-      attempt.catch(() => {});
-    }
+  function playVideo() {
+    var p = video.play();
+    if (p) p.catch(function(){});
   }
 
-  videos.forEach(video => {
-    video.muted = true;
-    video.defaultMuted = true;
-
-    video.addEventListener('loadedmetadata', () => forcePlay(video));
-    video.addEventListener('canplay', () => forcePlay(video));
-    video.addEventListener('pause', () => {
-      if (!document.hidden) forcePlay(video);
-    });
-
-    forcePlay(video);
-  });
-
-  window.addEventListener('load', () => videos.forEach(forcePlay));
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) videos.forEach(forcePlay);
-  });
-
-  ['touchstart', 'click', 'scroll'].forEach(evt => {
-    document.addEventListener(evt, () => videos.forEach(forcePlay), {
-      once: true,
-      passive: true
-    });
-  });
-})();
+  if (video.readyState >= 2) playVideo();
+  video.addEventListener('canplay', playVideo);
+  window.addEventListener('load', playVideo);
+});
 </script>
 
 <!-- ======================================================= -->
