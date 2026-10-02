@@ -1,1 +1,94 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>B O R N — Virtual Screening | 3RD WORLD ENT</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0c0c0c;color:#f3efe6;font-family:'Hanken Grotesk',sans-serif}
+header{padding:24px clamp(20px,6vw,72px);border-bottom:1px solid #292929;display:flex;justify-content:space-between;align-items:center;gap:12px}
+header a{color:white;text-decoration:none;font:25px Anton,sans-serif;letter-spacing:.08em}
+header .back{font:11px 'IBM Plex Mono',monospace;color:#b8f500}
+main{max-width:980px;margin:auto;padding:65px 20px 95px;text-align:center}
+.eyebrow{font:11px 'IBM Plex Mono',monospace;color:#b8f500;letter-spacing:.16em}
+h1{font:clamp(65px,13vw,135px)/1 Anton,sans-serif;margin:15px 0}
+.subtitle{font:12px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#aaa}
+.poster{max-width:420px;width:100%;margin:28px auto 32px;display:block;border-radius:10px}
+.panel{background:#181818;border:1px solid #333;border-radius:15px;padding:clamp(20px,5vw,42px);max-width:700px;margin:0 auto}
+h2{font:clamp(24px,5vw,35px) Anton,sans-serif;margin:0 0 18px}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:25px 0}
+.unit{background:#242424;border:1px solid #383838;border-radius:8px;padding:16px 5px}
+.num{font:clamp(24px,7vw,45px) Anton,sans-serif;display:block}
+.unit small{font:9px 'IBM Plex Mono',monospace;color:#aaa;letter-spacing:.08em}
+p{color:#aaa;line-height:1.6}
+.button{display:inline-block;background:#b8f500;color:#111;text-decoration:none;border:0;border-radius:8px;padding:17px 25px;font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;margin:12px 0}
+[hidden]{display:none!important}.error{color:#ff8585}
+</style>
+</head>
+<body>
+<header><a href="/">3RD WORLD<span style="color:#d51e1e">.</span></a><a href="/#born-screening" class="back">← TICKETS</a></header>
+<main>
+<div class="eyebrow">3RD WORLD ENT // VIRTUAL PREMIERE</div>
+<h1>B O R N</h1>
+<div class="subtitle">A VISUAL MIXTAPE BY O M A R M A L I K</div>
+<img class="poster" src="/assets/BORN.PNG" alt="B O R N movie artwork">
+<section class="panel" aria-live="polite">
+<div id="waiting">
+<h2>THE SCREENING BEGINS IN</h2>
+<div class="countdown" role="timer">
+<div class="unit"><span class="num" id="days">00</span><small>DAYS</small></div>
+<div class="unit"><span class="num" id="hours">00</span><small>HRS</small></div>
+<div class="unit"><span class="num" id="minutes">00</span><small>MIN</small></div>
+<div class="unit"><span class="num" id="seconds">00</span><small>SEC</small></div>
+</div>
+<p>October 2, 2026 · 8:30 PM Eastern Time</p>
+<p>Your viewing access will become available automatically at showtime. Keep this page open.</p>
+</div>
+<div id="ready" hidden>
+<h2>THE SCREENING IS OPEN</h2>
+<p>Have your B O R N Streaming Access ticket ready. Follow the button below to enter the Evey virtual event.</p>
+<a class="button" id="enter" href="#" rel="noopener noreferrer">ENTER THE SCREENING →</a>
+</div>
+<p class="error" id="error" hidden></p>
+</section>
+</main>
+<script>
+const unlockAt = Date.parse('2026-10-02T20:30:00-04:00');
+const $ = id => document.getElementById(id);
+let checking = false;
+let serverOffset = 0;
+async function checkAccess(){
+ if(checking) return;
+ checking=true;
+ try {
+  const response=await fetch('/api/stream-access.js',{cache:'no-store'});
+  const data=await response.json();
+  if(data.serverNow) serverOffset=Date.parse(data.serverNow)-Date.now();
+  if(data.unlocked && data.url){
+   $('enter').href=data.url;
+   $('waiting').hidden=true;
+   $('ready').hidden=false;
+   $('error').hidden=true;
+   clearInterval(interval);
+  } else if(data.error){
+   $('error').textContent=data.error;
+   $('error').hidden=false;
+  }
+ }catch(e){
+  $('error').textContent='Unable to check access. Please refresh shortly.';
+  $('error').hidden=false;
+ }finally{checking=false;}
+}
+function tick(){
+ const diff=Math.max(0,unlockAt-(Date.now()+serverOffset));
+ const units=[Math.floor(diff/86400000),Math.floor(diff/3600000)%24,Math.floor(diff/60000)%60,Math.floor(diff/1000)%60];
+ ['days','hours','minutes','seconds'].forEach((id,i)=>$(id).textContent=String(units[i]).padStart(2,'0'));
+ if(diff===0) checkAccess();
+}
+checkAccess().then(tick);
+const interval=setInterval(tick,1000);
+</script>
+</body>
+</html>
