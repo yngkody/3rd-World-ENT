@@ -1,1 +1,1 @@
-
+{"headers":[{"source":"/api/(.*)","headers":[{"key":"Cache-Control","value":"private, no-store, max-age=0"}]}]}
