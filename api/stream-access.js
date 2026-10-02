@@ -1,6 +1,6 @@
 // B O R N — release the Evey viewing URL at 8:30 PM EDT, October 2, 2026.
 // IMPORTANT: This is a time gate, not ticket authentication. Evey must restrict ticket access.
-const UNLOCK_AT = Date.parse('2026-10-02T20:30:00-04:00');
+const UNLOCK_AT = Date.parse("2026-10-02T20:00:00Z");
 
 module.exports = function handler(req, res) {
   res.setHeader('Cache-Control', 'private, no-store, max-age=0');
