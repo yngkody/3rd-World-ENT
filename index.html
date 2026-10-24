@@ -134,6 +134,90 @@
         display: block !important;
       }
     }
+
+    /* Floating JOIN 3RD WORLD banner */
+    .join-world-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,.22);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(8,8,8,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: auto;
+    }
+    .join-world-banner-top {
+      top: 0;
+      bottom: auto;
+      border-top: 0;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+    }
+    .join-world-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      gap: 2rem;
+      padding: 11px 0;
+      animation: join-world-scroll 28s linear infinite;
+      white-space: nowrap;
+    }
+    .join-world-track span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #F1EDE4;
+    }
+    .join-world-track .join-world-highlight { color: #B8F500; }
+    @keyframes join-world-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .entrance-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    .join-world-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border: 1px solid #fff;
+      border-radius: 12px;
+      background: #fff;
+      color: #080808;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all .3s ease;
+      cursor: pointer;
+    }
+    .join-world-button:hover {
+      background: #e8e8e8;
+      transform: translateY(-2px);
+    }
+    @media (min-width: 640px) {
+      .entrance-cta-row {
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+      }
+      .entrance-cta-row > * { width: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .join-world-track { animation: none; }
+    }
+
   </style>
 </head>
 <body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased h-screen w-screen overflow-hidden">
@@ -174,41 +258,6 @@
 </header>
 <!-- Center Floating Typography & Spatial CTA (Optimized for Mobile Ergonomics & Desktop Balance) -->
 <main class="mt-4 mb-auto max-w-2xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out pt-3 px-2" id="spatial-hero-text" style="transform: translate3d(12.6875px, 0.117188px, 35px) rotateX(-0.0210938deg) rotateY(1.90312deg);">
-<section class="w-full bg-surface-container-lowest relative overflow-hidden px-margin md:px-margin-desktop py-space-xl">
-<!-- Atmospheric Raw Gradients -->
-<div class="absolute -top-32 -left-32 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
-<div class="absolute -bottom-32 -right-32 w-96 h-96 bg-tertiary-container/5 rounded-full blur-3xl pointer-events-none"></div>
-<div class="max-w-7xl mx-auto flex flex-col gap-space-lg relative z-10">
-<!-- Top Meta Coordinates -->
-<div class="flex flex-wrap items-center justify-between gap-space-sm font-meta-mono-sm text-meta-mono-sm text-outline uppercase tracking-wider">
-<div class="flex items-center gap-space-xs">
-<span class="w-1.5 h-1.5 bg-secondary-container animate-pulse"></span>
-<span>PROTOCOL: FREQ-SUB-09</span>
-<span class="text-outline-variant">/ LAT: 40.7128° N, 74.0060° W</span>
-</div>
-<div class="flex items-center gap-space-md">
-<span class="text-primary font-bold">SUBSCRIBER INDEX: 84,209 VAULT MEMBERS</span>
-<span class="bg-surface-container-high px-space-xs py-0.5 text-on-surface-variant">BATCH: ALPHA-2026</span>
-</div>
-</div>
-<!-- Main Headline Block -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-end">
-<div class="lg:col-span-8 flex flex-col">
-<h2 class="font-display-hero text-display-hero uppercase text-primary tracking-tight leading-none selection:bg-secondary-container selection:text-white">
-            JOIN 3RD WORLD
-          </h2>
-<p class="font-headline-md text-headline-md uppercase text-secondary tracking-wide mt-space-xs">
-            GET DISPATCHED. FIRST ACCESS TO VINYL DROPS, SECRET SHOWS, UNRELEASED FREQUENCIES.
-          </p>
-</div>
-<div class="lg:col-span-4 flex flex-col justify-end pb-1 font-body-sm text-body-sm text-on-surface-variant">
-<p>
-            Direct transmission channel between the sound engineers, garment atelier, and the global underground. No algorithmic compression. Pure signal.
-          </p>
-</div>
-</div>
-</section>
-
 <div class="font-mono text-[10px] tracking-[0.25em] text-neutral-400 uppercase mb-2">
         OFFICIAL ATELIER &amp; SOUND ARCHIVE
       </div>
@@ -218,10 +267,13 @@
 <p class="font-mono text-[11px] sm:text-xs text-neutral-300 max-w-sm sm:max-w-md mx-auto leading-relaxed mb-6 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)]">
         Streetwear archives, audio frequencies, and brutalist editions by O M A R M A L I K.
       </p>
-<!-- Primary Entrance CTA Button -->
+<!-- Primary Entrance CTA Buttons -->
+<div class="entrance-cta-row">
 <button class="w-full sm:w-auto px-7 py-3.5 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2 cursor-pointer group transform hover:-translate-y-0.5 active:scale-95" id="dismiss-entrance" onclick="dismissEntrance()">
 <span class="">ENTER ATELIER &amp; STORE →</span>
 </button>
+<a class="join-world-button w-full sm:w-auto" href="/pages/join-3rd-world">JOIN 3RD WORLD →</a>
+</div>
 </main>
 <!-- Entrance Footer: Clean Mobile / Desktop Metadata -->
 <footer class="w-full flex flex-row items-center justify-between text-[10px] sm:text-[11px] font-mono text-neutral-400 gap-2 pointer-events-auto pb-1 sm:pb-0">
@@ -234,6 +286,42 @@
 </footer>
 </div>
 </div>
+<!-- Top Floating JOIN 3RD WORLD Banner -->
+<aside class="join-world-banner join-world-banner-top" aria-label="Join 3rd World ENT benefits">
+  <div class="join-world-track" aria-hidden="true">
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
+  </div>
+</aside>
+
+<!-- Floating JOIN 3RD WORLD Banner -->
+<aside class="join-world-banner" aria-label="Join 3rd World ENT">
+  <div class="join-world-track" aria-hidden="true">
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
+  </div>
+</aside>
+
 <!-- ======================================================= -->
 <!-- SCRIPT CONTROLLER & 3D PARALLAX ENGINE                  -->
 <!-- ======================================================= -->
