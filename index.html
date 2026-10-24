@@ -207,20 +207,7 @@
 <!-- ======================================================= -->
 <!-- SCRIPT CONTROLLER & 3D PARALLAX ENGINE                  -->
 <!-- ======================================================= -->
-<script>
-  // Dynamic marquee keyframes animation simulation if needed by browser
-  if (!document.getElementById('brutalist-marquee-keyframes')) {
-    const styleEl = document.createElement('style');
-    styleEl.id = 'brutalist-marquee-keyframes';
-    styleEl.textContent = `
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-    `;
-    document.head.appendChild(styleEl);
-  }
-</script>
+  
 <script>
   // 3D Spatial Depth / Parallax Engine
   const artworkWrap = document.getElementById('spatial-artwork-wrap');
