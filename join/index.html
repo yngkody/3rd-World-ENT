@@ -1,0 +1,142 @@
+<!-- ======================================================= -->
+<!-- JOIN 3RD WORLD — EMAIL SIGNUP SECTION                  -->
+<!-- ======================================================= -->
+<section class="w-full bg-carbon py-16 px-4 sm:px-6 lg:px-8 border-t border-white/10 relative overflow-hidden" id="join-3rd-world-section">
+  <!-- Subtle background glow accent matching site style -->
+  <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-red3rd/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-xl mx-auto bg-surface-card border border-white/10 rounded-2xl p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-8">
+      <div class="font-mono text-[10px] sm:text-xs tracking-[0.25em] text-red3rd uppercase mb-2 font-semibold">
+        STAY CONNECTED // DIRECT ACCESS
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl uppercase tracking-tight text-bone mb-3">
+        JOIN 3RD WORLD
+      </h2>
+      <p class="font-mono text-xs sm:text-sm text-neutral-400 max-w-md mx-auto leading-relaxed">
+        New music. Live shows. Merch drops. Get release updates and ticket announcements straight to your inbox.
+      </p>
+    </div>
+
+    <!-- Signup Form / Container -->
+    <div id="signup-container">
+      <form id="join-form" onsubmit="handleSignupSubmit(event)" class="space-y-4">
+        
+        <!-- Email Field (Required) -->
+        <div>
+          <label for="subscriber-email" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-300 mb-1.5">
+            Email Address <span class="text-red3rd">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="subscriber-email" 
+            required 
+            placeholder="name@example.com"
+            class="w-full bg-black/60 border border-white/15 focus:border-red3rd text-bone px-4 py-3 rounded-xl font-mono text-xs sm:text-sm outline-none transition-all placeholder:text-neutral-600 focus:ring-1 focus:ring-red3rd"
+          >
+        </div>
+
+        <!-- Optional Fields Row: First Name & City -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="subscriber-name" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">
+              First Name <span class="text-neutral-600">(Optional)</span>
+            </label>
+            <input 
+              type="text" 
+              id="subscriber-name" 
+              placeholder="Omar"
+              class="w-full bg-black/60 border border-white/15 focus:border-red3rd text-bone px-4 py-3 rounded-xl font-mono text-xs sm:text-sm outline-none transition-all placeholder:text-neutral-600 focus:ring-1 focus:ring-red3rd"
+            >
+          </div>
+          <div>
+            <label for="subscriber-city" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">
+              City <span class="text-neutral-600">(Optional)</span>
+            </label>
+            <input 
+              type="text" 
+              id="subscriber-city" 
+              placeholder="Atlanta"
+              class="w-full bg-black/60 border border-white/15 focus:border-red3rd text-bone px-4 py-3 rounded-xl font-mono text-xs sm:text-sm outline-none transition-all placeholder:text-neutral-600 focus:ring-1 focus:ring-red3rd"
+            >
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          id="submit-btn"
+          class="w-full mt-2 py-4 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_25px_rgba(213,30,30,0.4)] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+        >
+          <span>KEEP ME IN THE LOOP</span>
+          <span>→</span>
+        </button>
+
+        <!-- Small Print Legal & Privacy Agreement -->
+        <p class="font-mono text-[10px] text-neutral-500 text-center leading-normal pt-2">
+          By signing up, you agree to receive marketing emails from 3rd World ENT. Unsubscribe anytime. <a href="/privacy" class="underline hover:text-bone transition-colors">Privacy Policy</a>.
+        </p>
+      </form>
+    </div>
+
+    <!-- Success State Container (Hidden by default, revealed via JS) -->
+    <div id="success-container" class="hidden text-center py-8 px-4 animate-fade-in">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red3rd/15 border border-red3rd/40 text-red3rd mb-4">
+        <span class="material-symbols-outlined text-xl">check</span>
+      </div>
+      <h3 class="font-display text-2xl uppercase tracking-tight text-bone mb-2">
+        YOU'RE ON THE LIST.
+      </h3>
+      <p class="font-mono text-xs sm:text-sm text-neutral-300 tracking-wide">
+        What city should we come to next?
+      </p>
+      <button 
+        onclick="resetSignupForm()" 
+        class="mt-6 font-mono text-[11px] uppercase tracking-widest text-neutral-400 hover:text-white transition-colors underline underline-offset-4 cursor-pointer"
+      >
+        [Register another email]
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- ON-PAGE AJAX HANDLER SCRIPT                             -->
+<!-- ======================================================= -->
+<script>
+  function handleSignupSubmit(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('subscriber-email').value;
+    const firstName = document.getElementById('subscriber-name').value;
+    const city = document.getElementById('subscriber-city').value;
+    const btn = document.getElementById('submit-btn');
+
+    // Show loading state on button
+    btn.disabled = true;
+    btn.innerHTML = '<span class="animate-pulse">PROCESSING...</span>';
+
+    // Simulate secure backend submission (Replace with your Shopify Storefront API or Klaviyo AJAX endpoint)
+    setTimeout(() => {
+      // Save state to browser storage so modals/teasers won't repeat annoyingly
+      localStorage.setItem('3rd_world_subscribed', 'true');
+
+      // Swap form UI with the exact required success state message
+      document.getElementById('join-form').classList.add('hidden');
+      document.getElementById('success-container').classList.remove('hidden');
+      
+      // Reset button state just in case
+      btn.disabled = false;
+      btn.innerHTML = '<span>KEEP ME IN THE LOOP</span><span>→</span>';
+    }, 700);
+  }
+
+  function resetSignupForm() {
+    document.getElementById('join-form').reset();
+    document.getElementById('success-container').classList.add('hidden');
+    document.getElementById('join-form').classList.remove('hidden');
+  }
+</script>
