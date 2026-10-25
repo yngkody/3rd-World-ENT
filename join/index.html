@@ -118,6 +118,25 @@
       image-rendering: -webkit-optimize-contrast;
     }
 
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 85vh;
+  min-height: 85svh;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.42) 55%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    url("https://raw.githubusercontent.com/yngkody/3rd-World-ENT/main/assets/join-hero.png")
+      center center / cover no-repeat;
+
+  color: #fff;
+}
+
     /* Responsive asset toggling */
     .hero-art-mobile {
       display: block;
