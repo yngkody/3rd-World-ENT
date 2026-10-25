@@ -1,142 +1,432 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>3RD WORLD ENT — Operating Archive &amp; Store</title>
+<!-- Primary SEO -->
+<meta name="description" content="3rd World ENT — Independent music, artists, merch, and culture.">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="3rd World ENT">
+<meta property="og:description" content="Independent music, artists, merch, and culture.">
+<meta property="og:url" content="https://3rdworldent.com/">
+<meta property="og:image" content="https://3rdworldent.com/assets/SEO-image.png">
+
+<!-- X / Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3rd World ENT">
+<meta name="twitter:description" content="Independent music, artists, merch, and culture.">
+<meta name="twitter:image" content="https://3rdworldent.com/assets/SEO-image.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="3rd World ENT">
+<meta
+  property="og:description"
+  content="Official website of 3rd World ENT. Music, artists, merchandise, releases and more."
+>
+<meta property="og:url" content="https://3rdworldent.com/">
+<meta
+  property="og:image"
+  content="https://3rdworldent.com/assets/YOUR-SEO-IMAGE.jpg"
+>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3rd World ENT">
+<meta
+  name="twitter:description"
+  content="Official website of 3rd World ENT."
+>
+<meta
+  name="twitter:image"
+  content="https://3rdworldent.com/assets/YOUR-SEO-IMAGE.jpg"
+>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "3rd World ENT",
+  "url": "https://3rdworldent.com/",
+  "logo": "https://3rdworldent.com/assets/logo.png",
+  "sameAs": [
+    "https://www.instagram.com/3rdworldent.3/",
+  ]
+}
+</script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            carbon: '#080808',
+            surface: '#111111',
+            'surface-card': '#161616',
+            bone: '#F1EDE4',
+            red3rd: '#D51E1E',
+            concrete: '#888888',
+            signal: '#B8F500',
+          },
+          fontFamily: {
+            display: ['Anton', 'sans-serif'],
+            sans: ['"Hanken Grotesk"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #080808;
+      color: #F1EDE4;
+      font-family: 'Hanken Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 3D Depth Spatial Stage */
+    .spatial-stage {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .spatial-layer {
+      transform-style: preserve-3d;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+    .spatial-glare {
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18) 0%, rgba(213,30,30,0.08) 35%, transparent 70%);
+      mix-blend-mode: screen;
+      will-change: transform, opacity;
+    }
+    .crisp-artwork {
+      image-rendering: auto;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    /* Responsive asset toggling */
+    .hero-art-mobile {
+      display: block;
+    }
+    .hero-art-desktop {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero-art-mobile {
+        display: none !important;
+      }
+      .hero-art-desktop {
+        display: block !important;
+      }
+    }
+
+    /* Floating JOIN 3RD WORLD banner */
+    .join-world-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,.22);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(8,8,8,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: auto;
+    }
+    .join-world-banner-top {
+      top: 0;
+      bottom: auto;
+      border-top: 0;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+    }
+    .join-world-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      gap: 2rem;
+      padding: 11px 0;
+      animation: join-world-scroll 28s linear infinite;
+      white-space: nowrap;
+    }
+    .join-world-track span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #F1EDE4;
+    }
+    .join-world-track .join-world-highlight { color: #B8F500; }
+    @keyframes join-world-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .entrance-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    .join-world-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border: 1px solid #fff;
+      border-radius: 12px;
+      background: #fff;
+      color: #080808;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all .3s ease;
+      cursor: pointer;
+    }
+    .join-world-button:hover {
+      background: #e8e8e8;
+      transform: translateY(-2px);
+    }
+    @media (min-width: 640px) {
+      .entrance-cta-row {
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+      }
+      .entrance-cta-row > * { width: auto; }
+    }
+    /* Keep the fixed top ticker clear of the entrance header on phones. */
+    @media (max-width: 639px) {
+      #entrance-gate > div > header {
+        margin-top: 38px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .join-world-track { animation: none; }
+    }
+
+  </style>
+</head>
+<body class="bg-carbon text-bone selection:bg-red3rd selection:text-white relative antialiased h-screen w-screen overflow-hidden">
 <!-- ======================================================= -->
-<!-- JOIN 3RD WORLD — EMAIL SIGNUP SECTION                  -->
+<!-- FULLSCREEN CINEMATIC 3D SPATIAL ENTRANCE GATE           -->
 <!-- ======================================================= -->
-<section class="w-full bg-carbon py-16 px-4 sm:px-6 lg:px-8 border-t border-white/10 relative overflow-hidden" id="join-3rd-world-section">
-  <!-- Subtle background glow accent matching site style -->
-  <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-red3rd/5 rounded-full blur-3xl pointer-events-none"></div>
-
-  <div class="max-w-xl mx-auto bg-surface-card border border-white/10 rounded-2xl p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative z-10">
-    
-    <!-- Section Header -->
-    <div class="text-center mb-8">
-      <div class="font-mono text-[10px] sm:text-xs tracking-[0.25em] text-red3rd uppercase mb-2 font-semibold">
-        STAY CONNECTED // DIRECT ACCESS
-      </div>
-      <h2 class="font-display text-3xl sm:text-4xl uppercase tracking-tight text-bone mb-3">
-        JOIN 3RD WORLD
-      </h2>
-      <p class="font-mono text-xs sm:text-sm text-neutral-400 max-w-md mx-auto leading-relaxed">
-        New music. Live shows. Merch drops. Get release updates and ticket announcements straight to your inbox.
-      </p>
-    </div>
-
-    <!-- Signup Form / Container -->
-    <div id="signup-container">
-      <form id="join-form" onsubmit="handleSignupSubmit(event)" class="space-y-4">
-        
-        <!-- Email Field (Required) -->
-        <div>
-          <label for="subscriber-email" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-300 mb-1.5">
-            Email Address <span class="text-red3rd">*</span>
-          </label>
-          <input 
-            type="email" 
-            id="subscriber-email" 
-            required 
-            placeholder="name@example.com"
-            class="w-full bg-black/60 border border-white/15 focus:border-red3rd text-bone px-4 py-3 rounded-xl font-mono text-xs sm:text-sm outline-none transition-all placeholder:text-neutral-600 focus:ring-1 focus:ring-red3rd"
-          >
-        </div>
-
-        <!-- Optional Fields Row: First Name & City -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label for="subscriber-name" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">
-              First Name <span class="text-neutral-600">(Optional)</span>
-            </label>
-            <input 
-              type="text" 
-              id="subscriber-name" 
-              placeholder="Omar"
-              class="w-full bg-black/60 border border-white/15 focus:border-red3rd text-bone px-4 py-3 rounded-xl font-mono text-xs sm:text-sm outline-none transition-all placeholder:text-neutral-600 focus:ring-1 focus:ring-red3rd"
-            >
-          </div>
-          <div>
-            <label for="subscriber-city" class="block font-mono text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">
-              City <span class="text-neutral-600">(Optional)</span>
-            </label>
-            <input 
-              type="text" 
-              id="subscriber-city" 
-              placeholder="Atlanta"
-              class="w-full bg-black/60 border border-white/15 focus:border-red3rd text-bone px-4 py-3 rounded-xl font-mono text-xs sm:text-sm outline-none transition-all placeholder:text-neutral-600 focus:ring-1 focus:ring-red3rd"
-            >
-          </div>
-        </div>
-
-        <!-- Submit Button -->
-        <button 
-          type="submit" 
-          id="submit-btn"
-          class="w-full mt-2 py-4 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_25px_rgba(213,30,30,0.4)] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
-        >
-          <span>KEEP ME IN THE LOOP</span>
-          <span>→</span>
-        </button>
-
-        <!-- Small Print Legal & Privacy Agreement -->
-        <p class="font-mono text-[10px] text-neutral-500 text-center leading-normal pt-2">
-          By signing up, you agree to receive marketing emails from 3rd World ENT. Unsubscribe anytime. <a href="/privacy" class="underline hover:text-bone transition-colors">Privacy Policy</a>.
-        </p>
-      </form>
-    </div>
-
-    <!-- Success State Container (Hidden by default, revealed via JS) -->
-    <div id="success-container" class="hidden text-center py-8 px-4 animate-fade-in">
-      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red3rd/15 border border-red3rd/40 text-red3rd mb-4">
-        <span class="material-symbols-outlined text-xl">check</span>
-      </div>
-      <h3 class="font-display text-2xl uppercase tracking-tight text-bone mb-2">
-        YOU'RE ON THE LIST.
-      </h3>
-      <p class="font-mono text-xs sm:text-sm text-neutral-300 tracking-wide">
-        What city should we come to next?
-      </p>
-      <button 
-        onclick="resetSignupForm()" 
-        class="mt-6 font-mono text-[11px] uppercase tracking-widest text-neutral-400 hover:text-white transition-colors underline underline-offset-4 cursor-pointer"
-      >
-        [Register another email]
+<div class="fixed inset-0 z-50 w-full h-full min-h-screen bg-carbon overflow-hidden select-none transition-all duration-1000 ease-out flex flex-col justify-between" id="entrance-gate">
+<!-- Full viewport 3D Parallax Canvas (Inset for seamless bleed without edge clipping) -->
+<div class="absolute inset-0 w-full h-full spatial-stage overflow-hidden cursor-pointer" id="stage-container" onclick="dismissEntrance()">
+<div class="absolute inset-[-6%] w-[112%] h-[112%] spatial-layer" id="spatial-artwork-wrap" style="transform: scale(1.05) translate3d(-19.9375px, -0.1875px, 0px) rotateX(-0.0703125deg) rotateY(6.34375deg);">
+<!-- Responsive Artwork Toggle -->
+<picture class="w-full h-full block">
+<!-- Mobile asset: assets/mobile-hero-ent.png (falls back to https://lh3.googleusercontent.com/aida/AEtjO1XFG-ct_cPX6UTTlTj2tIQqMs7gu755RPlxGLqKhNi3bwDcsXAEF-VMvXKdmVuBT1A8KNeEMH6CDYlxUZFepLuGtFRF3euNyhGyamQl_ghB1N356UBMpnSJMy4lgLAFEmFHih-hdSht_PFDsR2YqXfIPydD8qfbqJsAegLodBr7uzLVpzDmfnG3m3-wxVHojOwhXbtL5KVYsDKA6-nYnuyctVfsSMROX_mjidX1yyMZJc2Mh_jcdlmZOg8 in mockup preview) -->
+<source media="(max-width: 767px)" srcset="assets/mobile-hero-ent-iv.png, https://lh3.googleusercontent.com/aida/AEtjO1XFG-ct_cPX6UTTlTj2tIQqMs7gu755RPlxGLqKhNi3bwDcsXAEF-VMvXKdmVuBT1A8KNeEMH6CDYlxUZFepLuGtFRF3euNyhGyamQl_ghB1N356UBMpnSJMy4lgLAFEmFHih-hdSht_PFDsR2YqXfIPydD8qfbqJsAegLodBr7uzLVpzDmfnG3m3-wxVHojOwhXbtL5KVYsDKA6-nYnuyctVfsSMROX_mjidX1yyMZJc2Mh_jcdlmZOg8">
+<!-- Desktop asset: assets/3rd-World-Hero.png (falls back to https://lh3.googleusercontent.com/aida-public/AB6AXuCw2po9CYLfS6gHcT2REtg7triLTYKBBkcM894FHm9rORuhDPVRuirWBdoVEXnTBxUKimIC4OTHDRCvnOqUBqzAN8BnmbDP7LFur8z75HsG9hLW6J_g743ErqbEuNeciXrwugefkzSHrSNn4V2qOUcyQo-1t4cFCR1cJsKUvXNEGRmcB2249uGMhPLl6gl2MKzuU7FIeH-zEp0RBTDVVHAqmh5E-spnZo9I_B5tEIZGOdNMieiIuPGU96HtptGVHp0usw in mockup preview) -->
+<source media="(min-width: 768px)" srcset="assets/3rd-World-Hero.png, https://lh3.googleusercontent.com/aida-public/AB6AXuCpogdkHLOsWK8b1rDVrI8lx7bCYGB6Km3f0lvkBJa2A3n6XzMecGn6wNtcN8FzZdqq0F79rl2M291PXsDuUbU0oTsem6FVP8yHrD8ypjGvhQLF4mNWu8JscLFknploapKsdMXoU34bWK-JqhwK96wV_6spShnHQZ3Rvcpk86jPsGLz5JH2H0ZlEa5cOBcXQPiVyjGe6hnK36YRj5jM4BIDEDclIkvdQU0CMmZlDEWe2RZNRsAdSfVa-HyU8QybDCfXpQ">
+<!-- Default Img Element -->
+<img alt="3RD WORLD Spatial Artwork" class="w-full h-full object-cover object-center pointer-events-none select-none transition-transform duration-700 ease-out crisp-artwork filter contrast-[1.04] brightness-[0.96]" id="spatial-img" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg" srcset="https://lh3.googleusercontent.com/aida/AEtjO1XFG-ct_cPX6UTTlTj2tIQqMs7gu755RPlxGLqKhNi3bwDcsXAEF-VMvXKdmVuBT1A8KNeEMH6CDYlxUZFepLuGtFRF3euNyhGyamQl_ghB1N356UBMpnSJMy4lgLAFEmFHih-hdSht_PFDsR2YqXfIPydD8qfbqJsAegLodBr7uzLVpzDmfnG3m3-wxVHojOwhXbtL5KVYsDKA6-nYnuyctVfsSMROX_mjidX1yyMZJc2Mh_jcdlmZOg8 768w, https://lh3.googleusercontent.com/aida-public/AB6AXuDP8cWTJfi4lAmQ8vg3RhwcIYk3b5lt0WLXc86mqpLFTHoA-nBRmgPxu49oAthQS_o0gQZAnuGsUOwhD0u9m0TwHlwEnapCTOg_KDQhCf82DEdyLCgNct8d0B0i39-vklRgAiVmvr3byZjNscyQSFvGb3_EzKVer5nNiSCpMiN6vk47x3mio0RLYnh6BXiNo8IY83RY9hmm8UlS9G5PajCkW1iVZaY_Cp9EkhzLQHQ8pgEqIIi8Q20itVxH3QPy2M2saA 1366w">
+</picture>
+<!-- Dynamic Atmospheric Glare / Specular Lighting -->
+<div class="absolute inset-0 spatial-glare opacity-70 transition-opacity duration-300" id="spatial-glare-layer" style="background: radial-gradient(circle at 81.7187% 50.4102%, rgba(255, 255, 255, 0.22) 0%, rgba(213, 30, 30, 0.1) 35%, transparent 70%);"></div>
+<!-- Subtle Depth Vignette for Dramatic Contrast & Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/75 pointer-events-none"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(8,8,8,0.75)_100%)] pointer-events-none"></div>
+</div>
+</div>
+<!-- Floating UI Content Layer (Opposite 3D Parallax Tilt) -->
+<div class="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none p-5 sm:p-8 md:p-10 lg:p-12">
+<!-- Top System Line (Responsive Mobile/Desktop Header) -->
+<header class="w-full flex items-center justify-between pointer-events-auto pt-1 sm:pt-0">
+<div class="font-mono text-[11px] sm:text-xs tracking-widest text-neutral-300 uppercase font-semibold flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-red3rd animate-pulse"></span>
+<span class="">3RD WORLD ENT // 2026</span>
+</div>
+<button class="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-neutral-300 hover:text-white transition-colors cursor-pointer py-1 px-2 rounded border border-white/10 hover:border-red3rd/60 bg-black/40 backdrop-blur-sm" onclick="dismissEntrance()">
+        [ENTER STORE →]
       </button>
-    </div>
-
+</header>
+<!-- Center Floating Typography & Spatial CTA (Optimized for Mobile Ergonomics & Desktop Balance) -->
+<main class="mt-4 mb-auto max-w-2xl mx-auto flex flex-col items-center text-center pointer-events-auto transition-transform duration-300 ease-out pt-3 px-2" id="spatial-hero-text" style="transform: translate3d(12.6875px, 0.117188px, 35px) rotateX(-0.0210938deg) rotateY(1.90312deg);">
+<div class="font-mono text-[10px] tracking-[0.25em] text-neutral-400 uppercase mb-2">
+        OFFICIAL ATELIER &amp; SOUND ARCHIVE
+      </div>
+<h1 class="font-display text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-none mb-3 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] text-white">
+        ENTER THE <span class="text-red3rd drop-shadow-[0_0_30px_rgba(213,30,30,0.75)]">3RD WORLD</span>
+</h1>
+<p class="font-mono text-[11px] sm:text-xs text-neutral-300 max-w-sm sm:max-w-md mx-auto leading-relaxed mb-6 tracking-wide drop-shadow-[0_6px_16px_rgba(0,0,0,0.95)]">
+        Streetwear archives, audio frequencies, and brutalist editions by O M A R M A L I K.
+      </p>
+<!-- Primary Entrance CTA Buttons -->
+<div class="entrance-cta-row">
+<button class="w-full sm:w-auto px-7 py-3.5 bg-red3rd hover:bg-white text-white hover:text-black font-mono text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_10px_35px_rgba(213,30,30,0.6)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2 cursor-pointer group transform hover:-translate-y-0.5 active:scale-95" id="dismiss-entrance" onclick="dismissEntrance()">
+<span class="">ENTER ATELIER &amp; STORE →</span>
+</button>
+<a class="join-world-button w-full sm:w-auto" href="/pages/join-3rd-world">JOIN 3RD WORLD →</a>
+</div>
+</main>
+<!-- Entrance Footer: Clean Mobile / Desktop Metadata -->
+<footer class="w-full flex flex-row items-center justify-between text-[10px] sm:text-[11px] font-mono text-neutral-400 gap-2 pointer-events-auto pb-1 sm:pb-0">
+<div class="font-mono text-[10px] sm:text-[11px] text-neutral-400 tracking-wider uppercase">
+        NYC • LON • LOS ANGELES
+      </div>
+<div class="font-mono text-[10px] sm:text-[11px] text-neutral-500 tracking-wider uppercase">
+        © 2025 ATELIER ARCHIVE
+      </div>
+</footer>
+</div>
+</div>
+<!-- Top Floating JOIN 3RD WORLD Banner -->
+<aside class="join-world-banner join-world-banner-top" aria-label="Join 3rd World ENT benefits">
+  <div class="join-world-track" aria-hidden="true">
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
   </div>
-</section>
+</aside>
+
+<!-- Floating JOIN 3RD WORLD Banner -->
+<aside class="join-world-banner" aria-label="Join 3rd World ENT">
+  <div class="join-world-track" aria-hidden="true">
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
+    <span class="join-world-highlight">JOIN 3RD WORLD</span>
+    <span>NEW MUSIC</span>
+    <span>LIVE SHOWS</span>
+    <span>MERCH DROPS</span>
+    <span>RELEASE UPDATES</span>
+    <span>BEHIND THE SCENES</span>
+  </div>
+</aside>
 
 <!-- ======================================================= -->
-<!-- ON-PAGE AJAX HANDLER SCRIPT                             -->
+<!-- SCRIPT CONTROLLER & 3D PARALLAX ENGINE                  -->
 <!-- ======================================================= -->
 <script>
-  function handleSignupSubmit(event) {
-    event.preventDefault();
+  // 3D Spatial Depth / Parallax Engine
+  const artworkWrap = document.getElementById('spatial-artwork-wrap');
+  const glareLayer = document.getElementById('spatial-glare-layer');
+  const heroText = document.getElementById('spatial-hero-text');
+  const gate = document.getElementById('entrance-gate');
 
-    const email = document.getElementById('subscriber-email').value;
-    const firstName = document.getElementById('subscriber-name').value;
-    const city = document.getElementById('subscriber-city').value;
-    const btn = document.getElementById('submit-btn');
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let animationFrameId = null;
 
-    // Show loading state on button
-    btn.disabled = true;
-    btn.innerHTML = '<span class="animate-pulse">PROCESSING...</span>';
+  function handlePointerMove(e) {
+    const { innerWidth: w, innerHeight: h } = window;
+    const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : w / 2);
+    const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : h / 2);
 
-    // Simulate secure backend submission (Replace with your Shopify Storefront API or Klaviyo AJAX endpoint)
-    setTimeout(() => {
-      // Save state to browser storage so modals/teasers won't repeat annoyingly
-      localStorage.setItem('3rd_world_subscribed', 'true');
-
-      // Swap form UI with the exact required success state message
-      document.getElementById('join-form').classList.add('hidden');
-      document.getElementById('success-container').classList.remove('hidden');
-      
-      // Reset button state just in case
-      btn.disabled = false;
-      btn.innerHTML = '<span>KEEP ME IN THE LOOP</span><span>→</span>';
-    }, 700);
+    // Normalized coordinates from -1 to 1
+    targetX = (clientX / w - 0.5) * 2;
+    targetY = (clientY / h - 0.5) * 2;
   }
 
-  function resetSignupForm() {
-    document.getElementById('join-form').reset();
-    document.getElementById('success-container').classList.add('hidden');
-    document.getElementById('join-form').classList.remove('hidden');
+  // Gyroscope / Device orientation support for mobile phone pan
+  window.addEventListener('deviceorientation', (e) => {
+    if (!e.gamma || !e.beta) return;
+    const gamma = Math.min(Math.max(e.gamma, -30), 30);
+    const beta = Math.min(Math.max(e.beta - 35, -30), 30);
+    targetX = gamma / 30;
+    targetY = beta / 30;
+  });
+
+  window.addEventListener('mousemove', handlePointerMove);
+  window.addEventListener('touchmove', handlePointerMove, { passive: true });
+
+  // Smooth Lerp Rendering Loop for 3D depth and specular reaction
+  function render3DDepth() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+
+    const rotateY = currentX * 7;      // Balanced tilt
+    const rotateX = -currentY * 6;     // Balanced pitch
+    const panX = -currentX * 22;       // Horizontal parallax shift
+    const panY = -currentY * 16;       // Vertical parallax shift
+
+    if (artworkWrap) {
+      artworkWrap.style.transform = `scale(1.05) translate3d(${panX}px, ${panY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    // Specular glare dynamic tracking
+    if (glareLayer) {
+      const glarePosX = 50 + (currentX * 35);
+      const glarePosY = 50 + (currentY * 35);
+      glareLayer.style.background = `radial-gradient(circle at ${glarePosX}% ${glarePosY}%, rgba(255,255,255,0.22) 0%, rgba(213,30,30,0.1) 35%, transparent 70%)`;
+    }
+
+    // Floating foreground text counter-parallax
+    if (heroText) {
+      const textPanX = currentX * 14;
+      const textPanY = currentY * 10;
+      heroText.style.transform = `translate3d(${textPanX}px, ${textPanY}px, 35px) rotateX(${rotateX * 0.3}deg) rotateY(${rotateY * 0.3}deg)`;
+    }
+
+    animationFrameId = requestAnimationFrame(render3DDepth);
+  }
+  render3DDepth();
+
+  // Entrance Gate Exit Transition & Redirect
+  function dismissEntrance() {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    
+    const img = document.getElementById('spatial-img');
+    if (img) {
+      img.style.transform = 'scale(1.15)';
+      img.style.filter = 'brightness(0.3) blur(6px)';
+    }
+    
+    gate.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+    
+    // Wait for transition before routing
+    setTimeout(() => {
+      gate.style.display = 'none';
+      window.location.href = '/shop/';
+    }, 900);
+  }
+
+  const dismissBtn = document.getElementById('dismiss-entrance');
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dismissEntrance();
+    });
   }
 </script>
+
+
+
+
+</body></html>
