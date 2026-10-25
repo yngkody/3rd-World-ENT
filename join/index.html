@@ -938,6 +938,8 @@
           }
         );
 
+       
+        // Only show the thank-you message after Klaviyo accepts the request.
         if (!response.ok) {
           let detail = "Klaviyo could not complete the signup.";
 
@@ -950,6 +952,21 @@
 
           throw new Error(detail);
         }
+
+        // Do not reset the form. Keep the entered information visible.
+        showMessage(
+          "THANK YOU FOR JOINING 3RD WORLD.",
+          false
+        );
+
+        // Add a thank-you style and update the button.
+        message.classList.add("thank-you");
+        message.innerHTML =
+          "<strong>YOU'RE OFFICIALLY IN.</strong><br>" +
+          "Thanks for joining the 3rd World community. " +
+          "Stay tuned for new music, exclusive early access, " +
+          "merch drops, and upcoming events.";
+
 
         form.reset();
         showMessage("You're on the list. What city should we come to next?");
